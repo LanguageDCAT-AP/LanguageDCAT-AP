@@ -104,21 +104,21 @@ LanguageDCAT-AP is conceived and implemented as an extension of (a) the DCAT-AP 
 <section id="status">
 <h2>Status</h2>
 <p>
-        status based on SEMIC?
+        Working draft - TO ADD status based on SEMIC?
     </p>
 </section>
 <!-- Licence -->
 <section id="licence">
-<h2><a href="http://purl.org/dc/terms/LicenseDocument" data-toggle="tooltip" data-content="http://purl.org/dc/terms/LicenseDocument" data-placement="right">Licence</a></h2>
+<h2>Licence</h2>
 <p>
-        TO BE DEFINED: CC-BY 4.0 
+        All material published under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> 
     </p>
 </section>
 <!-- Conformance -->
 <section id="conformance">
 <h2>Conformance</h2>
 <p>
-        TO BE ADDED
+        TO ADD
     </p>
 </section>
 <!-- Terminology -->
@@ -199,7 +199,7 @@ This document describes the usage of the following main entities for a correct u
 			      <a href="#Location">Location</a> |
 			      <a href="#MediaType">Media Type</a> |
 			      <a href="#MediaTypeOrExtent">Media Type Or Extent</a> |
-                        </p>
+            </p>
 	<p>
                             And supported by these datatypes: TO ADD
 						</p>
@@ -208,7 +208,22 @@ This document describes the usage of the following main entities for a correct u
 <!-- Entities -->
 <section id="mainEntities">
 <h2>Main entities</h2>
-<!-- Example of Entity Table Section -->
+<!-- Agent Section -->
+<section id="Agent">
+<h3><a href="http://xmlns.com/foaf/0.1/Agent" data-toggle="tooltip" data-content="http://xmlns.com/foaf/0.1/Agent" data-placement="right">Agent</a></h3>
+
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>An agent (person or organisation) carrying out activities related to the Catalogue and Catalogued resources.</dd>
+<dt><strong>Usage Note</strong></dt>
+<dd>TO ADD</dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Organisation.identifier">identifier</a>, <a href="#Organisation.name">name</a></dd>
+</dl>
+
+	
+	
+	
 <section id="Organisation">
 <h3><a href="http://xmlns.com/foaf/0.1/Organization" data-toggle="tooltip" data-content="http://xmlns.com/foaf/0.1/Organization" data-placement="right">Organisation</a></h3>
 
@@ -216,7 +231,7 @@ This document describes the usage of the following main entities for a correct u
 <dt><strong>Definition</strong></dt>
 <dd>An organization.</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Organisation.identifier">identifier</a>, <a href="#Organisation.name">name</a></dd>
 </dl>
@@ -248,7 +263,7 @@ This document describes the usage of the following main entities for a correct u
 <dt><strong>Definition</strong></dt>
 <dd>A person.</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Person.identifier">identifier</a>, <a href="#Person.name">name</a></dd>
 </dl>
@@ -343,7 +358,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Definition</strong></dt>
 <dd>A site or end-point providing operations related to the discovery of, access to, or processing functions on, data or related resources.</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Data_Service.endpointDescription">endpointDescription</a>, <a href="#Data_Service.endpointURL">endpointURL</a>, <a href="#Data_Service.title">title</a>, <a href="#Data_Service.type">type</a></dd>
 </dl>
@@ -375,7 +390,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Definition</strong></dt>
 <dd>A specific representation of a dataset. A dataset might be available in multiple serialisations that may differ in various ways, including natural language, media-type or format, schematic organisation, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above).</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Distribution.accessService">accessService</a>, <a href="#Distribution.accessURL">accessURL</a>, <a href="#Distribution.byteSize">byteSize</a>, <a href="#Distribution.downloadURL">downloadURL</a>, <a href="#Distribution.format">format</a>, <a href="#Distribution.hasPolicy">hasPolicy</a>, <a href="#Distribution.license">license</a>, <a href="#Distribution.mediaType">mediaType</a>, <a href="#Distribution.packageFormat">packageFormat</a>, <a href="#Distribution.size">size</a>, <a href="#Distribution.title">title</a></dd>
 </dl>
@@ -407,7 +422,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Definition</strong></dt>
 <dd>A document.</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Document.citationText">citationText</a>, <a href="#Document.identifier">identifier</a></dd>
 </dl>
@@ -439,7 +454,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Definition</strong></dt>
 <dd>This is based on the UN/CEFACT Identifier class. It consists of: a content string which is the identifier; an optional identifier for the identifier scheme; an optional identifier for the version of the identifier scheme; an optional identifier for the agency that manages the identifier scheme.</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Identifier.notation">notation</a>, <a href="#Identifier.schemaAgency">schemaAgency</a></dd>
 </dl>
@@ -472,7 +487,7 @@ This property can be repeated for parallel language versions of the property. Th
 <dt><strong>Definition</strong></dt>
 <dd>A linguistic system that follows for its encoding the BCP47 recommendation.</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Language.languageCode">languageCode</a>, <a href="#Language.languageTag">languageTag</a>, <a href="#Language.languageVarietyName">languageVarietyName</a>, <a href="#Language.region">region</a>, <a href="#Language.script">script</a>, <a href="#Language.variant">variant</a></dd>
 </dl>
@@ -504,7 +519,7 @@ This property can be repeated for parallel language versions of the property. Th
 <dt><strong>Definition</strong></dt>
 <dd>A resource organised on the basis of lexical or conceptual entries (lexical items, terms, concepts, etc.) with their supplementary information (e.g., grammatical, semantic, statistical information, etc.)</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#LCR.alternative">alternative</a>, <a href="#LCR.anonymizationDetails">anonymizationDetails</a>, <a href="#LCR.anonymized">anonymized</a>, <a href="#LCR.conformsTo">conformsTo</a>, <a href="#LCR.dataProtectionPrincipleApplied">dataProtectionPrincipleApplied</a>, <a href="#LCR.description">description</a>, <a href="#LCR.distribution">distribution</a>, <a href="#LCR.domain">domain</a>, <a href="#LCR.hasOriginalSource">hasOriginalSource</a>, <a href="#LCR.hasPolicy">hasPolicy</a>, <a href="#LCR.hasTechnicalOrganisationalMeasure">hasTechnicalOrganisationalMeasure</a>, <a href="#LCR.identifier">identifier</a>, <a href="#LCR.identifier">identifier</a>, <a href="#LCR.iprHolder">iprHolder</a>, <a href="#LCR.isDocumentedBy">isDocumentedBy</a>, <a href="#LCR.keyword">keyword</a>, <a href="#LCR.language">language</a>, <a href="#LCR.language">language</a>, <a href="#LCR.LCRsubclass">LCRsubclass</a>, <a href="#LCR.license">license</a>, <a href="#LCR.lingualityType">lingualityType</a>, <a href="#LCR.linguisticInformation">linguisticInformation</a>, <a href="#LCR.lrType">lrType</a>, <a href="#LCR.mediaType">mediaType</a>, <a href="#LCR.metaLanguage">metaLanguage</a>, <a href="#LCR.multilingualityType">multilingualityType</a>, <a href="#LCR.originalSourceDescription">originalSourceDescription</a>, <a href="#LCR.personalDataDetails">personalDataDetails</a>, <a href="#LCR.personalDataIncluded">personalDataIncluded</a>, <a href="#LCR.pivotLanguage">pivotLanguage</a>, <a href="#LCR.publisher">publisher</a>, <a href="#LCR.sensitiveDataDetails">sensitiveDataDetails</a>, <a href="#LCR.sensitiveDataIncluded">sensitiveDataIncluded</a>, <a href="#LCR.sourceLanguage">sourceLanguage</a>, <a href="#LCR.spatial">spatial</a>, <a href="#LCR.targetLanguage">targetLanguage</a>, <a href="#LCR.temporal">temporal</a>, <a href="#LCR.title">title</a>, <a href="#LCR.version">version</a></dd>
 </dl>
@@ -542,7 +557,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Definition</strong></dt>
 <dd>A legal document giving official permission to do something with a resource</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Licence.alternative">alternative</a>, <a href="#Licence.description">description</a>, <a href="#Licence.http://creativecommons.org/ns#legalCode">http://creativecommons.org/ns#legalCode</a>, <a href="#Licence.identifier">identifier</a>, <a href="#Licence.seeAlso">seeAlso</a>, <a href="#Licence.title">title</a></dd>
 </dl>
@@ -635,7 +650,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Definition</strong></dt>
 <dd>The model artifact that is created through a training process involving an ML algorithm (that is, the learning algorithm) and the training data to learn from.</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Model.alternative">alternative</a>, <a href="#Model.anonymizationDetails">anonymizationDetails</a>, <a href="#Model.anonymized">anonymized</a>, <a href="#Model.conformsTo">conformsTo</a>, <a href="#Model.contextLength">contextLength</a>, <a href="#Model.creationDetails">creationDetails</a>, <a href="#Model.dataProtectionPrincipleApplied">dataProtectionPrincipleApplied</a>, <a href="#Model.description">description</a>, <a href="#Model.distribution">distribution</a>, <a href="#Model.domain">domain</a>, <a href="#Model.evaluationDataset">evaluationDataset</a>, <a href="#Model.evaluationResults">evaluationResults</a>, <a href="#Model.finetuneDataset">finetuneDataset</a>, <a href="#Model.hasPolicy">hasPolicy</a>, <a href="#Model.hasTechnicalOrganisationalMeasure">hasTechnicalOrganisationalMeasure</a>, <a href="#Model.http://data.europa.eu/it6/bias">http://data.europa.eu/it6/bias</a>, <a href="#Model.http://data.europa.eu/it6/limitations">http://data.europa.eu/it6/limitations</a>, <a href="#Model.http://data.europa.eu/it6/trainedOn">http://data.europa.eu/it6/trainedOn</a>, <a href="#Model.identifier">identifier</a>, <a href="#Model.identifier">identifier</a>, <a href="#Model.iprHolder">iprHolder</a>, <a href="#Model.isDocumentedBy">isDocumentedBy</a>, <a href="#Model.keyword">keyword</a>, <a href="#Model.language">language</a>, <a href="#Model.language">language</a>, <a href="#Model.license">license</a>, <a href="#Model.lingualityType">lingualityType</a>, <a href="#Model.lrType">lrType</a>, <a href="#Model.mediaType">mediaType</a>, <a href="#Model.modelFunction">modelFunction</a>, <a href="#Model.modelType">modelType</a>, <a href="#Model.parameterPrecision">parameterPrecision</a>, <a href="#Model.personalDataDetails">personalDataDetails</a>, <a href="#Model.personalDataIncluded">personalDataIncluded</a>, <a href="#Model.publisher">publisher</a>, <a href="#Model.quantizationProcess">quantizationProcess</a>, <a href="#Model.quantized">quantized</a>, <a href="#Model.sensitiveDataDetails">sensitiveDataDetails</a>, <a href="#Model.sensitiveDataIncluded">sensitiveDataIncluded</a>, <a href="#Model.sourceLanguage">sourceLanguage</a>, <a href="#Model.spatial">spatial</a>, <a href="#Model.targetLanguage">targetLanguage</a>, <a href="#Model.temporal">temporal</a>, <a href="#Model.title">title</a>, <a href="#Model.variantOf">variantOf</a>, <a href="#Model.version">version</a></dd>
 </dl>
@@ -673,7 +688,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Definition</strong></dt>
 <dd>not found</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Policy.alternative">alternative</a>, <a href="#Policy.description">description</a>, <a href="#Policy.hadPrimarySource">hadPrimarySource</a>, <a href="#Policy.http://creativecommons.org/ns#legalCode">http://creativecommons.org/ns#legalCode</a>, <a href="#Policy.identifier">identifier</a>, <a href="#Policy.title">title</a>, <a href="#Policy.wasAttributedTo">wasAttributedTo</a></dd>
 </dl>
@@ -705,7 +720,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Definition</strong></dt>
 <dd>The size of the resource with regard to the SizeUnit measurement in form of a number.</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Size.amount">amount</a>, <a href="#Size.sizeUnit">sizeUnit</a></dd>
 </dl>
@@ -737,7 +752,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Definition</strong></dt>
 <dd>An interval of time that is named or defined by its start and end dates.</dd>
 <dt><strong>Usage Note</strong></dt>
-<dd>Penny TO ADD</dd>
+<dd>TO ADD</dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Time_Period.endDate">endDate</a>, <a href="#Time_Period.startDate">startDate</a></dd>
 </dl>
