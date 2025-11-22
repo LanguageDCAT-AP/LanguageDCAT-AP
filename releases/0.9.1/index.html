@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>LanguageDCAT-AP</title>
+<style>
+    
+
+	.data-table {
+		width: 100%;
+		max-width: 100%;
+		border-collapse: collapse;
+		table-layout: fixed; /* let colgroup widths apply and wrap text */
+		font-size: 0.9rem;   /* optional, but helps a bit */
+	}
+
+    .data-table th, .data-table td {
+        border: 1px solid #ddd;
+        padding: 2px 2px;
+        text-align: left;
+        vertical-align: top;
+        font-size: 12px;
+        word-wrap: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    .data-table thead th {
+        background-color: #005a9c;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    .data-table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+	
+	.u-table-overflow {
+    overflow-x: auto;
+    margin: 0;   /* remove left/right spacing */
+    padding: 0;  /* optional: remove padding inside scrollable container */
+}
+
+    a {
+        color: #0056b3;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+	
+	body {
+    margin: 0;
+    padding: 0;
+	}
+
+</style>
+<script class="remove" defer="" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+<script class="remove">
+        var respecConfig = {
+            specStatus: "WD",
+            editors: [
+                { name: "Penny Labropoulou", mailto: "penny@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" },
+                { name: "Kanella Pouli", mailto: "kanella@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" },
+                { name: "XX", url: "https://www.test.com" }
+            ],
+            authors: [
+                { name: "Penny Labropoulou", mailto: "penny@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" },
+                { name: "Kanella Pouli", mailto: "kanella@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" },
+                { name: "XX", url: "https://www.test.com" }
+            ],
+			edDraftURI: "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.1/",
+      		latestVersion: "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.1/",
+            github: "https://github.com/LanguageDCAT-AP/LanguageDCAT-AP",
+            shortName: "LanguageDCAT-AP",
+            publishDate: "2025-12-xx",
+            xref: "web-platform",
+            doJsonLd: true
+        };
+    </script>
+	    <p class="copyright">
+        Copyright © 2025
+    </p>
+</head>
+<body>
+<!-- Abstract -->
+<section id="abstract">
+<h2>Abstract</h2>
+<p>
+LanguageDCAT-AP is conceived and implemented as an extension of (a) the DCAT-AP application profile for Catalogues containing Datasets and Data Services in Europe [DCAT-AP] and (b) the MLDCAT-AP profile for machine learning models [MLDCAT-AP], catering specifically for the language data, language models and language technolgy services domain. To this end, it adopts classes and properties from the META-SHARE ontology, which is already used in the Language Resources and Technologies community [MS-OWL], introduces new classes and properties and proposes domain-specific controlled vocabularies.</p>
+        <p>Work on the LanguageDCAT-AP started in the context of the Common European Language Data Space but it is designed with a wider scope covering broader description needs in the domain.     </p>
+</section>
+<!-- Introduction -->
+<section id="intro">
+<h2>Introduction</h2>
+<p>
+        As detailed in the LDS Blueprint (D6.2 – Section 4.3.1), LDS proposes a common information model...
+    </p>
+</section>
+<!-- Context -->
+<section id="context">
+<h2>Context</h2>
+<p>
+        Explain LDS specificities
+    </p>
+</section>
+<!-- Status -->
+<section id="status">
+<h2>Status</h2>
+<p>
+        Working draft - TO ADD status based on SEMIC?
+    </p>
+</section>
+<!-- Licence -->
+<section id="licence">
+<h2>Licence</h2>
+<p>
+        All material published under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> 
+    </p>
+</section>
+<!-- Conformance -->
+<section id="conformance">
+<h2>Conformance</h2>
+<p>
+        TO ADD
+    </p>
+</section>
+<!-- Terminology -->
+<section id="terminology">
+<h2>Terminology</h2>
+<p>
+An <b>Application Profile</b> is a data specification aimed to facilitate the data exchange in a well-defined application context. It re-uses concepts from one or more semantic data specifications, while adding more specificity, by identifying mandatory, recommended, and optional elements, addressing particular application needs, and providing recommendations for controlled vocabularies to be used. More information can be found on the SEMIC Style Guide.    
+</p>
+<h3>Used prefixes</h3>
+<p>LanguageDCAT-AP is a semantic specification, where each class and property has an URI. The prefixed form of the URI, can be found in part in the class diagram and in the quick reference table at the bottom, while, for ease of reading, full URI can be found in the hyperlink of each class and property. This specification uses the following prefixes to shorten the URIs for readability:
+	</p>
+	
+<table id="table-namespaces" class="simple">
+	<thead><tr><th>Prefix</th><th>Namespace IRI</th></tr></thead>
+	<tbody>
+		<tr><td><code>adms</code></td><td><code>http://www.w3.org/ns/adms#</code></td></tr>
+		<tr><td><code>at</code></td><td><code>http://publications.europa.eu/ontology/authority/</code></td></tr>
+		<tr><td><code>cc</code></td><td><code>http://creativecommons.org/ns#</code></td></tr>
+		<tr><td><code>dc</code></td><td><code>http://purl.org/dc/elements/1.1/</code></td></tr>
+		<tr><td><code>dcat</code></td><td><code>http://www.w3.org/ns/dcat#</code></td></tr>
+		<tr><td><code>dcatlds</code></td><td><code>http://www.nlpli.gr/dcat-lds#</code></td></tr>
+		<tr><td><code>dct</code></td><td><code>http://purl.org/dc/terms/</code></td></tr>
+		<tr><td><code>dpv</code></td><td><code>https://w3id.org/dpv#</code></td></tr>
+		<tr><td><code>foaf</code></td><td><code>http://xmlns.com/foaf/0.1/</code></td></tr>
+		<tr><td><code>it6</code></td><td><code>http://data.europa.eu/it6/</code></td></tr>
+		<tr><td><code>lexbib</code></td><td><code>https://lexbib.elex.is/entity/</code></td></tr>
+		<tr><td><code>lexmeta</code></td><td><code>http://w3id.org/meta-share/lexmeta#</code></td></tr>
+		<tr><td><code>ms</code></td><td><code>http://w3id.org/meta-share/meta-share/</code></td></tr>
+		<tr><td><code>odrl</code></td><td><code>http://www.w3.org/ns/odrl/2/</code></td></tr>
+		<tr><td><code>omtd</code></td><td><code>http://w3id.org/meta-share/omtd-share/</code></td></tr>
+		<tr><td><code>owl</code></td><td><code>http://www.w3.org/2002/07/owl#</code></td></tr>
+		<tr><td><code>prov</code></td><td><code>http://www.w3.org/ns/prov#</code></td></tr>
+		<tr><td><code>rdf</code></td><td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td></tr>
+		<tr><td><code>rdfs</code></td><td><code>http://www.w3.org/2000/01/rdf-schema#</code></td></tr>
+		<tr><td><code>schema</code></td><td><code>http://schema.org/</code></td></tr>
+		<tr><td><code>skos</code></td><td><code>http://www.w3.org/2004/02/skos/core#</code></td></tr>
+		<tr><td><code>vann</code></td><td><code>http://purl.org/vocab/vann/</code></td></tr>
+		<tr><td><code>wikidata</code></td><td><code>http://www.wikidata.org/entity/</code></td></tr>
+		<tr><td><code>xml</code></td><td><code>http://www.w3.org/XML/1998/namespace</code></td></tr>
+		<tr><td><code>xsd</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td></tr>
+	</tbody>
+</table>	
+	
+	
+	
+</section>
+<!-- Overview -->
+<section id="overview">
+<h2>Overview</h2>
+<div id="overview">
+<p>
+This document describes the usage of the following main entities for a correct usage of the Application Profile:
+<br />
+		|
+			      <a href="#Agent">Agent</a> |
+			      <a href="#Catalogue">Catalogue</a> |
+			      <a href="#Corpus">Corpus</a> |
+			      <a href="#Dataset">Dataset</a> |
+			      <a href="#DataService">Data Service</a> |
+			      <a href="#Distribution">Distribution</a> |
+			      <a href="#LCR">Lexical/Conceptual Resource</a> |
+			      <a href="#Licence">Licence</a> |
+			      <a href="#Model">Model</a> |
+			      <a href="#Organisation">Organisation</a> |
+			      <a href="#Person">Person</a> |
+			      <a href="#Policy">Policy</a> |
+</p>
+<p>The main entities are supported by the following entities:
+<br />
+                            |
+			      <a href="#CatalogueRecord">Catalogue Record</a> |
+			      <a href="#CataloguedResource">Catalogued Resource</a> |
+			      <a href="#Concept">Concept</a> |
+			      <a href="#Document">Document</a> |
+			      <a href="#Identifier">Identifier</a> |
+			      <a href="#Language">Language</a> |
+			      <a href="#LinguisticSystem">Linguistic System</a> |
+			      <a href="#Location">Location</a> |
+			      <a href="#MediaType">Media Type</a> |
+			      <a href="#MediaTypeOrExtent">Media Type Or Extent</a> |
+			      <a href="#Size">Size</a> |
+			      <a href="#TimePeriod">Time Period</a> |
+</p>
+<p>
+And supported by these datatypes: TO ADD
+</p>
+</div>
+TO ADD UML DIAGRAM
+</section>
+
+<!-- Entities -->
+<section id="mainEntities">
+<h2>Main entities</h2>
+<!-- Agent Section -->
+<section id="Agent">
+<h3><a href="http://xmlns.com/foaf/0.1/Agent" data-toggle="tooltip" data-content="http://xmlns.com/foaf/0.1/Agent" data-placement="right">Agent</a></h3>
+
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>An agent (person or organisation) carrying out activities related to the Catalogue and Catalogued resources.</dd>
+<dt><strong>Reference</strong></dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Agent">DCAT-AP[E]</a></dd>
+<dt><strong>Usage Note</strong></dt>
+<dd>Class used an abstract class. Only the subclasses <a href="#Organisation">Organisation</a> and <a href="#Person">Person</a> should be used in a data exchange.</dd>
+<dt><strong>Properties</strong></dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+<!-- Section Catalogue -->
+<section>
+<h3 id="Catalogue">
+<a href="http://www.w3.org/ns/dcat#Catalog"
+                   data-toggle="tooltip"
+                   data-content="http://www.w3.org/ns/dcat#Catalog"
+                   data-placement="right">Catalogue</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A catalogue or repository that hosts the Catalogued Resources being described.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Catalogue">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>For this entity the following properties are defined: 
+	TO ADD 
+</dd>
+</dl>
+</div>
+</section>        
+	
+<!-- Section Corpus -->
+<section id="Corpus">
+<h3>
+	<a href="http://w3id.org/meta-share/meta-share/Corpus"
+                   data-toggle="tooltip"
+                   data-content="http://w3id.org/meta-share/meta-share/Corpus"
+                   data-placement="right">Corpus</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A structured collection of pieces of data (textual, audio, video, multimodal/multimedia, etc.) typically of considerable size and selected according to criteria external to the data (e.g., size, type of language, type of text producers or expected audience, etc.) to represent as comprehensively as possible the object of study.</dd>
+<dt>Reference</dt>
+<dd>No reference.</dd>
+<dt><strong>Subclass of</strong></dt>
+<dd><a href="#Dataset">Dataset</a></dd>
+<dt>Usage Note</dt>
+<dd>Corpus is a subclass of dcat:Dataset. It is recommended to use this instead of the Dataset class.</dd>
+<dt>Properties</dt>
+<dd>For this entity the following properties are defined: <a href="#Corpus.alternative">alternative</a>, <a href="#Corpus.annotationType">annotationType</a>, <a href="#Corpus.anonymizationDetails">anonymizationDetails</a>, <a href="#Corpus.anonymized">anonymized</a>, <a href="#Corpus.conformsTo">conformsTo</a>, <a href="#Corpus.corpusSubclass">corpusSubclass</a>, <a href="#Corpus.dataProtectionPrincipleApplied">dataProtectionPrincipleApplied</a>, <a href="#Corpus.description">description</a>, <a href="#Corpus.distribution">distribution</a>, <a href="#Corpus.domain">domain</a>, <a href="#Corpus.hasPolicy">hasPolicy</a>, <a href="#Corpus.hasTechnicalOrganisationalMeasure">hasTechnicalOrganisationalMeasure</a>, <a href="#Corpus.identifier">identifier</a>, <a href="#Corpus.identifier">identifier</a>, <a href="#Corpus.iprHolder">iprHolder</a>, <a href="#Corpus.isDocumentedBy">isDocumentedBy</a>, <a href="#Corpus.keyword">keyword</a>, <a href="#Corpus.language">language</a>, <a href="#Corpus.language">language</a>, <a href="#Corpus.license">license</a>, <a href="#Corpus.lingualityType">lingualityType</a>, <a href="#Corpus.lrType">lrType</a>, <a href="#Corpus.mediaType">mediaType</a>, <a href="#Corpus.multilingualityType">multilingualityType</a>, <a href="#Corpus.personalDataDetails">personalDataDetails</a>, <a href="#Corpus.personalDataIncluded">personalDataIncluded</a>, <a href="#Corpus.pivotLanguage">pivotLanguage</a>, <a href="#Corpus.publisher">publisher</a>, <a href="#Corpus.sensitiveDataDetails">sensitiveDataDetails</a>, <a href="#Corpus.sensitiveDataIncluded">sensitiveDataIncluded</a>, <a href="#Corpus.sourceLanguage">sourceLanguage</a>, <a href="#Corpus.spatial">spatial</a>, <a href="#Corpus.targetLanguage">targetLanguage</a>, <a href="#Corpus.temporal">temporal</a>, <a href="#Corpus.title">title</a>, <a href="#Corpus.version">version</a></dd>
+</dl>
+</div>
+       
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Corpus.alternative" id="Corpus.alternative"><td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>An alternative name for the resource.</td><td>It is recommended to use "dct:title" for the full name of a dataset and "dct:alternative" for the short name. 
+This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Corpus.annotationType" id="Corpus.annotationType"><td><a href="http://w3id.org/meta-share/meta-share/annotationType" target="_blank">annotationType</a></td><td><a href="http://w3id.org/meta-share/omtd-share/AnnotationType" target="_blank">AnnotationType</a></td><td>0.n</td><td>Specifies the annotation type of the annotated version(s) of a resource or the annotation type a tool/ service requires or produces as an output</td><td></td><td><a href="http://vocabhub.ilsp.gr/omtd_AnnotationTypeScheme/en/" target="_blank">OMTD annotation type vocabulary</a></td><td></td><td>P</td></tr><tr id="Corpus.anonymizationDetails"><td><a href="http://w3id.org/meta-share/meta-share/anonymizationDetails" target="_blank">anonymizationDetails</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource has been anonymised, this field can be used for entering more information, e.g., tool or method used for the anonymisation, by whom it has been performed, whether there was any check of the results, etc.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Corpus.anonymized"><td><a href="http://w3id.org/meta-share/meta-share/anonymized" target="_blank">anonymized</a></td><td><a href="http://w3id.org/meta-share/meta-share/Anonymized" target="_blank">Anonymized</a></td><td>1..1</td><td>Indicates whether the language resource has been anonymised; anonymous data is information which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in such a manner that the data subject is not or no longer identifiable</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_AnonymizedTaxonomy/en/" target="_blank">META-SHARE anonymised vocabulary</a></td><td></td><td>P</td></tr><tr id="Corpus.conformsTo"><td><a href="http://purl.org/dc/terms/conformsTo" target="_blank">conformsTo</a></td><td><a href="http://purl.org/dc/terms/Standard" target="_blank">Standard</a></td><td>0..n</td><td>An established standard to which the described resource conforms</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_StandardBestPracticeTaxonomy/en/" target="_blank">META-SHARE vocabulary of standards and best practices</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.conformsto" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.conformsto</a></td><td>DCATA-E</td></tr><tr id="Corpus.corpusSubclass"><td><a href="http://w3id.org/meta-share/meta-share/corpusSubclass" target="_blank">corpusSubclass</a></td><td><a href="http://w3id.org/meta-share/meta-share/CorpusSubclass" target="_blank">CorpusSubclass</a></td><td>0..1</td><td>Introduces a classification of corpora into types (used for descriptive reasons)</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_CorpusSubclassTaxonomy/en/" target="_blank">META-SHARE corpus subclass vocabulary</a></td><td></td><td>P</td></tr><tr id="Corpus.dataProtectionPrincipleApplied"><td><a href="http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied" target="_blank">dataProtectionPrincipleApplied</a></td><td><a href="http://w3id.org/meta-share/meta-share/DataProtectionPrinciple" target="_blank">DataProtectionPrinciple</a></td><td>0..n</td><td>Specifies the data protection principles that have been applied in compliance with the General Data Protection Regulation (Regulation (EU) 2016/679)</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_DataFormatScheme/en/" target="_blank">META-SHARE Data Protection Principle vocabulary</a></td><td></td><td>P</td></tr><tr id="Corpus.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>An account of the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.description" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.description</a></td><td>DCATA-E</td></tr><tr id="Corpus.distribution"><td><a href="http://www.w3.org/ns/dcat#distribution" target="_blank">distribution</a></td><td><a href="http://www.w3.org/ns/dcat#Distribution" target="_blank">Distribution</a></td><td>1..n</td><td>An available distribution of the dataset</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.datasetdistribution" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.datasetdistribution</a></td><td>DCATA-E</td></tr><tr id="Corpus.domain"><td><a href="http://w3id.org/meta-share/meta-share/domain" target="_blank">domain</a></td><td><a href="http://w3id.org/meta-share/meta-share/Domain" target="_blank">Domain</a></td><td>0..n</td><td>Identifies the domain according to which an entity is classified</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_DomainTaxonomy/en/" target="_blank">META-SHARE vocabulary of domains</a></td><td></td><td>P</td></tr><tr id="Corpus.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">hasPolicy</a></td><td><a href="http://www.w3.org/ns/odrl/2/Policy" target="_blank">Policy</a></td><td>1..n</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representation of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.</td><td></td><td></td><td>P</td></tr><tr id="Corpus.hasTechnicalOrganisationalMeasure"><td><a href="https://w3id.org/dpv#hasTechnicalOrganisationalMeasure" target="_blank">hasTechnicalOrganisationalMeasure</a></td><td><a href="https://w3id.org/dpv#TechnicalOrganisationalMeasure" target="_blank">TechnicalOrganisationalMeasure</a></td><td>0..n</td><td>Indicates use or applicability of Technical or Organisational measure</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_TechnicalOrganisationalMeasureTaxonomy/en/" target="_blank">META-SHARE Technical and Organisational Measure vocabulary</a></td><td></td><td>P</td></tr><tr id="Corpus.identifier"><td><a href="http://purl.org/dc/terms/identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">Literal</a></td><td>0..1</td><td>An unambiguous reference to the resource within a given context</td><td>The main identifier for the resource, e.g. the URI or other unique identifier in the context of the Catalogue. It MUST be automatically assigned by the system when adding the resource to the Catalogue.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.identifier" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.identifier</a></td><td>DCATA-A</td></tr><tr id="Corpus.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>This property MAY be used as an additional identifier for existing identifiers used for the same resource in other Catalogues (e.g. DOI, ISLRN, DataCite, Handle PIDs)</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.identifier" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.identifier</a></td><td>DCATA-A</td></tr><tr id="Corpus.iprHolder"><td><a href="http://w3id.org/meta-share/meta-share/iprHolder" target="_blank">iprHolder</a></td><td><a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">Agent</a></td><td>0..n</td><td>A person or an organisation who holds the full Intellectual Property Rights (Copyright, trademark, etc.) that subsist in the resource. The IPR holder could be different from the creator that may have assigned the rights to the IPR holder (e.g., an author as a creator assigns her rights to the publisher who is the IPR holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work via a specific distributor.</td><td>The IPR holder may be identical in many cases with the Publisher of the resource (see property dct:publisher). In this case, the contact data MAY be copied from the corresponding Publisher entries. There might be also cases with non-identical entities: e.g., when one or several IPR Holders assign another entity as the Publisher responsible for producing, hosting and publishing a resource; such entities may be, for instance, a data distribution agency, or a specific partner representing a project consortium.
+The subproperty ms:iprHolder is preferred over dct:rightsHolder in order to differentiate with other types of rights (e.g. distribution rights).</td><td></td><td></td><td>P</td></tr><tr id="Corpus.isDocumentedBy"><td><a href="http://w3id.org/meta-share/meta-share/isDocumentedBy" target="_blank">isDocumentedBy</a></td><td><a href="http://xmlns.com/foaf/0.1/Document" target="_blank">Document</a></td><td>0..n</td><td>Links a language resource to a document (e.g., research paper describing its contents or its use in a project, user manual, etc.) or any other form of documentation (e.g., a URL with support information) that is related to the resource</td><td></td><td></td><td></td><td>P</td></tr><tr id="Corpus.keyword"><td><a href="http://www.w3.org/ns/dcat#keyword" target="_blank">keyword</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A keyword or tag describing a resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.keyword" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.keyword</a></td><td>DCATA-E</td></tr><tr id="Corpus.language"><td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td><td><a href="http://purl.org/dc/terms/LinguisticSystem" target="_blank">LinguisticSystem</a></td><td>1..n</td><td>A language of the resource.</td><td>This property is used for the language of the contents of a dataset and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:languge" property is preferred, but the two values must be aligned.</td><td>The EU Authority languages vocabulary (<a href="http://publications.europa.eu/resource/dataset/language)" target="_blank">http://publications.europa.eu/resource/dataset/language)</a> and, if not covered, the lexvo vocabulary for languages (<a href="http://lexvo.org/)" target="_blank">http://lexvo.org/)</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.language" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.language</a></td><td>DCATA-A</td></tr><tr id="Corpus.language"><td><a href="http://w3id.org/meta-share/meta-share/language" target="_blank">language</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>1..n</td><td>Specifies the language that is used in the resource or supported by the tool/service expressed according to the BCP47 recommendation</td><td>This property takes a value in compliance with the BCP47 recommendation and, thus, allows for the detailed description of the language (e.g., British English, Brazilian Portuguese, Greek written with the Latin script, etc.). It must be conformant with the value of "dct:language".</td><td></td><td></td><td>P</td></tr><tr id="Corpus.license"><td><a href="http://purl.org/dc/terms/license" target="_blank">license</a></td><td><a href="http://purl.org/dc/terms/LicenseDocument" target="_blank">LicenseDocument</a></td><td>1..n</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td></td><td>P</td></tr><tr id="Corpus.lingualityType"><td><a href="http://w3id.org/meta-share/meta-share/lingualityType" target="_blank">lingualityType</a></td><td><a href="http://w3id.org/meta-share/meta-share/LingualityType" target="_blank">LingualityType</a></td><td>1..1</td><td>Indicates whether the resource includes one, two or more languages</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_LingualityTypeTaxonomy/en/" target="_blank">META-SHARE linguality type vocabulary</a></td><td></td><td>P</td></tr><tr id="Corpus.lrType"><td><a href="http://w3id.org/meta-share/meta-share/lrType" target="_blank">lrType</a></td><td><a href="http://w3id.org/meta-share/meta-share/LRType" target="_blank">LRType</a></td><td>1..1</td><td>Specifies the type of a language resource</td><td>This element allows for a more fine-grained categorisation of datasets into 'corpora' (collections of data files in text, audio, video and/or image modality), 'lexical/conceptual resources' (e.g., lexica, vocabularies, gazetteers, terminological lexica, etc.) and 'grammars'. 
+Note: In the META-SHARE ontology, models and grammars are grouped as "language descriptions" and included as subclasses of datasets. Given the evolution of Machine Learning Models, this has been revisited and models are included as a separate subclass distinguished from datasets.</td><td><a href="http://vocabhub.ilsp.gr/ms_LRTypeTaxonomy/en/" target="_blank">META-SHARE language resource type vocabulary</a></td><td></td><td>P</td></tr><tr id="Corpus.mediaType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">mediaType</a></td><td><a href="http://w3id.org/meta-share/meta-share/MediaType" target="_blank">MediaType</a></td><td>1..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_MediaTypeTaxonomy/en/" target="_blank">META-SHARE media type vocabulary</a></td><td></td><td>P</td></tr><tr id="Corpus.multilingualityType"><td><a href="http://w3id.org/meta-share/meta-share/multilingualityType" target="_blank">multilingualityType</a></td><td><a href="http://w3id.org/meta-share/meta-share/MultilingualityType" target="_blank">MultilingualityType</a></td><td>0..1</td><td>Indicates whether the resource (part) is parallel, comparable or mixed</td><td></td><td>META-SHARE linguality type vocabulary</td><td></td><td>P</td></tr><tr id="Corpus.personalDataDetails"><td><a href="http://w3id.org/meta-share/meta-share/personalDataDetails" target="_blank">personalDataDetails</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource includes personal data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Corpus.personalDataIncluded"><td><a href="http://w3id.org/meta-share/meta-share/personalDataIncluded" target="_blank">personalDataIncluded</a></td><td><a href="http://w3id.org/meta-share/meta-share/PersonalDataIncluded" target="_blank">PersonalDataIncluded</a></td><td>1..1</td><td>Specifies whether the language resource contains personal data, i.e., any information relating to an identified or identifiable natural person (data subject); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person [Article 4(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]</td><td>This property MUST be filled in for all non-anonymised datasets. If a dataset is anonymised, it is presumed that it contains no personal and sensitive data</td><td><a href="http://vocabhub.ilsp.gr/ms_PersonalDataIncludedTaxonomy/en/" target="_blank">META-SHARE personal data included vocabulary</a></td><td></td><td>P</td></tr><tr id="Corpus.pivotLanguage"><td><a href="http://w3id.org/meta-share/meta-share/pivotLanguage" target="_blank">pivotLanguage</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>0..n</td><td>The language acting as an intermediary for translations between many languages</td><td></td><td></td><td></td><td>P</td></tr><tr id="Corpus.publisher"><td><a href="http://purl.org/dc/terms/publisher" target="_blank">publisher</a></td><td><a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">Agent</a></td><td>1..1</td><td>An entity responsible for making the resource available</td><td>This property refers to the entity that "publishes", i.e. makes available to the specific platform, the corresponding resource. The information may be identical to the property ms:iprHolder of the resource.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.publisher" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.publisher</a></td><td>DCATA-E</td></tr><tr id="Corpus.sensitiveDataDetails"><td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataDetails" target="_blank">sensitiveDataDetails</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource includes special category data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Corpus.sensitiveDataIncluded"><td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataIncluded" target="_blank">sensitiveDataIncluded</a></td><td><a href="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded" target="_blank">SensitiveDataIncluded</a></td><td>1..1</td><td>Specifies whether the language resource contains special category data, i.e., personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person’s sex life or sexual orientation [Article 9(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]</td><td>This property MUST be filled in for all non-anonymised datasets. If a dataset is anonymised, it is presumed that it contains no personal and sensitive data</td><td><a href="http://vocabhub.ilsp.gr/ms_SensitiveDataIncludedTaxonomy/en/" target="_blank">META-SHARE sensitive data included vocabulary</a></td><td></td><td>P</td></tr><tr id="Corpus.sourceLanguage"><td><a href="http://w3id.org/meta-share/meta-share/sourceLanguage" target="_blank">sourceLanguage</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>0..n</td><td>The language from which a translation is made.</td><td></td><td></td><td></td><td>P</td></tr><tr id="Corpus.spatial"><td><a href="http://purl.org/dc/terms/spatial" target="_blank">spatial</a></td><td><a href="http://purl.org/dc/terms/Location" target="_blank">Location</a></td><td>0..n</td><td>Spatial characteristics of the resource</td><td>A geographic region that is covered by the dataset. For language data, this refers to the geographic region where the language of the dataset is spoken/written and not where the dataset was implemented; for instance, in the case of a German institution creating a dataset of Cypriot Greek, the geographic region is "Cyprus".</td><td>The EU Vocabularies Continents Named Authority List for continents (<a href="http://publications.europa.eu/resource/dataset/continent)" target="_blank">http://publications.europa.eu/resource/dataset/continent)</a> , countries (<a href="http://publications.europa.eu/resource/dataset/country)," target="_blank">http://publications.europa.eu/resource/dataset/country),</a> places (<a href="http://publications.europa.eu/resource/dataset/place)" target="_blank">http://publications.europa.eu/resource/dataset/place)</a> and, if not covered, GeoNames (<a href="https://www.geonames.org/)" target="_blank">https://www.geonames.org/)</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.geographicalCoverage" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.geographicalCoverage</a></td><td>DCATA-A</td></tr><tr id="Corpus.targetLanguage"><td><a href="http://w3id.org/meta-share/meta-share/targetLanguage" target="_blank">targetLanguage</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>0..n</td><td>The language into which a translation is made</td><td></td><td></td><td></td><td>P</td></tr><tr id="Corpus.temporal"><td><a href="http://purl.org/dc/terms/temporal" target="_blank">temporal</a></td><td><a href="http://purl.org/dc/terms/PeriodOfTime" target="_blank">PeriodOfTime</a></td><td>0..n</td><td>Temporal characteristics of the resource</td><td>A temporal period that the contents of a dataset cover. For language data, this can be the time period in which the language of a dataset is spoken.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.temporalcoverage" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.temporalcoverage</a></td><td>DCATA-A</td></tr><tr id="Corpus.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.title" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.title</a></td><td>DCATA-E</td></tr><tr id="Corpus.version"><td><a href="http://www.w3.org/ns/dcat#version" target="_blank">version</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>1..1</td><td>The version indicator (name or identifier) of a resource</td><td>This property MUST contain a version number or other version designation of the dataset.  
+It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version identifiers should enable comparison of versions and distinguishing major from minor versions, such as Semantic Versioning [SEMVER].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.version" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.version</a></td><td>DCATA-E</td></tr></tbody>
+</table>
+</div>
+</section>	
+	
+<!-- Section Dataset -->
+<section id="Dataset">
+<h3><a href="http://www.w3.org/ns/dcat#Dataset" data-toggle="tooltip" data-content="http://www.w3.org/ns/dcat#Dataset" data-placement="right">Dataset</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>A collection of data, published or curated by a single agent, and available for access or download in one or more representations.</dd>
+<dt><strong>Reference</strong></dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset">DCAT-AP[A]</a></dd>
+<dt><strong>Usage Note</strong></dt>
+<dd>Class used an abstract class. Only the subclasses <a href="#Corpus">Corpus</a> and <a href="#LCR">Lexical/Conceptual Resource</a> should be used in a data exchange.</dd>
+<dt><strong>Properties</strong></dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+<!-- Section Data Service -->
+<section id="DataService">
+<h3><a href="http://www.w3.org/ns/dcat#DataService" data-toggle="tooltip" data-content="http://www.w3.org/ns/dcat#DataService" data-placement="right">Data Service</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>A site or end-point providing operations related to the discovery of, access to, or processing functions on, data or related resources.</dd>
+<dt><strong>Reference</strong></dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#DataService">DCAT-AP[A]</a></dd>
+<dt><strong>Subclass of</strong></dt>
+<dd><a href="#CataloguedResource">Catalogued Resource</a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Data_Service.endpointDescription">endpointDescription</a>, <a href="#Data_Service.endpointURL">endpointURL</a>, <a href="#Data_Service.title">title</a>, <a href="#Data_Service.type">type</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Data_Service.endpointDescription"><td><a href="http://www.w3.org/ns/dcat#endpointDescription" target="_blank">endpointDescription</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>A description of the service end-point, including its operations, parameters etc.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DataService.endpointdescription" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DataService.endpointdescription</a></td><td>DCATA-E</td></tr><tr id="Data_Service.endpointURL"><td><a href="http://www.w3.org/ns/dcat#endpointURL" target="_blank">endpointURL</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td><td>1..1</td><td>The root location or primary endpoint of the service (a web-resolvable IRI).</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DataService.endpointURL" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DataService.endpointURL</a></td><td>DCATA-E</td></tr><tr id="Data_Service.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>The name of the data service</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#DataService.title" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.1/#DataService.title</a></td><td>DCATA-E</td></tr><tr id="Data_Service.type"><td><a href="http://www.nlpli.gr/dcat-lds#type" target="_blank">type</a></td><td><a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank">Concept</a></td><td>0..1</td><td>Type of the data service</td><td>This property is specific to Data Spaces; it helps differentiate between connectors and real data services (e.g., SPARQL query services) and for the time being is restricted to a fixed value (http://www.nlpli.gr/dcat-lds#connector)</td><td></td><td></td><td>P</td></tr></tbody>
+</table>
+</div>
+</section>
+
+<!-- Section Distribution -->
+<section id="Distribution">
+<h3><a href="http://www.w3.org/ns/dcat#Distribution" data-toggle="tooltip" data-content="http://www.w3.org/ns/dcat#Distribution" data-placement="right">Distribution</a></h3>
+   
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>A specific representation of a dataset. A dataset might be available in multiple serialisations that may differ in various ways, including natural language, media-type or format, schematic organisation, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above).</dd>
+<dt><strong>Reference</strong></dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution"></a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Distribution.accessService">accessService</a>, <a href="#Distribution.accessURL">accessURL</a>, <a href="#Distribution.byteSize">byteSize</a>, <a href="#Distribution.downloadURL">downloadURL</a>, <a href="#Distribution.format">format</a>, <a href="#Distribution.hasPolicy">hasPolicy</a>, <a href="#Distribution.license">license</a>, <a href="#Distribution.mediaType">mediaType</a>, <a href="#Distribution.packageFormat">packageFormat</a>, <a href="#Distribution.size">size</a>, <a href="#Distribution.title">title</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Distribution.accessService"><td><a href="http://www.w3.org/ns/dcat#accessService" target="_blank">accessService</a></td><td><a href="http://www.w3.org/ns/dcat#DataService" target="_blank">DataService</a></td><td>1..1</td><td>A site or end-point that gives access to the distribution of the dataset</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.accessservice" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.accessservice</a></td><td>DCATA-E</td></tr><tr id="Distribution.accessURL"><td><a href="http://www.w3.org/ns/dcat#accessURL" target="_blank">accessURL</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td><td>0..n</td><td>A URL of a resource that gives access to a distribution of the dataset, e.g. landing page, feed, SPARQL endpoint. Use for all cases except for direct download links, in which case dcat:downloadURL is preferred.</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.accessURL" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.accessURL</a></td><td>DCATA-E</td></tr><tr id="Distribution.byteSize"><td><a href="http://www.w3.org/ns/dcat#byteSize" target="_blank">byteSize</a></td><td><a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger" target="_blank">nonNegativeInteger</a></td><td>1..1</td><td>The size of a distribution in bytes.</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.bytesize" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.bytesize</a></td><td>DCATA-E</td></tr><tr id="Distribution.downloadURL"><td><a href="http://www.w3.org/ns/dcat#downloadURL" target="_blank">downloadURL</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td><td>1..1</td><td>The URL of the downloadable file in a given format. E.g. CSV file or RDF file. The format is indicated by the distribution's dct:format and/or dcat:mediaType.</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.downloadURL" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.downloadURL</a></td><td>DCATA-E</td></tr><tr id="Distribution.format"><td><a href="http://purl.org/dc/terms/format" target="_blank">format</a></td><td><a href="http://purl.org/dc/terms/MediaTypeOrExtent" target="_blank">MediaTypeOrExtent</a></td><td>1..n</td><td>The file format, physical medium, or dimensions of the resource</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="http://vocabhub.ilsp.gr/omtd_DataFormatScheme/en/" target="_blank">OMTD-SHARE vocabulary of data formats</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.format" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.format</a></td><td>DCATA-E</td></tr><tr id="Distribution.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">hasPolicy</a></td><td><a href="http://www.w3.org/ns/odrl/2/Policy" target="_blank">Policy</a></td><td>1..n</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representation of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.haspolicy" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.haspolicy</a></td><td>DCATA-E</td></tr><tr id="Distribution.license"><td><a href="http://purl.org/dc/terms/license" target="_blank">license</a></td><td><a href="http://purl.org/dc/terms/LicenseDocument" target="_blank">LicenseDocument</a></td><td>1..n</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.licence" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.licence</a></td><td>DCATA-E</td></tr><tr id="Distribution.mediaType"><td><a href="http://www.w3.org/ns/dcat#mediaType" target="_blank">mediaType</a></td><td><a href="http://purl.org/dc/terms/MediaType" target="_blank">MediaType</a></td><td>0..n</td><td>The media type of the distribution as defined by IANA [IANA-MEDIA-TYPES].</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">IANA-MEDIA-TYPES vocabulary</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.mediatype" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.mediatype</a></td><td>DCATA-E</td></tr><tr id="Distribution.packageFormat"><td><a href="http://www.w3.org/ns/dcat#packageFormat" target="_blank">packageFormat</a></td><td><a href="http://purl.org/dc/terms/MediaType" target="_blank">MediaType</a></td><td>0..1</td><td>The package format of the distribution in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together.</td><td></td><td><a href="http://vocabhub.ilsp.gr/omtd_PackageFormatScheme/en/" target="_blank">OMTD-SHARE vocabulary of package formats</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.packagingformat" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.packagingformat</a></td><td>DCATA-E</td></tr><tr id="Distribution.size"><td><a href="http://w3id.org/meta-share/meta-share/size" target="_blank">size</a></td><td><a href="http://w3id.org/meta-share/meta-share/Size" target="_blank">Size</a></td><td>1..n</td><td>Specifies the size of a countable entity with regard to the SizeUnit measurement in form of a number</td><td></td><td></td><td></td><td>P</td></tr><tr id="Distribution.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.title" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Distribution.title</a></td><td>DCATA-E</td></tr></tbody>
+</table>
+</div>
+</section>
+
+<!-- Section LCR -->
+<section id="LCR">
+<h3><a href="http://w3id.org/meta-share/meta-share/LexicalConceptualResource" data-toggle="tooltip" data-content="http://w3id.org/meta-share/meta-share/LexicalConceptualResource" data-placement="right">Lexical/Conceptual Resource</a></h3>
+   
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>A resource organised on the basis of lexical or conceptual entries (lexical items, terms, concepts, etc.) with their supplementary information (e.g., grammatical, semantic, statistical information, etc.)</dd>
+<dt>Reference</dt>
+<dd>No reference.</dd>
+<dt><strong>Subclass of</strong></dt>
+<dd><a href="#Dataset">Dataset</a></dd>
+<dt>Usage Note</dt>
+<dd>Lexical/Conceptual resource is a subclass of dcat:Dataset. It is recommended to use this instead of the Dataset class.</dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#LCR.alternative">alternative</a>, <a href="#LCR.anonymizationDetails">anonymizationDetails</a>, <a href="#LCR.anonymized">anonymized</a>, <a href="#LCR.conformsTo">conformsTo</a>, <a href="#LCR.dataProtectionPrincipleApplied">dataProtectionPrincipleApplied</a>, <a href="#LCR.description">description</a>, <a href="#LCR.distribution">distribution</a>, <a href="#LCR.domain">domain</a>, <a href="#LCR.hasOriginalSource">hasOriginalSource</a>, <a href="#LCR.hasPolicy">hasPolicy</a>, <a href="#LCR.hasTechnicalOrganisationalMeasure">hasTechnicalOrganisationalMeasure</a>, <a href="#LCR.identifier">identifier</a>, <a href="#LCR.identifier">identifier</a>, <a href="#LCR.iprHolder">iprHolder</a>, <a href="#LCR.isDocumentedBy">isDocumentedBy</a>, <a href="#LCR.keyword">keyword</a>, <a href="#LCR.language">language</a>, <a href="#LCR.language">language</a>, <a href="#LCR.LCRsubclass">LCRsubclass</a>, <a href="#LCR.license">license</a>, <a href="#LCR.lingualityType">lingualityType</a>, <a href="#LCR.linguisticInformation">linguisticInformation</a>, <a href="#LCR.lrType">lrType</a>, <a href="#LCR.mediaType">mediaType</a>, <a href="#LCR.metaLanguage">metaLanguage</a>, <a href="#LCR.multilingualityType">multilingualityType</a>, <a href="#LCR.originalSourceDescription">originalSourceDescription</a>, <a href="#LCR.personalDataDetails">personalDataDetails</a>, <a href="#LCR.personalDataIncluded">personalDataIncluded</a>, <a href="#LCR.pivotLanguage">pivotLanguage</a>, <a href="#LCR.publisher">publisher</a>, <a href="#LCR.sensitiveDataDetails">sensitiveDataDetails</a>, <a href="#LCR.sensitiveDataIncluded">sensitiveDataIncluded</a>, <a href="#LCR.sourceLanguage">sourceLanguage</a>, <a href="#LCR.spatial">spatial</a>, <a href="#LCR.targetLanguage">targetLanguage</a>, <a href="#LCR.temporal">temporal</a>, <a href="#LCR.title">title</a>, <a href="#LCR.version">version</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="LCR.alternative"><td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>An alternative name for the resource.</td><td>It is recommended to use "dct:title" for the full name of a dataset and "dct:alternative" for the short name. 
+This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="LCR.anonymizationDetails"><td><a href="http://w3id.org/meta-share/meta-share/anonymizationDetails" target="_blank">anonymizationDetails</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource has been anonymised, this field can be used for entering more information, e.g., tool or method used for the anonymisation, by whom it has been performed, whether there was any check of the results, etc.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="LCR.anonymized"><td><a href="http://w3id.org/meta-share/meta-share/anonymized" target="_blank">anonymized</a></td><td><a href="http://w3id.org/meta-share/meta-share/Anonymized" target="_blank">Anonymized</a></td><td>1..1</td><td>Indicates whether the language resource has been anonymised; anonymous data is information which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in such a manner that the data subject is not or no longer identifiable</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_AnonymizedTaxonomy/en/" target="_blank">META-SHARE anonymised vocabulary</a></td><td></td><td>P</td></tr><tr id="LCR.conformsTo"><td><a href="http://purl.org/dc/terms/conformsTo" target="_blank">conformsTo</a></td><td><a href="http://purl.org/dc/terms/Standard" target="_blank">Standard</a></td><td>0..n</td><td>An established standard to which the described resource conforms</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_StandardBestPracticeTaxonomy/en/" target="_blank">META-SHARE vocabulary of standards and best practices</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.conformsto" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.conformsto</a></td><td>DCATA-E</td></tr><tr id="LCR.dataProtectionPrincipleApplied"><td><a href="http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied" target="_blank">dataProtectionPrincipleApplied</a></td><td><a href="http://w3id.org/meta-share/meta-share/DataProtectionPrinciple" target="_blank">DataProtectionPrinciple</a></td><td>0..n</td><td>Specifies the data protection principles that have been applied in compliance with the General Data Protection Regulation (Regulation (EU) 2016/679)</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_DataFormatScheme/en/" target="_blank">META-SHARE Data Protection Principle vocabulary</a></td><td></td><td>P</td></tr><tr id="LCR.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>An account of the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.description" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.description</a></td><td>DCATA-E</td></tr><tr id="LCR.distribution"><td><a href="http://www.w3.org/ns/dcat#distribution" target="_blank">distribution</a></td><td><a href="http://www.w3.org/ns/dcat#Distribution" target="_blank">Distribution</a></td><td>1..n</td><td>An available distribution of the dataset</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.datasetdistribution" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.datasetdistribution</a></td><td>DCATA-E</td></tr><tr id="LCR.domain"><td><a href="http://w3id.org/meta-share/meta-share/domain" target="_blank">domain</a></td><td><a href="http://w3id.org/meta-share/meta-share/Domain" target="_blank">Domain</a></td><td>0..n</td><td>Identifies the domain according to which an entity is classified</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_DomainTaxonomy/en/" target="_blank">META-SHARE vocabulary of domains</a></td><td></td><td>P</td></tr><tr id="LCR.hasOriginalSource"><td><a href="http://w3id.org/meta-share/meta-share/hasOriginalSource" target="_blank">hasOriginalSource</a></td><td><a href="http://www.w3.org/ns/dcat#Dataset" target="_blank">Dataset</a></td><td>0..n</td><td>Links a language resource to the original source that has been used for its creation, where it's derived or elicited from</td><td></td><td></td><td></td><td>P</td></tr><tr id="LCR.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">hasPolicy</a></td><td><a href="http://www.w3.org/ns/odrl/2/Policy" target="_blank">Policy</a></td><td>1..n</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representation of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.</td><td></td><td></td><td>P</td></tr><tr id="LCR.hasTechnicalOrganisationalMeasure"><td><a href="https://w3id.org/dpv#hasTechnicalOrganisationalMeasure" target="_blank">hasTechnicalOrganisationalMeasure</a></td><td><a href="https://w3id.org/dpv#TechnicalOrganisationalMeasure" target="_blank">TechnicalOrganisationalMeasure</a></td><td>0..n</td><td>Indicates use or applicability of Technical or Organisational measure</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_TechnicalOrganisationalMeasureTaxonomy/en/" target="_blank">META-SHARE Technical and Organisational Measure vocabulary</a></td><td></td><td>P</td></tr><tr id="LCR.identifier"><td><a href="http://purl.org/dc/terms/identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">Literal</a></td><td>0..1</td><td>An unambiguous reference to the resource within a given context</td><td>The main identifier for the resource, e.g. the URI or other unique identifier in the context of the Catalogue. It MUST be automatically assigned by the system when adding the resource to the Catalogue.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.identifier" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.identifier</a></td><td>DCATA-A</td></tr><tr id="LCR.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>This property MAY be used as an additional identifier for existing identifiers used for the same resource in other Catalogues (e.g. DOI, ISLRN, DataCite, Handle PIDs)</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.identifier" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.identifier</a></td><td>DCATA-A</td></tr><tr id="LCR.iprHolder"><td><a href="http://w3id.org/meta-share/meta-share/iprHolder" target="_blank">iprHolder</a></td><td><a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">Agent</a></td><td>0..n</td><td>A person or an organisation who holds the full Intellectual Property Rights (Copyright, trademark, etc.) that subsist in the resource. The IPR holder could be different from the creator that may have assigned the rights to the IPR holder (e.g., an author as a creator assigns her rights to the publisher who is the IPR holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work via a specific distributor.</td><td>The IPR holder may be identical in many cases with the Publisher of the resource (see property dct:publisher). In this case, the contact data MAY be copied from the corresponding Publisher entries. There might be also cases with non-identical entities: e.g., when one or several IPR Holders assign another entity as the Publisher responsible for producing, hosting and publishing a resource; such entities may be, for instance, a data distribution agency, or a specific partner representing a project consortium.
+The subproperty ms:iprHolder is preferred over dct:rightsHolder in order to differentiate with other types of rights (e.g. distribution rights).</td><td></td><td></td><td>P</td></tr><tr id="LCR.isDocumentedBy"><td><a href="http://w3id.org/meta-share/meta-share/isDocumentedBy" target="_blank">isDocumentedBy</a></td><td><a href="http://xmlns.com/foaf/0.1/Document" target="_blank">Document</a></td><td>0..n</td><td>Links a language resource to a document (e.g., research paper describing its contents or its use in a project, user manual, etc.) or any other form of documentation (e.g., a URL with support information) that is related to the resource</td><td></td><td></td><td></td><td>P</td></tr><tr id="LCR.keyword"><td><a href="http://www.w3.org/ns/dcat#keyword" target="_blank">keyword</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A keyword or tag describing a resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.keyword" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.keyword</a></td><td>DCATA-E</td></tr><tr id="LCR.language"><td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td><td><a href="http://purl.org/dc/terms/LinguisticSystem" target="_blank">LinguisticSystem</a></td><td>1..n</td><td>A language of the resource.</td><td>This property is used for the language of the contents of a dataset and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:languge" property is preferred, but the two values must be aligned.</td><td>The EU Authority languages vocabulary (<a href="http://publications.europa.eu/resource/dataset/language)" target="_blank">http://publications.europa.eu/resource/dataset/language)</a> and, if not covered, the lexvo vocabulary for languages (<a href="http://lexvo.org/)" target="_blank">http://lexvo.org/)</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.language" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.language</a></td><td>DCATA-A</td></tr><tr id="LCR.language"><td><a href="http://w3id.org/meta-share/meta-share/language" target="_blank">language</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>1..n</td><td>Specifies the language that is used in the resource or supported by the tool/service expressed according to the BCP47 recommendation</td><td>This property takes a value in compliance with the BCP47 recommendation and, thus, allows for the detailed description of the language (e.g., British English, Brazilian Portuguese, Greek written with the Latin script, etc.). It must be conformant with the value of "dct:language".</td><td></td><td></td><td>P</td></tr><tr id="LCR.LCRsubclass"><td><a href="http://w3id.org/meta-share/meta-share/LCRsubclass" target="_blank">LCRsubclass</a></td><td><a href="http://w3id.org/meta-share/meta-share/LCRsubclass" target="_blank">LCRsubclass</a></td><td>0..1</td><td>Introduces a classification of lexical/conceptual resources into types (used for descriptive reasons)</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_LCRSubclassTaxonomy/en/" target="_blank">META-SHARE lexical subclasses vocabulary</a></td><td></td><td>P</td></tr><tr id="LCR.license"><td><a href="http://purl.org/dc/terms/license" target="_blank">license</a></td><td><a href="http://purl.org/dc/terms/LicenseDocument" target="_blank">LicenseDocument</a></td><td>1..n</td><td>A legal document giving official permission to do something with the resource.</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td></td><td>P</td></tr><tr id="LCR.lingualityType"><td><a href="http://w3id.org/meta-share/meta-share/lingualityType" target="_blank">lingualityType</a></td><td><a href="http://w3id.org/meta-share/meta-share/LingualityType" target="_blank">LingualityType</a></td><td>1..1</td><td>Indicates whether the resource includes one, two or more languages</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_LingualityTypeTaxonomy/en/" target="_blank">META-SHARE linguality type vocabulary</a></td><td></td><td>P</td></tr><tr id="LCR.linguisticInformation"><td><a href="http://w3id.org/meta-share/meta-share/linguisticInformation" target="_blank">linguisticInformation</a></td><td><a href="http://w3id.org/meta-share/lexmeta#MicrostructureFeature" target="_blank">MicrostructureFeature</a></td><td>0..n</td><td>Provides a detailed account of the linguistic information contained in the lexical/conceptual resource</td><td></td><td><a href="LexMeta%20vocabulary%20of%20microstructure%20features" target="_blank">LexMeta vocabulary for microstructure features</a></td><td></td><td>P</td></tr><tr id="LCR.lrType"><td><a href="http://w3id.org/meta-share/meta-share/lrType" target="_blank">lrType</a></td><td><a href="http://w3id.org/meta-share/meta-share/LRType" target="_blank">LRType</a></td><td>1..1</td><td>Specifies the type of a language resource</td><td>This element allows for a more fine-grained categorisation of datasets into 'corpora' (collections of data files in text, audio, video and/or image modality), 'lexical/conceptual resources' (e.g., lexica, vocabularies, gazetteers, terminological lexica, etc.) and 'grammars'. 
+Note: In the META-SHARE ontology, models and grammars are grouped as "language descriptions" and included as subclasses of datasets. Given the evolution of Machine Learning Models, this has been revisited and models are included as a separate subclass distinguished from datasets.</td><td><a href="http://vocabhub.ilsp.gr/ms_LRTypeTaxonomy/en/" target="_blank">META-SHARE language resource type vocabulary</a></td><td></td><td>P</td></tr><tr id="LCR.mediaType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">mediaType</a></td><td><a href="http://w3id.org/meta-share/meta-share/MediaType" target="_blank">MediaType</a></td><td>1..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_MediaTypeTaxonomy/en/" target="_blank">META-SHARE media type vocabulary</a></td><td></td><td>P</td></tr><tr id="LCR.metaLanguage"><td><a href="http://w3id.org/meta-share/meta-share/metaLanguage" target="_blank">metaLanguage</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>0..n</td><td>Specifies the language that is used as support for the resource (e.g., English for a grammar of French described in English or for a French dictionary with English definitions)</td><td></td><td></td><td></td><td>P</td></tr><tr id="LCR.multilingualityType"><td><a href="http://w3id.org/meta-share/meta-share/multilingualityType" target="_blank">multilingualityType</a></td><td><a href="http://w3id.org/meta-share/meta-share/MultilingualityType" target="_blank">MultilingualityType</a></td><td>0..1</td><td>Indicates whether the resource (part) is parallel, comparable or mixed</td><td></td><td>META-SHARE linguality type vocabulary</td><td></td><td>P</td></tr><tr id="LCR.originalSourceDescription"><td><a href="http://w3id.org/meta-share/meta-share/originalSourceDescription" target="_blank">originalSourceDescription</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>A description in free text of the source material that has been used for the creation of a language data resource</td><td>This property can be used to provide further information on the source resource. For instance, provide information such as mode and timespan of collection of a dataset.</td><td></td><td></td><td>P</td></tr><tr id="LCR.personalDataDetails"><td><a href="http://w3id.org/meta-share/meta-share/personalDataDetails" target="_blank">personalDataDetails</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource includes personal data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="LCR.personalDataIncluded"><td><a href="http://w3id.org/meta-share/meta-share/personalDataIncluded" target="_blank">personalDataIncluded</a></td><td><a href="http://w3id.org/meta-share/meta-share/PersonalDataIncluded" target="_blank">PersonalDataIncluded</a></td><td>1..1</td><td>Specifies whether the language resource contains personal data, i.e., any information relating to an identified or identifiable natural person (data subject); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person [Article 4(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]</td><td>This property MUST be filled in for all non-anonymised datasets. If a dataset is anonymised, it is presumed that it contains no personal and sensitive data</td><td><a href="http://vocabhub.ilsp.gr/ms_PersonalDataIncludedTaxonomy/en/" target="_blank">META-SHARE personal data included vocabulary</a></td><td></td><td>P</td></tr><tr id="LCR.pivotLanguage"><td><a href="http://w3id.org/meta-share/meta-share/pivotLanguage" target="_blank">pivotLanguage</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>0..n</td><td>The language acting as an intermediary for translations between many languages</td><td></td><td></td><td></td><td>P</td></tr><tr id="LCR.publisher"><td><a href="http://purl.org/dc/terms/publisher" target="_blank">publisher</a></td><td><a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">Agent</a></td><td>1..1</td><td>An entity responsible for making the resource available</td><td>This property refers to the entity that "publishes", i.e. makes available to the specific platform, the corresponding resource. The information may be identical to the property ms:iprHolder of the resource.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.publisher" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.publisher</a></td><td>DCATA-E</td></tr><tr id="LCR.sensitiveDataDetails"><td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataDetails" target="_blank">sensitiveDataDetails</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource includes special category data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="LCR.sensitiveDataIncluded"><td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataIncluded" target="_blank">sensitiveDataIncluded</a></td><td><a href="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded" target="_blank">SensitiveDataIncluded</a></td><td>1..1</td><td>Specifies whether the language resource contains special category data, i.e., personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person’s sex life or sexual orientation [Article 9(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]</td><td>This property MUST be filled in for all non-anonymised datasets. If a dataset is anonymised, it is presumed that it contains no personal and sensitive data</td><td><a href="http://vocabhub.ilsp.gr/ms_SensitiveDataIncludedTaxonomy/en/" target="_blank">META-SHARE sensitive data included vocabulary</a></td><td></td><td>P</td></tr><tr id="LCR.sourceLanguage"><td><a href="http://w3id.org/meta-share/meta-share/sourceLanguage" target="_blank">sourceLanguage</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>0..n</td><td>The language from which a translation is made.</td><td></td><td></td><td></td><td>P</td></tr><tr id="LCR.spatial"><td><a href="http://purl.org/dc/terms/spatial" target="_blank">spatial</a></td><td><a href="http://purl.org/dc/terms/Location" target="_blank">Location</a></td><td>0..n</td><td>Spatial characteristics of the resource</td><td>A geographic region that is covered by the dataset. For language data, this refers to the geographic region where the language of the dataset is spoken/written and not where the dataset was implemented; for instance, in the case of a German institution creating a dataset of Cypriot Greek, the geographic region is "Cyprus".</td><td>The EU Vocabularies Continents Named Authority List for continents (<a href="http://publications.europa.eu/resource/dataset/continent)" target="_blank">http://publications.europa.eu/resource/dataset/continent)</a> , countries (<a href="http://publications.europa.eu/resource/dataset/country)," target="_blank">http://publications.europa.eu/resource/dataset/country),</a> places (<a href="http://publications.europa.eu/resource/dataset/place)" target="_blank">http://publications.europa.eu/resource/dataset/place)</a> and, if not covered, GeoNames (<a href="https://www.geonames.org/)" target="_blank">https://www.geonames.org/)</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.geographicalCoverage" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.geographicalCoverage</a></td><td>DCATA-A</td></tr><tr id="LCR.targetLanguage"><td><a href="http://w3id.org/meta-share/meta-share/targetLanguage" target="_blank">targetLanguage</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>0..n</td><td>The language into which a translation is made</td><td></td><td></td><td></td><td>P</td></tr><tr id="LCR.temporal"><td><a href="http://purl.org/dc/terms/temporal" target="_blank">temporal</a></td><td><a href="http://purl.org/dc/terms/PeriodOfTime" target="_blank">PeriodOfTime</a></td><td>0..n</td><td>Temporal characteristics of the resource</td><td>A temporal period that the contents of a dataset cover. For language data, this can be the time period in which the language of a dataset is spoken.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.temporalcoverage" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.temporalcoverage</a></td><td>DCATA-A</td></tr><tr id="LCR.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.title" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.title</a></td><td>DCATA-E</td></tr><tr id="LCR.version"><td><a href="http://www.w3.org/ns/dcat#version" target="_blank">version</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>1..1</td><td>The version indicator (name or identifier) of a resource</td><td>This property MUST contain a version number or other version designation of the dataset.  
+It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version identifiers should enable comparison of versions and distinguishing major from minor versions, such as Semantic Versioning [SEMVER].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.version" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.version</a></td><td>DCATA-E</td></tr></tbody>
+</table>
+</div>
+</section>
+	
+<!-- Section Licence -->
+<section id="Licence">
+<h3>Licence</h3>
+    
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>A legal document giving official permission to do something with a resource</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#LicenceDocument">DCAT-AP [A]</a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Licence.alternative">alternative</a>, <a href="#Licence.description">description</a>, <a href="#Licence.http://creativecommons.org/ns#legalCode">http://creativecommons.org/ns#legalCode</a>, <a href="#Licence.identifier">identifier</a>, <a href="#Licence.seeAlso">seeAlso</a>, <a href="#Licence.title">title</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody>
+  <tr id="Licence.alternative">
+    <td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td>
+    <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td>
+    <td>0..n</td>
+    <td>An alternative name for the resource.</td>
+    <td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td>
+    <td></td>
+    <td></td>
+    <td>P</td>
+  </tr>
+  <tr id="Licence.description">
+    <td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td>
+    <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td>
+    <td>1..n</td>
+    <td>An account of the resource</td>
+    <td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td>
+    <td></td>
+    <td></td>
+    <td>P</td>
+  </tr>
+  <tr id="Licence.http://creativecommons.org/ns#legalCode">
+    <td><a href="http://creativecommons.org/ns#legalCode" target="_blank">http://creativecommons.org/ns#legalCode</a></td>
+    <td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td>
+    <td>1..1</td>
+    <td>The URL of the legal text of a License.</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>P</td>
+  </tr>
+  <tr id="Licence.identifier">
+    <td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td>
+    <td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td>
+    <td>0..n</td>
+    <td>Links a resource to an adms:Identifier class.</td>
+    <td>When a standard licence is used, this MUST be the identifier from the SPDX list of licences.</td>
+    <td></td>
+    <td></td>
+    <td>P</td>
+  </tr>
+  <tr id="Licence.seeAlso">
+    <td><a href="http://www.w3.org/2000/01/rdf-schema#seeAlso" target="_blank">seeAlso</a></td>
+    <td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td>
+    <td>0..n</td>
+    <td></td>
+    <td>This property MUST be used for additional URLs that contain the licence text besides the official one. It can be used for identifying duplicates</td>
+    <td></td>
+    <td></td>
+    <td>P</td>
+  </tr>
+  <tr id="Licence.title">
+    <td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td>
+    <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td>
+    <td>1..n</td>
+    <td>A name given to the resource</td>
+    <td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td>
+    <td></td>
+    <td></td>
+    <td>P</td>
+  </tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- Section Model -->
+<section id="Model">
+<h3><a href="http://w3id.org/meta-share/meta-share/MLModel" data-toggle="tooltip" data-content="http://w3id.org/meta-share/meta-share/MLModel" data-placement="right">Model</a></h3>
+   
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>The model artifact that is created through a training process involving an ML algorithm (that is, the learning algorithm) and the training data to learn from.</dd>
+<dt><strong>Reference</strong></dt>
+<dd>No reference</dd>
+<dt>Subclass of</dt>
+<dd><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#CataloguedResource">Catalogued Resource</a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Model.alternative">alternative</a>, <a href="#Model.anonymizationDetails">anonymizationDetails</a>, <a href="#Model.anonymized">anonymized</a>, <a href="#Model.conformsTo">conformsTo</a>, <a href="#Model.contextLength">contextLength</a>, <a href="#Model.creationDetails">creationDetails</a>, <a href="#Model.dataProtectionPrincipleApplied">dataProtectionPrincipleApplied</a>, <a href="#Model.description">description</a>, <a href="#Model.distribution">distribution</a>, <a href="#Model.domain">domain</a>, <a href="#Model.evaluationDataset">evaluationDataset</a>, <a href="#Model.evaluationResults">evaluationResults</a>, <a href="#Model.finetuneDataset">finetuneDataset</a>, <a href="#Model.hasPolicy">hasPolicy</a>, <a href="#Model.hasTechnicalOrganisationalMeasure">hasTechnicalOrganisationalMeasure</a>, <a href="#Model.http://data.europa.eu/it6/bias">http://data.europa.eu/it6/bias</a>, <a href="#Model.http://data.europa.eu/it6/limitations">http://data.europa.eu/it6/limitations</a>, <a href="#Model.http://data.europa.eu/it6/trainedOn">http://data.europa.eu/it6/trainedOn</a>, <a href="#Model.identifier">identifier</a>, <a href="#Model.identifier">identifier</a>, <a href="#Model.iprHolder">iprHolder</a>, <a href="#Model.isDocumentedBy">isDocumentedBy</a>, <a href="#Model.keyword">keyword</a>, <a href="#Model.language">language</a>, <a href="#Model.language">language</a>, <a href="#Model.license">license</a>, <a href="#Model.lingualityType">lingualityType</a>, <a href="#Model.lrType">lrType</a>, <a href="#Model.mediaType">mediaType</a>, <a href="#Model.modelFunction">modelFunction</a>, <a href="#Model.modelType">modelType</a>, <a href="#Model.parameterPrecision">parameterPrecision</a>, <a href="#Model.personalDataDetails">personalDataDetails</a>, <a href="#Model.personalDataIncluded">personalDataIncluded</a>, <a href="#Model.publisher">publisher</a>, <a href="#Model.quantizationProcess">quantizationProcess</a>, <a href="#Model.quantized">quantized</a>, <a href="#Model.sensitiveDataDetails">sensitiveDataDetails</a>, <a href="#Model.sensitiveDataIncluded">sensitiveDataIncluded</a>, <a href="#Model.sourceLanguage">sourceLanguage</a>, <a href="#Model.spatial">spatial</a>, <a href="#Model.targetLanguage">targetLanguage</a>, <a href="#Model.temporal">temporal</a>, <a href="#Model.title">title</a>, <a href="#Model.variantOf">variantOf</a>, <a href="#Model.version">version</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Model.alternative"><td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>An alternative name for the resource.</td><td>It is recommended to use "dct:title" for the full name of a dataset and "dct:alternative" for the short name. 
+This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Model.anonymizationDetails"><td><a href="http://w3id.org/meta-share/meta-share/anonymizationDetails" target="_blank">anonymizationDetails</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource has been anonymised, this field can be used for entering more information, e.g., tool or method used for the anonymisation, by whom it has been performed, whether there was any check of the results, etc.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Model.anonymized"><td><a href="http://w3id.org/meta-share/meta-share/anonymized" target="_blank">anonymized</a></td><td><a href="http://w3id.org/meta-share/meta-share/Anonymized" target="_blank">Anonymized</a></td><td>1..1</td><td>Indicates whether the language resource has been anonymised; anonymous data is information which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in such a manner that the data subject is not or no longer identifiable</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_AnonymizedTaxonomy/en/" target="_blank">META-SHARE anonymised vocabulary</a></td><td></td><td>P</td></tr><tr id="Model.conformsTo"><td><a href="http://purl.org/dc/terms/conformsTo" target="_blank">conformsTo</a></td><td><a href="http://purl.org/dc/terms/Standard" target="_blank">Standard</a></td><td>0..n</td><td>An established standard to which the described resource conforms</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_StandardBestPracticeTaxonomy/en/" target="_blank">META-SHARE vocabulary of standards and best practices</a></td><td></td><td>P</td></tr><tr id="Model.contextLength"><td><a href="http://w3id.org/meta-share/meta-share/contextLength" target="_blank">contextLength</a></td><td><a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank">integer</a></td><td>0..1</td><td>The maximum amount of text that an AI model can process and retain in memory at any given time</td><td></td><td></td><td></td><td>P</td></tr><tr id="Model.creationDetails"><td><a href="http://w3id.org/meta-share/meta-share/creationDetails" target="_blank">creationDetails</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>Provides additional information on the creation of a language resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Model.dataProtectionPrincipleApplied"><td><a href="http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied" target="_blank">dataProtectionPrincipleApplied</a></td><td><a href="http://w3id.org/meta-share/meta-share/DataProtectionPrinciple" target="_blank">DataProtectionPrinciple</a></td><td>0..n</td><td>Specifies the data protection principles that have been applied in compliance with the General Data Protection Regulation (Regulation (EU) 2016/679)</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_DataFormatScheme/en/" target="_blank">META-SHARE Data Protection Principle vocabulary</a></td><td></td><td>P</td></tr><tr id="Model.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>An account of the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.description" target="_blank">https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.description</a></td><td>MLD-E</td></tr><tr id="Model.distribution"><td><a href="http://www.w3.org/ns/dcat#distribution" target="_blank">distribution</a></td><td><a href="http://www.w3.org/ns/dcat#Distribution" target="_blank">Distribution</a></td><td>1..n</td><td>An available distribution of the dataset</td><td></td><td></td><td></td><td>P</td></tr><tr id="Model.domain"><td><a href="http://w3id.org/meta-share/meta-share/domain" target="_blank">domain</a></td><td><a href="http://w3id.org/meta-share/meta-share/Domain" target="_blank">Domain</a></td><td>0..n</td><td>Identifies the domain according to which an entity is classified</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_DomainTaxonomy/en/" target="_blank">META-SHARE vocabulary of domains</a></td><td></td><td>P</td></tr><tr id="Model.evaluationDataset"><td><a href="http://w3id.org/meta-share/meta-share/evaluationDataset" target="_blank">evaluationDataset</a></td><td><a href="http://w3id.org/meta-share/meta-share/Corpus" target="_blank">Corpus</a></td><td>0..n</td><td>The dataset used for the evaluation of the machine learning model</td><td></td><td></td><td></td><td>P</td></tr><tr id="Model.evaluationResults"><td><a href="http://w3id.org/meta-share/meta-share/evaluationResults" target="_blank">evaluationResults</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>A description of the evaluation results against the evaluation dataset</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Model.finetuneDataset"><td><a href="http://w3id.org/meta-share/meta-share/finetuneDataset" target="_blank">finetuneDataset</a></td><td><a href="http://w3id.org/meta-share/meta-share/Corpus" target="_blank">Corpus</a></td><td>0..n</td><td>The dataset used to fine-tune the machine learning model</td><td></td><td></td><td></td><td>P</td></tr><tr id="Model.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">hasPolicy</a></td><td><a href="http://www.w3.org/ns/odrl/2/Policy" target="_blank">Policy</a></td><td>1..n</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representation of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.haspolicy" target="_blank">https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.haspolicy</a></td><td>MLD-E</td></tr><tr id="Model.hasTechnicalOrganisationalMeasure"><td><a href="https://w3id.org/dpv#hasTechnicalOrganisationalMeasure" target="_blank">hasTechnicalOrganisationalMeasure</a></td><td><a href="https://w3id.org/dpv#TechnicalOrganisationalMeasure" target="_blank">TechnicalOrganisationalMeasure</a></td><td>0..n</td><td>Indicates use or applicability of Technical or Organisational measure</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_TechnicalOrganisationalMeasureTaxonomy/en/" target="_blank">META-SHARE Technical and Organisational Measure vocabulary</a></td><td></td><td>P</td></tr><tr id="Model.http://data.europa.eu/it6/bias"><td><a href="http://data.europa.eu/it6/bias" target="_blank">http://data.europa.eu/it6/bias</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>A description of the possible biases affecting the overall output of the model</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="http://data.europa.eu/it6/bias" target="_blank">http://data.europa.eu/it6/bias</a></td><td>MLD-A</td></tr><tr id="Model.http://data.europa.eu/it6/limitations"><td><a href="http://data.europa.eu/it6/limitations" target="_blank">http://data.europa.eu/it6/limitations</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>The limited capabilities of the model</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="http://data.europa.eu/it6/limitations" target="_blank">http://data.europa.eu/it6/limitations</a></td><td>MLD-A</td></tr><tr id="Model.http://data.europa.eu/it6/trainedOn"><td><a href="http://data.europa.eu/it6/trainedOn" target="_blank">http://data.europa.eu/it6/trainedOn</a></td><td><a href="http://w3id.org/meta-share/meta-share/Corpus" target="_blank">Corpus</a></td><td>0..n</td><td>The training dataset used to train the machine learning model</td><td></td><td></td><td><a href="http://data.europa.eu/it6/trainedOn" target="_blank">http://data.europa.eu/it6/trainedOn</a></td><td>MLD-A</td></tr><tr id="Model.identifier"><td><a href="http://purl.org/dc/terms/identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">Literal</a></td><td>0..1</td><td>An unambiguous reference to the resource within a given context</td><td>The main identifier for the resource, e.g. the URI or other unique identifier in the context of the Catalogue. It MUST be automatically assigned by the system when adding the resource to the Catalogue.</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.identifier" target="_blank">https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.identifier</a></td><td>MLD-A</td></tr><tr id="Model.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>This property MAY be used as an additional identifier for existing identifiers used for the same resource in other Catalogues (e.g. DOI, ISLRN, DataCite, Handle PIDs)
+	
+</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.identifier" target="_blank">https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.identifier</a></td><td>MLD-A</td></tr><tr id="Model.iprHolder"><td><a href="http://w3id.org/meta-share/meta-share/iprHolder" target="_blank">iprHolder</a></td><td><a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">Agent</a></td><td>0..n</td><td>A person or an organisation who holds the full Intellectual Property Rights (Copyright, trademark, etc.) that subsist in the resource. The IPR holder could be different from the creator that may have assigned the rights to the IPR holder (e.g., an author as a creator assigns her rights to the publisher who is the IPR holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work via a specific distributor.</td><td>The IPR holder may be identical in many cases with the Publisher of the resource (see property dct:publisher). In this case, the contact data MAY be copied from the corresponding Publisher entries. There might be also cases with non-identical entities: e.g., when one or several IPR Holders assign another entity as the Publisher responsible for producing, hosting and publishing a resource; such entities may be, for instance, a data distribution agency, or a specific partner representing a project consortium.
+The subproperty ms:iprHolder is preferred over dct:rightsHolder in order to differentiate with other types of rights (e.g. distribution rights).</td><td></td><td></td><td>P</td></tr><tr id="Model.isDocumentedBy"><td><a href="http://w3id.org/meta-share/meta-share/isDocumentedBy" target="_blank">isDocumentedBy</a></td><td><a href="http://xmlns.com/foaf/0.1/Document" target="_blank">Document</a></td><td>0..n</td><td>Links a language resource to a document (e.g., research paper describing its contents or its use in a project, user manual, etc.) or any other form of documentation (e.g., a URL with support information) that is related to the resource</td><td></td><td></td><td></td><td>P</td></tr><tr id="Model.keyword"><td><a href="http://www.w3.org/ns/dcat#keyword" target="_blank">keyword</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A keyword or tag describing a resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.keyword" target="_blank">https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.keyword</a></td><td>MLD-E</td></tr><tr id="Model.language"><td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td><td><a href="http://purl.org/dc/terms/LinguisticSystem" target="_blank">LinguisticSystem</a></td><td>1..n</td><td>A language of the resource.</td><td>This property is used for the input language supported by a model and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:languge" property is preferred, but the two values must be aligned.</td><td>The EU Authority languages vocabulary (<a href="http://publications.europa.eu/resource/dataset/language)" target="_blank">http://publications.europa.eu/resource/dataset/language)</a> and, if not covered, the lexvo vocabulary for languages (<a href="http://lexvo.org/)" target="_blank">http://lexvo.org/)</a></td><td></td><td>P</td></tr><tr id="Model.language"><td><a href="http://w3id.org/meta-share/meta-share/language" target="_blank">language</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>1..n</td><td>Specifies the language that is used in the resource or supported by the tool/service expressed according to the BCP47 recommendation</td><td>This property takes a value in compliance with the BCP47 recommendation and, thus, allows for the detailed description of the language (e.g., British English, Brazilian Portuguese, Greek written with the Latin script, etc.). It must be conformant with the value of "dct:language".</td><td></td><td></td><td>P</td></tr><tr id="Model.license"><td><a href="http://purl.org/dc/terms/license" target="_blank">license</a></td><td><a href="http://purl.org/dc/terms/LicenseDocument" target="_blank">LicenseDocument</a></td><td>1..n</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.licence" target="_blank">https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.licence</a></td><td>MLD-E</td></tr><tr id="Model.lingualityType"><td><a href="http://w3id.org/meta-share/meta-share/lingualityType" target="_blank">lingualityType</a></td><td><a href="http://w3id.org/meta-share/meta-share/LingualityType" target="_blank">LingualityType</a></td><td>1..1</td><td>Indicates whether the resource includes one, two or more languages</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_LingualityTypeTaxonomy/en/" target="_blank">META-SHARE linguality type vocabulary</a></td><td></td><td>P</td></tr><tr id="Model.lrType"><td><a href="http://w3id.org/meta-share/meta-share/lrType" target="_blank">lrType</a></td><td><a href="http://w3id.org/meta-share/meta-share/LRType" target="_blank">LRType</a></td><td>1..1</td><td>Specifies the type of a language resource</td><td>This element allows for a more fine-grained categorisation of datasets into 'corpora' (collections of data files in text, audio, video and/or image modality), 'lexical/conceptual resources' (e.g., lexica, vocabularies, gazetteers, terminological lexica, etc.) and 'grammars'. 
+Note: In the META-SHARE ontology, models and grammars are grouped as "language descriptions" and included as subclasses of datasets. Given the evolution of Machine Learning Models, this is revisited and models are included as a separate subclass distinguished from datasets.</td><td><a href="http://vocabhub.ilsp.gr/ms_LRTypeTaxonomy/en/" target="_blank">META-SHARE language resource type vocabulary</a></td><td></td><td>P</td></tr><tr id="Model.mediaType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">mediaType</a></td><td><a href="http://w3id.org/meta-share/meta-share/MediaType" target="_blank">MediaType</a></td><td>1..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_MediaTypeTaxonomy/en/" target="_blank">META-SHARE media type vocabulary</a></td><td></td><td>P</td></tr><tr id="Model.modelFunction"><td><a href="http://w3id.org/meta-share/meta-share/modelFunction" target="_blank">modelFunction</a></td><td><a href="http://w3id.org/meta-share/omtd-share/ModelFunction" target="_blank">ModelFunction</a></td><td>1..n</td><td>The function/task/operation a model performs</td><td></td><td><a href="http://vocabhub.ilsp.gr/omtd_OperationScheme/en/" target="_blank">OMTD-SHARE vocabulary of operations</a></td><td></td><td>P</td></tr><tr id="Model.modelType"><td><a href="http://w3id.org/meta-share/meta-share/modelType" target="_blank">modelType</a></td><td><a href="http://w3id.org/meta-share/meta-share/ModelType" target="_blank">ModelType</a></td><td>0..1</td><td>A classification of models based on their algorithm</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_ModelTypeTaxonomy/en/" target="_blank">META-SHARE vocabulary of model types</a></td><td></td><td>P</td></tr><tr id="Model.parameterPrecision"><td><a href="http://w3id.org/meta-share/meta-share/parameterPrecision" target="_blank">parameterPrecision</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>0..1</td><td>The number of bits used to represent a model's parameters, which directly impacts the model's memory usage and computational efficiency</td><td></td><td></td><td></td><td>P</td></tr><tr id="Model.personalDataDetails"><td><a href="http://w3id.org/meta-share/meta-share/personalDataDetails" target="_blank">personalDataDetails</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource includes personal data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Model.personalDataIncluded"><td><a href="http://w3id.org/meta-share/meta-share/personalDataIncluded" target="_blank">personalDataIncluded</a></td><td><a href="http://w3id.org/meta-share/meta-share/PersonalDataIncluded" target="_blank">PersonalDataIncluded</a></td><td>1..1</td><td>Specifies whether the language resource contains personal data, i.e., any information relating to an identified or identifiable natural person (data subject); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person [Article 4(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]</td><td>This property MUST be filled in for all non-anonymised datasets. If a dataset is anonymised, it is presumed that it contains no personal and sensitive data</td><td><a href="http://vocabhub.ilsp.gr/ms_PersonalDataIncludedTaxonomy/en/" target="_blank">META-SHARE personal data included vocabulary</a></td><td></td><td>P</td></tr><tr id="Model.publisher"><td><a href="http://purl.org/dc/terms/publisher" target="_blank">publisher</a></td><td><a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">Agent</a></td><td>1..1</td><td>An entity responsible for making the resource available</td><td>This property refers to the entity that "publishes", i.e. makes available to the specific platform, the corresponding resource. The information may be identical to the property ms:iprHolder of the resource.</td><td></td><td></td><td>P</td></tr><tr id="Model.quantizationProcess"><td><a href="http://w3id.org/meta-share/meta-share/quantizationProcess" target="_blank">quantizationProcess</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>The process used for the quantisation</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Model.quantized"><td><a href="http://w3id.org/meta-share/meta-share/quantized" target="_blank">quantized</a></td><td><a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank">boolean</a></td><td>0..1</td><td>Whether this version is quantised</td><td></td><td></td><td></td><td>P</td></tr><tr id="Model.sensitiveDataDetails"><td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataDetails" target="_blank">sensitiveDataDetails</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource includes special category data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Model.sensitiveDataIncluded"><td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataIncluded" target="_blank">sensitiveDataIncluded</a></td><td><a href="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded" target="_blank">SensitiveDataIncluded</a></td><td>1..1</td><td>Specifies whether the language resource contains special category data, i.e., personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person’s sex life or sexual orientation [Article 9(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]</td><td>This property MUST be filled in for all non-anonymised datasets. If a dataset is anonymised, it is presumed that it contains no personal and sensitive data</td><td><a href="http://vocabhub.ilsp.gr/ms_SensitiveDataIncludedTaxonomy/en/" target="_blank">META-SHARE sensitive data included vocabulary</a></td><td></td><td>P</td></tr><tr id="Model.sourceLanguage"><td><a href="http://w3id.org/meta-share/meta-share/sourceLanguage" target="_blank">sourceLanguage</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>0..n</td><td>The language from which a translation is made.</td><td></td><td></td><td></td><td>P</td></tr><tr id="Model.spatial"><td><a href="http://purl.org/dc/terms/spatial" target="_blank">spatial</a></td><td><a href="http://purl.org/dc/terms/Location" target="_blank">Location</a></td><td>0..n</td><td>Spatial characteristics of the resource</td><td>A geographic region that is covered by the dataset. For language data, this refers to the geographic region where the language of the dataset is spoken/written and not where the dataset was implemented; for instance, in the case of a German institution creating a dataset of Cypriot Greek, the geographic region is "Cyprus".</td><td>The EU Vocabularies Continents Named Authority List for continents (<a href="http://publications.europa.eu/resource/dataset/continent)" target="_blank">http://publications.europa.eu/resource/dataset/continent)</a> , countries (<a href="http://publications.europa.eu/resource/dataset/country)," target="_blank">http://publications.europa.eu/resource/dataset/country),</a> places (<a href="http://publications.europa.eu/resource/dataset/place)" target="_blank">http://publications.europa.eu/resource/dataset/place)</a> and, if not covered, GeoNames (<a href="https://www.geonames.org/)" target="_blank">https://www.geonames.org/)</a></td><td></td><td>P</td></tr><tr id="Model.targetLanguage"><td><a href="http://w3id.org/meta-share/meta-share/targetLanguage" target="_blank">targetLanguage</a></td><td><a href="http://w3id.org/meta-share/meta-share/Language" target="_blank">Language</a></td><td>0..n</td><td>The language into which a translation is made</td><td></td><td></td><td></td><td>P</td></tr><tr id="Model.temporal"><td><a href="http://purl.org/dc/terms/temporal" target="_blank">temporal</a></td><td><a href="http://purl.org/dc/terms/PeriodOfTime" target="_blank">PeriodOfTime</a></td><td>0..n</td><td>Temporal characteristics of the resource</td><td>A temporal period that the contents of a dataset cover. For language data, this can be the time period in which the language of a dataset is spoken.</td><td></td><td></td><td>P</td></tr><tr id="Model.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Model.variantOf"><td><a href="http://w3id.org/meta-share/meta-share/variantOf" target="_blank">variantOf</a></td><td><a href="http://w3id.org/meta-share/meta-share/Model" target="_blank">Model</a></td><td>0..n</td><td>The model on which this model has been based on or derived from or is a variation of</td><td></td><td></td><td></td><td>P</td></tr><tr id="Model.version"><td><a href="http://www.w3.org/ns/dcat#version" target="_blank">version</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>1..1</td><td>The version indicator (name or identifier) of a resource</td><td>This property MUST contain a version number or other version designation of the dataset.  
+It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version identifiers should enable comparison of versions and distinguishing major from minor versions, such as Semantic Versioning [SEMVER].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.version" target="_blank">https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.version</a></td><td>MLD-E</td></tr></tbody>
+</table>
+</div>
+</section>
+<!-- Section Organisation -->
+<section id="Organisation">
+<h3><a href="http://xmlns.com/foaf/0.1/Organization" data-toggle="tooltip" data-content="http://xmlns.com/foaf/0.1/Organization" data-placement="right">Organisation</a></h3>
+
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>An organization.</dd>
+<dt><strong>Reference</strong></dt>
+<dd>No reference</dd>
+<dt><strong>Subclass of</strong></dt>
+<dd><a href="http://xmlns.com/foaf/0.1/Agent">Agent</a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Organisation.identifier">identifier</a>, <a href="#Organisation.name">name</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Organisation.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>Recommended to use ROR for research institutions</td><td></td><td></td><td>P</td></tr><tr id="Organisation.name"><td><a href="http://xmlns.com/foaf/0.1/name" target="_blank">name</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A name for some thing.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr></tbody>
+</table>
+</div>
+</section>
+<!-- Section Person -->
+<section id="Person">
+<h3><a href="http://xmlns.com/foaf/0.1/Person" data-toggle="tooltip" data-content="http://xmlns.com/foaf/0.1/Person" data-placement="right">Person</a></h3>
+   
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>A person.</dd>
+<dt><strong>Reference</strong></dt>
+<dd>No reference</dd>
+<dt><strong>Subclass of</strong></dt>
+<dd><a href="http://xmlns.com/foaf/0.1/Agent">Agent</a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Person.identifier">identifier</a>, <a href="#Person.name">name</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Person.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>Recommended to use ORCID for researchers</td><td></td><td></td><td>P</td></tr><tr id="Person.name"><td><a href="http://xmlns.com/foaf/0.1/name" target="_blank">name</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A name for some thing.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr></tbody>
+</table>
+</div>
+</section>
+<!-- Section Policy -->
+<section id="Policy">
+<h3><a href="http://www.w3.org/ns/odrl/2/Policy" data-toggle="tooltip" data-content="http://www.w3.org/ns/odrl/2/Policy" data-placement="right">Policy</a></h3>
+  
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>A non-empty group of Permissions and/or Prohibitions.</dd>
+<dt><strong>Reference</strong></dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Policy">DCAT-AP [E]</a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Policy.alternative">alternative</a>, <a href="#Policy.description">description</a>, <a href="#Policy.hadPrimarySource">hadPrimarySource</a>, <a href="#Policy.http://creativecommons.org/ns#legalCode">http://creativecommons.org/ns#legalCode</a>, <a href="#Policy.identifier">identifier</a>, <a href="#Policy.title">title</a>, <a href="#Policy.wasAttributedTo">wasAttributedTo</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Policy.alternative"><td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>An alternative name for the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Policy.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>An account of the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Policy.hadPrimarySource"><td><a href="http://www.w3.org/ns/prov#hadPrimarySource" target="_blank">hadPrimarySource</a></td><td><a href="http://www.w3.org/ns/prov#Entity" target="_blank">Entity</a></td><td>0..1</td><td>A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. A primary source relation is a particular case of derivation of secondary materials from their primary sources. It is recognised that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain.</td><td></td><td></td><td></td><td>P</td></tr><tr id="Policy.http://creativecommons.org/ns#legalCode"><td><a href="http://creativecommons.org/ns#legalCode" target="_blank">http://creativecommons.org/ns#legalCode</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td><td>0..1</td><td>The URL of the legal text of a License.</td><td></td><td></td><td></td><td>P</td></tr><tr id="Policy.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td></td><td></td><td></td><td>P</td></tr><tr id="Policy.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Policy.wasAttributedTo"><td><a href="http://www.w3.org/ns/prov#wasAttributedTo" target="_blank">wasAttributedTo</a></td><td><a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">Agent</a></td><td>0..1</td><td>Attribution is the ascribing of an entity to an agent.</td><td></td><td></td><td></td><td>P</td></tr></tbody>
+</table>
+</div>
+</section>
+</section>
+	
+<!-- Entities -->
+<section id="supportiveEntities">
+<h2>Supportive entities</h2>
+<!-- Section Catalogue Record -->
+<section id="CatalogueRecord">
+<h3><a href="http://www.w3.org/ns/dcat#CatalogRecord" data-toggle="tooltip" data-content="http://www.w3.org/ns/dcat#CatalogRecord" data-placement="right">Catalogue Record</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A description of a Catalogued Resource&#39;s entry in the Catalogue.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>For this entity the following properties are defined: <a href="#CatalogueRecord.description">description</a>, <a href="#CatalogueRecord.descriptionversion">description version</a>, <a href="#CatalogueRecord.modificationdate">modification date</a>, <a href="#CatalogueRecord.primarytopic">primary topic</a>.</dd>
+</dl>
+TO ADD THE TABLE
+</section>
+<!-- Section Catalogue Resource -->
+<section id="CataloguedResource">
+<h3><a href="http://www.w3.org/ns/dcat#CataloguedResource" data-toggle="tooltip" data-content="http://www.w3.org/ns/dcat#CataloguedResource" data-placement="right">Catalogued Resource</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Resource published or curated by a single agent.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CataloguedResource">DCAT-AP [A]</a></dd>
+<dt>Usage Note</dt>
+<dd>Abstract class for DCAT-AP. Therefore only subclasses should be used in a data exchange.</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+<!-- Section Concept -->
+<section id="Concept">
+<h3><a href="http://www.w3.org/2004/02/skos/core#Concept" data-toggle="tooltip" data-content="http://www.w3.org/2004/02/skos/core#Concept" data-placement="right">Concept</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>An idea or notion; a unit of thought.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Concept">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+<!-- Section Document -->
+<section id="Document">
+<h3><a href="http://xmlns.com/foaf/0.1/Document" data-toggle="tooltip" data-content="http://xmlns.com/foaf/0.1/Document" data-placement="right">Document</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>A document.</dd>
+<dt><strong>Reference</strong></dt>
+<dd>No reference</dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Document.citationText">citationText</a>, <a href="#Document.identifier">identifier</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Document.citationText"><td><a href="http://w3id.org/meta-share/meta-share/citationText" target="_blank">citationText</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>The text with which a document or language resource can be cited (typically the full citation, incl. title, authors, publisher, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Document.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>It is recommended to add the DOI or a URL where the document can be accessed</td><td></td><td></td><td>P</td></tr></tbody>
+</table>
+</div>
+</section>
+<section id="Identifier">
+<h3><a href="http://www.w3.org/ns/adms#Identifier" data-toggle="tooltip" data-content="http://www.w3.org/ns/adms#Identifier" data-placement="right">Identifier</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>This is based on the UN/CEFACT Identifier class. It consists of: a content string which is the identifier; an optional identifier for the identifier scheme; an optional identifier for the version of the identifier scheme; an optional identifier for the agency that manages the identifier scheme.</dd>
+<dt><strong>Reference</strong></dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Identifier">DCAT-AP [A]</dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Identifier.notation">notation</a>, <a href="#Identifier.schemaAgency">schemaAgency</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Identifier.notation"><td><a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">notation</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>1..1</td><td>A string that is an identifier in the context of the identifier scheme referenced by its datatype.</td><td>It MAY be used to display the identifier as recommended in the original scheme (e.g. The CrossRef and DataCite display guidelines recommend displaying DOIs as full URL link in the form <a href="https://doi.org/10.xxxx/xxxxx/)." target="_blank">https://doi.org/10.xxxx/xxxxx/).</a> The rdfs:Literal must be typed (e.g. ^^<a href="http://www.w3.org/2001/XMLSchema#anyURI)" target="_blank">anyURI)</a></td><td></td><td></td><td>P</td></tr><tr id="Identifier.schemaAgency"><td><a href="http://www.w3.org/ns/adms#schemaAgency" target="_blank">schemaAgency</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>The name of the agency that issued the identifier.</td><td>It MAY be used to represent the authority that defines the identifier scheme (e.g. the DOI foundation) when the authority has an IRI associated to it.
+This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr></tbody>
+</table>
+</div>
+</section>
+<!-- Section Language -->
+<section id="Language">
+<h3><a href="http://w3id.org/meta-share/meta-share/Language" data-toggle="tooltip" data-content="http://w3id.org/meta-share/meta-share/Language" data-placement="right">Language</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>A linguistic system that follows for its encoding the BCP47 recommendation.</dd>
+<dt><strong>Reference</strong></dt>
+<dd>No reference</dd>
+<dt>Subclass of</dt>
+<dd><a href="#LinguisticSystem">Linguistic System</a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Language.languageCode">languageCode</a>, <a href="#Language.languageTag">languageTag</a>, <a href="#Language.languageVarietyName">languageVarietyName</a>, <a href="#Language.region">region</a>, <a href="#Language.script">script</a>, <a href="#Language.variant">variant</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Language.languageCode"><td><a href="http://w3id.org/meta-share/meta-share/languageCode" target="_blank">languageCode</a></td><td><a href="http://w3id.org/meta-share/meta-share/LanguageCode" target="_blank">LanguageCode</a></td><td>1..1</td><td>Used to specify the first part of a language tag according to the BCP47 recommendation which indicates the language</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_LanguagesTaxonomy/en/" target="_blank">META-SHARE language vocabulary</a></td><td></td><td>P</td></tr><tr id="Language.languageTag"><td><a href="http://w3id.org/meta-share/meta-share/languageTag" target="_blank">languageTag</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>1..1</td><td>The identifier of a language, according to the IETF BCP47 guidelines</td><td>This is automatically built from the values of the four language subtags (language, script, region and variant) provided by the user</td><td></td><td></td><td>P</td></tr><tr id="Language.languageVarietyName"><td><a href="http://w3id.org/meta-share/meta-share/languageVarietyName" target="_blank">languageVarietyName</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>A textual string used for referring to a language variety</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Language.region"><td><a href="http://w3id.org/meta-share/meta-share/region" target="_blank">region</a></td><td><a href="http://w3id.org/meta-share/meta-share/Region" target="_blank">Region</a></td><td>0..1</td><td>Specifies the geographical region where a language is used according to the BCP47 recommendation</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_RegionsTaxonomy/en/" target="_blank">META-SHARE location vocabulary</a></td><td></td><td>P</td></tr><tr id="Language.script"><td><a href="http://w3id.org/meta-share/meta-share/script" target="_blank">script</a></td><td><a href="http://w3id.org/meta-share/meta-share/Script" target="_blank">Script</a></td><td>0..1</td><td>Specifies the script used for writing a language</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_ScriptsTaxonomy/en/" target="_blank">META-SHARE script vocabulary</a></td><td></td><td>P</td></tr><tr id="Language.variant"><td><a href="http://w3id.org/meta-share/meta-share/variant" target="_blank">variant</a></td><td><a href="http://w3id.org/meta-share/meta-share/Variant" target="_blank">Variant</a></td><td>0..n</td><td>Specifies a variant for a language according to the BCP-47 recommendation</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_VariantsTaxonomy/en/" target="_blank">META-SHARE variants vocabulary</a></td><td></td><td>P</td></tr></tbody>
+</table>
+</div>
+</section>
+<!-- Section Linguistic System -->
+<section id="LinguisticSystem">
+<h3><a href="http://purl.org/dc/terms/LinguisticSystem" data-toggle="tooltip" data-content="http://purl.org/dc/terms/LinguisticSystem" data-placement="right">Linguistic System</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A system of signs, symbols, sounds, gestures, or rules used in communication, e.g. a language.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Linguisticsystem">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+<!-- Section Location -->
+<section id="Location">
+<h3><a href="http://purl.org/dc/terms/Location" data-toggle="tooltip" data-content="http://purl.org/dc/terms/Location" data-placement="right">Location</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A spatial region or named place.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Location">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+<!-- Section MediaType -->
+<section id="MediaType">
+<h3><a href="http://purl.org/dc/terms/MediaType" data-toggle="tooltip" data-content="http://purl.org/dc/terms/MediaType" data-placement="right">Media Type</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A file format or physical medium.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#MediaType">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+<!-- Section MediaTypeOrExtent -->
+<section id="MediaTypeOrExtent">
+<h3><a href="http://purl.org/dc/terms/MediaTypeOrExtent" data-toggle="tooltip" data-content="http://purl.org/dc/terms/MediaTypeOrExtent" data-placement="right">Media Type Or Extent</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A media type or extent.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#MediaTypeOrExtent">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section><!-- Section Size -->	
+<section id="Size">
+<h3><a href="http://w3id.org/meta-share/meta-share/Size" data-toggle="tooltip" data-content="http://w3id.org/meta-share/meta-share/Size" data-placement="right">Size</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>The size of the resource with regard to the SizeUnit measurement in form of a number.</dd>
+<dt><strong>Refence</strong></dt>
+<dd>No reference</dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Size.amount">amount</a>, <a href="#Size.sizeUnit">sizeUnit</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Size.amount"><td><a href="http://w3id.org/meta-share/meta-share/amount" target="_blank">amount</a></td><td><a href="http://www.w3.org/2001/XMLSchema#float" target="_blank">float</a></td><td>1..1</td><td>Specifies the number of units that constitute anything that can be measured (e.g. size of a data resource or cost, etc.)</td><td></td><td></td><td></td><td>P</td></tr><tr id="Size.sizeUnit"><td><a href="http://w3id.org/meta-share/meta-share/sizeUnit" target="_blank">sizeUnit</a></td><td><a href="http://w3id.org/meta-share/meta-share/SizeUnit" target="_blank">SizeUnit</a></td><td>1..1</td><td>Specifies the unit that is used when providing information on the size of the resource or of resource parts</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_SizeUnitTaxonomy/en/" target="_blank">META-SHARE size unit vocabulary</a></td><td></td><td>P</td></tr></tbody>
+</table>
+</div>
+</section>
+<!-- Section TimePeriod -->
+<section id="TimePeriod">
+<h3><a href="http://purl.org/dc/terms/PeriodOfTime" data-toggle="tooltip" data-content="http://purl.org/dc/terms/PeriodOfTime" data-placement="right">Time Period</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>An interval of time that is named or defined by its start and end dates.</dd>
+<dt><strong>Reference</strong></dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#PeriodofTime">DCAT-AP [A]</a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Time_Period.endDate">endDate</a>, <a href="#Time_Period.startDate">startDate</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+<tbody><tr id="Time_Period.endDate"><td><a href="http://www.w3.org/ns/dcat#endDate" target="_blank">endDate</a></td><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td><td>1..1</td><td>The end of the period</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.enddate" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.enddate</a></td><td>DCATA-E</td></tr><tr id="Time_Period.startDate"><td><a href="http://www.w3.org/ns/dcat#startDate" target="_blank">startDate</a></td><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td><td>1..1</td><td>The start of the period</td><td>Please note that while both properties are recommended, one of the two must be present for each instance of the class dct:PeriodOfTime, if such an instance is present.
+NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.startdate" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.startdate</a></td><td>DCATA-E</td></tr></tbody>
+</table>
+</div>
+</section>
+</section>
+	
+<section id="datatypes">
+<h2>Datatypes</h2>
+<p>TO ADD</p>
+</section>
+
+<section id="controlledVocabs">
+<h2>Controlled Vocabularies</h2>
+<p>TO ADD</p>
+</section>
+
+<section class="informative" id="guidelines">
+<h2>Usage guidelines</h2>
+<p>TO ADD</p>
+</section>
+	
+<section class="informative">
+<h2>Support for implementation</h2>
+<p>TO ADD json-ld context file, ttl, shacl rules for validation, ?identifiers</p>
+</section>
+	
+<section class="informative" id="examples">
+<h2> Examples </h2>
+<div class="h3 examples" id="example-corpus">Example Corpus</div>
+<div class="h3 examples" id="example-lcr">Example Lexical/Conceptual Resource</div>
+<div class="h3 examples" id="example-machinelearningmodel">Example Model</div>
+</section>
+
+
+</section>
+<section class="informative" id="mappings">
+<h2>Mappings</h2>
+TO ADD mappings with MLDCAT-AP and other schemas
+</section>
+</body>
+</html>
