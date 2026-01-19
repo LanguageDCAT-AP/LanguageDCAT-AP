@@ -681,7 +681,27 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt>Properties</dt>
 <dd>For this entity the following properties are defined: <a href="#CatalogueRecord.description">description</a>, <a href="#CatalogueRecord.descriptionversion">description version</a>, <a href="#CatalogueRecord.modificationdate">modification date</a>, <a href="#CatalogueRecord.primarytopic">primary topic</a>.</dd>
 </dl>
-TO ADD THE TABLE
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:9%;"/>
+<col style="width:9%;"/>
+<col style="width:4.8%;"/>
+<col style="width:23.75%;"/>
+<col style="width:23.75%;"/>
+<col style="width:13%;"/>
+<col style="width:11.5%;"/>
+<col style="width:5.2%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
+</tr>
+</thead>
+CHANGE VALUES
+<tbody><tr id="CatalogueRecord.description"><td><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#description" target="_blank">description</a></td><td><a href="#Literal" target="_blank">Literal</a></td><td>0..*</td><td>The text with which a document or language resource can be cited (typically the full citation, incl. title, authors, publisher, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Document.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>It is recommended to add the DOI or a URL where the document can be accessed</td><td></td><td></td><td>P</td></tr></tbody>
+</table>
+</div>
 </section>
 <!-- Section Catalogue Resource -->
 <section id="CataloguedResource">
@@ -924,11 +944,104 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <section id="datatypes">
 <h2>Datatypes</h2>
 <p>TO ADD</p>
+
+The following datatypes are used within this specification.
+
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:15%;"/>
+<col style="width:85%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Class</th><th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr id="boolean"><td><a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank">boolean</a></td></td><td>TO ADD.</td></tr>
+<tr id="float"><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td></td><td>TO ADD.</td></tr>
+<tr id="date"><td><a href="http://www.w3.org/2001/XMLSchema#float" target="_blank">float</a></td></td><td>TO ADD.</td></tr>
+<tr id="integer"><td><a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank">integer</a></td></td><td>TO ADD.</td></tr>
+<tr id="langString"><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td></td><td>The datatype of language-tagged string values.</td></tr>
+<tr id="Literal"><td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">Literal</a></td></td><td>A literal value such as a string or integer; Literals may be typed, e.g. as a date according to xsd:date. Literals that contain human-readable text have an optional language tag as defined by BCP 47[[rfc5646]]</td></tr>
+<tr id="nonNegativeInteger"><td><a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger" target="_blank">nonNegativeInteger</a></td></td><td>Number derived from integer by setting the value of minInclusive to be 0.</td></tr>
+<tr id="string"><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td></td><td>TO ADD.</td></tr>
+</body>
+</table>
+</div>
 </section>
 
 <section id="controlledVocabs">
 <h2>Controlled Vocabularies</h2>
-<p>TO ADD</p>
+<p>CHANGE URLs in TABLE</p>
+vocabDataFormat.ttl
+vocabDataProtectionPrinciple.ttl
+vocabDomain.ttl
+vocabLanguageScope.ttl
+vocabLCRSubclass.ttl
+vocabLinguality.ttl
+vocabLRType.ttl
+vocabMediaType.ttl
+vocabMicrofeature.ttl
+vocabModelType.ttl
+vocabMultilinguality.ttl
+vocabODRLoperators.ttl
+vocabOperation.ttl
+vocabPackageFormat.ttl
+vocabPersonalData.ttl
+vocabProcessingResourceType.ttl
+vocabPurposeOfUse.ttl
+vocabScopeOfUse.ttl
+vocabSensitiveData.ttl
+vocabSizeUnit.ttl
+vocabSoftwareDistributionForm.ttl
+vocabStandard.ttl
+vocabTechnicalOrganisationalMeasure.ttl
+
+
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:15%;"/>
+<col style="width:85%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Class</th><th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank">1</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">2</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#float" target="_blank">3</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank">4</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">5</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">6</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger" target="_blank">7</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">8</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank">9</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">10</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#float" target="_blank">11</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank">12</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">13</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">14</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger" target="_blank">15</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">16</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger" target="_blank">17</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">18</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank">19</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">20</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#float" target="_blank">21</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank">22</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">23</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">24</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger" target="_blank">25</a></td></td><td>TO ADD.</td></tr>
+<tr id="toadd"><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">26</a></td></td><td>TO ADD.</td></tr>
+</body>
+</table>
+</div>
+
 </section>
 
 <section class="informative" id="guidelines">
