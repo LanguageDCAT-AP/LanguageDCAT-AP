@@ -698,8 +698,8 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <th>Property</th><th>Range</th><th>Card</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Ref</th><th>Reuse</th>
 </tr>
 </thead>
-CHANGE VALUES
-<tbody><tr id="CatalogueRecord.description"><td><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#description" target="_blank">description</a></td><td><a href="#Literal" target="_blank">Literal</a></td><td>0..*</td><td>The text with which a document or language resource can be cited (typically the full citation, incl. title, authors, publisher, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [rfc5646].</td><td></td><td></td><td>P</td></tr><tr id="Document.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>It is recommended to add the DOI or a URL where the document can be accessed</td><td></td><td></td><td>P</td></tr></tbody>
+Check references for range!
+<tbody><tr id="CatalogueRecord.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="#Literal" target="_blank">Literal</a></td><td>0..*</td><td>A free-text account of the record.</td><td>This property can be repeated for parallel language versions of the description.</td><td></td><td></td><td></td></tr><tr id="CatalogueRecord.descriptionversion"><td><a href="http://data.europa.eu/it6/descriptionVersion" target="_blank">description version</a></td><td><a href="#Literal" target="_blank">Literal</a></td><td>0..1</td><td>It refers to the version of the description. '1' for original version.</td><td></td><td></td><td></td><td></td></tr><tr id="CatalogueRecord.modificationdate"><td><a href="http://purl.org/dc/terms/modified" target="_blank">modification date</a></td><td><a href="#TemporalLiteral" target="_blank">Temporal Literal</a></td><td>1</td><td>The most recent date on which the Catalogue entry was changed or modified.</td><td></td><td></td><td></td><td></td></tr><tr id="CatalogueRecord.primarytopic"><td><a href="http://xmlns.com/foaf/0.1/primaryTopic" target="_blank">primary topic</a></td><td><a href="#CataloguedResource" target="_blank">Catalogued Resource</a></td><td>1</td><td>A link to the Dataset, Data service or Catalog described in the record.</td><td>A catalogue record will refer to one entity in a catalogue. This can be either a Dataset or a Data Service. To ensure an unambigous reading of the cardinality the range is set to Catalogued Resource. However it is not the intend with this range to require the explicit use of the class Catalogued Record. As abstract class, an subclass should be used.</td><td></td><td></td><td></td></tr></tbody></table>
 </table>
 </div>
 </section>
@@ -980,42 +980,253 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <div class="u-table-overflow">
 <table class="data-table simple">
 <colgroup>
-<col style="width:45%;"/>
-<col style="width:55%;"/>
+<col style="width:20%;"/>
+<col style="width:20%;"/>
+<col style="width:20%;"/>
+<col style="width:20%;"/>
+<col style="width:20%;"/>
+
 </colgroup>
 <thead>
 <tr>
-<th>ShowVoc</th><th>Vocabulary</th>
+<th>Property</th><th>Class label</th><th>Range</th><th>Controlled vocabulary</th><th>Usage</th>
 </tr>
 </thead>
+
 <tbody>
-<tr id="Annotation_Type_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Annotation_Type_Taxonomy/data" target="_blank">Annotation_Type_Taxonomy</a></td></td><td>vocabAnnotationType.ttl</td></tr>
-<tr id="Anonymized_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Anonymized_Taxonomy/data" target="_blank">Anonymized_Taxonomy</a></td></td><td>vocabAnonymized.ttl</td></tr>
-<tr id="Corpus_Subclass_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Corpus_Subclass_Taxonomy/data" target="_blank">Corpus_Subclass_Taxonomy</a></td></td><td>vocabCorpusSubclass.ttl</td></tr>
-<tr id="Data_Format_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" target="_blank">Data_Format_Taxonomy</a></td></td><td>vocabDataFormat.ttl</td></tr>
-<tr id="Data_Protection_Principle_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Protection_Principle_Taxonomy/data" target="_blank">Data_Protection_Principle_Taxonomy</a></td></td><td>vocabDataProtectionPrinciple.ttl</td></tr>
-<tr id="Domain_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Domain_Taxonomy/data" target="_blank">Domain_Taxonomy</a></td></td><td>vocabDomain.ttl</td></tr>
-<tr id="Language_Resource_Type_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Resource_Type_Taxonomy/data" target="_blank">Language_Resource_Type_Taxonomy</a></td></td><td>vocabLRType.ttl</td></tr>
-<tr id="Language_Scope_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Scope_Taxonomy/data" target="_blank">Language_Scope_Taxonomy</a></td></td><td>vocabLanguageScope.ttl</td></tr>
-<tr id="Linguality_Type_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Linguality_Type_Taxonomy/data" target="_blank">Linguality_Type_Taxonomy</a></td></td><td>vocabLinguality.ttl</td></tr>
-<tr id="Media_Type_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data" target="_blank">Media_Type_Taxonomy</a></td></td><td>vocabMediaType.ttl</td></tr>
-<tr id="Microstructure_Feature_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Microstructure_Feature_Taxonomy/data" target="_blank">Microstructure_Feature_Taxonomy</a></td></td><td>vocabMicrofeature.ttl</td></tr>
-<tr id="Model_Type_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Model_Type_Taxonomy/data" target="_blank">Model_Type_Taxonomy</a></td></td><td>vocabModelType.ttl</td></tr>
-<tr id="Multilinguality_Type_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Multilinguality_Type_Taxonomy/data" target="_blank">Multilinguality_Type_Taxonomy</a></td></td><td>vocabMultilinguality.ttl</td></tr>
-<tr id="Operation_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Operation_Taxonomy/data" target="_blank">Operation_Taxonomy</a></td></td><td>vocabOperation.ttl</td></tr>
-<tr id="Operators_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Operators_Taxonomy/data" target="_blank">Operators_Taxonomy</a></td></td><td>vocabODRLoperators.ttl</td></tr>
-<tr id="Package_Format_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Package_Format_Taxonomy/data" target="_blank">Package_Format_Taxonomy</a></td></td><td>vocabPackageFormat.ttl</td></tr>
-<tr id="Personal_Data_Included_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Personal_Data_Included_Taxonomy/data" target="_blank">Personal_Data_Included_Taxonomy</a></td></td><td>vocabPersonalData.ttl</td></tr>
-<tr id="Processing_Resource_Types_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Processing_Resource_Types_Taxonomy/data" target="_blank">Processing_Resource_Types_Taxonomy</a></td></td><td>vocabProcessingResourceType.ttl</td></tr>
-<tr id="Purpose_of_use"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Purpose_of_use/data" target="_blank">Purpose_of_use</a></td></td><td>vocabPurposeOfUse.ttl</td></tr>
-<tr id="Scope_of_Use_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Scope_of_Use_Taxonomy/data" target="_blank">Scope_of_Use_Taxonomy</a></td></td><td>vocabScopeOfUse.ttl</td></tr>
-<tr id="Size_Unit_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Size_Unit_Taxonomy/data" target="_blank">Size_Unit_Taxonomy</a></td></td><td>vocabSizeUnit.ttl</td></tr>
-<tr id="Software_Distribution_Form_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Software_Distribution_Form_Taxonomy/data" target="_blank">Software_Distribution_Form_Taxonomy</a></td></td><td>vocabSoftwareDistributionForm.ttl</td></tr>
-<tr id="Special_Category_Data_Included_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Special_Category_Data_Included_Taxonomy/data" target="_blank">Special_Category_Data_Included_Taxonomy</a></td></td><td>vocabSensitiveData.ttl</td></tr>
-<tr id="Standards_Best_practices_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Standards_Best_practices_Taxonomy/data" target="_blank">Standards_Best_practices_Taxonomy</a></td></td><td>vocabStandard.ttl</td></tr>
-<tr id="Taxonomy_of_Subclasses_of_Lexical_Conceptual_Resources"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Taxonomy_of_Subclasses_of_Lexical_Conceptual_Resources/data" target="_blank">Taxonomy_of_Subclasses_of_Lexical_Conceptual_Resources</a></td></td><td>vocabLCRSubclass.ttl</td></tr>
-<tr id="Technical_and_Organisational_Measure_Taxonomy"><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Technical_and_Organisational_Measure_Taxonomy/data" target="_blank">Technical_and_Organisational_Measure_Taxonomy</a></td></td><td>vocabTechnicalOrganisationalMeasure.ttl</td></tr>
-</body>
+<tr id="Annotation Type Taxonomy">
+  <td></td>
+  <td>vocabAnnotationType.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Annotation_Type_Taxonomy/data" target="_blank">Annotation Type Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Anonymized Taxonomy">
+  <td></td>
+  <td>vocabAnonymized.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Anonymized_Taxonomy/data" target="_blank">Anonymized Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Corpus Subclass Taxonomy">
+  <td></td>
+  <td>vocabCorpusSubclass.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Corpus_Subclass_Taxonomy/data" target="_blank">Corpus Subclass Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Data Format Taxonomy">
+  <td></td>
+  <td>vocabDataFormat.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" target="_blank">Data Format Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Data Protection Principle Taxonomy">
+  <td></td>
+  <td>vocabDataProtectionPrinciple.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Protection_Principle_Taxonomy/data" target="_blank">Data Protection Principle Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Domain Taxonomy">
+  <td></td>
+  <td>vocabDomain.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Domain_Taxonomy/data" target="_blank">Domain Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Language Resource Type Taxonomy">
+  <td></td>
+  <td>vocabLRType.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Resource_Type_Taxonomy/data" target="_blank">Language Resource Type Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Language Scope Taxonomy">
+  <td></td>
+  <td>vocabLanguageScope.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Scope_Taxonomy/data" target="_blank">Language Scope Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Linguality Type Taxonomy">
+  <td></td>
+  <td>vocabLinguality.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Linguality_Type_Taxonomy/data" target="_blank">Linguality Type Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Media Type Taxonomy">
+  <td></td>
+  <td>vocabMediaType.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data" target="_blank">Media Type Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Microstructure Feature Taxonomy">
+  <td></td>
+  <td>vocabMicrofeature.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Microstructure_Feature_Taxonomy/data" target="_blank">Microstructure Feature Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Model Type Taxonomy">
+  <td></td>
+  <td>vocabModelType.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Model_Type_Taxonomy/data" target="_blank">Model Type Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Multilinguality Type Taxonomy">
+  <td></td>
+  <td>vocabMultilinguality.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Multilinguality_Type_Taxonomy/data" target="_blank">Multilinguality Type Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Operation Taxonomy">
+  <td></td>
+  <td>vocabOperation.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Operation_Taxonomy/data" target="_blank">Operation Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Operators Taxonomy">
+  <td></td>
+  <td>vocabODRLoperators.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Operators_Taxonomy/data" target="_blank">Operators Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Package Format Taxonomy">
+  <td></td>
+  <td>vocabPackageFormat.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Package_Format_Taxonomy/data" target="_blank">Package Format Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Personal Data Included Taxonomy">
+  <td></td>
+  <td>vocabPersonalData.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Personal_Data_Included_Taxonomy/data" target="_blank">Personal Data Included Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Processing Resource Types Taxonomy">
+  <td></td>
+  <td>vocabProcessingResourceType.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Processing_Resource_Types_Taxonomy/data" target="_blank">Processing Resource Types Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Purpose of use">
+  <td></td>
+  <td>vocabPurposeOfUse.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Purpose_of_use/data" target="_blank">Purpose of use</a></td>
+  <td></td>
+</tr>
+
+<tr id="Region Taxonomy">
+  <td></td>
+  <td>bcp47_regions.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Region_taxonomy/data" target="_blank">Region Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Scope of Use Taxonomy">
+  <td></td>
+  <td>vocabScopeOfUse.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Scope_of_Use_Taxonomy/data" target="_blank">Scope of Use Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Size Unit Taxonomy">
+  <td></td>
+  <td>vocabSizeUnit.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Size_Unit_Taxonomy/data" target="_blank">Size Unit Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Script Taxonomy">
+  <td></td>
+  <td>bcp47_scripts.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Script_taxonomy/data" target="_blank">Script Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Software Distribution Form Taxonomy">
+  <td></td>
+  <td>vocabSoftwareDistributionForm.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Software_Distribution_Form_Taxonomy/data" target="_blank">Software Distribution Form Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Special Category Data Included Taxonomy">
+  <td></td>
+  <td>vocabSensitiveData.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Special_Category_Data_Included_Taxonomy/data" target="_blank">Special Category Data Included Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Standards Best practices Taxonomy">
+  <td></td>
+  <td>vocabStandard.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Standards_Best_practices_Taxonomy/data" target="_blank">Standards Best practices Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Taxonomy of Subclasses of Lexical Conceptual Resources">
+  <td></td>
+  <td>vocabLCRSubclass.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Taxonomy_of_Subclasses_of_Lexical_Conceptual_Resources/data" target="_blank">Taxonomy of Subclasses of Lexical Conceptual Resources</a></td>
+  <td></td>
+</tr>
+
+<tr id="Technical and Organisational Measure Taxonomy">
+  <td></td>
+  <td>vocabTechnicalOrganisationalMeasure.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Technical_and_Organisational_Measure_Taxonomy/data" target="_blank">Technical and Organisational Measure Taxonomy</a></td>
+  <td></td>
+</tr>
+
+<tr id="Variant Taxonomy">
+  <td></td>
+  <td>bcp47_variants.ttl</td>
+  <td></td>
+  <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Variant_taxonomy/data" target="_blank">Variant Taxonomy</a></td>
+  <td></td>
+</tr>
+</tbody>
+
 </table>
 </div>
 
