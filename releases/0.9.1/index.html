@@ -121,7 +121,7 @@ One of the main objectives of LanguageDCAT-AP is to cover the requirements of ex
 </section>
 
 <!-- Conformance -->
-<section id="conformance">
+<section id="conformance" class="informative">
 <h2>Conformance</h2>
 </section>
 
@@ -130,9 +130,23 @@ One of the main objectives of LanguageDCAT-AP is to cover the requirements of ex
 <section id="terminology">
 <h2>Terminology</h2>
 <p>
-An <b>Application Profile</b> is a data specification aimed to facilitate the data exchange in a well-defined application context. It re-uses concepts from one or more semantic data specifications, while adding more specificity, by identifying mandatory, recommended, and optional elements, addressing particular application needs, and providing recommendations for controlled vocabularies to be used. More information can be found on the SEMIC Style Guide. 
-TO ADD language resoruce, language data, language models, language technology tool/service
-</p>
+An <b>Application Profile</b> is a data specification aimed to facilitate the data exchange in a well-defined application context. It re-uses concepts from one or more semantic data specifications, while adding more specificity, by identifying mandatory, recommended, and optional elements, addressing particular application needs, and providing recommendations for controlled vocabularies to be used. More information can be found on the <a href="https://semiceu.github.io/style-guide/1.0.0/terminological-clarifications.html#sec:what-is-a-cv-specification">SEMIC Style Guide</a>. [Definition from MLDCAT-AP]</p>
+
+A <b>dataset</b> represents a collection of data, published or curated by a single agent or identifiable community. [Definition from [[vocab-dcat-3]]]
+
+A <b>language resource</b> is a resource composed of linguistic material used in the construction, improvement and/or evaluation of language processing applications, but also, in a broader sense, in language and language-mediated research studies and applications; the term is used with a broader meaning, encompassing (a) data sets (textual, multimodal/multimedia and lexical data, grammars, language models, etc.) in machine readable form, and (b) tools/technologies/services used for their processing and management. [Definition from META-SHARE]
+
+A language resource is further distinguished into: 
+<ul>
+	<li><b>corpora</b>: structured collections of pieces of data (textual, audio, video, multimodal/multimedia, etc.) typically of considerable size and selected according to criteria external to the data (e.g., size, type of language, type of text producers or expected audience, etc.) to represent as comprehensively as possible the object of study;</li>
+	<li><b>lexical/conceptual resources</b>: datasets organised on the basis of lexical or conceptual entries (lexical items, terms, concepts, etc.) with their supplementary information (e.g., grammatical, semantic, statistical information, etc.)</li>
+	<li><b>machine learning models</b>: model artifacts created through a training process involving a Machine Learning (ML) algorithm (that is, the learning algorithm) and the training data to learn from;</li>
+	<li><b>language technology tools/services</b>: tools/services/any piece of software that performs language processing and/or any Language Technology related operation;</li>
+	<li><b>computational grammars</b> and other <b>language descriptions</b>, i.e., resources that formally describe a language.</li>
+</ul>
+
+<p>Initially, models were considered under the class of "language descriptions", but given the way they have evolved, especially with the advent of Large Language Models (LLMs), they have been recognised as a distinct category.</p>
+
 <h3>Used prefixes</h3>
 <p>LanguageDCAT-AP is a semantic specification, where each class and property has an URI. The prefixed form of the URI, can be found in part in the class diagram and in the quick reference table at the bottom, while, for ease of reading, full URI can be found in the hyperlink of each class and property. This specification uses the following prefixes to shorten the URIs for readability:
 	</p>
