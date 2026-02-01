@@ -92,7 +92,7 @@ LanguageDCAT-AP caters for the description of language data, language models and
 
 <p>These are also referred to as "language resources" or "language resources and technologies". As defined in the META-SHARE ontology, a "<a href="http://www.meta-share.org/ontologies/meta-share/meta-share-ontology.owl/documentation/index-en.html#/LanguageResource">language resouce</a>" is "a resource composed of linguistic material used in the construction, improvement and/or evaluation of language processing applications, but also, in a broader sense, in language and language-mediated research studies and applications; the term is used with a broader meaning, encompassing (a) data sets (textual, multimodal/multimedia and lexical data, grammars, language models, etc.) in machine readable form, and (b) tools/technologies/services used for their processing and management."</p>
 
-<p>Work on LanguageDCAT-AP was initiated in the <a href="https://language-data-space.ec.europa.eu/">Common European Language Data Space</a> but it is based on a long-term work carried out in the context of infrastructures intended for the sharing of language resources. LanguageDCAT-AP is, thus, designed with a wider scope covering broader description needs in the Language Data, Language Technology and Language-centric Artificial Intelligence domain.</p>
+<p>Work on LanguageDCAT-AP was initiated in the <a href="https://language-data-space.ec.europa.eu/">Common European Language Data Space</a> (LDS), but it is based on a long history of activities carried out in the context of infrastructures intended for the sharing of language resources. LanguageDCAT-AP is, thus, designed with a wider scope covering broader description needs in the Language Data, Language Technology and Language-centric Artificial Intelligence domain.</p>
 </section>
 
 <!-- Introduction -->
@@ -100,32 +100,21 @@ LanguageDCAT-AP caters for the description of language data, language models and
 <h2>Introduction</h2>
 <p>LanguageDCAT-AP is conceived and implemented as an extension of (a) the DCAT-AP application profile for Catalogues containing Datasets and Data Services in Europe [[DCAT-AP]] and (b) the MLDCAT-AP profile for machine learning models and their datasets [[MLDCAT-AP]]. It also builds upon the <a href="http://w3id.org/meta-share/">META-SHARE ontology</a>, and the vocabularies associated with it, such as the <a href="http://w3id.org/omtd-share/">OMTD-SHARE ontology</a>, especially for domain-specific concepts and properties. To cover language data specificities, it adopts classes and properties from these vocabularies, introduces new ones, where needed, and proposes domain-specific controlled vocabularies.</p>
 
-<p>It should be noted that the current version (v0.9.1) focuses on datasets, and more specifically, corpora and lexical/conceptual resources (see next section), as well as language models, including for their description a minimal set of attributes that help consumers discover them, while the full set of attributes and the class of language technology services will be added in future versions.</p>
-
+<p>It should be noted that the current version (v0.9.1) focuses on datasets, and more specifically, corpora and lexical/conceptual resources (see Section on Terminology), as well as language models, including for their description a minimal set of attributes that help consumers discover them, while the full set of attributes and the class of language technology services will be added in future versions.</p>
 
 </section>
 <!-- Context -->
 <section id="context">
 <h2>Context</h2>
 <p>
+One of the main objectives of LanguageDCAT-AP is to cover the requirements of exchanging language data and models in the context of the <a href="https://language-data-space.ec.europa.eu/">Common European Language Data Space</a> and, as such, takes into account the building principles and specifications of data spaces. The most notable ones are the <a href="https://eclipse-dataspace-protocol-base.github.io/DataspaceProtocol/2025-1-err1/">Data Space Protocol</a> (DSP) and the IDS Reference Architecture Model (RAM, <a href="https://docs.internationaldataspaces.org/ids-knowledgebase/ids-ram-4">version 4</a> at the time of writing). Other data spaces initiatives, especially <a href="https://gaia-x.eu/">Gaia-X</a> and its specifications (cf., <a href="https://docs.gaia-x.eu/technical-committee/architecture-document/25.11/">Gaia-X architecture document</a>), and the <a href="https://dssc.eu/">Data Spaces Support Centre</a> (DSSC), with its Blueprint (<a href="https://dssc.eu/space/BVE2/1071251457/Data+Spaces+Blueprint+v2.0+-+Home">version 2.0</a> at the time of writing), bear a strong influence on the design of LanguageDCAT-AP.</p>
 
-        Explain LDS specificities
-    </p>
-</section>
-<!-- Status -->
-<section id="status">
-<h2>Status</h2>
+<p>For semantic interoperability purposes, data spaces initiatives recommend the use of DCAT [[vocab-dcat-3]] for the description of catalogues, datasets and data services, and [[ODRL]] for the representation of policies. Specific data spaces have further adopted and extend [[DCAT-AP]] to their domains needs (cf., for instance, <a href="https://mobilitydcat-ap.github.io/mobilityDCAT-AP/releases/index.html">mobilityDCAT-AP</a> and <a href="https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/index.html">HealthDCAT-AP</a>). LDS carries on along these steps, in close collaboration with the <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre">SEMIC</a> team.</p>
+
 <p>
-        Working draft - TO ADD status based on SEMIC?
-    </p>
-</section>
-<!-- Licence -->
-<section id="licence">
-<h2>Licence</h2>
-<p>
-        All material published under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> 
-    </p>
-</section>
+
+
+
 <!-- Conformance -->
 <section id="conformance">
 <h2>Conformance</h2>
