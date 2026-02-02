@@ -242,32 +242,55 @@ TO ADD UML DIAGRAM
 
 <!-- Entities -->
 <section id="mainEntities">
-<h2>Main entities</h2>
-The main entities are those that form the core of the Application Profile. The properties and their associated constraints that apply in the context of this profile are listed in a tabular form. Each row corresponds to one property. In addition to the constraints also cross-references are provided to DCAT-AP, and MLDCAT-AP. To save space, the following abbreviations are used to indicate in short the difference with them:
-<ul>
-<li>DCATAP-A: reused as-is defined and expressed in DCAT-AP</li>
-<li>DCATAP-E: reused with additional usage notes or additional restrictions compared to DCAT-AP</li>
-<li>MLDCATAP-A: reused as-is defined and expressed in MLDCAT-AP</li>
-<li>MLDCATAP-E: reused with additional usage notes or additional restrictions compared to MLDCAT-AP</li>
-<li>P: LanguageDCAT-AP profile specific extension where DCAT-AP and MLDCAT-AP had no requirements earlier</li>
-</ul>
-This reuse qualification assessement is with respect to a specific version of the two profiles. Therefore it may vary over time when new versions thereof are created.
-test again
+  <h2>Main entities</h2>
+
+  <p>The main entities are those that form the core of the Application Profile.</p>
+
+  <p>
+    The properties and their associated constraints that apply in the context of this profile
+    are listed in a tabular form. Each row corresponds to one property.
+    In addition to the constraints also cross-references are provided to DCAT-AP, and MLDCAT-AP.
+    To save space, the following abbreviations are used:
+  </p>
+
+  <ul>
+    <li>DCATAP-A: reused as-is defined and expressed in DCAT-AP</li>
+    <li>DCATAP-E: reused with additional usage notes or additional restrictions compared to DCAT-AP</li>
+    <li>MLDCATAP-A: reused as-is defined and expressed in MLDCAT-AP</li>
+    <li>MLDCATAP-E: reused with additional usage notes or additional restrictions compared to MLDCAT-AP</li>
+    <li>P: LanguageDCAT-AP profile specific extension where DCAT-AP and MLDCAT-AP had no requirements earlier</li>
+  </ul>
+
+  <p>
+    This reuse qualification assessment is with respect to a specific version of the two profiles.
+    Therefore it may vary over time when new versions thereof are created.
+  </p>
+</section>
+
 <!-- Agent Section -->
 <section id="Agent">
-<h3><a href="http://xmlns.com/foaf/0.1/Agent" data-toggle="tooltip" data-content="http://xmlns.com/foaf/0.1/Agent" data-placement="right">Agent</a></h3>
+  <h3>
+    <a href="http://xmlns.com/foaf/0.1/Agent"
+       data-toggle="tooltip"
+       data-content="http://xmlns.com/foaf/0.1/Agent"
+       data-placement="right">Agent</a>
+  </h3>
 
-<dl>
-<dt><strong>Definition</strong></dt>
-<dd>An agent (person or organisation) carrying out activities related to the Catalogue and Catalogued resources.</dd>
-<dt><strong>Reference</strong></dt>
-<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Agent">DCAT-AP [E]</a></dd>
-<dt><strong>Usage Note</strong></dt>
-<dd>Class used an abstract class. Only the subclasses <a href="#Organisation">Organisation</a> and <a href="#Person">Person</a> should be used in a data exchange.</dd>
-<dt><strong>Properties</strong></dt>
-<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
-</dl>
+  <dl>
+    <dt><strong>Definition</strong></dt>
+    <dd>An agent (person or organisation) carrying out activities related to the Catalogue and Catalogued resources.</dd>
+
+    <dt><strong>Reference</strong></dt>
+    <dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Agent">DCAT-AP [E]</a></dd>
+
+    <dt><strong>Usage Note</strong></dt>
+    <dd>This class is used as an abstract class. Only the subclasses <a href="#Organisation">Organisation</a> and <a href="#Person">Person</a> should be used in a data exchange.</dd>
+
+    <dt><strong>Properties</strong></dt>
+    <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+  </dl>
 </section>
+
 <!-- Section Catalogue -->
 <section>
 <h3 id="Catalogue">
