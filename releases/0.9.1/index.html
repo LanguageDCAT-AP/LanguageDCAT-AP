@@ -151,7 +151,7 @@ An <b>Application Profile</b> is a data specification aimed to facilitate the da
 <p>LanguageDCAT-AP is a semantic specification, where each class and property has an URI. The prefixed form of the URI, can be found in part in the class diagram and in the quick reference table at the bottom, while, for ease of reading, full URI can be found in the hyperlink of each class and property. This specification uses the following prefixes to shorten the URIs for readability:
 	</p>
 	
-<table id="table-namespaces" class="simple">
+<table id="table-namespaces" class="data-table simple">
 	<thead><tr><th>Prefix</th><th>Namespace IRI</th></tr></thead>
 	<tbody>
 		<tr><td><code>adms</code></td><td><code>http://www.w3.org/ns/adms#</code></td></tr>
@@ -310,7 +310,7 @@ TO ADD UML DIAGRAM
 <tbody>
 <tr id="Catalogue.creator"><td><a href="http://purl.org/dc/terms/creator" target="_blank">creator</a></td><td><a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">Agent</a></td><td>0..n</td><td>An entity responsible for the creation of the Catalogue.</td><td></td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Catalogue.creator">DCAT-AP [A]</td></tr>
 <tr id="Catalogue.dataset"><td><a href="http://www.w3.org/ns/dcat#dataset">dataset</a></td><td><a href="http://www.w3.org/ns/dcat#Dataset">Dataset</a></td><td>1..n</td><td>A Dataset that is part of the Catalogue.</td><td></td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Catalogue.dataset">DCAT-AP [E]</a></td></tr>
-<tr id="Catalogue.description"><td><a href="http://purl.org/dc/terms/description">description</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">langstring</a></td><td>1..n</td><td>A free-text account of the Catalogue.</td><td>This property can be repeated for parallel language versions of the description.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Catalogue.description">DCAT-AP [A]</a></td></tr>
+<tr id="Catalogue.description"><td><a href="http://purl.org/dc/terms/description">description</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">langstring</a></td><td>1..n</td><td>A free-text account of the Catalogue.</td><td>This property can be repeated for parallel language versions of the description.</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Catalogue.description">DCAT-AP [A]</a></td></tr>
 <tr id="Catalogue.homepage"><td><a href="http://xmlns.com/foaf/0.1/homepage">homepage</a></td><td><a href="http://xmlns.com/foaf/0.1/Document">Document</a></td><td>0..1</td><td>A web page that acts as the main page for the Catalogue.</td><td></td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Catalogue.homepage">DCAT-AP [A]</a></td></tr>
 <tr id="Catalogue.identifier"><td><a href="http://purl.org/dc/terms/identifier">identifier</a></td><td><a href="#Literal">Literal</a></td><td>0..1</td><td>A unique identifier of the resource being described or cataloged.</td><td></td><td></td><td></td><td><a href="https://www.w3.org/TR/vocab-dcat-3/#Property:resource_identifier">DCAT [E]</a></td></tr>
 <tr id="Catalogue.keyword"><td><a href="http://www.w3.org/ns/dcat#keyword">keyword</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">langstring</a></td><td>0..n</td><td>A keyword or tag describing the resource.</td><td></td><td></td><td></td><td><a href="https://www.w3.org/TR/vocab-dcat-3/#Property:resource_keyword">DCAT [A]</a></td></tr>
