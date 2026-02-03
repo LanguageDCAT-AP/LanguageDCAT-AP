@@ -1208,11 +1208,22 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 
 <section id="controlledVocabs">
 <h2>Controlled Vocabularies</h2>
+<<h3>Requirements for controlled vocabularies</h3>
+<p>LanguageDCAT-AP adopts the requirements set in DCAT-AP for the recommendation of controlled vocabularies. According to these, controlled vocabularies SHOULD:</p>
+<ul>
+	<li>Be published under an open licence.</li>
+<li>Be operated and/or maintained by an institution of the European Union, by a recognised standards organisation or another trusted organisation.</li>
+<li>Be properly documented.</li>
+<li>Have terms that are identified by URIs with each URI resolving to documentation about the term.<p/li>
+<li>Have associated persistence and versioning policies.</li>
+</ul>
+
+<p>The following two requirements identified for DCAT-AP are considered of less importance for LanguageDCAT-AP</p>: 
+<li>Have labels in multiple languages, ideally in all official languages of the European Union.</li>
+<li>Contain a relatively small number of terms (e.g. 10-25) that are general enough to enable a wide range of resources to be classified.</li>
 
 <h3>Controlled vocabularies to be used</h3>
-
 <p>LanguageDCAT-AP specifies a number of controlled vocabularies that MUST be used for specific properties in order to increase semantic interoperability. These vocabularies are selected from among those recommended in DCAT-AP and MLDCAT-AP, and those used in the language data/technologies and neighbouring communities. In the first case, they are controlled by an EU institution, while in the latter case, they are published and maintained by the LDS metadata working group. Requests for changes and addition to the LDS-controlled vocabularies can be made by adding a new issue at <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/issues">https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/issues</a>.</p>
-
 <p>The following table lists the properties that take values from controlled vocabularies, as well as the classes for which these properties are used. The range of these properties is defined as a class (cf. column "Range") as well as a skos:concept belonging to the specified controlled vocabulary.</p>
 
 <div class="u-table-overflow">
