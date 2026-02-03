@@ -1012,9 +1012,9 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 </tr>
 </thead>
 <tbody>
-	<tr id="Identifier.notation"><td><a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">notation</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>1..1</td><td>A string that is an identifier in the context of the identifier scheme referenced by its datatype.</td><td>It MAY be used to display the identifier as recommended in the original scheme (e.g. The CrossRef and DataCite display guidelines recommend displaying DOIs as full URL link in the form <a href="https://doi.org/10.xxxx/xxxxx/)." target="_blank">https://doi.org/10.xxxx/xxxxx/).</a> The rdfs:Literal must be typed (e.g. ^^<a href="http://www.w3.org/2001/XMLSchema#anyURI)" target="_blank">anyURI)</a></td><td>P</td></tr>
+	<tr id="Identifier.notation"><td><a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">notation</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>1..1</td><td>A string that is an identifier in the context of the identifier scheme referenced by its datatype.</td><td>It MAY be used to display the identifier as recommended in the original scheme (e.g. The CrossRef and DataCite display guidelines recommend displaying DOIs as full URL link in the form <a href="https://doi.org/10.xxxx/xxxxx/)." target="_blank">https://doi.org/10.xxxx/xxxxx/).</a> The rdfs:Literal must be typed (e.g. ^^<a href="http://www.w3.org/2001/XMLSchema#anyURI)" target="_blank">anyURI)</a></td><td></td><td>P</td></tr>
 	<tr id="Identifier.schemaAgency"><td><a href="http://www.w3.org/ns/adms#schemaAgency" target="_blank">schemaAgency</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>The name of the agency that issued the identifier.</td><td>It MAY be used to represent the authority that defines the identifier scheme (e.g. the DOI foundation) when the authority has an IRI associated to it.
-This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td>P</td></tr>
+This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 </tbody>
 </table>
 </div>
@@ -1166,9 +1166,9 @@ This property can be repeated for parallel language versions of the property. Th
 </tr>
 </thead>
 <tbody>
-	<tr id="Time_Period.endDate"><td><a href="http://www.w3.org/ns/dcat#endDate" target="_blank">endDate</a></td><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td><td>1..1</td><td>The end of the period</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.enddate" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.enddate</a></td><td>DCAT-AP [E]</td></tr>
+	<tr id="Time_Period.endDate"><td><a href="http://www.w3.org/ns/dcat#endDate" target="_blank">endDate</a></td><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td><td>1..1</td><td>The end of the period</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.enddate" target="_blank">DCAT-AP [E]</td></tr>
 	dsd<tr id="Time_Period.startDate"><td><a href="http://www.w3.org/ns/dcat#startDate" target="_blank">startDate</a></td><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td><td>1..1</td><td>The start of the period</td><td>Please note that while both properties are recommended, one of the two must be present for each instance of the class dct:PeriodOfTime, if such an instance is present.
-NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.startdate" target="_blank">https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.startdate</a></td><td>DCAT-AP [E]</td></tr></tbody>
+NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.startdate" target="_blank">DCAT-AP [E]</td></tr></tbody>
 </table>
 </div>
 </section>
@@ -1190,17 +1190,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </tr>
 </thead>
 <tbody>
-<col style="width:10%;"/>
-<col style="width:10%;"/>
-<col style="width:5%;"/>
-<col style="width:25%;"/>
-<col style="width:25%;"/>
-<col style="width:13%;"/>
-<col style="width:12%;"/>
-</colgroup>
-<thead>
-<tr>
-<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
 <tr id="date"><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td></td><td>TO ADD.</td></tr>
 <tr id="float"><td><a href="http://www.w3.org/2001/XMLSchema#float" target="_blank">float</a></td></td><td>TO ADD.</td></tr>
 <tr id="integer"><td><a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank">integer</a></td></td><td>TO ADD.</td></tr>
@@ -1209,7 +1198,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <tr id="nonNegativeInteger"><td><a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger" target="_blank">nonNegativeInteger</a></td></td><td>Number derived from integer by setting the value of minInclusive to be 0.</td></tr>
 <tr id="string"><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td></td><td>TO ADD.</td></tr>
 <tr id="TemporalLiteral"><td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">Temporal Literal</a></td></td><td>rdfs:Literal encoded using the relevant [[ISO8601]] Date and Time compliant string and typed using the appropriate XML Schema datatype (xsd:gYear, xsd:gYearMonth, xsd:date, or xsd:dateTime).</td></tr>
-</body>
+</tbody>
 </table>
 </div>
 </section>
