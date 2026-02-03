@@ -1474,7 +1474,18 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <p>The following section provides support for implementing the LanguageDCAT-AP.</p>
 
 <h3>JSON-LD context file</h3>
+<p>One common technical question is the format in which the data is being exchanged. For conformance with the LanguageDCAT-AP, it is not mandatory that this happens in an RDF serialisation, but the exchanged format SHOULD be unambiguously transformable into RDF. For the format JSON, a popular format to exchange data between systems, following the same approach used for DCAT-AP and MLDCAT-AP, a JSON-LD context file is provided. JSON-LD is a W3C Recommendation JSON-LD 1.1 that provided a standard approach to interpret JSON structures as RDF. The provided JSON-LD context file can be used by implementers. This JSON-LD context is not normative, i.e. other JSON-LD contexts are allowed.</p>
 
+<p>The JSON-LD context file can be downloaded <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.1/context/languagedcat-ap.jsonld">here</a>.</p>
+
+<h3>Validation</h3>
+<p>To verify if the data is (technically) conformant to the LanguageDCAT-AP, the exchanged data can be validated using the provided SHACL shapes. SHACL is a W3C Recommendation to express constraints on an RDF knowledge graph.</p>
+<p>To support the check whether or not a catalogue satisfies the expressed constraints in this Application Profile, the constraints in this specification are expressed using SHACL [[shacl]]. Each constraint in this specification that could be converted into a SHACL expression has been included. However, it should be noted that the SHACL shapes have been implemented and tested for the Language Data Space purposes, and may include constraints specific to the Data Spaces requirements (cf. Section <a href="#Context">Context</a>). As such this collection of SHACL expressions can be used to build a validation check for data, yet with caution.</p>
+<p>It is up to the implementers to define the validation they expect. Each implementation happens within a context, and that context is beyond the SHACL expressions here.</p>
+<p>The shapes can be found <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.1/SHACL/languagedcat-ap-SHACL.jsonld">here</a>.</p>
+
+<h3>Profile in Turtle format</h3>
+<p>All classes, properties and individuals used in the LanguageDCAT-AP profile are available in a file in Turtle format<a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.1/ttl/languagedcat-ap.ttl">here</a>.</p>
 
 </section>
 	
@@ -1487,9 +1498,12 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 
 
 </section>
-<section class="informative" id="mappings">
-<h2>Mappings</h2>
-TO ADD mappings with MLDCAT-AP and other schemas
-</section>
+
+<section id="acknowledgements" class="appendix">
+<h2>Acknowledgements</h2>
+<p>The LanguageDCAT-AP profile builds upon work carried out in the framework of various initiatives, the most notable of which is the LD4LT W3C Working Group, and infrastructural projects (META-SHARE, OpenMinTeD, CLARIN, CLARIN-EL, European Language Grid), and has been consolidated in the Language Data Space. We would like to acknowledge all persons that have contributed to this work:
+...
+
+We gratefully acknowledge also the guidance and feedback provided by the <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre">SEMIC group</a>, and especially Pavlina Fragkou, Anastasia Sofou, Emidio Stani, and Ine Weyts, in our most recent endeavours.</p>
 </body>
 </html>
