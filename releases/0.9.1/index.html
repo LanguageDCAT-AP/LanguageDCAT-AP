@@ -98,7 +98,7 @@ LanguageDCAT-AP caters for the description of language data, language models and
 <!-- Introduction -->
 <section id="intro">
 <h2>Introduction</h2>
-<p>LanguageDCAT-AP is conceived and implemented as an extension of (a) the DCAT-AP application profile for Catalogues containing Datasets and Data Services in Europe [[DCAT-AP]] and (b) the MLDCAT-AP profile for machine learning models and their datasets [[MLDCAT-AP]]. It also builds upon the <a href="http://w3id.org/meta-share/">META-SHARE ontology</a>, and the vocabularies associated with it, such as the <a href="http://w3id.org/omtd-share/">OMTD-SHARE ontology</a>, especially for domain-specific concepts and properties. To cover language data specificities, it adopts classes and properties from these vocabularies, introduces new ones, where needed, and proposes domain-specific controlled vocabularies.</p>
+<p>LanguageDCAT-AP is conceived and implemented as an extension of (a) the DCAT-AP application profile for Catalogues containing Datasets and Data Services in Europe [[DCAT-AP]] and (b) the <a href="https://semiceu.github.io/MLDCAT-AP/">MLDCAT-AP profile</a> for machine learning models and their datasets. It also builds upon the <a href="http://w3id.org/meta-share/">META-SHARE ontology</a>, and the vocabularies associated with it, such as the <a href="http://w3id.org/omtd-share/">OMTD-SHARE ontology</a>, especially for domain-specific concepts and properties. To cover language data specificities, it adopts classes and properties from these vocabularies, introduces new ones, where needed, and proposes domain-specific controlled vocabularies.</p>
 
 <p>It should be noted that the current version (v0.9.1) focuses on datasets, and more specifically, corpora and lexical/conceptual resources (see Section on Terminology), as well as language models, including for their description a minimal set of attributes that help consumers discover them, while the full set of attributes and the class of language technology services will be added in future versions.</p>
 
@@ -615,7 +615,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt>Reference</dt>
 <dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#LicenceDocument">DCAT-AP [A]</a></dd>
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Licence.alternative">alternative</a>, <a href="#Licence.description">description</a>, <a href="#Licence.http://creativecommons.org/ns#legalCode">http://creativecommons.org/ns#legalCode</a>, <a href="#Licence.identifier">identifier</a>, <a href="#Licence.seeAlso">seeAlso</a>, <a href="#Licence.title">title</a></dd>
+<dd>For this entity the following properties are defined: <a href="#Licence.alternative">alternative</a>, <a href="#Licence.description">description</a>, <a href="#Licence.legalCode">legal code</a>, <a href="#Licence.identifier">identifier</a>, <a href="#Licence.seeAlso">seeAlso</a>, <a href="#Licence.title">title</a></dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -652,8 +652,8 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
     <td></td>
     <td>P</td>
   </tr>
-  <tr id="Licence.http://creativecommons.org/ns#legalCode">
-    <td><a href="http://creativecommons.org/ns#legalCode" target="_blank">http://creativecommons.org/ns#legalCode</a></td>
+  <tr id="Licence.legalCode">
+    <td><a href="http://creativecommons.org/ns#legalCode" target="_blank">legal code</a></td>
     <td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td>
     <td>1..1</td>
     <td>The URL of the legal text of a License.</td>
@@ -856,7 +856,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Reference</strong></dt>
 <dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Policy">DCAT-AP [E]</a></dd>
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Policy.alternative">alternative</a>, <a href="#Policy.description">description</a>, <a href="#Policy.hadPrimarySource">hadPrimarySource</a>, <a href="#Policy.legalCode">http://creativecommons.org/ns#legalCode</a>, <a href="#Policy.identifier">identifier</a>, <a href="#Policy.title">title</a>, <a href="#Policy.wasAttributedTo">wasAttributedTo</a></dd>
+<dd>For this entity the following properties are defined: <a href="#Policy.alternative">alternative</a>, <a href="#Policy.description">description</a>, <a href="#Policy.hadPrimarySource">hadPrimarySource</a>, <a href="#Policy.legalCode">legalCode</a>, <a href="#Policy.identifier">identifier</a>, <a href="#Policy.title">title</a>, <a href="#Policy.wasAttributedTo">wasAttributedTo</a></dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -877,7 +877,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <tbody><tr id="Policy.alternative"><td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>An alternative name for the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="Policy.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>An account of the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="Policy.hadPrimarySource"><td><a href="http://www.w3.org/ns/prov#hadPrimarySource" target="_blank">hadPrimarySource</a></td><td><a href="http://www.w3.org/ns/prov#Entity" target="_blank">Entity</a></td><td>0..1</td><td>A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. A primary source relation is a particular case of derivation of secondary materials from their primary sources. It is recognised that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain.</td><td></td><td></td><td>P</td></tr>
-<tr id="Policy.legalCode"><td><a href="http://creativecommons.org/ns#legalCode" target="_blank">http://creativecommons.org/ns#legalCode</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td><td>0..1</td><td>The URL of the legal text of a License.</td><td></td><td></td><td>P</td></tr>
+<tr id="Policy.legalCode"><td><a href="http://creativecommons.org/ns#legalCode" target="_blank">legalCode</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td><td>0..1</td><td>The URL of the legal text of a License.</td><td></td><td></td><td>P</td></tr>
 <tr id="Policy.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td></td><td></td><td>P</td></tr>
 <tr id="Policy.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="Policy.wasAttributedTo"><td><a href="http://www.w3.org/ns/prov#wasAttributedTo" target="_blank">wasAttributedTo</a></td><td><a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">Agent</a></td><td>0..1</td><td>Attribution is the ascribing of an entity to an agent.</td><td></td><td></td><td>P</td></tr>
