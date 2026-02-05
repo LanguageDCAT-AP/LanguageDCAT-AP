@@ -1,7 +1,7 @@
 {
   "@context": {
     "Agent": "http://xmlns.com/foaf/0.1/Agent",
-    "Annotation Type": "http://w3id.org/meta-share/omtd-share/AnnotationType",
+    "AnnotationType": "http://w3id.org/meta-share/omtd-share/AnnotationType",
     "Anonymized": "http://w3id.org/meta-share/meta-share/Anonymized",
     "Catalogue": "http://www.w3.org/ns/dcat#Catalog",
     "Catalogue.creator": {
