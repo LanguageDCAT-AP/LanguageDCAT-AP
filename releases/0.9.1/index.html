@@ -578,6 +578,47 @@ The following diagram gives an overview of LanguageDCAT-AP. For simplicity sake,
 </div>
 </section>
 
+<!-- Section Language -->
+<section id="Language">
+<h3><a href="http://w3id.org/meta-share/meta-share/Language" data-toggle="tooltip" data-content="http://w3id.org/meta-share/meta-share/Language" data-placement="right">Language</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>A linguistic system that follows for its encoding the BCP47 recommendation.</dd>
+<dt><strong>Reference</strong></dt>
+<dd>No reference</dd>
+<dt>Subclass of</dt>
+<dd><a href="#LinguisticSystem">Linguistic System</a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Language.languageCode">language code</a>, <a href="#Language.languageTag">language tag</a>, <a href="#Language.languageVarietyName">language variety name</a>, <a href="#Language.region">region</a>, <a href="#Language.script">script</a>, <a href="#Language.variant">variant</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:10%;"/>
+<col style="width:10%;"/>
+<col style="width:5%;"/>
+<col style="width:25%;"/>
+<col style="width:25%;"/>
+<col style="width:13%;"/>
+<col style="width:12%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
+</tr>
+</thead>
+<tbody>
+    <tr id="Language.languageCode"><td><a href="http://w3id.org/meta-share/meta-share/languageCode" target="_blank">language code</a></td><td><a href="http://w3id.org/meta-share/meta-share/LanguageCode" target="_blank">Language Code</a></td><td>1..1</td><td>Used to specify the first part of a language tag according to the BCP47 recommendation which indicates the language</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_LanguagesTaxonomy/en/" target="_blank">META-SHARE language vocabulary</a></td><td>P</td></tr>
+    <tr id="Language.languageTag"><td><a href="http://w3id.org/meta-share/meta-share/languageTag" target="_blank">language tag</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>1..1</td><td>The identifier of a language, according to the IETF BCP47 guidelines</td><td>This is automatically built from the values of the four language subtags (language, script, region and variant) provided by the user</td><td></td><td>P</td></tr>
+    <tr id="Language.languageVarietyName"><td><a href="http://w3id.org/meta-share/meta-share/languageVarietyName" target="_blank">language variety name</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>A textual string used for referring to a language variety</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
+    <tr id="Language.region"><td><a href="http://w3id.org/meta-share/meta-share/region" target="_blank">region</a></td><td><a href="http://w3id.org/meta-share/meta-share/Region" target="_blank">Region</a></td><td>0..1</td><td>Specifies the geographical region where a language is used according to the BCP47 recommendation</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_RegionsTaxonomy/en/" target="_blank">META-SHARE location vocabulary</a></td><td>P</td></tr>
+    <tr id="Language.script"><td><a href="http://w3id.org/meta-share/meta-share/script" target="_blank">script</a></td><td><a href="http://w3id.org/meta-share/meta-share/Script" target="_blank">Script</a></td><td>0..1</td><td>Specifies the script used for writing a language</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_ScriptsTaxonomy/en/" target="_blank">META-SHARE script vocabulary</a></td><td>P</td></tr>
+    <tr id="Language.variant"><td><a href="http://w3id.org/meta-share/meta-share/variant" target="_blank">variant</a></td><td><a href="http://w3id.org/meta-share/meta-share/Variant" target="_blank">Variant</a></td><td>0..n</td><td>Specifies a variant for a language according to the BCP-47 recommendation</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_VariantsTaxonomy/en/" target="_blank">META-SHARE variants vocabulary</a></td><td>P</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
 <!-- Section LCR -->
 <section id="LCR">
 <h3><a href="http://w3id.org/meta-share/meta-share/LexicalConceptualResource" data-toggle="tooltip" data-content="http://w3id.org/meta-share/meta-share/LexicalConceptualResource" data-placement="right">Lexical/Conceptual Resource</a></h3>
@@ -858,8 +899,10 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
 </tr>
 </thead>
-<tbody><tr id="Organisation.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>Recommended to use ROR for research institutions</td><td></td><td>P</td></tr>
-<tr id="Organisation.name"><td><a href="http://xmlns.com/foaf/0.1/name" target="_blank">name</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A name for some thing.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr></tbody>
+<tbody>
+    <tr id="Organisation.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>Recommended to use ROR for research institutions</td><td></td><td>P</td></tr>
+<tr id="Organisation.name"><td><a href="http://xmlns.com/foaf/0.1/name" target="_blank">name</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A name for some thing.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
+</tbody>
 </table>
 </div>
 </section>
@@ -901,14 +944,13 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <!-- Section Policy -->
 <section id="Policy">
 <h3><a href="http://www.w3.org/ns/odrl/2/Policy" data-toggle="tooltip" data-content="http://www.w3.org/ns/odrl/2/Policy" data-placement="right">Policy</a></h3>
-  
 <dl>
 <dt><strong>Definition</strong></dt>
 <dd>A non-empty group of Permissions and/or Prohibitions.</dd>
 <dt><strong>Reference</strong></dt>
 <dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Policy">DCAT-AP [E]</a></dd>
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Policy.alternative">alternative</a>, <a href="#Policy.description">description</a>, <a href="#Policy.hadPrimarySource">hadPrimarySource</a>, <a href="#Policy.legalCode">legalCode</a>, <a href="#Policy.identifier">identifier</a>, <a href="#Policy.title">title</a>, <a href="#Policy.wasAttributedTo">wasAttributedTo</a></dd>
+<dd>For this entity the following properties are defined: <a href="#Policy.alternative">alternative</a>, <a href="#Policy.description">description</a>, <a href="#Policy.hadPrimarySource">had primary source</a>, <a href="#Policy.legalCode">legal code</a>, <a href="#Policy.identifier">identifier</a>, <a href="#Policy.title">title</a>, <a href="#Policy.wasAttributedTo">was attributed to</a></dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -928,11 +970,11 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 </thead>
 <tbody><tr id="Policy.alternative"><td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>An alternative name for the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="Policy.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>An account of the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-<tr id="Policy.hadPrimarySource"><td><a href="http://www.w3.org/ns/prov#hadPrimarySource" target="_blank">hadPrimarySource</a></td><td><a href="http://www.w3.org/ns/prov#Entity" target="_blank">Entity</a></td><td>0..1</td><td>A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. A primary source relation is a particular case of derivation of secondary materials from their primary sources. It is recognised that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain.</td><td></td><td></td><td>P</td></tr>
-<tr id="Policy.legalCode"><td><a href="http://creativecommons.org/ns#legalCode" target="_blank">legalCode</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td><td>0..1</td><td>The URL of the legal text of a License.</td><td></td><td></td><td>P</td></tr>
+<tr id="Policy.hadPrimarySource"><td><a href="http://www.w3.org/ns/prov#hadPrimarySource" target="_blank">had primary source</a></td><td><a href="http://www.w3.org/ns/prov#Entity" target="_blank">Entity</a></td><td>0..1</td><td>A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. A primary source relation is a particular case of derivation of secondary materials from their primary sources. It is recognised that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain.</td><td></td><td></td><td>P</td></tr>
+<tr id="Policy.legalCode"><td><a href="http://creativecommons.org/ns#legalCode" target="_blank">legal code</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td><td>0..1</td><td>The URL of the legal text of a License.</td><td></td><td></td><td>P</td></tr>
 <tr id="Policy.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td></td><td></td><td>P</td></tr>
 <tr id="Policy.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-<tr id="Policy.wasAttributedTo"><td><a href="http://www.w3.org/ns/prov#wasAttributedTo" target="_blank">wasAttributedTo</a></td><td><a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">Agent</a></td><td>0..1</td><td>Attribution is the ascribing of an entity to an agent.</td><td></td><td></td><td>P</td></tr>
+<tr id="Policy.wasAttributedTo"><td><a href="http://www.w3.org/ns/prov#wasAttributedTo" target="_blank">was attributed to</a></td><td><a href="http://xmlns.com/foaf/0.1/Agent" target="_blank">Agent</a></td><td>0..1</td><td>Attribution is the ascribing of an entity to an agent.</td><td></td><td></td><td>P</td></tr>
 </tbody>
 </table>
 </div>
@@ -955,7 +997,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt>Reference</dt>
 <dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord">DCAT-AP [A]</a></dd>
 <dt>Properties</dt>
-<dd>For this entity the following properties are defined: <a href="#CatalogueRecord.description">description</a>, <a href="#CatalogueRecord.descriptionversion">description version</a>, <a href="#CatalogueRecord.modificationdate">modification date</a>, <a href="#CatalogueRecord.primarytopic">primary topic</a>.</dd>
+<dd>For this entity the following properties are defined: <a href="#CatalogueRecord.description">description</a>, <a href="#CatalogueRecord.descriptionversion">description version</a>, <a href="#CatalogueRecord.modificationDate">modification date</a>, <a href="#CatalogueRecord.primaryTopic">primary topic</a>.</dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -975,9 +1017,9 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 </thead>
 <tbody>
 	<tr id="CatalogueRecord.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..*</td><td>A free-text account of the record.</td><td>This property can be repeated for parallel language versions of the description.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord.description">DCAT-AP [E]</a></td></tr>
-	<tr id="CatalogueRecord.descriptionversion"><td><a href="http://data.europa.eu/it6/descriptionVersion" target="_blank">description version</a></td><td><a href="#Literal" target="_blank">Literal</a></td><td>0..1</td><td>It refers to the version of the description. '1' for original version.</td><td></td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#CatalogueRecord.description">MLDCAT-AP [A]</a></td></tr>
-	<tr id="CatalogueRecord.modificationdate"><td><a href="http://purl.org/dc/terms/modified" target="_blank">modification date</a></td><td><a href="#TemporalLiteral" target="_blank">Temporal Literal</a></td><td>1</td><td>The most recent date on which the Catalogue entry was changed or modified.</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord.modificationdate">DCAT-AP [A]</td></tr>
-	<tr id="CatalogueRecord.primarytopic"><td><a href="http://xmlns.com/foaf/0.1/primaryTopic" target="_blank">primary topic</a></td><td><a href="http://www.w3.org/ns/dcat#CataloguedResource" target="_blank">Catalogued Resource</a></td><td>1</td><td>A link to the Dataset, Data service or Catalog described in the record.</td><td>A catalogue record will refer to one entity in a catalogue. This can be either a Dataset or a Data Service. To ensure an unambigous reading of the cardinality the range is set to Catalogued Resource. However it is not the intend with this range to require the explicit use of the class Catalogued Record. As abstract class, a subclass should be used.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord.primarytopic">DCAT-AP [A]</a></td></tr></tbody></table>
+	<tr id="CatalogueRecord.descriptionVersion"><td><a href="http://data.europa.eu/it6/descriptionVersion" target="_blank">description version</a></td><td><a href="#Literal" target="_blank">Literal</a></td><td>0..1</td><td>It refers to the version of the description. '1' for original version.</td><td></td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#CatalogueRecord.description">MLDCAT-AP [A]</a></td></tr>
+	<tr id="CatalogueRecord.modificationDate"><td><a href="http://purl.org/dc/terms/modified" target="_blank">modification date</a></td><td><a href="#TemporalLiteral" target="_blank">Temporal Literal</a></td><td>1</td><td>The most recent date on which the Catalogue entry was changed or modified.</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord.modificationdate">DCAT-AP [A]</td></tr>
+	<tr id="CatalogueRecord.primaryTopic"><td><a href="http://xmlns.com/foaf/0.1/primaryTopic" target="_blank">primary topic</a></td><td><a href="http://www.w3.org/ns/dcat#CataloguedResource" target="_blank">Catalogued Resource</a></td><td>1</td><td>A link to the Dataset, Data service or Catalog described in the record.</td><td>A catalogue record will refer to one entity in a catalogue. This can be either a Dataset or a Data Service. To ensure an unambigous reading of the cardinality the range is set to Catalogued Resource. However it is not the intend with this range to require the explicit use of the class Catalogued Record. As abstract class, a subclass should be used.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord.primarytopic">DCAT-AP [A]</a></td></tr></tbody></table>
 </table>
 </div>
 </section>
@@ -1016,7 +1058,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Reference</strong></dt>
 <dd>No reference</dd>
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Document.citationText">citationText</a>, <a href="#Document.identifier">identifier</a></dd>
+<dd>For this entity the following properties are defined: <a href="#Document.citationText">citation text</a>, <a href="#Document.identifier">identifier</a></dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -1035,7 +1077,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 </tr>
 </thead>
 <tbody>
-<tr id="Document.citationText"><td><a href="http://w3id.org/meta-share/meta-share/citationText" target="_blank">citationText</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>The text with which a document or language resource can be cited (typically the full citation, incl. title, authors, publisher, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
+<tr id="Document.citationText"><td><a href="http://w3id.org/meta-share/meta-share/citationText" target="_blank">citation text</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>The text with which a document or language resource can be cited (typically the full citation, incl. title, authors, publisher, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="Document.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="http://www.w3.org/ns/adms#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>It is recommended to add the DOI or a URL where the document can be accessed</td><td></td><td>P</td></tr></tbody>
 </table>
 </div>
@@ -1048,7 +1090,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Reference</strong></dt>
 <dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Identifier">DCAT-AP [A]</dd>
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Identifier.notation">notation</a>, <a href="#Identifier.schemaAgency">schemaAgency</a></dd>
+<dd>For this entity the following properties are defined: <a href="#Identifier.notation">notation</a>, <a href="#Identifier.schemaAgency">schema agency</a></dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -1068,48 +1110,8 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 </thead>
 <tbody>
 	<tr id="Identifier.notation"><td><a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">notation</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>1..1</td><td>A string that is an identifier in the context of the identifier scheme referenced by its datatype.</td><td>It MAY be used to display the identifier as recommended in the original scheme (e.g. The CrossRef and DataCite display guidelines recommend displaying DOIs as full URL link in the form <a href="https://doi.org/10.xxxx/xxxxx/)." target="_blank">https://doi.org/10.xxxx/xxxxx/).</a> The rdfs:Literal must be typed (e.g. ^^<a href="http://www.w3.org/2001/XMLSchema#anyURI)" target="_blank">anyURI)</a></td><td></td><td>P</td></tr>
-	<tr id="Identifier.schemaAgency"><td><a href="http://www.w3.org/ns/adms#schemaAgency" target="_blank">schemaAgency</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>The name of the agency that issued the identifier.</td><td>It MAY be used to represent the authority that defines the identifier scheme (e.g. the DOI foundation) when the authority has an IRI associated to it.
+	<tr id="Identifier.schemaAgency"><td><a href="http://www.w3.org/ns/adms#schemaAgency" target="_blank">schema agency</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>The name of the agency that issued the identifier.</td><td>It MAY be used to represent the authority that defines the identifier scheme (e.g. the DOI foundation) when the authority has an IRI associated to it.
 This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-</tbody>
-</table>
-</div>
-</section>
-<!-- Section Language -->
-<section id="Language">
-<h3><a href="http://w3id.org/meta-share/meta-share/Language" data-toggle="tooltip" data-content="http://w3id.org/meta-share/meta-share/Language" data-placement="right">Language</a></h3>
-<dl>
-<dt><strong>Definition</strong></dt>
-<dd>A linguistic system that follows for its encoding the BCP47 recommendation.</dd>
-<dt><strong>Reference</strong></dt>
-<dd>No reference</dd>
-<dt>Subclass of</dt>
-<dd><a href="#LinguisticSystem">Linguistic System</a></dd>
-<dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Language.languageCode">languageCode</a>, <a href="#Language.languageTag">languageTag</a>, <a href="#Language.languageVarietyName">languageVarietyName</a>, <a href="#Language.region">region</a>, <a href="#Language.script">script</a>, <a href="#Language.variant">variant</a></dd>
-</dl>
-<div class="u-table-overflow">
-<table class="data-table simple">
-<colgroup>
-<col style="width:10%;"/>
-<col style="width:10%;"/>
-<col style="width:5%;"/>
-<col style="width:25%;"/>
-<col style="width:25%;"/>
-<col style="width:13%;"/>
-<col style="width:12%;"/>
-</colgroup>
-<thead>
-<tr>
-<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
-</tr>
-</thead>
-<tbody>
-	<tr id="Language.languageCode"><td><a href="http://w3id.org/meta-share/meta-share/languageCode" target="_blank">languageCode</a></td><td><a href="http://w3id.org/meta-share/meta-share/LanguageCode" target="_blank">LanguageCode</a></td><td>1..1</td><td>Used to specify the first part of a language tag according to the BCP47 recommendation which indicates the language</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_LanguagesTaxonomy/en/" target="_blank">META-SHARE language vocabulary</a></td><td>P</td></tr>
-	<tr id="Language.languageTag"><td><a href="http://w3id.org/meta-share/meta-share/languageTag" target="_blank">languageTag</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>1..1</td><td>The identifier of a language, according to the IETF BCP47 guidelines</td><td>This is automatically built from the values of the four language subtags (language, script, region and variant) provided by the user</td><td></td><td>P</td></tr>
-	<tr id="Language.languageVarietyName"><td><a href="http://w3id.org/meta-share/meta-share/languageVarietyName" target="_blank">languageVarietyName</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>A textual string used for referring to a language variety</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-	<tr id="Language.region"><td><a href="http://w3id.org/meta-share/meta-share/region" target="_blank">region</a></td><td><a href="http://w3id.org/meta-share/meta-share/Region" target="_blank">Region</a></td><td>0..1</td><td>Specifies the geographical region where a language is used according to the BCP47 recommendation</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_RegionsTaxonomy/en/" target="_blank">META-SHARE location vocabulary</a></td><td>P</td></tr>
-	<tr id="Language.script"><td><a href="http://w3id.org/meta-share/meta-share/script" target="_blank">script</a></td><td><a href="http://w3id.org/meta-share/meta-share/Script" target="_blank">Script</a></td><td>0..1</td><td>Specifies the script used for writing a language</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_ScriptsTaxonomy/en/" target="_blank">META-SHARE script vocabulary</a></td><td>P</td></tr>
-	<tr id="Language.variant"><td><a href="http://w3id.org/meta-share/meta-share/variant" target="_blank">variant</a></td><td><a href="http://w3id.org/meta-share/meta-share/Variant" target="_blank">Variant</a></td><td>0..n</td><td>Specifies a variant for a language according to the BCP-47 recommendation</td><td></td><td><a href="http://vocabhub.ilsp.gr/bcp47_VariantsTaxonomy/en/" target="_blank">META-SHARE variants vocabulary</a></td><td>P</td></tr>
 </tbody>
 </table>
 </div>
@@ -1161,40 +1163,10 @@ This property can be repeated for parallel language versions of the property. Th
 <dt>Properties</dt>
 <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
 </dl>
-</section><!-- Section Size -->	
-<section id="Size">
-<h3><a href="http://w3id.org/meta-share/meta-share/Size" data-toggle="tooltip" data-content="http://w3id.org/meta-share/meta-share/Size" data-placement="right">Size</a></h3>
-<dl>
-<dt><strong>Definition</strong></dt>
-<dd>The size of the resource with regard to the SizeUnit measurement in form of a number.</dd>
-<dt><strong>Refence</strong></dt>
-<dd>No reference</dd>
-<dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Size.amount">amount</a>, <a href="#Size.sizeUnit">sizeUnit</a></dd>
-</dl>
-<div class="u-table-overflow">
-<table class="data-table simple">
-<colgroup>
-<col style="width:10%;"/>
-<col style="width:10%;"/>
-<col style="width:5%;"/>
-<col style="width:25%;"/>
-<col style="width:25%;"/>
-<col style="width:13%;"/>
-<col style="width:12%;"/>
-</colgroup>
-<thead>
-<tr>
-<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
-</tr>
-</thead>
-<tbody><tr id="Size.amount"><td><a href="http://w3id.org/meta-share/meta-share/amount" target="_blank">amount</a></td><td><a href="http://www.w3.org/2001/XMLSchema#float" target="_blank">float</a></td><td>1..1</td><td>Specifies the number of units that constitute anything that can be measured (e.g. size of a data resource or cost, etc.)</td><td></td><td></td><td>P</td></tr>
-<tr id="Size.sizeUnit"><td><a href="http://w3id.org/meta-share/meta-share/sizeUnit" target="_blank">sizeUnit</a></td><td><a href="http://w3id.org/meta-share/meta-share/SizeUnit" target="_blank">SizeUnit</a></td><td>1..1</td><td>Specifies the unit that is used when providing information on the size of the resource or of resource parts</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_SizeUnitTaxonomy/en/" target="_blank">META-SHARE size unit vocabulary</a></td><td>P</td></tr></tbody>
-</table>
-</div>
 </section>
-<!-- Section TimePeriod -->
-<section id="TimePeriod">
+
+<!-- Section Period of Time -->
+<section id="PeriodOfTime">
 <h3><a href="http://purl.org/dc/terms/PeriodOfTime" data-toggle="tooltip" data-content="http://purl.org/dc/terms/PeriodOfTime" data-placement="right">Time Period</a></h3>
 <dl>
 <dt><strong>Definition</strong></dt>
@@ -1202,7 +1174,7 @@ This property can be repeated for parallel language versions of the property. Th
 <dt><strong>Reference</strong></dt>
 <dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#PeriodofTime">DCAT-AP [A]</a></dd>
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Time_Period.endDate">endDate</a>, <a href="#Time_Period.startDate">startDate</a></dd>
+<dd>For this entity the following properties are defined: <a href="#Time_Period.endDate">end date</a>, <a href="#Time_Period.startDate">start date</a></dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -1221,12 +1193,45 @@ This property can be repeated for parallel language versions of the property. Th
 </tr>
 </thead>
 <tbody>
-	<tr id="Time_Period.endDate"><td><a href="http://www.w3.org/ns/dcat#endDate" target="_blank">endDate</a></td><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td><td>1..1</td><td>The end of the period</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.enddate" target="_blank">DCAT-AP [E]</td></tr>
-	dsd<tr id="Time_Period.startDate"><td><a href="http://www.w3.org/ns/dcat#startDate" target="_blank">startDate</a></td><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td><td>1..1</td><td>The start of the period</td><td>Please note that while both properties are recommended, one of the two must be present for each instance of the class dct:PeriodOfTime, if such an instance is present.
+    <tr id="PeriodOfTime.endDate"><td><a href="http://www.w3.org/ns/dcat#endDate" target="_blank">end date</a></td><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td><td>1..1</td><td>The end of the period</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.enddate" target="_blank">DCAT-AP [E]</td></tr>
+    dsd<tr id="PeriodOfTime.startDate"><td><a href="http://www.w3.org/ns/dcat#startDate" target="_blank">start date</a></td><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td><td>1..1</td><td>The start of the period</td><td>Please note that while both properties are recommended, one of the two must be present for each instance of the class dct:PeriodOfTime, if such an instance is present.
 NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Periodoftime.startdate" target="_blank">DCAT-AP [E]</td></tr></tbody>
 </table>
 </div>
 </section>
+<!-- Section Size -->	
+<section id="Size">
+<h3><a href="http://w3id.org/meta-share/meta-share/Size" data-toggle="tooltip" data-content="http://w3id.org/meta-share/meta-share/Size" data-placement="right">Size</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>The size of the resource with regard to the SizeUnit measurement in form of a number.</dd>
+<dt><strong>Refence</strong></dt>
+<dd>No reference</dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Size.amount">amount</a>, <a href="#Size.sizeUnit">size unit</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:10%;"/>
+<col style="width:10%;"/>
+<col style="width:5%;"/>
+<col style="width:25%;"/>
+<col style="width:25%;"/>
+<col style="width:13%;"/>
+<col style="width:12%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
+</tr>
+</thead>
+<tbody><tr id="Size.amount"><td><a href="http://w3id.org/meta-share/meta-share/amount" target="_blank">amount</a></td><td><a href="http://www.w3.org/2001/XMLSchema#float" target="_blank">float</a></td><td>1..1</td><td>Specifies the number of units that constitute anything that can be measured (e.g. size of a data resource or cost, etc.)</td><td></td><td></td><td>P</td></tr>
+<tr id="Size.sizeUnit"><td><a href="http://w3id.org/meta-share/meta-share/sizeUnit" target="_blank">size unit</a></td><td><a href="http://w3id.org/meta-share/meta-share/SizeUnit" target="_blank">SizeUnit</a></td><td>1..1</td><td>Specifies the unit that is used when providing information on the size of the resource or of resource parts</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_SizeUnitTaxonomy/en/" target="_blank">META-SHARE size unit vocabulary</a></td><td>P</td></tr></tbody>
+</table>
+</div>
+</section>
+
 </section>
 	
 <section id="datatypes">
