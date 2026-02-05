@@ -1,0 +1,851 @@
+{
+  "@context": {
+    "Agent": "http://xmlns.com/foaf/0.1/Agent",
+    "AnnotationType": "http://w3id.org/meta-share/omtd-share/AnnotationType",
+    "Anonymized": "http://w3id.org/meta-share/meta-share/Anonymized",
+    "Catalogue": "http://www.w3.org/ns/dcat#Catalog",
+    "Catalogue.creator": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/creator",
+      "@type": "@id"
+    },
+    "Catalogue.dataset": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#dataset",
+      "@type": "@id"
+    },
+    "Catalogue.description": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/description"
+    },
+    "Catalogue.homepage": {
+      "@container": "@set",
+      "@id": "http://xmlns.com/foaf/0.1/homepage",
+      "@type": "@id"
+    },
+    "Catalogue.identifier": {
+      "@id": "http://purl.org/dc/terms/identifier",
+      "@type": "@id"
+    },
+    "Catalogue.keyword": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#keyword"
+    },
+    "Catalogue.licence": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/license"
+    },
+    "Catalogue.modificationDate": {
+      "@id": "http://purl.org/dc/terms/modified"
+    },
+    "Catalogue.publisher": {
+      "@id": "http://purl.org/dc/terms/publisher",
+      "@type": "@id"
+    },
+    "Catalogue.record": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#record",
+      "@type": "@id"
+    },
+    "Catalogue.releaseDate": {
+      "@id": "http://purl.org/dc/terms/issued"
+    },
+    "Catalogue.service": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#service",
+      "@type": "@id"
+    },
+    "Catalogue.title": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/title"
+    },
+    "CatalogueRecord": "http://www.w3.org/ns/dcat#CatalogRecord",
+    "CatalogueRecord.description": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/description"
+    },
+    "CatalogueRecord.descriptionVersion": {
+      "@id": "http://data.europa.eu/it6/descriptionVersion"
+    },
+    "CatalogueRecord.modificationDate": {
+      "@id": "http://purl.org/dc/terms/modified"
+    },
+    "CatalogueRecord.primaryTopic": {
+      "@id": "http://xmlns.com/foaf/0.1/primaryTopic",
+      "@type": "@id"
+    },
+    "CataloguedResource": "http://www.w3.org/ns/dcat#Resource",
+    "Concept": "http://www.w3.org/2004/02/skos/core#Concept",
+    "Corpus": "http://w3id.org/meta-share/meta-share/Corpus",
+    "Corpus.alternative": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/alternative"
+    },
+    "Corpus.annotationType": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/annotationType",
+      "@type": "@id"
+    },
+    "Corpus.anonymizationDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/anonymizationDetails"
+    },
+    "Corpus.anonymized": {
+      "@id": "http://w3id.org/meta-share/meta-share/anonymized",
+      "@type": "@id"
+    },
+    "Corpus.conformsTo": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/conformsTo",
+      "@type": "@id"
+    },
+    "Corpus.corpusSubclass": {
+      "@id": "http://w3id.org/meta-share/meta-share/corpusSubclass",
+      "@type": "@id"
+    },
+    "Corpus.dataProtectionPrincipleApplied": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied",
+      "@type": "@id"
+    },
+    "Corpus.description": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/description"
+    },
+    "Corpus.detailedLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/language",
+      "@type": "@id"
+    },
+    "Corpus.distribution": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#distribution",
+      "@type": "@id"
+    },
+    "Corpus.domain": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/domain",
+      "@type": "@id"
+    },
+    "Corpus.hasPolicy": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
+      "@type": "@id"
+    },
+    "Corpus.hasTechnicalOrganisationalMeasure": {
+      "@container": "@set",
+      "@id": "https://w3id.org/dpv#hasTechnicalOrganisationalMeasure",
+      "@type": "@id"
+    },
+    "Corpus.identifier": {
+      "@id": "http://purl.org/dc/terms/identifier",
+      "@type": "@id"
+    },
+    "Corpus.iprHolder": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/iprHolder",
+      "@type": "@id"
+    },
+    "Corpus.isDocumentedBy": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/isDocumentedBy",
+      "@type": "@id"
+    },
+    "Corpus.keyword": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#keyword"
+    },
+    "Corpus.language": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/language",
+      "@type": "@id"
+    },
+    "Corpus.license": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/license",
+      "@type": "@id"
+    },
+    "Corpus.lingualityType": {
+      "@id": "http://w3id.org/meta-share/meta-share/lingualityType",
+      "@type": "@id"
+    },
+    "Corpus.lrType": {
+      "@id": "http://w3id.org/meta-share/meta-share/lrType",
+      "@type": "@id"
+    },
+    "Corpus.mediaType": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/mediaType",
+      "@type": "@id"
+    },
+    "Corpus.multilingualityType": {
+      "@id": "http://w3id.org/meta-share/meta-share/multilingualityType",
+      "@type": "@id"
+    },
+    "Corpus.otherIdentifier": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/adms#identifier",
+      "@type": "@id"
+    },
+    "Corpus.personalDataDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/personalDataDetails"
+    },
+    "Corpus.personalDataIncluded": {
+      "@id": "http://w3id.org/meta-share/meta-share/personalDataIncluded",
+      "@type": "@id"
+    },
+    "Corpus.pivotLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/pivotLanguage",
+      "@type": "@id"
+    },
+    "Corpus.publisher": {
+      "@id": "http://purl.org/dc/terms/publisher",
+      "@type": "@id"
+    },
+    "Corpus.sensitiveDataDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataDetails"
+    },
+    "Corpus.sensitiveDataIncluded": {
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataIncluded",
+      "@type": "@id"
+    },
+    "Corpus.sourceLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/sourceLanguage",
+      "@type": "@id"
+    },
+    "Corpus.spatial": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/spatial",
+      "@type": "@id"
+    },
+    "Corpus.targetLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/targetLanguage",
+      "@type": "@id"
+    },
+    "Corpus.temporal": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/temporal",
+      "@type": "@id"
+    },
+    "Corpus.title": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/title"
+    },
+    "Corpus.version": {
+      "@id": "http://www.w3.org/ns/dcat#version"
+    },
+    "Corpus Subclass": "http://w3id.org/meta-share/meta-share/CorpusSubclass",
+    "Data Protection Principle": "http://w3id.org/meta-share/meta-share/DataProtectionPrinciple",
+    "Data Service": "http://www.w3.org/ns/dcat#DataService",
+    "Data Service.endpointDescription": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#endpointDescription"
+    },
+    "Data Service.endpointURL": {
+      "@id": "http://www.w3.org/ns/dcat#endpointURL",
+      "@type": "@id"
+    },
+    "Data Service.title": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/title"
+    },
+    "Data Service.type": {
+      "@id": "http://www.nlpli.gr/dcat-lds#type",
+      "@type": "@id"
+    },
+    "Dataset": "http://www.w3.org/ns/dcat#Dataset",
+    "Distribution": "http://www.w3.org/ns/dcat#Distribution",
+    "Distribution.accessService": {
+      "@id": "http://www.w3.org/ns/dcat#accessService",
+      "@type": "@id"
+    },
+    "Distribution.accessURL": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#accessURL",
+      "@type": "@id"
+    },
+    "Distribution.byteSize": {
+      "@id": "http://www.w3.org/ns/dcat#byteSize"
+    },
+    "Distribution.downloadURL": {
+      "@id": "http://www.w3.org/ns/dcat#downloadURL",
+      "@type": "@id"
+    },
+    "Distribution.format": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/format",
+      "@type": "@id"
+    },
+    "Distribution.hasPolicy": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
+      "@type": "@id"
+    },
+    "Distribution.license": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/license",
+      "@type": "@id"
+    },
+    "Distribution.mediaType": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#mediaType",
+      "@type": "@id"
+    },
+    "Distribution.packageFormat": {
+      "@id": "http://www.w3.org/ns/dcat#packageFormat",
+      "@type": "@id"
+    },
+    "Distribution.size": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/size",
+      "@type": "@id"
+    },
+    "Distribution.title": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/title"
+    },
+    "Document": "http://xmlns.com/foaf/0.1/Document",
+    "Document.citationText": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/citationText"
+    },
+    "Document.identifier": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/adms#identifier",
+      "@type": "@id"
+    },
+    "Domain": "http://w3id.org/meta-share/meta-share/Domain",
+    "Entity": "http://www.w3.org/ns/prov#Entity",
+    "Identifier": "http://www.w3.org/ns/adms#Identifier",
+    "Identifier.notation": {
+      "@id": "http://www.w3.org/2004/02/skos/core#notation"
+    },
+    "Identifier.schemaAgency": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/adms#schemaAgency"
+    },
+    "Language": "http://w3id.org/meta-share/meta-share/Language",
+    "Language.languageCode": {
+      "@id": "http://w3id.org/meta-share/meta-share/languageCode",
+      "@type": "@id"
+    },
+    "Language.languageTag": {
+      "@id": "http://w3id.org/meta-share/meta-share/languageTag"
+    },
+    "Language.languageVarietyName": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/languageVarietyName"
+    },
+    "Language.region": {
+      "@id": "http://w3id.org/meta-share/meta-share/region",
+      "@type": "@id"
+    },
+    "Language.script": {
+      "@id": "http://w3id.org/meta-share/meta-share/script",
+      "@type": "@id"
+    },
+    "Language.variant": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/variant",
+      "@type": "@id"
+    },
+    "Language Code": "http://w3id.org/meta-share/meta-share/LanguageCode",
+    "LCR subclass": "http://w3id.org/meta-share/meta-share/LCRsubclass",
+    "LexicalConceptualResource": "http://w3id.org/meta-share/meta-share/LexicalConceptualResource",
+    "LCR.alternative": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/alternative"
+    },
+    "LCR.anonymizationDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/anonymizationDetails"
+    },
+    "LCR.anonymized": {
+      "@id": "http://w3id.org/meta-share/meta-share/anonymized",
+      "@type": "@id"
+    },
+    "LCR.conformsTo": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/conformsTo",
+      "@type": "@id"
+    },
+    "LCR.dataProtectionPrincipleApplied": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied",
+      "@type": "@id"
+    },
+    "LCR.description": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/description"
+    },
+    "LCR.detailedLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/language",
+      "@type": "@id"
+    },
+    "LCR.distribution": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#distribution",
+      "@type": "@id"
+    },
+    "LCR.domain": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/domain",
+      "@type": "@id"
+    },
+    "LCR.hasOriginalSource": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/hasOriginalSource",
+      "@type": "@id"
+    },
+    "LCR.hasPolicy": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
+      "@type": "@id"
+    },
+    "LCR.hasTechnicalOrganisationalMeasure": {
+      "@container": "@set",
+      "@id": "https://w3id.org/dpv#hasTechnicalOrganisationalMeasure",
+      "@type": "@id"
+    },
+    "LCR.identifier": {
+      "@id": "http://purl.org/dc/terms/identifier",
+      "@type": "@id"
+    },
+    "LCR.iprHolder": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/iprHolder",
+      "@type": "@id"
+    },
+    "LCR.isDocumentedBy": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/isDocumentedBy",
+      "@type": "@id"
+    },
+    "LCR.keyword": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#keyword"
+    },
+    "LCR.LCRsubclass": {
+      "@id": "http://w3id.org/meta-share/meta-share/LCRsubclass",
+      "@type": "@id"
+    },
+    "LCR.language": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/language",
+      "@type": "@id"
+    },
+    "LCR.license": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/license",
+      "@type": "@id"
+    },
+    "LCR.lingualityType": {
+      "@id": "http://w3id.org/meta-share/meta-share/lingualityType",
+      "@type": "@id"
+    },
+    "LCR.linguisticInformation": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/linguisticInformation",
+      "@type": "@id"
+    },
+    "LCR.lrType": {
+      "@id": "http://w3id.org/meta-share/meta-share/lrType",
+      "@type": "@id"
+    },
+    "LCR.metaLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/metaLanguage",
+      "@type": "@id"
+    },
+    "LCR.modalityType": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/mediaType",
+      "@type": "@id"
+    },
+    "LCR.multilingualityType": {
+      "@id": "http://w3id.org/meta-share/meta-share/multilingualityType",
+      "@type": "@id"
+    },
+    "LCR.originalSourceDescription": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/originalSourceDescription"
+    },
+    "LCR.otherIdentifier": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/adms#identifier",
+      "@type": "@id"
+    },
+    "LCR.personalDataDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/personalDataDetails"
+    },
+    "LCR.personalDataIncluded": {
+      "@id": "http://w3id.org/meta-share/meta-share/personalDataIncluded",
+      "@type": "@id"
+    },
+    "LCR.pivotLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/pivotLanguage",
+      "@type": "@id"
+    },
+    "LCR.publisher": {
+      "@id": "http://purl.org/dc/terms/publisher",
+      "@type": "@id"
+    },
+    "LCR.sensitiveDataDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataDetails"
+    },
+    "LCR.sensitiveDataIncluded": {
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataIncluded",
+      "@type": "@id"
+    },
+    "LCR.sourceLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/sourceLanguage",
+      "@type": "@id"
+    },
+    "LCR.spatial": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/spatial",
+      "@type": "@id"
+    },
+    "LCR.targetLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/targetLanguage",
+      "@type": "@id"
+    },
+    "LCR.temporal": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/temporal",
+      "@type": "@id"
+    },
+    "LCR.title": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/title"
+    },
+    "LCR.version": {
+      "@id": "http://www.w3.org/ns/dcat#version"
+    },
+    "Licence": "http://purl.org/dc/terms/LicenseDocument",
+    "Licence.alternative": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/alternative"
+    },
+    "Licence.description": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/description"
+    },
+    "Licence.identifier": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/adms#identifier",
+      "@type": "@id"
+    },
+    "Licence.legalCode": {
+      "@id": "http://creativecommons.org/ns#legalCode",
+      "@type": "@id"
+    },
+    "Licence.seeAlso": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "Licence.title": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/title"
+    },
+    "Linguality Type": "http://w3id.org/meta-share/meta-share/LingualityType",
+    "Linguistic System": "http://purl.org/dc/terms/LinguisticSystem",
+    "Location": "http://purl.org/dc/terms/Location",
+    "LRType": "http://w3id.org/meta-share/meta-share/LRType",
+    "MediaType": "http://purl.org/dc/terms/MediaType",
+    "ModalityType": "http://w3id.org/meta-share/meta-share/MediaType",
+    "MediaTypeOrExtent": "http://purl.org/dc/terms/MediaTypeOrExtent",
+    "MicrostructureFeature": "http://w3id.org/meta-share/lexmeta#MicrostructureFeature",
+    "Model": "http://w3id.org/meta-share/meta-share/Model",
+    "Model.alternative": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/alternative"
+    },
+    "Model.anonymizationDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/anonymizationDetails"
+    },
+    "Model.anonymized": {
+      "@id": "http://w3id.org/meta-share/meta-share/anonymized",
+      "@type": "@id"
+    },
+    "Model.bias": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/bias"
+    },
+    "Model.conformsTo": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/conformsTo",
+      "@type": "@id"
+    },
+    "Model.contextLength": {
+      "@id": "http://w3id.org/meta-share/meta-share/contextLength"
+    },
+    "Model.creationDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/creationDetails"
+    },
+    "Model.dataProtectionPrincipleApplied": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied",
+      "@type": "@id"
+    },
+    "Model.description": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/description"
+    },
+    "Model.detailedLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/language",
+      "@type": "@id"
+    },
+    "Model.distribution": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#distribution",
+      "@type": "@id"
+    },
+    "Model.domain": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/domain",
+      "@type": "@id"
+    },
+    "Model.evaluationDataset": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/evaluationDataset",
+      "@type": "@id"
+    },
+    "Model.evaluationResults": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/evaluationResults"
+    },
+    "Model.finetuneDataset": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/finetuneDataset",
+      "@type": "@id"
+    },
+    "Model.hasPolicy": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
+      "@type": "@id"
+    },
+    "Model.hasTechnicalOrganisationalMeasure": {
+      "@container": "@set",
+      "@id": "https://w3id.org/dpv#hasTechnicalOrganisationalMeasure",
+      "@type": "@id"
+    },
+    "Model.identifier": {
+      "@id": "http://purl.org/dc/terms/identifier",
+      "@type": "@id"
+    },
+    "Model.iprHolder": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/iprHolder",
+      "@type": "@id"
+    },
+    "Model.isDocumentedBy": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/isDocumentedBy",
+      "@type": "@id"
+    },
+    "Model.keyword": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#keyword"
+    },
+    "Model.language": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/language",
+      "@type": "@id"
+    },
+    "Model.license": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/license",
+      "@type": "@id"
+    },
+    "Model.limitations": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/limitations"
+    },
+    "Model.lingualityType": {
+      "@id": "http://w3id.org/meta-share/meta-share/lingualityType",
+      "@type": "@id"
+    },
+    "Model.lrType": {
+      "@id": "http://w3id.org/meta-share/meta-share/lrType",
+      "@type": "@id"
+    },
+    "Model.modalityType": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/mediaType",
+      "@type": "@id"
+    },
+    "Model.modelFunction": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/modelFunction",
+      "@type": "@id"
+    },
+    "Model.modelType": {
+      "@id": "http://w3id.org/meta-share/meta-share/modelType",
+      "@type": "@id"
+    },
+    "Model.otherIdentifier": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/adms#identifier",
+      "@type": "@id"
+    },
+    "Model.parameterPrecision": {
+      "@id": "http://w3id.org/meta-share/meta-share/parameterPrecision"
+    },
+    "Model.personalDataDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/personalDataDetails"
+    },
+    "Model.personalDataIncluded": {
+      "@id": "http://w3id.org/meta-share/meta-share/personalDataIncluded",
+      "@type": "@id"
+    },
+    "Model.publisher": {
+      "@id": "http://purl.org/dc/terms/publisher",
+      "@type": "@id"
+    },
+    "Model.quantizationProcess": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/quantizationProcess"
+    },
+    "Model.quantized": {
+      "@id": "http://w3id.org/meta-share/meta-share/quantized"
+    },
+    "Model.sensitiveDataDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataDetails"
+    },
+    "Model.sensitiveDataIncluded": {
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataIncluded",
+      "@type": "@id"
+    },
+    "Model.sourceLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/sourceLanguage",
+      "@type": "@id"
+    },
+    "Model.spatial": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/spatial",
+      "@type": "@id"
+    },
+    "Model.targetLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/targetLanguage",
+      "@type": "@id"
+    },
+    "Model.temporal": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/temporal",
+      "@type": "@id"
+    },
+    "Model.title": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/title"
+    },
+    "Model.trainedOn": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/trainedOn",
+      "@type": "@id"
+    },
+    "Model.variantOf": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/variantOf",
+      "@type": "@id"
+    },
+    "Model.version": {
+      "@id": "http://www.w3.org/ns/dcat#version"
+    },
+    "ModelFunction": "http://w3id.org/meta-share/omtd-share/ModelFunction",
+    "ModelType": "http://w3id.org/meta-share/meta-share/ModelType",
+    "MultilingualityType": "http://w3id.org/meta-share/meta-share/MultilingualityType",
+    "Organisation": "http://xmlns.com/foaf/0.1/Organization",
+    "Organisation.identifier": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/adms#identifier",
+      "@type": "@id"
+    },
+    "Organisation.name": {
+      "@container": "@set",
+      "@id": "http://xmlns.com/foaf/0.1/name"
+    },
+    "Person": "http://xmlns.com/foaf/0.1/Person",
+    "Person.identifier": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/adms#identifier",
+      "@type": "@id"
+    },
+    "Person.name": {
+      "@container": "@set",
+      "@id": "http://xmlns.com/foaf/0.1/name"
+    },
+    "PeriodOfTime": "http://purl.org/dc/terms/PeriodOfTime",
+    "PeriodOfTime.endDate": {
+      "@id": "http://www.w3.org/ns/dcat#endDate"
+    },
+    "PeriodOfTime.startDate": {
+      "@id": "http://www.w3.org/ns/dcat#startDate"
+    },
+    "Personal Data Included": "http://w3id.org/meta-share/meta-share/PersonalDataIncluded",
+    "Policy": "http://www.w3.org/ns/odrl/2/Policy",
+    "Policy.alternative": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/alternative"
+    },
+    "Policy.description": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/description"
+    },
+    "Policy.hadPrimarySource": {
+      "@id": "http://www.w3.org/ns/prov#hadPrimarySource",
+      "@type": "@id"
+    },
+    "Policy.identifier": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/adms#identifier",
+      "@type": "@id"
+    },
+    "Policy.legalCode": {
+      "@id": "http://creativecommons.org/ns#legalCode",
+      "@type": "@id"
+    },
+    "Policy.title": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/title"
+    },
+    "Policy.wasAttributedTo": {
+      "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
+      "@type": "@id"
+    },
+    "Region": "http://w3id.org/meta-share/meta-share/Region",
+    "Script": "http://w3id.org/meta-share/meta-share/Script",
+    "SensitiveDataIncluded": "http://w3id.org/meta-share/meta-share/SensitiveDataIncluded",
+    "Size": "http://w3id.org/meta-share/meta-share/Size",
+    "Size.amount": {
+      "@id": "http://w3id.org/meta-share/meta-share/amount"
+    },
+    "Size.sizeUnit": {
+      "@id": "http://w3id.org/meta-share/meta-share/sizeUnit",
+      "@type": "@id"
+    },
+    "SizeUnit": "http://w3id.org/meta-share/meta-share/SizeUnit",
+    "Standard": "http://purl.org/dc/terms/Standard",
+    "TechnicalOrganisationalMeasure": "https://w3id.org/dpv#TechnicalOrganisationalMeasure",
+    "Variant": "http://w3id.org/meta-share/meta-share/Variant"
+  }
+}
