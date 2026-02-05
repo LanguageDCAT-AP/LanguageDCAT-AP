@@ -173,7 +173,7 @@
       "@id": "http://w3id.org/meta-share/meta-share/lrType",
       "@type": "@id"
     },
-    "Corpus.mediaType": {
+    "Corpus.modalityType": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/mediaType",
       "@type": "@id"

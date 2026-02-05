@@ -1119,7 +1119,6 @@ foaf:homepage rdf:type owl:ObjectProperty ;
 ###  http://xmlns.com/foaf/0.1/page
 foaf:page rdf:type owl:ObjectProperty .
 
-
 ###  http://xmlns.com/foaf/0.1/primaryTopic
 foaf:primaryTopic rdf:type owl:ObjectProperty ;
                   rdfs:comment "This axiom needed so that Protege loads DCAT2 without errors." .
