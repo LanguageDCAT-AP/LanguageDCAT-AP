@@ -2,7 +2,7 @@
   "@context": {
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
     "dcat": "http://www.w3.org/ns/dcat#",
-    "dcatlds": "http://www.nlpli.gr/dcat-lds#",
+    "dcatlds": "http://w3id.org/lang-dcat-ap/",
     "dct": "http://purl.org/dc/terms/",
     "adms": "http://www.w3.org/ns/adms#",
     "ms": "http://w3id.org/meta-share/meta-share/",
@@ -19,7 +19,7 @@
     "euvoc_auth": "http://publications.europa.eu/resource/authority/",
     "schema": "https://schema.org/",
     "owl": "http://www.w3.org/2002/07/owl#",
-    "lds": "https://lds.eu/",
+    "lds": "https://language-data-space.eu/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "dcmitype": "http://purl.org/dc/dcmitype/",
     "lexmeta": "http://w3id.org/meta-share/lexmeta#",
