@@ -1,0 +1,1132 @@
+@prefix : <https://lds.eu/> . # TODO
+@prefix sh: <http://www.w3.org/ns/shacl#> . # OK
+@prefix edc: <https://w3id.org/edc/v0.0.1/ns/> . # OK
+@prefix loc: <http://id.loc.gov/vocabulary/iso639-1/> . # TODO
+@prefix iana: <http://www.iana.org/assignments/media-types/application/> . # TODO
+@prefix lds: <https://lds.eu/> . # TODO
+@prefix adms: <http://www.w3.org/ns/adms#> . # OK
+@prefix euvoc_auth: <http://publications.europa.eu/resource/authority/>  . # OK
+@prefix dcat: <http://www.w3.org/ns/dcat#> . # OK
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> . # OK
+@prefix dct: <http://purl.org/dc/terms/> . # OK
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . # OK
+@prefix ms: <http://w3id.org/meta-share/meta-share/> . # OK
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> . # OK
+@prefix omtd: <http://w3id.org/meta-share/omtd-share/> . # OK
+@prefix owl: <http://www.w3.org/2002/07/owl#> . # OK
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . # OK
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . # OK
+@prefix schema: <https://schema.org/> . # OK
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> . # OK
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . # OK
+@prefix dpv: <https://w3id.org/dpv#> . # OK
+
+
+[]
+    a sh:NodeShape ;
+    sh:closed true ;
+    sh:targetSubjectsOf  edc:properties ;
+    sh:property sh:AssetProp ;
+    sh:property [
+                    sh:path edc:dataAddress ;
+                    sh:node sh:DataAddressDispatcher ;
+                    sh:message "edc:dataAddress must match either HttpData or AmazonS3 shape"
+                ] .
+
+sh:DataAddressDispatcher
+    a sh:NodeShape ;
+    sh:or (
+          sh:HttpData
+          sh:AmazonS3
+      ) ;
+    sh:message "dataAddress must match either HttpData or AmazonS3 shape" .
+
+
+# PROPERTY SHAPES
+sh:TitleProp
+    a sh:Shape ;
+    sh:path         dct:title ;
+    sh:datatype     rdf:langString ;
+    sh:uniqueLang     true;
+    sh:minCount     1 ;
+    sh:message      "\"Title\" property (dct:title) is required"@en .
+
+sh:VersionProp
+    a sh:PropertyShape ;
+    sh:path         dcat:version ;
+    sh:datatype     xsd:string ;
+    sh:minCount     1 ;
+    sh:maxCount     1 ;
+    sh:message      "Invalid version" .
+
+sh:DescriptionProp
+    a sh:PropertyShape ;
+    sh:path         dct:description ;
+    sh:datatype     rdf:langString ;
+    sh:uniqueLang     true;
+    sh:minCount     1 ;
+    sh:message      "\"Description\" property (dct:description) is required" .
+
+sh:AdmsIdentifierProp
+    a sh:PropertyShape ;
+    sh:path         adms:identifier ;
+    sh:class        adms:Identifier .
+
+sh:DomainProp
+    a sh:PropertyShape ;
+    sh:path         ms:domain ;
+    sh:node         sh:DomainRestriction ;
+    sh:nodeKind     sh:IRI ;
+    sh:message  "The provided value for domain (ms:domain) is invalid"@en .
+
+sh:AlternativeProp
+    a sh:PropertyShape ;
+    sh:path         dct:alternative ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+
+sh:IprHolderProp
+    a sh:PropertyShape ;
+    sh:path         ms:iprHolder;
+    sh:or ([sh:class foaf:Person] [sh:class foaf:Organization]) ;
+    sh:property [sh:path         foaf:name ;
+                 sh:datatype     rdf:langString;
+                 sh:uniqueLang     true; sh:minCount 1],
+                 [
+                    sh:path  adms:identifier ;
+                    sh:property sh:NotationAgentPropVal ,
+                                sh:NotationAgentPropCRD ,
+                                [
+                                    sh:path adms:schemaAgency;
+                                    sh:datatype rdf:langString  ;
+                                    sh:uniqueLang     true;
+                                ]
+                 ] ;
+    sh:message "The provided type for IPR Holder (ms:iprHolder) is invalid. Must be one of: 'foaf:Person', 'foaf:Organization'" .
+
+sh:SizeUnitPropVal
+    a sh:PropertyShape ;
+    sh:path     ms:sizeUnit ;
+    sh:node     sh:SizeUnitRestriction ;
+    sh:message  "The provided value for unit (ms:sizeUnit) is invalid" ;
+    sh:nodeKind     sh:IRI .
+
+sh:SizeUnitPropCRD
+    a sh:PropertyShape ;
+    sh:path     ms:sizeUnit ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message  "Size unit (ms:sizeUnit) is either missing or provided multiple times" .
+
+sh:NotationAgentPropVal
+    a sh:PropertyShape ;
+    sh:path     skos:notation ;
+    sh:datatype xsd:string  ;
+    sh:or (
+              [sh:pattern "^https://isni.org/isni/.+$"]
+              [sh:pattern "^https://ror.org/.+$"]
+          ) ;
+    sh:message "ADMS identifier (adms:Identifier/skos:notation) must be a valid ISNI (^https://isni.org/isni/.+$) or ROR (^https://ror.org/.+$) URI" .
+
+sh:NotationDocPropCRD
+    a sh:PropertyShape ;
+    sh:path     skos:notation ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message  "Notation (skos:notation) is either missing or provided multiple times" .
+
+sh:NotationDocPropVal
+    a sh:PropertyShape ;
+    sh:path     skos:notation ;
+    sh:datatype xsd:string ;
+    sh:or (
+                    [sh:pattern "^https://doi.org/10\\..*$"]
+                    [sh:pattern "^https://hdl.handle.net/.*$"]
+                ) ;
+    sh:message "ADMS identifier (adms:Identifier/skos:notation) must be a valid DOI (^https://doi.org/10\\..+$) or Handle (^https://hdl.handle.net/.+$) URI" .
+
+sh:NotationAgentPropCRD
+    a sh:PropertyShape ;
+    sh:path     skos:notation ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message  "Notation (skos:notation) is either missing or provided multiple times" .
+
+sh:DocumentedByProp
+    a sh:PropertyShape ;
+    sh:path         ms:isDocumentedBy;
+    sh:property [sh:path         ms:citationText ;
+                 sh:datatype     rdf:langString;
+                 sh:uniqueLang     true;
+                 sh:minCount 1],
+                [
+                    sh:path     adms:identifier ;
+                    sh:property sh:NotationDocPropVal ,
+                                sh:NotationDocPropCRD ,
+                                [
+                                    sh:path adms:schemaAgency;
+                                    sh:datatype rdf:langString  ;
+                                    sh:uniqueLang     true;
+                                ];
+                ] .
+sh:OriginalSourceDescriptionProp
+    a sh:PropertyShape ;
+    sh:path         ms:originalSourceDescription;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+sh:KeywordProp
+    a sh:PropertyShape ;
+    sh:path         dcat:keyword ;
+    sh:datatype     rdf:langString ;
+    sh:minCount     1 .
+
+sh:LrTypePropVal
+    a sh:PropertyShape ;
+    sh:path         ms:lrType ;
+    sh:nodeKind     sh:IRI ;
+    sh:node         sh:LRTypeRestriction;
+    sh:message      "The provided value for language resource type (ms:lrType) is invalid" .
+
+sh:LrTypePropCRD
+    a sh:PropertyShape ;
+    sh:path         ms:lrType ;
+    sh:minCount     1 ;
+    sh:maxCount     1 ;
+    sh:message      "Language resource type (ms:lrType) is either missing or provided multiple times" .
+
+sh:CostProp
+    a sh:PropertyShape ;
+    sh:path         ms:cost ;
+    sh:property [sh:path     ms:amount ;
+                 sh:or (
+                         [sh:datatype xsd:double; sh:minExclusive 0;]
+                         [sh:datatype xsd:integer ; sh:minExclusive 0;]
+                       );
+                 sh:message "The provided value for amount type (ms:amount) is invalid";
+                 sh:minCount    1;
+                 sh:maxCount    1 ],
+                [sh:path     ms:amount ;
+                 sh:minCount    1;
+                 sh:maxCount    1;
+                 sh:message "Amount type (ms:amount) is either missing or provided multiple times";],
+                [sh:path     ms:currency ;
+                 sh:node         sh:CurrencyRestriction ;
+                 sh:nodeKind     sh:IRI ] ;
+    sh:minCount     0 ;
+    sh:maxCount     1 .
+
+sh:MediaTypeProp
+    a sh:PropertyShape ;
+    sh:path         ms:mediaType ;
+    sh:node         sh:MediaTypeRestriction  ;
+    sh:nodeKind     sh:IRI ;
+    sh:minCount     1 ;
+    sh:message "Invalid media type" .
+
+sh:AnonymizedProp
+    a sh:PropertyShape ;
+    sh:path         ms:anonymized ;
+    sh:node         sh:AnonymizedRestriction ;
+    sh:nodeKind     sh:IRI ;
+    sh:minCount     1 ;
+    sh:maxCount     1 .
+
+sh:AnonymizationDetailsProp
+    a sh:PropertyShape ;
+    sh:path         ms:anonymizationDetails ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+sh:SensitiveDataIncludedProp
+    a sh:PropertyShape ;
+    sh:path         ms:sensitiveDataIncluded ;
+    sh:node         sh:SDIsRestriction ;
+    sh:nodeKind     sh:IRI ;
+    sh:maxCount     1 .
+
+sh:SensitiveDataDetailsProp
+    a sh:PropertyShape ;
+    sh:path         ms:sensitiveDataDetails ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+sh:PersonalDataIncludedProp
+    a sh:PropertyShape ;
+    sh:path         ms:personalDataIncluded ;
+    sh:node         sh:PDIsRestriction ;
+    sh:nodeKind     sh:IRI ;
+    sh:maxCount     1 .
+
+sh:PersonalDataDetailsProp
+    a sh:PropertyShape ;
+    sh:path         ms:personalDataDetails ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+sh:LingualityTypeProp
+    a sh:PropertyShape ;
+    sh:path         ms:lingualityType ;
+    sh:node         sh:LingualityTypeRestriction  ;
+    sh:nodeKind     sh:IRI ;
+    sh:minCount     1 ;
+    sh:maxCount     1 .
+
+sh:LanguageProp
+    a sh:PropertyShape   ;
+    sh:path         ms:language ;
+    sh:property     [
+        sh:path         ms:languageCode;
+        sh:node         sh:LanguageRestriction ;
+        sh:nodeKind     sh:IRI ;
+        sh:minCount 1;
+        sh:maxCount 1;
+        sh:message  "Invalid language"@en ;
+    ],
+    [
+        sh:path         ms:region ;
+        sh:node         sh:LocationRestriction ;
+        sh:nodeKind     sh:IRI ;
+        sh:maxCount 1;
+    ],
+    [
+        sh:path         ms:script ;
+        sh:node         sh:ScriptRestriction ;
+        sh:nodeKind     sh:IRI ;
+        sh:maxCount 1;
+    ],
+    [
+        sh:path         ms:variant ;
+        sh:node         sh:VariantRestriction ;
+        sh:nodeKind     sh:IRI ;
+    ],
+    [
+        sh:path         ms:languageVarietyName ;
+        sh:datatype     rdf:langString ;
+        sh:uniqueLang     true;
+    ] ;
+    sh:minCount     1 .
+
+
+sh:ΗasTechnicalOrganisationalMeasureProp
+    a sh:PropertyShape ;
+    sh:path         dpv:hasTechnicalOrganisationalMeasure ;
+    sh:node         sh:TechnicalOrganisationalMeasureRestriction   ;
+    sh:nodeKind     sh:IRI .
+
+sh:DataProtectionPrincipleAppliedProp
+    a sh:PropertyShape ;
+    sh:path         ms:dataProtectionPrincipleApplied ;
+    sh:node         sh:DataProtectionPrincipleRestriction ;
+    sh:nodeKind     sh:IRI .
+
+# Rule upon condition (value of ms:lingualityType) for ms:language. Applies to edc:properties of type edc:Asset
+sh:LanguageOnLingualityTypelRestriction
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql  [
+                a sh:SPARQLConstraint  ;
+                sh:message "Invalid cardinality of ms:language for monolingual linguality type: Only one ms:language allowed";
+                sh:select """
+        SELECT $this
+        WHERE {
+            $this <http://w3id.org/meta-share/meta-share/lingualityType>
+            <http://w3id.org/meta-share/meta-share/monolingual> .
+            FILTER EXISTS {
+                    SELECT ?this (COUNT(?c) AS ?count)
+                    WHERE { ?this <http://w3id.org/meta-share/meta-share/language> ?c }
+                    GROUP BY ?this
+                    HAVING (?count > 1)
+                }
+        }
+        """ ;
+    ],[
+                   a sh:SPARQLConstraint  ;
+                   sh:message "Invalid cardinality of ms:language for bilingual or bilingualized linguality type: Only two ms:language allowed";
+                   sh:select """
+        SELECT $this
+        WHERE {
+            { $this <http://w3id.org/meta-share/meta-share/lingualityType>
+            <http://w3id.org/meta-share/meta-share/bilingual> } UNION { $this <http://w3id.org/meta-share/meta-share/lingualityType>
+            <http://w3id.org/meta-share/meta-share/bilingualized> } .
+            FILTER EXISTS {
+                    SELECT ?this (COUNT(?c) AS ?count)
+                    WHERE { ?this <http://w3id.org/meta-share/meta-share/language> ?c }
+                    GROUP BY ?this
+                    HAVING (?count != 2)
+                }
+        }
+        """ ;
+    ],[
+                   a sh:SPARQLConstraint  ;
+                   sh:message "Invalid cardinality of ms:language for multilingual linguality type: Only more than two ms:language allowed";
+                   sh:select """
+        SELECT $this
+        WHERE {
+            $this <http://w3id.org/meta-share/meta-share/lingualityType>
+            <http://w3id.org/meta-share/meta-share/multilingual> .
+            FILTER EXISTS {
+                    SELECT ?this (COUNT(?c) AS ?count)
+                    WHERE { ?this <http://w3id.org/meta-share/meta-share/language> ?c }
+                    GROUP BY ?this
+                    HAVING (?count < 3)
+                }
+        }
+        """ ;
+    ].
+
+sh:SensitiveOnAnonymizedRestriction
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql [
+                  a sh:SPARQLConstraint  ;
+                  sh:message "Cannot set 'ms:sensitiveDataIncluded' attribute because 'ms:anonymized' is set to true";
+                  sh:select """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/anonymized> <http://w3id.org/meta-share/meta-share/yesA> .
+                  FILTER EXISTS {
+                        SELECT ?this (COUNT(?c) AS ?count)
+                        WHERE { ?this <http://w3id.org/meta-share/meta-share/sensitiveDataIncluded> ?c }
+                        GROUP BY ?this
+                        HAVING (?count > 0)
+                    }
+                  }
+                  """
+    ].
+
+sh:SensitivePersonalMandatory
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql [
+                       a sh:SPARQLConstraint  ;
+                       sh:message "'ms:sensitiveDataIncluded' attribute is required because 'ms:personalDataIncluded' is set to true";
+                       sh:select """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/yesP> .
+                  FILTER NOT EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/sensitiveDataIncluded> ?c
+                    }
+                  }
+                  """
+                   ].
+
+sh:SensitivePersonalMandatoryNo
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql [
+                       a sh:SPARQLConstraint  ;
+                       sh:message "'ms:sensitiveDataIncluded' attribute cannot have the value 'yesS' because 'ms:personalDataIncluded' is set to no";
+                       sh:select """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/noP> .
+                  FILTER EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/sensitiveDataIncluded> <http://w3id.org/meta-share/meta-share/yesS>
+                    }
+                  }
+                  """
+                   ].
+
+
+sh:SensitivePersonalMandatoryUnknown
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql [
+                       a sh:SPARQLConstraint  ;
+                       sh:message "'ms:sensitiveDataIncluded' attribute cannot have the value 'yesS' because 'ms:personalDataIncluded' is set to unknown";
+                       sh:select """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/unknownP> .
+                  FILTER EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/sensitiveDataIncluded> <http://w3id.org/meta-share/meta-share/yesS>
+                    }
+                  }
+                  """
+                   ].
+
+sh:TechnicalOrganisationalMeasurePersonalMandatory
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql [
+                       a sh:SPARQLConstraint  ;
+                       sh:message "'dpv:hasTechnicalOrganisationalMeasure' attribute is required because 'ms:personalDataIncluded' is set to true";
+                       sh:select """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/yesP> .
+                  FILTER NOT EXISTS {
+                        $this <https://w3id.org/dpv#hasTechnicalOrganisationalMeasure> ?c
+                    }
+                  }
+                  """
+                   ].
+
+sh:TechnicalOrganisationalMeasurePersonalNo
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql [
+                       a sh:SPARQLConstraint  ;
+                       sh:message "'dpv:hasTechnicalOrganisationalMeasure' attribute is not applicable because 'ms:personalDataIncluded' is set to no";
+                       sh:select """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/noP> .
+                  FILTER EXISTS {
+                        $this <https://w3id.org/dpv#hasTechnicalOrganisationalMeasure> ?c
+                    }
+                  }
+                  """
+                   ].
+
+sh:TechnicalOrganisationalMeasurePersonalUnknown
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql [
+                       a sh:SPARQLConstraint  ;
+                       sh:message "'dpv:hasTechnicalOrganisationalMeasure' attribute is not applicable because 'ms:personalDataIncluded' is set to unknown";
+                       sh:select """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/unknownP> .
+                  FILTER EXISTS {
+                        $this <https://w3id.org/dpv#hasTechnicalOrganisationalMeasure> ?c
+                    }
+                  }
+                  """
+                   ].
+
+sh:DataProtectionPrincipleAppliedPersonalMandatory
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql [
+                       a sh:SPARQLConstraint  ;
+                       sh:message "'ms:dataProtectionPrincipleApplied' attribute is required because 'ms:personalDataIncluded' is set to true";
+                       sh:select """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/yesP> .
+                  FILTER NOT EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied> ?c
+                    }
+                  }
+                  """
+                   ].
+
+sh:DataProtectionPrincipleAppliedPersonalNO
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql [
+                       a sh:SPARQLConstraint  ;
+                       sh:message "'ms:dataProtectionPrincipleApplied' attribute is not applicable because 'ms:personalDataIncluded' is set to no ";
+                       sh:select """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/noP> .
+                  FILTER EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied> ?c
+                    }
+                  }
+                  """
+                   ].
+
+sh:DataProtectionPrincipleAppliedPersonalUnknown
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql [
+                       a sh:SPARQLConstraint  ;
+                       sh:message "'ms:dataProtectionPrincipleApplied' attribute is not applicable because 'ms:personalDataIncluded' is set to unknown";
+                       sh:select """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/unknownP> .
+                  FILTER EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied> ?c
+                    }
+                  }
+                  """
+                   ].
+
+sh:PersonalOnAnonymizedRestriction
+    sh:targetClass edc:Asset;
+    a sh:NodeShape ;
+    sh:sparql [
+        a sh:SPARQLConstraint  ;
+                   sh:message "Cannot set 'ms:personalDataIncluded' attribute because 'ms:anonymized' is set to true";
+        sh:select """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/anonymized> <http://w3id.org/meta-share/meta-share/yesA> .
+                  FILTER EXISTS {
+                        SELECT ?this (COUNT(?c) AS ?count)
+                        WHERE { ?this <http://w3id.org/meta-share/meta-share/personalDataIncluded> ?c }
+                        GROUP BY ?this
+                        HAVING (?count > 0)
+                    }
+                  }
+                  """
+    ].
+
+sh:SourceLanguageProp
+    a sh:PropertyShape   ;
+    sh:path         ms:sourceLanguage ;
+    sh:property     [
+          sh:path         ms:languageCode;
+          sh:node         sh:LanguageRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:minCount 1;
+          sh:maxCount 1;
+          sh:message  "Invalid language"@en ;
+      ],
+    [
+          sh:path         ms:region ;
+          sh:node         sh:LocationRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:maxCount 1;
+      ],
+    [
+          sh:path         ms:script ;
+          sh:node         sh:ScriptRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:maxCount 1;
+      ],
+    [
+          sh:path         ms:variant ;
+          sh:node         sh:VariantRestriction ;
+          sh:nodeKind     sh:IRI ;
+      ],
+    [
+          sh:path         ms:languageVarietyName ;
+          sh:datatype     rdf:langString ;
+          sh:uniqueLang     true;
+      ] .
+
+sh:TargetLanguageProp
+    a sh:PropertyShape   ;
+    sh:path         ms:targetLanguage ;
+    sh:property     [
+          sh:path         ms:languageCode;
+          sh:node         sh:LanguageRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:minCount 1;
+          sh:maxCount 1;
+          sh:message  "Invalid language"@en ;
+      ],
+    [
+          sh:path         ms:region ;
+          sh:node         sh:LocationRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:maxCount 1;
+      ],
+    [
+          sh:path         ms:script ;
+          sh:node         sh:ScriptRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:maxCount 1;
+      ],
+    [
+          sh:path         ms:variant ;
+          sh:node         sh:VariantRestriction ;
+          sh:nodeKind     sh:IRI ;
+      ],
+    [
+          sh:path         ms:languageVarietyName ;
+          sh:datatype     rdf:langString ;
+          sh:uniqueLang     true;
+      ] .
+
+sh:PivotLanguageProp
+    a sh:PropertyShape   ;
+    sh:path         ms:pivotLanguage ;
+    sh:property     [
+          sh:path         ms:languageCode;
+          sh:node         sh:LanguageRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:minCount 1;
+          sh:maxCount 1;
+          sh:message  "Invalid language"@en ;
+      ],
+    [
+          sh:path         ms:region ;
+          sh:node         sh:LocationRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:maxCount 1;
+      ],
+    [
+          sh:path         ms:script ;
+          sh:node         sh:ScriptRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:maxCount 1;
+      ],
+    [
+          sh:path         ms:variant ;
+          sh:node         sh:VariantRestriction ;
+          sh:nodeKind     sh:IRI ;
+      ],
+    [
+          sh:path         ms:languageVarietyName ;
+          sh:datatype     rdf:langString ;
+          sh:uniqueLang     true;
+      ] .
+
+sh:DCTLanguageProp
+    a sh:PropertyShape ;
+    sh:path         dct:language ;
+    sh:node         sh:DCTLanguageRestriction ;
+    sh:nodeKind     sh:IRI ;
+    sh:minCount     1 .
+
+sh:HasOriginalSourceProp
+    a sh:PropertyShape ;
+    sh:path         ms:hasOriginalSource ;
+    sh:node         sh:MsLanguageResourceRef  .
+
+#sh:SampleDistrProp
+
+sh:SizeProp
+    a sh:PropertyShape ;
+    sh:path         ms:size ;
+    sh:property     [sh:path     ms:amount ;
+                     sh:or (
+                                     [sh:datatype xsd:double;]
+                                     [sh:datatype xsd:long;]
+                                     [sh:datatype xsd:integer;]
+                                 );
+                    sh:message "Invalid ms:amount type"],
+                    [sh:path     ms:amount ;
+                    sh:minExclusive 0 ;
+                    sh:message "Amount (ms:amount) must be a positive number"],
+                    sh:SizeUnitPropVal,
+                    sh:SizeUnitPropCRD ;
+    sh:minCount     1 .
+
+sh:PackageFormatProp
+    a sh:PropertyShape ;
+    sh:path         dcat:packageFormat ;
+    sh:node         sh:PackageFormatRestriction ;
+    sh:nodeKind     sh:IRI ;
+    sh:maxCount     1 .
+
+sh:ByteSizeProp
+    a sh:PropertyShape ;
+    sh:path         dcat:byteSize ;
+    sh:datatype     xsd:integer ;
+    sh:minExclusive 0;
+    sh:minCount     1 ;
+    sh:maxCount     1 ; .
+
+sh:EDCNameProp
+    a sh:PropertyShape ;
+    sh:path         edc:name ;
+    sh:datatype     xsd:string ;
+    sh:maxCount     1 ;
+    sh:minCount     1 ; .
+
+sh:EDCBaseUrlProp
+    a sh:PropertyShape ;
+    sh:path         edc:baseUrl ;
+    sh:pattern      "^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)$" ;
+    sh:maxCount     1 ;
+    sh:minCount     1 ;
+    sh:message      "edc:baseUrl is not a valid URL" .
+
+sh:EDCTypeProp
+    a sh:PropertyShape ;
+    sh:path         edc:type ;
+    sh:datatype     xsd:string ;
+    sh:maxCount     1 ;
+    sh:minCount     1 ;
+    sh:in ("HttpData"^^xsd:string) .
+
+sh:RemoteProp
+    a sh:PropertyShape ;
+    sh:path edc:remote;
+    sh:datatype xsd:string ;
+    sh:defaultValue "false" ;
+    sh:maxCount 1 .
+
+sh:AssetProp
+    a sh:PropertyShape ;
+    sh:path         edc:properties ;
+    sh:class        edc:Asset ;
+    sh:minCount     1 ;
+    sh:maxCount     1 ;
+    sh:message      "properties is required" .
+
+sh:DataAddressProp
+    a sh:PropertyShape ;
+    sh:path         edc:dataAddress ;
+    sh:class        edc:DataAddress ;
+    sh:minCount     1 ;
+    sh:maxCount     1 ;
+    sh:message      "edc:dataAddress is required" .
+
+sh:SamplesProp
+    a sh:PropertyShape ;
+    sh:class        dcat:Distribution ;
+    sh:path         dcat:samples ;
+    sh:datatype     xsd:anyURI .
+
+
+sh:DownloadUrlProp
+    a sh:PropertyShape ;
+    sh:path         dcat:downloadURL ;
+    sh:nodeKind     sh:IRI ;
+    sh:minCount     1 ;
+    sh:maxCount     1 .
+
+sh:AccessUrlProp
+    a sh:PropertyShape ;
+    sh:path         dcat:accessURL ;
+    sh:nodeKind     sh:IRI .
+
+sh:DatasetDistributionProp
+    a sh:PropertyShape ;
+    sh:path         dcat:distribution ;
+    sh:class        dcat:Distribution ;
+    sh:minCount     1 ;
+    sh:maxCount     1 .
+
+
+sh:MultilingualityTypeProp
+    a sh:PropertyShape ;
+    sh:path         ms:multilingualityType ;
+    sh:node         sh:MultilingualityTypeRestriction  ;
+    sh:nodeKind     sh:IRI ;
+    sh:maxCount     1 .
+
+sh:TemporalProp
+    a sh:PropertyShape ;
+    sh:path         dct:temporal .
+
+sh:SpatialProp
+    a sh:PropertyShape ;
+    sh:path         dct:spatial ;
+    sh:node         sh:SpatialRestriction ;
+    sh:nodeKind     sh:IRI .
+
+# NODE SHAPES
+
+#has context menu
+sh:DatasetDistributionShape
+    a sh:NodeShape ;
+#    sh:closed true ;
+    sh:ignoredProperties (rdf:type) ;
+    sh:targetClass dcat:Distribution ;
+    sh:property sh:PackageFormatProp ,
+                sh:ByteSizeProp ,
+                sh:SizeProp ,
+                sh:SamplesProp;
+    sh:property [ sh:path           dct:format;
+                  sh:minCount       1 ;
+                  sh:node           sh:DataFormatRestriction  ;
+                  sh:nodeKind       sh:IRI ],
+                [
+                    sh:path         dct:title ;
+                    sh:uniqueLang     true;
+                    sh:datatype     rdf:langString
+                ].
+
+sh:HttpData
+    a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties (rdf:type) ;
+    sh:property [
+                    sh:path edc:type ;
+                    sh:hasValue "HttpData" ;
+                    sh:message "Expected type 'HttpData'" ;
+                ] ;
+    sh:property sh:EDCBaseUrlProp,
+                sh:EDCNameProp ,
+                sh:RemoteProp .
+
+sh:AmazonS3
+    a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties (rdf:type) ;
+    sh:property [
+                    sh:path edc:type ;
+                    sh:hasValue "AmazonS3" ;
+                    sh:message "Expected type 'AmazonS3'" ;
+                ] ;
+    sh:property  [
+          sh:path edc:objectName ;
+          sh:datatype xsd:string ;
+          sh:minCount 1 ;
+          sh:maxCount 1 ;
+          sh:message "edc:objectName is required"
+      ];
+    sh:property sh:RemoteProp .
+
+sh:TemporalShape
+    a sh:NodeShape;
+    sh:ignoredProperties (rdf:type) ;
+#    sh:targetClass dct:PeriodOfTime ;
+    sh:property [
+        sh:path dcat:startDate ;
+        sh:datatype xsd:date ;
+        sh:minCount 1;
+        sh:maxCount 1;
+    ],
+    [
+        sh:path dcat:endDate ;
+        sh:datatype xsd:date ;
+        sh:minCount 1;
+        sh:maxCount 1;
+    ] .
+
+sh:ConformsProp
+    a sh:PropertyShape ;
+    sh:path     dct:conformsTo ;
+    sh:nodeKind sh:IRI ;
+    sh:node     sh:ConformsToRestriction .
+
+sh:MsLanguageResourceRef
+    a sh:NodeShape ;
+    sh:property     sh:TitleProp,
+                    [
+                        sh:path     adms:identifier ;
+                        sh:property [
+                                        sh:path skos:notation;
+                                        sh:minCount 1 ;
+                                        sh:maxCount 1 ;
+                                        sh:datatype xsd:string ;
+                                        sh:message "skos:notation is required" ;
+                                        sh:or (
+                                                    [sh:pattern "^https://doi.org/10\\..*$"]
+                                                    [sh:pattern "^https://hdl.handle.net/.*$"]
+                                                ) ;
+                                        sh:message "ADMS identifier (adms:Identifier) must be a valid DOI (^https://doi.org/10\\..+$) or Handle (^https://hdl.handle.net/.+$) URI"
+                                    ],
+                                    [
+                                        sh:path adms:schemaAgency;
+                                        sh:datatype rdf:langString  ;
+                                        sh:uniqueLang     true;
+                                    ] ;
+                    ] .
+
+#CV RESTRICTIONS
+sh:DCTLanguageRestriction
+    a sh:NodeShape ;
+    rdfs:comment "DCT Language Restriction" ;
+    rdfs:label "DCT Language Restriction" ;
+    sh:property [
+          sh:hasValue <http://publications.europa.eu/resource/authority/language> ;
+          sh:minCount 1 ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme
+      ] .
+
+sh:DomainRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Domain Restriction" ;
+    rdfs:label "Domain Restriction" ;
+    sh:property [
+          sh:hasValue ms:DomainTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme
+      ] .
+
+sh:SpatialRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Spatial Restriction" ;
+    rdfs:label "Spatial Restriction" ;
+    sh:nodeKind sh:IRI ;
+    sh:or (
+           [ sh:path skos:inScheme ; sh:hasValue  <http://publications.europa.eu/resource/authority/continent> ]
+           [ sh:path skos:inScheme ; sh:hasValue  <http://publications.europa.eu/resource/authority/country> ]
+           [ sh:path skos:inScheme ; sh:hasValue  <http://publications.europa.eu/resource/authority/place> ]
+           [ sh:pattern  "^https://sws.geonames.org/[1-9]{1,7}\\/?$" ]
+         )
+    .
+
+sh:CurrencyRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Currency Restriction" ;
+    rdfs:label "Currency Restriction" ;
+    sh:property [
+          sh:hasValue <http://publications.europa.eu/resource/authority/currency> ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ] .
+
+sh:DataFormatRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Data Format Restriction" ;
+    rdfs:label "Data Format Restriction" ;
+    sh:property [
+          sh:hasValue omtd:DataFormatScheme ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ] .
+
+sh:LanguageRestriction
+    a sh:NodeShape ;
+    rdfs:comment "BCP47 Language Restriction" ;
+    rdfs:label "BCP47 Language Restriction" ;
+    sh:property [
+          sh:hasValue ms:LanguageTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme
+      ] .
+
+sh:ScriptRestriction
+    a sh:NodeShape ;
+    rdfs:comment "BCP47 Script Restriction" ;
+    rdfs:label "BCP47 Script Restriction" ;
+    sh:property [
+          sh:hasValue ms:ScriptTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme
+      ] .
+
+sh:LocationRestriction
+    a sh:NodeShape ;
+    rdfs:comment "BCP47 Region Restriction" ;
+    rdfs:label "BCP47 Region Restriction" ;
+    sh:property [
+          sh:hasValue ms:LocationTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme
+      ] .
+
+sh:SizeUnitRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Size Unit Restriction" ;
+    rdfs:label "Size Unit Restriction" ;
+    sh:property [
+          sh:hasValue ms:SizeUnitTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme
+      ] .
+
+sh:PackageFormatRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Package Format Restriction" ;
+    rdfs:label "Package Format Restriction" ;
+    sh:property [
+          sh:hasValue omtd:PackageFormatScheme ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme
+      ] .
+
+sh:VariantRestriction
+    a sh:NodeShape ;
+    rdfs:comment "BCP47 Variant Restriction" ;
+    rdfs:label "BCP47 Variant Restriction" ;
+    sh:property [
+          sh:hasValue ms:VariantTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme
+      ] .
+
+sh:IANAMediaTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "IANA Media Type Restriction" ;
+    rdfs:label "IANA Media Type Restriction" ;
+    sh:property [
+          sh:hasValue <http://www.iana.org/assignments/media-types> ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+sh:PDIsRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Personal Data Included Restriction" ;
+    rdfs:label "Personal Data Included Restriction" ;
+    sh:property [
+          sh:hasValue ms:PersonalDataIncludedTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+sh:SDIsRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Sensitive Data Included Restriction" ;
+    rdfs:label "Sensitive Data Included Restriction" ;
+    sh:property [
+          sh:hasValue ms:SensitiveDataIncludedTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+sh:AnonymizedRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Anonymized Data Included Restriction" ;
+    rdfs:label "Anonymized Data Included Restriction" ;
+    sh:property [
+          sh:hasValue ms:AnonymizedTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+sh:MediaTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Media Type Restriction" ;
+    rdfs:label "Media Type Restriction" ;
+    sh:property [
+          sh:hasValue ms:MediaTypeTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+sh:LingualityTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Linguality Type Restriction" ;
+    rdfs:label "Linguality Type Restriction" ;
+    sh:property [
+          sh:hasValue ms:LingualityTypeTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+sh:MultilingualityTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Multilinguality Type Restriction" ;
+    rdfs:label "Multilinguality Type Restriction" ;
+    sh:property [
+          sh:hasValue ms:MultilingualityTypeTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+sh:LRTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Language Resource Type Restriction" ;
+    rdfs:label "Language Resource Type Restriction" ;
+    sh:property [
+          sh:hasValue ms:LRTypeTaxonomy  ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+sh:ConformsToRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Conforms Restriction" ;
+    rdfs:label "Conforms Restriction" ;
+    sh:property [
+                     sh:hasValue ms:StandardBestPracticeTaxonomy  ;
+                     sh:nodeKind sh:IRI ;
+                     sh:path skos:inScheme ;
+                 ] .
+
+sh:TechnicalOrganisationalMeasureRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Technical Organisational Measure Restriction" ;
+    rdfs:label "Technical Organisational Measure Restriction" ;
+    sh:property [
+          sh:hasValue ms:TechnicalOrganisationalMeasureTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+sh:DataProtectionPrincipleRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Data Protection Principle Restriction" ;
+    rdfs:label "Data Protection Principle Restriction" ;
+    sh:property [
+          sh:hasValue ms:DataProtectionPrincipleTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .

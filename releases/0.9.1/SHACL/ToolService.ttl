@@ -1,0 +1,49 @@
+@prefix : <https://lds.eu/> . # TODO
+@prefix sh: <http://www.w3.org/ns/shacl#> . # OK
+@prefix edc: <https://w3id.org/edc/v0.0.1/ns/> . # OK
+@prefix loc: <http://id.loc.gov/vocabulary/iso639-1/> . # TODO
+@prefix iana: <http://www.iana.org/assignments/media-types/application/> . # TODO
+@prefix lds: <https://lds.eu/> . # TODO
+@prefix adms: <http://www.w3.org/ns/adms#> . # OK
+@prefix euvoc_auth: <http://publications.europa.eu/resource/authority/>  . # OK
+@prefix dcat: <http://www.w3.org/ns/dcat#> . # OK
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> . # OK
+@prefix dct: <http://purl.org/dc/terms/> . # OK
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . # OK
+@prefix ms: <http://w3id.org/meta-share/meta-share/> . # OK
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> . # OK
+@prefix omtd: <http://w3id.org/meta-share/omtd-share/> . # OK
+@prefix owl: <http://www.w3.org/2002/07/owl#> . # OK
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . # OK
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . # OK
+@prefix schema: <https://schema.org/> . # OK
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> . # OK
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . # OK
+
+
+sh:ToolServiceShape
+    a sh:NodeShape ;
+    sh:closed true;
+    sh:ignoredProperties (rdf:type) ;
+    sh:targetClass edc:Asset ;
+    # Common Properties
+    sh:property
+            sh:VersionProp,
+            sh:DescriptionProp,
+            sh:KeywordProp,
+            sh:LrTypePropVal ,
+            sh:ConformsProp,
+            sh:LrTypePropCRD ;
+    sh:property
+            sh:MediaTypeProp,
+            sh:AnonymizedProp,
+            sh:SensitiveDataIncludedProp,
+            sh:PersonalDataIncludedProp,
+            sh:ΗasTechnicalOrganisationalMeasureProp,
+            sh:DataProtectionPrincipleAppliedProp,
+            sh:LanguageProp .
+
+
+
+
+
