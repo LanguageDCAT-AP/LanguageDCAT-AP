@@ -1,0 +1,99 @@
+@prefix : <https://language-data-space.eu/entity/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> . # OK
+@prefix edc: <https://w3id.org/edc/v0.0.1/ns/> . # OK
+@prefix loc: <http://id.loc.gov/vocabulary/iso639-1/> . # TODO
+@prefix iana: <http://www.iana.org/assignments/media-types/application/> . # TODO
+@prefix lds: <https://language-data-space.eu/entity/> .
+@prefix adms: <http://www.w3.org/ns/adms#> . # OK
+@prefix euvoc_auth: <http://publications.europa.eu/resource/authority/>  . # OK
+@prefix dcat: <http://www.w3.org/ns/dcat#> . # OK
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> . # OK
+@prefix dct: <http://purl.org/dc/terms/> . # OK
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . # OK
+@prefix ms: <http://w3id.org/meta-share/meta-share/> . # OK
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> . # OK
+@prefix omtd: <http://w3id.org/meta-share/omtd-share/> . # OK
+@prefix owl: <http://www.w3.org/2002/07/owl#> . # OK
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . # OK
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . # OK
+@prefix schema: <https://schema.org/> . # OK
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> . # OK
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . # OK
+
+
+sh:CorpusShape
+    a sh:NodeShape ;
+    sh:closed true;
+    sh:ignoredProperties (rdf:type) ;
+    sh:targetClass edc:Asset ;
+    # Common Properties
+    sh:property
+            sh:TitleProp,
+            sh:AlternativeProp,
+            sh:VersionProp,
+            sh:DescriptionProp,
+            sh:AdmsIdentifierProp,
+            sh:DomainProp,
+            sh:IprHolderProp,
+            sh:ConformsProp,
+            sh:DocumentedByProp,
+            sh:KeywordProp,
+            sh:LrTypePropVal ,
+            sh:LrTypePropCRD ,
+            sh:DatasetDistributionProp ,
+            sh:TemporalProp ;
+    sh:property
+            sh:CorpusSubclassProp ,
+            sh:AnnotationTypeProp ,
+            sh:MediaTypeProp ,
+            sh:AnonymizedProp ,
+            sh:AnonymizationDetailsProp ,
+            sh:SensitiveDataIncludedProp,
+            sh:SensitiveDataDetailsProp ,
+            sh:PersonalDataIncludedProp ,
+            sh:PersonalDataDetailsProp ,
+            sh:ΗasTechnicalOrganisationalMeasureProp,
+            sh:DataProtectionPrincipleAppliedProp,
+            sh:LingualityTypeProp ,
+            sh:MultilingualityTypeProp ,
+            sh:LanguageProp ,
+            sh:SourceLanguageProp ,
+            sh:TargetLanguageProp ,
+            sh:PivotLanguageProp ,
+            sh:HasOriginalSourceProp ,
+            sh:OriginalSourceDescriptionProp,
+            sh:SpatialProp .
+
+sh:CorpusSubclassProp
+    a sh:PropertyShape ;
+    sh:path         ms:corpusSubclass ;
+    sh:node         sh:CorpusSubclassRestriction  ;
+    sh:nodeKind     sh:IRI ;
+    sh:maxCount     1 .
+
+
+sh:AnnotationTypeProp
+    a sh:PropertyShape ;
+    sh:path         ms:annotationType ;
+    sh:node         sh:AnnotationTypeRestriction  ;
+    sh:nodeKind     sh:IRI .
+
+sh:AnnotationTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Annotation Type Restriction" ;
+    rdfs:label "Annotation Type Restriction" ;
+    sh:property [
+          sh:hasValue omtd:AnnotationTypeScheme ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+sh:CorpusSubclassRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Corpus Subclass Restriction" ;
+    rdfs:label "Corpus Subclass Restriction" ;
+    sh:property [
+          sh:hasValue ms:CorpusSubclassTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
