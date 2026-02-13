@@ -879,13 +879,13 @@
     "SizeUnit": "http://w3id.org/meta-share/meta-share/SizeUnit",
     "SoftwareDistribution": "http://w3id.org/meta-share/meta-share/SoftwareDistribution",
     "SoftwareDistribution.accessLocation": {
-      "@id": "http://w3id.org/meta-share/meta-share/accessLocation",
+      "@id": "http://w3id.org/meta-share/meta-share/accessLocation"
     },
     "SoftwareDistribution.downloadLocation": {
-      "@id": "http://w3id.org/meta-share/meta-share/downloadLocation",
+      "@id": "http://w3id.org/meta-share/meta-share/downloadLocation"
     },
     "SoftwareDistribution.executionLocation": {
-      "@id": "http://w3id.org/meta-share/meta-share/executionLocation",
+      "@id": "http://w3id.org/meta-share/meta-share/executionLocation"
     },
     "SoftwareDistribution.softwareDistributionForm": {
       "@id": "http://w3id.org/meta-share/meta-share/softwareDistributionForm",
@@ -944,7 +944,6 @@
     "ToolService.languageDependent": {
       "@id": "http://w3id.org/meta-share/meta-share/languageDependent"
     },
-
     "ToolService.license": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
