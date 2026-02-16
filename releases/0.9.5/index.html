@@ -1167,6 +1167,41 @@ No reference
 </div>
 </section>
 
+<!-- Section Environmental impact -->
+<section id="EnvironmentalImpact">
+<h3><a href="http://data.europa.eu/it6/EnvironmentalImpact" data-toggle="tooltip" data-content="http://data.europa.eu/it6/EnvironmentalImpact" data-placement="right">Environmental impact</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>The measurable effects of activities on the environment.</dd>
+<dt><strong>Reference</strong></dt>
+<dd><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#EnvironmentalImpact">MLDCAT-AP [A]</a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#EnvironmentalImpact.measurementMethodology">measurement methodology</a>, <a href="#EnvironmentalImpact.powerConsumption">power consumption</a>.</dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:10%;"/>
+<col style="width:10%;"/>
+<col style="width:5%;"/>
+<col style="width:25%;"/>
+<col style="width:25%;"/>
+<col style="width:13%;"/>
+<col style="width:12%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr id="EnvironmentalImpact.measurementMethodology"><td><a href="http://data.europa.eu/it6/measurementMethodology" target="_blank">measurement methodology</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>The methodology with which the resource was measured.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#EnvironmentalImpact.measurementmethodology">MLDCAT-AP [E]</a></td></tr>
+<tr id="EnvironmentalImpact.powerConsumption"><td><a href="http://data.europa.eu/it6/powerConsumption" target="_blank">power consumption</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>The consumed power.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#EnvironmentalImpact.powerconsumption">MLDCAT-AP [E]</a></td></tr>
+</table>
+</div>
+</section>
+
+
 <!-- Section Catalogue Record -->
 <section id="CatalogueRecord">
 <h3><a href="http://www.w3.org/ns/dcat#CatalogRecord" data-toggle="tooltip" data-content="http://www.w3.org/ns/dcat#CatalogRecord" data-placement="right">Catalogue Record</a></h3>
@@ -1319,6 +1354,41 @@ This property can be repeated for parallel language versions of the property. Th
 <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
 </dl>
 </section>
+
+<!-- Section Modality -->
+<section id="Modality">
+<h3><a href="http://data.europa.eu/it6/Modality" data-toggle="tooltip" data-content="http://data.europa.eu/it6/Modality" data-placement="right">Benchmark</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>The distinct format of structure of input or output data.</dd>
+<dt><strong>Reference</strong></dt>
+<dd><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#Modality">MLDCAT-AP [A]</a></dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Modality.modalityType">modality type</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:10%;"/>
+<col style="width:10%;"/>
+<col style="width:5%;"/>
+<col style="width:25%;"/>
+<col style="width:25%;"/>
+<col style="width:13%;"/>
+<col style="width:12%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr id="Modality.modalityType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">modality type</a></td><td><a href="http://w3id.org/meta-share/meta-share/MediaType" target="_blank">Modality type</a></td><td>1..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_MediaTypeTaxonomy/en/">META-SHARE media type vocabulary</a></td><td>P</a></td></tr>
+</table>
+</div>
+</section>
+
+
 <!-- Section MediaType -->
 <section id="MediaType">
 <h3><a href="http://purl.org/dc/terms/MediaType" data-toggle="tooltip" data-content="http://purl.org/dc/terms/MediaType" data-placement="right">Media Type</a></h3>
