@@ -3,6 +3,11 @@
     "Agent": "http://xmlns.com/foaf/0.1/Agent",
     "AnnotationType": "http://w3id.org/meta-share/omtd-share/AnnotationType",
     "Anonymized": "http://w3id.org/meta-share/meta-share/Anonymized",
+    "Benchmark": "http://data.europa.eu/it6/Benchmark",
+    "Benchmark.title": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/title"
+    },
     "Catalogue": "http://www.w3.org/ns/dcat#Catalog",
     "Catalogue.creator": {
       "@container": "@set",
@@ -321,6 +326,15 @@
     },
     "Domain": "http://w3id.org/meta-share/meta-share/Domain",
     "Entity": "http://www.w3.org/ns/prov#Entity",
+    "EnvironmentalImpact": "http://data.europa.eu/it6/EnvironmentalImpact",
+    "Enviromental impact.measurementMethodology": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/measurementMethodology"
+    },
+    "Enviromental impact.powerConsumption": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/powerConsumption"
+    },
     "Identifier": "http://www.w3.org/ns/adms#Identifier",
     "Identifier.notation": {
       "@id": "http://www.w3.org/2004/02/skos/core#notation"
@@ -565,10 +579,16 @@
     "Location": "http://purl.org/dc/terms/Location",
     "LRType": "http://w3id.org/meta-share/meta-share/LRType",
     "MediaType": "http://purl.org/dc/terms/MediaType",
+    "Modality": "http://data.europa.eu/it6/Modality",
+    "Modality.modalityType": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/mediaType",
+      "@type": "@id"
+    },
     "ModalityType": "http://w3id.org/meta-share/meta-share/MediaType",
     "MediaTypeOrExtent": "http://purl.org/dc/terms/MediaTypeOrExtent",
     "MicrostructureFeature": "http://w3id.org/meta-share/lexmeta#MicrostructureFeature",
-    "Model": "http://w3id.org/meta-share/meta-share/MLModel",
+    "Model": "http://w3id.org/meta-share/meta-share/Model",
     "Model.alternative": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/alternative"
@@ -593,9 +613,10 @@
     "Model.contextLength": {
       "@id": "http://w3id.org/meta-share/meta-share/contextLength"
     },
-    "Model.creationDetails": {
+    "Model.Creator": {
       "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/creationDetails"
+      "@id": "http://purl.org/dc/terms/Creator",
+      "@type": "@id"
     },
     "Model.dataProtectionPrincipleApplied": {
       "@container": "@set",
@@ -606,15 +627,9 @@
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/description"
     },
-    "Model.detailedLanguage": {
+    "Model.designSpecifications": {
       "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/language",
-      "@type": "@id"
-    },
-    "Model.distribution": {
-      "@container": "@set",
-      "@id": "http://www.w3.org/ns/dcat#distribution",
-      "@type": "@id"
+      "@id": "http://data.europa.eu/it6/designSpecifications"
     },
     "Model.domain": {
       "@container": "@set",
@@ -635,6 +650,30 @@
       "@id": "http://w3id.org/meta-share/meta-share/finetuneDataset",
       "@type": "@id"
     },
+    "Model.finetuningMethodology": {
+      "@container": "@set",
+      "@id": "http://w3id.org/lang-dcat-ap/finetuningMethodology"
+    },
+    "Model.hasBenchmark": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/hasBenchmark",
+      "@type": "@id"
+    },
+    "Model.hasInferencingImpact": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/hasInferencingImpact",
+      "@type": "@id"
+    },
+    "Model.hasInputModality": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/hasInputModality",
+      "@type": "@id"
+    },
+    "Model.hasOutputModality": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/hasOutputModality",
+      "@type": "@id"
+    },
     "Model.hasPolicy": {
       "@container": "@set",
       "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
@@ -645,9 +684,28 @@
       "@id": "https://w3id.org/dpv#hasTechnicalOrganisationalMeasure",
       "@type": "@id"
     },
-    "Model.identifier": {
-      "@id": "http://purl.org/dc/terms/identifier",
+    "Model.hasTrainingImpact": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/hasTrainingImpact",
       "@type": "@id"
+    },
+    "Model.identifier": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/adms#identifier",
+      "@type": "@id"
+    },
+    "Model.inputLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/lang-dcat-ap/inputLanguage",
+      "@type": "@id"
+    },
+    "Model.instructions": {
+      "@container": "@set",
+      "@id": "http://w3id.org/lang-dcat-ap/instructions"
+    },
+    "Model.intendedUse": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/intendedUse"
     },
     "Model.iprHolder": {
       "@container": "@set",
@@ -677,17 +735,13 @@
       "@container": "@set",
       "@id": "http://data.europa.eu/it6/limitations"
     },
-    "Model.lingualityType": {
-      "@id": "http://w3id.org/meta-share/meta-share/lingualityType",
-      "@type": "@id"
-    },
     "Model.lrType": {
       "@id": "http://w3id.org/meta-share/meta-share/lrType",
       "@type": "@id"
     },
-    "Model.modalityType": {
+    "Model.modelDistribution ": {
       "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/mediaType",
+      "@id": "http://w3id.org/lang-dcat-ap/modelDistribution ",
       "@type": "@id"
     },
     "Model.modelFunction": {
@@ -699,9 +753,12 @@
       "@id": "http://w3id.org/meta-share/meta-share/modelType",
       "@type": "@id"
     },
-    "Model.otherIdentifier": {
+    "Model.modified": {
+      "@id": "http://purl.org/dc/terms/modified"
+    },
+    "Model.outputLanguage": {
       "@container": "@set",
-      "@id": "http://www.w3.org/ns/adms#identifier",
+      "@id": "http://w3id.org/lang-dcat-ap/outputLanguage",
       "@type": "@id"
     },
     "Model.parameterPrecision": {
@@ -719,12 +776,12 @@
       "@id": "http://purl.org/dc/terms/publisher",
       "@type": "@id"
     },
-    "Model.quantizationProcess": {
-      "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/quantizationProcess"
+    "Model.releaseDate": {
+      "@id": "http://data.europa.eu/it6/releaseDate"
     },
-    "Model.quantized": {
-      "@id": "http://w3id.org/meta-share/meta-share/quantized"
+    "Model.requiresSoftware": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/requiresSoftware"
     },
     "Model.sensitiveDataDetails": {
       "@container": "@set",
@@ -732,26 +789,6 @@
     },
     "Model.sensitiveDataIncluded": {
       "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataIncluded",
-      "@type": "@id"
-    },
-    "Model.sourceLanguage": {
-      "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/sourceLanguage",
-      "@type": "@id"
-    },
-    "Model.spatial": {
-      "@container": "@set",
-      "@id": "http://purl.org/dc/terms/spatial",
-      "@type": "@id"
-    },
-    "Model.targetLanguage": {
-      "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/targetLanguage",
-      "@type": "@id"
-    },
-    "Model.temporal": {
-      "@container": "@set",
-      "@id": "http://purl.org/dc/terms/temporal",
       "@type": "@id"
     },
     "Model.title": {
@@ -763,6 +800,14 @@
       "@id": "http://data.europa.eu/it6/trainedOn",
       "@type": "@id"
     },
+    "Model.trainingMethodologies": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/trainingMethodologies"
+    },
+    "Model.trainingProcess": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/trainingProcess"
+    },
     "Model.variantOf": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/variantOf",
@@ -770,6 +815,49 @@
     },
     "Model.version": {
       "@id": "http://www.w3.org/ns/dcat#version"
+    },
+    "ModelDistribution": "http://w3id.org/lang-dcat-ap/ModelDistribution",
+    "ModelDistribution.accessLevel": {
+      "@container": "@set",
+      "@id": "http://w3id.org/lang-dcat-ap/accessLevel"
+    },
+    "ModelDistribution.accessLocation": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/accessLocation"
+    },
+    "ModelDistribution.amountOfActiveParameters": {
+      "@id": "http://w3id.org/lang-dcat-ap/amountOfActiveParameters"
+    },
+    "ModelDistribution.distributionMethod": {
+      "@container": "@set",
+      "@id": "http://w3id.org/lang-dcat-ap/distributionMethod"
+    },
+    "ModelDistribution.format": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/format",
+      "@type": "@id"
+    },
+    "ModelDistribution.hasPolicy": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
+      "@type": "@id"
+    },
+    "ModelDistribution.license": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/license",
+      "@type": "@id"
+    },
+    "ModelDistribution.mediaType": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/dcat#mediaType"
+    },
+    "ModelDistribution.size": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/size",
+      "@type": "@id"
+    },
+    "ModelDistribution.tokensPerParameter": {
+      "@id": "http://w3id.org/lang-dcat-ap/tokensPerParameter"
     },
     "ModelFunction": "http://w3id.org/meta-share/omtd-share/ModelFunction",
     "ModelType": "http://w3id.org/meta-share/meta-share/ModelType",
@@ -855,7 +943,7 @@
       "@type": "@id"
     },
     "ProcessingResource.modalityType": {
-      "@container": "@set",
+     "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/mediaType",
       "@type": "@id"
     },
