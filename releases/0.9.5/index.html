@@ -882,12 +882,6 @@ Note: In the META-SHARE ontology, models and grammars are grouped as "language d
 <tr id="Model.trainedOn"><td><a href="http://data.europa.eu/it6/trainedOn" target="_blank">trained on</a></td><td><a href="http://w3id.org/meta-share/meta-share/Corpus" target="_blank">Corpus</a></td><td>0..n</td><td>The training dataset used to train the machine learning model</td><td></td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.trainedOn" target="_blank">MLDCAT-AP [E]</a></td></tr>
 <tr id="Model.trainingProcess"><td><a href="http://data.europa.eu/it6/trainingProcess" target="_blank">training process</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>A description of the training process.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.trainingProcess" target="_blank">MLDCAT-AP [E]</a></td></tr>
 <tr id="Model.trainingMethodologies"><td><a href="http://data.europa.eu/it6/trainingMethodologies" target="_blank">training methodologies</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>A description of the training process.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.trainingMethodologies" target="_blank">MLDCAT-AP [E]</a></td></tr>
-
-
-
-<tr id="Model.lingualityType"><td><a href="http://w3id.org/meta-share/meta-share/lingualityType" target="_blank">linguality type</a></td><td><a href="http://w3id.org/meta-share/meta-share/LingualityType" target="_blank">Linguality Type</a></td><td>1..1</td><td>Indicates whether the resource includes one, two or more languages</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_LingualityTypeTaxonomy/en/" target="_blank">META-SHARE linguality type vocabulary</a></td><td>P</td></tr>
-
-<tr id="Model.modalityType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">modality type</a></td><td><a href="http://w3id.org/meta-share/meta-share/MediaType" target="_blank">Modality Type</a></td><td>1..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="http://vocabhub.ilsp.gr/ms_MediaTypeTaxonomy/en/" target="_blank">META-SHARE media type vocabulary</a></td><td>P</td></tr>
 <tr id="Model.variantOf"><td><a href="http://w3id.org/meta-share/meta-share/variantOf" target="_blank">variant of</a></td><td><a href="http://w3id.org/meta-share/meta-share/Model" target="_blank">Model</a></td><td>0..n</td><td>The model on which this model has been based on or derived from or is a variation of</td><td></td><td></td><td>P</td></tr>
 <tr id="Model.version"><td><a href="http://www.w3.org/ns/dcat#version" target="_blank">version</a></td><td><a href="http://www.w3.org/2001/XMLSchema#string" target="_blank">string</a></td><td>1..1</td><td>The version indicator (name or identifier) of a resource</td><td>This property MUST contain a version number or other version designation of the dataset.  
 It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version identifiers should enable comparison of versions and distinguishing major from minor versions, such as Semantic Versioning [SEMVER].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#MachineLearningModel.version" target="_blank">MLDCAT-AP [E]</a></td></tr>
@@ -901,6 +895,54 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 </table>
 </div>
 </section>
+
+<!-- Section Model Distribution -->
+<section id="ModelDistribution">
+<h3><a href="http://w3id.org/lang-dcat-ap/ModelDistribution" data-toggle="tooltip" data-content="http://w3id.org/lang-dcat-ap/ModelDistribution" data-placement="right">Software Distribution</a></h3>
+   
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>Any form with which a model is distributed</dd>
+<dt><strong>Reference</strong></dt>
+No reference
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#ModelDistribution.accessLevel">access level</a>, <a href="#ModelDistribution.accessLocation">access location</a>, <a href="#ModelDistribution.amountOfActiveParameters">amount of active parameters</a>, <a href="#ModelDistribution.accessLocation">access location</a>, <a href="#ModelDistribution.distributionMethod">distribution method</a>, <a href="#ModelDistribution.downloadLocation">download location</a>, <a href="#ModelDistribution.format">format</a>, <a href="#ModelDistribution.hasPolicy">has policy</a>, <a href="#ModelDistribution.license">license</a>, <a href="#ModelDistribution.mediaType">media type</a>, <a href="#Distribution.packageFormat">package format</a>, <a href="#ModelDistribution.size">size</a>, <a href="#ModelDistribution.title">title</a>, <a href="#ModelDistribution.tokensPerParameter">tokens per parameter</a></dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:10%;"/>
+<col style="width:10%;"/>
+<col style="width:5%;"/>
+<col style="width:25%;"/>
+<col style="width:25%;"/>
+<col style="width:13%;"/>
+<col style="width:12%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr id="ModelDistribution.accessLevel"><td><a href="http://w3id.org/lang-dcat-ap/accessLevel" target="_blank">access level</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>The level of model access (e.g. weights-level access, black-box access)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
+<tr id="ModelDistribution.accessLocation"><td><a href="http://w3id.org/meta-share/meta-share/accessLocation" target="_blank">access location</a></td><td><a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the resource can be accessed from; it can be used for landing pages or for cases where the resource is accessible via an interface, i.e. cases where the resource itself is not provided with a direct link for downloading</td><td></td><td></td><td>P</td></tr>
+<tr id="ModelDistribution.amountOfActiveParameters"><td><a href="http://w3id.org/lang-dcat-ap/amountOfActiveParameters" target="_blank">amount of active parameters</a></td><td><a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank">integer</a></td><td>0..1</td><td>Specifies the number of active parameters</td><td></td><td></td><td>P</td></tr>
+<tr id="ModelDistribution.distributionMethod"><td><a href="http://w3id.org/lang-dcat-ap/distributionMethod" target="_blank">access level</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>1..n</td><td>A method of distribution for the model (e.g. enterprise, or subscriptin based access, access throug API, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
+<tr id="ModelDistribution.downloadLocation"><td><a href="http://w3id.org/meta-share/meta-share/downloadLocation" target="_blank">download location</a></td><td><a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the language resource (mainly data but also downloadable software programmes or forms) can be downloaded from</td><td></td><td></td><td>P</td></tr>
+<tr id="ModelDistribution.format"><td><a href="http://purl.org/dc/terms/format" target="_blank">format</a></td><td><a href="http://purl.org/dc/terms/MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td><td>1..n</td><td>The file format, physical medium, or dimensions of the resource</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="http://vocabhub.ilsp.gr/omtd_DataFormatScheme/en/" target="_blank">OMTD-SHARE vocabulary of data formats</a></td><td>P</td></tr>
+<tr id="ModelDistribution.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">has policy</a></td><td><a href="http://www.w3.org/ns/odrl/2/Policy" target="_blank">Policy</a></td><td>1..n</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representation of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.</td><td></td><td>P</tr>
+<tr id="ModelDistribution.license"><td><a href="http://purl.org/dc/terms/license" target="_blank">license</a></td><td><a href="http://purl.org/dc/terms/LicenseDocument" target="_blank">License Document</a></td><td>1..n</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td>P</tr>
+<tr id="ModelDistribution.mediaType"><td><a href="http://www.w3.org/ns/dcat#mediaType" target="_blank">media type</a></td><td><a href="http://purl.org/dc/terms/MediaType" target="_blank">Media Type</a></td><td>0..n</td><td>The media type of the distribution as defined by IANA [IANA-MEDIA-TYPES].</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">IANA-MEDIA-TYPES vocabulary</a></td><td>P</td></tr>
+<tr id="ModelDistribution.size"><td><a href="http://w3id.org/meta-share/meta-share/size" target="_blank">size</a></td><td><a href="http://w3id.org/meta-share/meta-share/Size" target="_blank">Size</a></td><td>1..n</td><td>Specifies the size of a countable entity with regard to the SizeUnit measurement in form of a number</td><td></td><td></td><td>P</td></tr>
+<tr id="ModelDistribution.title"><td><a href="httpspurl.org/dc/terms/title" target="_blank">title</a></td><td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" target="_blank">langString</a></td><td>0..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</a></td></tr>
+<tr id="ModelDistribution.tokensPerParameter"><td><a href="http://w3id.org/lang-dcat-ap/tokensPerParameter" target="_blank">tokens per parameter</a></td><td><a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank">integer</a></td><td>0..1</td><td>Specifies the number of active parameters</td><td></td><td></td><td>P</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+
 <!-- Section Organisation -->
 <section id="Organisation">
 <h3><a href="http://xmlns.com/foaf/0.1/Organization" data-toggle="tooltip" data-content="http://xmlns.com/foaf/0.1/Organization" data-placement="right">Organisation</a></h3>

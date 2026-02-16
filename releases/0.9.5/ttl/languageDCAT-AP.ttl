@@ -199,7 +199,7 @@ cc:legalcode rdf:type owl:ObjectProperty ;
 
 ###  http://data.europa.eu/it6/hasBenchmark
 it6:hasBenchmark rdf:type owl:ObjectProperty ;
-                 rdfs:domain ms:Model ;
+                 rdfs:domain ms:MLModel ;
                  rdfs:range it6:Benchmark ;
                  rdfs:comment "The benchmarks used to evaluate this model."@en ;
                  rdfs:label "has benchmark"@en .
@@ -214,7 +214,7 @@ it6:hasInferencingImpact rdf:type owl:ObjectProperty ;
 
 ###  http://data.europa.eu/it6/hasInputModality
 it6:hasInputModality rdf:type owl:ObjectProperty ;
-                     rdfs:domain ms:Model ;
+                     rdfs:domain ms:MLModel ;
                      rdfs:range it6:Modality ;
                      rdfs:comment "The modality of the input of the model."@en ;
                      rdfs:label "has input modality"@en .
@@ -222,7 +222,7 @@ it6:hasInputModality rdf:type owl:ObjectProperty ;
 
 ###  http://data.europa.eu/it6/hasOutputModality
 it6:hasOutputModality rdf:type owl:ObjectProperty ;
-                      rdfs:domain ms:Model ;
+                      rdfs:domain ms:MLModel ;
                       rdfs:range it6:Modality ;
                       rdfs:comment "The modality of the output of the model."@en ;
                       rdfs:label "has output modality"@en .
@@ -303,7 +303,7 @@ dct:temporal rdf:type owl:ObjectProperty ;
 ###  http://w3id.org/lang-dcat-ap/inputLanguage
 dcatlds:inputLanguage rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf dct:language ;
-                      rdfs:domain ms:Model ;
+                      rdfs:domain ms:MLModel ;
                       rdfs:range ms:Language ;
                       rdfs:comment "Specifies the language covered (understood) by a model, expressed according to the BCP47 recommendation"@en ;
                       rdfs:label "input language"@en .
@@ -311,13 +311,16 @@ dcatlds:inputLanguage rdf:type owl:ObjectProperty ;
 
 ###  http://w3id.org/lang-dcat-ap/modelDistribution
 dcatlds:modelDistribution rdf:type owl:ObjectProperty ;
-                          rdfs:domain ms:Model .
+                          rdfs:domain ms:MLModel ;
+                          rdfs:comment "An available distribution of the model."@en ;
+                          rdfs:label "model distribution"@en ;
+                          rdfs:range ms:ModelDistribution .
 
 
 ###  http://w3id.org/lang-dcat-ap/outputLanguage
 dcatlds:outputLanguage rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf dct:language ;
-                       rdfs:domain ms:Model ;
+                       rdfs:domain ms:MLModel ;
                        rdfs:range ms:Language ;
                        rdfs:comment "Specifies the language output (generated) by a model, expressed according to the BCP47 recommendation"@en ;
                        rdfs:label "input language"@en .
@@ -1206,7 +1209,7 @@ it6:bias rdf:type owl:DatatypeProperty ;
 
 ###  http://data.europa.eu/it6/designSpecifications
 it6:designSpecifications rdf:type owl:DatatypeProperty ;
-                         rdfs:domain ms:Model ;
+                         rdfs:domain ms:MLModel ;
                          rdfs:range rdf:langString ;
                          rdfs:comment "A general description of the main steps or stages involved in the training process, including training methodologies and techniques, the key design choices, assumptions made and what the model is designed to optimise for, and the relevance of different parameters, as applicable."@en ;
                          rdfs:label "design specifications"@en .
@@ -1214,7 +1217,7 @@ it6:designSpecifications rdf:type owl:DatatypeProperty ;
 
 ###  http://data.europa.eu/it6/intendedUse
 it6:intendedUse rdf:type owl:DatatypeProperty ;
-                rdfs:domain ms:Model ;
+                rdfs:domain ms:MLModel ;
                 rdfs:range rdf:langString ;
                 rdfs:comment "The prescribed application of the model."@en ;
                 rdfs:label "intended use"@en .
@@ -1246,7 +1249,7 @@ it6:powerConsumption rdf:type owl:DatatypeProperty ;
 
 ###  http://data.europa.eu/it6/releaseDate
 it6:releaseDate rdf:type owl:DatatypeProperty ;
-                rdfs:domain ms:Model ;
+                rdfs:domain ms:MLModel ;
                 rdfs:range xsd:date ;
                 rdfs:comment "The date a model is released."@en ;
                 rdfs:label "release date"@en .
@@ -1254,7 +1257,7 @@ it6:releaseDate rdf:type owl:DatatypeProperty ;
 
 ###  http://data.europa.eu/it6/trainingMethodologies
 it6:trainingMethodologies rdf:type owl:DatatypeProperty ;
-                          rdfs:domain ms:Model ;
+                          rdfs:domain ms:MLModel ;
                           rdfs:range rdf:langString ;
                           rdfs:comment "A description of the methodologies used."@en ;
                           rdfs:label "training methodologies"@en .
@@ -1262,7 +1265,7 @@ it6:trainingMethodologies rdf:type owl:DatatypeProperty ;
 
 ###  http://data.europa.eu/it6/trainingProcess
 it6:trainingProcess rdf:type owl:DatatypeProperty ;
-                    rdfs:domain ms:Model ;
+                    rdfs:domain ms:MLModel ;
                     rdfs:range rdf:langString ;
                     rdfs:comment "A description of the training process."@en ;
                     rdfs:label "training process"@en .
@@ -1340,7 +1343,7 @@ dcatlds:distributionMethod rdf:type owl:DatatypeProperty ;
 
 ###  http://w3id.org/lang-dcat-ap/finetuningMethodology
 dcatlds:finetuningMethodology rdf:type owl:DatatypeProperty ;
-                              rdfs:domain ms:Model ;
+                              rdfs:domain ms:MLModel ;
                               rdfs:range rdf:langString ;
                               rdfs:comment "The methodology used for finetuning the model"@en ;
                               rdfs:label "finetuning methodology"@en .
@@ -1348,15 +1351,10 @@ dcatlds:finetuningMethodology rdf:type owl:DatatypeProperty ;
 
 ###  http://w3id.org/lang-dcat-ap/instructions
 dcatlds:instructions rdf:type owl:DatatypeProperty ;
-                     rdfs:domain ms:Model ;
+                     rdfs:domain ms:MLModel ;
                      rdfs:range rdf:langString ;
                      rdfs:comment "Instructions on how to use the model"@en ;
                      rdfs:label "instructions"@en .
-
-
-###  http://w3id.org/lang-dcat-ap/modelDistribution
-dcatlds:modelDistribution rdf:type owl:DatatypeProperty ;
-                          rdfs:range ms:ModelDistribution .
 
 
 ###  http://w3id.org/lang-dcat-ap/tokensPerParameter
@@ -1968,9 +1966,6 @@ ms:MediaType rdf:type owl:Class ;
              rdfs:comment "A classification of language resources or language resource parts based on the physical medium they are available in (e.g., text, video, audio)"@en ;
              rdfs:label "Modality type"@en .
 
-
-###  http://w3id.org/meta-share/meta-share/Model
-ms:Model rdf:type owl:Class .
 
 
 ###  http://w3id.org/meta-share/meta-share/ModelType
@@ -21545,10 +21540,6 @@ dct:modified dct:issued "2000-07-11"^^xsd:date ;
 
 dcatlds:ScopeOfUse rdfs:comment "The scope of use (internal, external) of a resource"@en ;
                    rdfs:label "Scope of use"@en .
-
-
-dcatlds:modelDistribution rdfs:comment "An available distribution of the model."@en ;
-                          rdfs:label "model distribution"@en .
 
 
 ms:AudioType skos:exactMatch lexmeta:audioContent .
