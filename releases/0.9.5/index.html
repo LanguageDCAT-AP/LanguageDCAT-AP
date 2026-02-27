@@ -257,7 +257,8 @@ This document describes the usage of the following main entities for a correct u
 			      <a href="#Location">Location</a> |
 			      <a href="#MediaType">Media Type</a> |
 			      <a href="#MediaTypeOrExtent">Media Type Or Extent</a> |
-			      <a href="#Size">Size</a> |
+			      <a href="Modality">Modality</a>
+            <a href="#Size">Size</a> |
 			      <a href="#PeriodOfTime">Period of Time</a> |
 </p>
 <p>
@@ -378,7 +379,7 @@ The following diagram gives an overview of LanguageDCAT-AP. For simplicity sake,
 <dd>Corpus is a subclass of dcat:Dataset. It is recommended to use this instead of the Dataset class.</dd>
 <dt>Properties</dt>
 </dl>
-<dd>For this entity the following properties are defined: <a href="#Corpus.alternative">alternative</a>, <a href="#Corpus.annotationType">annotation type</a>, <a href="#Corpus.anonymizationDetails">anonymisation details</a>, <a href="#Corpus.anonymized">anonymised</a>, <a href="#Corpus.conformsTo">conforms to</a>, <a href="#Corpus.corpusSubclass">corpus subclass</a>, <a href="#Corpus.dataProtectionPrincipleApplied">data protection principle applied</a>, <a href="#Corpus.description">description</a>, <a href="#Corpus.detailedLanguage">detailed language</a>, <a href="#Corpus.distribution">distribution</a>, <a href="#Corpus.domain">domain</a>, <a href="#Corpus.hasPolicy">has policy</a>, <a href="#Corpus.hasTechnicalOrganisationalMeasure">has technical organisational measure</a>, <a href="#Corpus.identifier">identifier</a>, <a href="#Corpus.iprHolder">IPR holder</a>, <a href="#Corpus.isDocumentedBy">is documented by</a>, <a href="#Corpus.keyword">keyword</a>, <a href="#Corpus.language">language</a>, <a href="#Corpus.license">licence</a>, <a href="#Corpus.lingualityType">linguality type</a>, <a href="#Corpus.lrType">LR type</a>, <a href="#Corpus.modalityType">modality type</a>, <a href="#Corpus.multilingualityType">multilinguality type</a>, <a href="#Corpus.otherIdentifier">other identifier</a>, <a href="#Corpus.personalDataDetails">personal data details</a>, <a href="#Corpus.personalDataIncluded">personal data included</a>, <a href="#Corpus.pivotLanguage">pivot language</a>, <a href="#Corpus.publisher">publisher</a>, <a href="#Corpus.sourceLanguage">source language</a>, <a href="#Corpus.spatial">spatial</a>, <a href="#Corpus.sensitiveDataDetails">special category data details</a>, <a href="#Corpus.sensitiveDataIncluded">special category data included</a>, <a href="#Corpus.targetLanguage">target language</a>, <a href="#Corpus.temporal">temporal</a>, <a href="#Corpus.title">title</a>, <a href="#Corpus.version">version</a>.</dd>
+<dd>For this entity the following properties are defined: <a href="#Corpus.alternative">alternative</a>, <a href="#Corpus.annotationType">annotation type</a>, <a href="#Corpus.anonymizationDetails">anonymisation details</a>, <a href="#Corpus.anonymized">anonymised</a>, <a href="#Corpus.conformsTo">conforms to</a>, <a href="#Corpus.corpusSubclass">corpus subclass</a>, <a href="#Corpus.dataProtectionPrincipleApplied">data protection principle applied</a>, <a href="#Corpus.description">description</a>, <a href="#Corpus.detailedLanguage">detailed language</a>, <a href="#Corpus.distribution">distribution</a>, <a href="#Corpus.domain">domain</a>, <a href="#Corpus.hasOriginalSource">has original source</a>, <a href="#Corpus.hasPolicy">has policy</a>, <a href="#Corpus.hasTechnicalOrganisationalMeasure">has technical organisational measure</a>, <a href="#Corpus.identifier">identifier</a>, <a href="#Corpus.iprHolder">IPR holder</a>, <a href="#Corpus.isDocumentedBy">is documented by</a>, <a href="#Corpus.keyword">keyword</a>, <a href="#Corpus.language">language</a>, <a href="#Corpus.license">licence</a>, <a href="#Corpus.lingualityType">linguality type</a>, <a href="#Corpus.lrType">LR type</a>, <a href="#Corpus.modalityType">modality type</a>, <a href="#Corpus.multilingualityType">multilinguality type</a>, <a href="#Corpus.originalSourceDescription">original source description</a>, <a href="#Corpus.otherIdentifier">other identifier</a>, <a href="#Corpus.personalDataDetails">personal data details</a>, <a href="#Corpus.personalDataIncluded">personal data included</a>, <a href="#Corpus.pivotLanguage">pivot language</a>, <a href="#Corpus.publisher">publisher</a>, <a href="#Corpus.sourceLanguage">source language</a>, <a href="#Corpus.spatial">spatial</a>, <a href="#Corpus.sensitiveDataDetails">special category data details</a>, <a href="#Corpus.sensitiveDataIncluded">special category data included</a>, <a href="#Corpus.targetLanguage">target language</a>, <a href="#Corpus.temporal">temporal</a>, <a href="#Corpus.title">title</a>, <a href="#Corpus.version">version</a>.</dd>
 <div class="u-table-overflow">
 <table class="data-table simple">
 <colgroup>
@@ -393,6 +394,389 @@ The following diagram gives an overview of LanguageDCAT-AP. For simplicity sake,
 <thead>
 <tr>
 <th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
+</tr>
+</thead>
+<tbody>
+  <tr id="Corpus.alternative">
+    <td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td>
+    <td><a href="#langString" target="_blank">langString</a></td>
+    <td>0..n</td>
+    <td>An alternative name for the resource.</td>
+    <td>It is recommended to use "dct:title" for the full name of a dataset and "dct:alternative" for the short name...</td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.annotationType">
+    <td><a href="http://w3id.org/meta-share/meta-share/annotationType" target="_blank">annotation type</a></td>
+    <td><a href="http://w3id.org/meta-share/omtd-share/AnnotationType" target="_blank">Annotation Type</a></td>
+    <td>0..n</td>
+    <td>Specifies the annotation type of the annotated version(s) of a resource...</td>
+    <td></td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Annotation_Type_Taxonomy/data" target="_blank">OMTD annotation type vocabulary</a></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.anonymizationDetails">
+    <td><a href="http://w3id.org/meta-share/meta-share/anonymizationDetails" target="_blank">anonymisation details</a></td>
+    <td><a href="#langString" target="_blank">langString</a></td>
+    <td>0..n</td>
+    <td>If the resource has been anonymised, this field can be used for entering more information...</td>
+    <td>This property can be repeated for parallel language versions of the property...</td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.anonymized">
+    <td><a href="http://w3id.org/meta-share/meta-share/anonymized" target="_blank">anonymised</a></td>
+    <td><a href="http://w3id.org/meta-share/meta-share/Anonymized" target="_blank">Anonymised</a></td>
+    <td>1..1</td>
+    <td>Indicates whether the language resource has been anonymised...</td>
+    <td></td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Anonymized_Taxonomy/data" target="_blank">META-SHARE anonymised vocabulary</a></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.conformsTo">
+    <td><a href="http://purl.org/dc/terms/conformsTo" target="_blank">conforms to</a></td>
+    <td><a href="http://purl.org/dc/terms/Standard" target="_blank">Standard</a></td>
+    <td>0..n</td>
+    <td>An established standard to which the described resource conforms</td>
+    <td></td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Standards_Best_practices_Taxonomy/data" target="_blank">META-SHARE vocabulary of standards and best practices</a></td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.conformsto" target="_blank">DCAT-AP [E]</a></td>
+  </tr>
+
+  <tr id="Corpus.corpusSubclass">
+    <td><a href="http://w3id.org/meta-share/meta-share/corpusSubclass" target="_blank">corpus subclass</a></td>
+    <td><a href="http://w3id.org/meta-share/meta-share/CorpusSubclass" target="_blank">Corpus Subclass</a></td>
+    <td>0..1</td>
+    <td>Introduces a classification of corpora into types (used for descriptive reasons)</td>
+    <td></td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Corpus_Subclass_Taxonomy/data" target="_blank">META-SHARE corpus subclass vocabulary</a></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.dataProtectionPrincipleApplied">
+    <td><a href="http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied" target="_blank">data protection principle applied</a></td>
+    <td><a href="http://w3id.org/meta-share/meta-share/DataProtectionPrinciple" target="_blank">Data Protection Principle</a></td>
+    <td>0..n</td>
+    <td>Specifies the data protection principles that have been applied in compliance with GDPR...</td>
+    <td></td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Protection_Principle_Taxonomy/data" target="_blank">META-SHARE Data Protection Principle vocabulary</a></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.description">
+    <td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td>
+    <td><a href="#langString" target="_blank">langString</a></td>
+    <td>1..n</td>
+    <td>An account of the resource</td>
+    <td>This property can be repeated for parallel language versions...</td>
+    <td></td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.description" target="_blank">DCAT-AP [E]</a></td>
+  </tr>
+
+  <tr id="Corpus.detailedLanguage">
+    <td><a href="http://w3id.org/meta-share/meta-share/language" target="_blank">detailed language</a></td>
+    <td><a href="#Language" target="_blank">Language</a></td>
+    <td>1..n</td>
+    <td>Specifies the language used in the resource... according to BCP47</td>
+    <td>This property takes a value in compliance with the BCP47 recommendation...</td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.distribution">
+    <td><a href="http://www.w3.org/ns/dcat#distribution" target="_blank">distribution</a></td>
+    <td><a href="#Distribution" target="_blank">Distribution</a></td>
+    <td>1..n</td>
+    <td>An available distribution of the dataset</td>
+    <td></td>
+    <td></td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.datasetdistribution">DCAT-AP [E]</a></td>
+  </tr>
+
+  <tr id="Corpus.domain">
+    <td><a href="http://w3id.org/meta-share/meta-share/domain" target="_blank">domain</a></td>
+    <td><a href="http://w3id.org/meta-share/meta-share/Domain" target="_blank">Domain</a></td>
+    <td>0..n</td>
+    <td>Identifies the domain according to which an entity is classified</td>
+    <td></td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Domain_Taxonomy/data" target="_blank">META-SHARE vocabulary of domains</a></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.hasOriginalSource">
+    <td><a href="http://w3id.org/meta-share/meta-share/hasOriginalSource" target="_blank">has original source</a></td>
+    <td><a href="#Dataset" target="_blank">Dataset</a></td>
+    <td>0..n</td>
+    <td>Links a language resource to the original source that has been used for its creation, where it's derived or elicited from</td>
+    <td></td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.hasPolicy">
+    <td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">has policy</a></td>
+    <td><a href="#Policy" target="_blank">Policy</a></td>
+    <td>1..n</td>
+    <td>Identifies an ODRL Policy for which the identified Asset is the target Asset</td>
+    <td>This property is used for "policies", i.e. the machine-readable representation...</td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.hasTechnicalOrganisationalMeasure">
+    <td><a href="https://w3id.org/dpv#hasTechnicalOrganisationalMeasure" target="_blank">has Technical Organisational Measure</a></td>
+    <td><a href="https://w3id.org/dpv#TechnicalOrganisationalMeasure" target="_blank">Technical Organisational Measure</a></td>
+    <td>0..n</td>
+    <td>Indicates use or applicability of Technical or Organisational measure</td>
+    <td></td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Technical_and_Organisational_Measure_Taxonomy/data" target="_blank">META-SHARE Technical and Organisational Measure vocabulary</a></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.identifier">
+    <td><a href="http://purl.org/dc/terms/identifier" target="_blank">identifier</a></td>
+    <td><a href="#Literal" target="_blank">Literal</a></td>
+    <td>0..1</td>
+    <td>An unambiguous reference to the resource within a given context</td>
+    <td>The main identifier for the resource, e.g. the URI or other unique identifier...</td>
+    <td></td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.identifier" target="_blank">DCAT-AP [A]</a></td>
+  </tr>
+
+  <tr id="Corpus.iprHolder">
+    <td><a href="http://w3id.org/meta-share/meta-share/iprHolder" target="_blank">IPR holder</a></td>
+    <td><a href="#Agent" target="_blank">Agent</a></td>
+    <td>0..n</td>
+    <td>A person or an organisation who holds the full Intellectual Property Rights...</td>
+    <td>The IPR holder may be identical in many cases with the Publisher...</td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.isDocumentedBy">
+    <td><a href="http://w3id.org/meta-share/meta-share/isDocumentedBy" target="_blank">is documented by</a></td>
+    <td><a href="#Document" target="_blank">Document</a></td>
+    <td>0..n</td>
+    <td>Links a language resource to a document (e.g., research paper, user manual)...</td>
+    <td></td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.keyword">
+    <td><a href="http://www.w3.org/ns/dcat#keyword" target="_blank">keyword</a></td>
+    <td><a href="#langString" target="_blank">langString</a></td>
+    <td>1..n</td>
+    <td>A keyword or tag describing a resource</td>
+    <td>This property can be repeated for parallel language versions...</td>
+    <td></td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.keyword" target="_blank">DCAT-AP [E]</a></td>
+  </tr>
+
+  <tr id="Corpus.language">
+    <td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td>
+    <td><a href="#LinguisticSystem" target="_blank">Linguistic System</a></td>
+    <td>1..n</td>
+    <td>A language of the resource.</td>
+    <td>This property is used for the language of the contents...</td>
+    <td>The EU Authority languages vocabulary and lexvo...</td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.language" target="_blank">DCAT-AP [A]</a></td>
+  </tr>
+
+  <tr id="Corpus.license">
+    <td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td>
+    <td><a href="#Licence" target="_blank">Licence Document</a></td>
+    <td>1..n</td>
+    <td>A legal document giving official permission to do something with the resource</td>
+    <td>This property refers to a "licence", i.e. a human readable text...</td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.lingualityType">
+    <td><a href="http://w3id.org/meta-share/meta-share/lingualityType" target="_blank">linguality type</a></td>
+    <td><a href="http://w3id.org/meta-share/meta-share/LingualityType" target="_blank">LingualityType</a></td>
+    <td>1..1</td>
+    <td>Indicates whether the resource includes one, two or more languages</td>
+    <td></td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Linguality_Type_Taxonomy/data" target="_blank">META-SHARE linguality type vocabulary</a></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.lrType">
+    <td><a href="http://w3id.org/meta-share/meta-share/lrType" target="_blank">LR Type</a></td>
+    <td><a href="http://w3id.org/meta-share/meta-share/LRType" target="_blank">LR type</a></td>
+    <td>1..1</td>
+    <td>Specifies the type of a language resource</td>
+    <td>This element allows for a more fine-grained categorisation...</td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Resource_Type_Taxonomy/data" target="_blank">META-SHARE language resource type vocabulary</a></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.modalityType">
+    <td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">modality type</a></td>
+    <td><a href="http://w3id.org/meta-share/meta-share/MediaType" target="_blank">Modality Type</a></td>
+    <td>1..n</td>
+    <td>Specifies the media type of a language resource...</td>
+    <td></td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data" target="_blank">META-SHARE media type vocabulary</a></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.multilingualityType">
+    <td><a href="http://w3id.org/meta-share/meta-share/multilingualityType" target="_blank">multilinguality type</a></td>
+    <td><a href="http://w3id.org/meta-share/meta-share/MultilingualityType" target="_blank">Multilinguality Type</a></td>
+    <td>0..1</td>
+    <td>Indicates whether the resource (part) is parallel, comparable or mixed</td>
+    <td></td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Multilinguality_Type_Taxonomy/data" target="_blank">META-SHARE linguality type vocabulary</a></td>
+    <td>P</td>
+  </tr>
+
+<tr id="Corpus.originalSourceDescription">
+    <td><a href="http://w3id.org/meta-share/meta-share/originalSourceDescription" target="_blank">original source description</a></td>
+    <td><a href="#langString" target="_blank">langString</a></td>
+    <td>0..n</td>
+    <td>A description in free text of the source material that has been used for the creation of a language data resource</td>
+    <td>This property can be used to provide further information on the source resource. For instance, provide information such as mode and timespan of collection of a dataset.</td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.otherIdentifier">
+    <td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">other identifier</a></td>
+    <td><a href="#Identifier" target="_blank">Identifier</a></td>
+    <td>0..n</td>
+    <td>Links a resource to an adms:Identifier class.</td>
+    <td>This property MAY be used as an additional identifier...</td>
+    <td></td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.identifier" target="_blank">DCAT-AP [A]</a></td>
+  </tr>
+
+  <tr id="Corpus.personalDataDetails">
+    <td><a href="http://w3id.org/meta-share/meta-share/personalDataDetails" target="_blank">personal data details</a></td>
+    <td><a href="#langString" target="_blank">langString</a></td>
+    <td>0..n</td>
+    <td>If the resource includes personal data, this field can be used...</td>
+    <td>This property can be repeated for parallel language versions...</td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.personalDataIncluded">
+    <td><a href="http://w3id.org/meta-share/meta-share/personalDataIncluded" target="_blank">personal data included</a></td>
+    <td><a href="http://w3id.org/meta-share/meta-share/PersonalDataIncluded" target="_blank">Personal Data Included</a></td>
+    <td>1..1</td>
+    <td>Specifies whether the language resource contains personal data...</td>
+    <td>This property MUST be filled in for all non-anonymised datasets...</td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Personal_Data_Included_Taxonomy/data" target="_blank">META-SHARE personal data included vocabulary</a></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.pivotLanguage">
+    <td><a href="http://w3id.org/meta-share/meta-share/pivotLanguage" target="_blank">pivot language</a></td>
+    <td><a href="#Language" target="_blank">Language</a></td>
+    <td>0..n</td>
+    <td>The language acting as an intermediary for translations...</td>
+    <td></td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.publisher">
+    <td><a href="http://purl.org/dc/terms/publisher" target="_blank">publisher</a></td>
+    <td><a href="#Agent" target="_blank">Agent</a></td>
+    <td>1..1</td>
+    <td>An entity responsible for making the resource available</td>
+    <td>This property refers to the entity that "publishes"...</td>
+    <td></td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.publisher" target="_blank">DCAT-AP [E]</a></td>
+  </tr>
+
+  <tr id="Corpus.sourceLanguage">
+    <td><a href="http://w3id.org/meta-share/meta-share/sourceLanguage" target="_blank">source language</a></td>
+    <td><a href="#Language" target="_blank">Language</a></td>
+    <td>0..n</td>
+    <td>The language from which a translation is made.</td>
+    <td></td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.spatial">
+    <td><a href="http://purl.org/dc/terms/spatial" target="_blank">spatial</a></td>
+    <td><a href="#Location" target="_blank">Location</a></td>
+    <td>0..n</td>
+    <td>Spatial characteristics of the resource</td>
+    <td>A geographic region that is covered by the dataset...</td>
+    <td>EU Vocabularies lists and GeoNames...</td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.geographicalCoverage" target="_blank">DCAT-AP [A]</a></td>
+  </tr>
+
+  <tr id="Corpus.sensitiveDataDetails">
+    <td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataDetails" target="_blank">special category data details</a></td>
+    <td><a href="#langString" target="_blank">langString</a></td>
+    <td>0..n</td>
+    <td>If the resource includes special category data...</td>
+    <td>This property can be repeated for parallel language versions...</td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.sensitiveDataIncluded">
+    <td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataIncluded" target="_blank">special category data included</a></td>
+    <td><a href="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded" target="_blank">Special Category Data Included</a></td>
+    <td>1..1</td>
+    <td>Specifies whether the language resource contains special category data... (Article 9 GDPR)</td>
+    <td>This property MUST be filled in for all non-anonymised datasets...</td>
+    <td><a href="http://vocabhub.ilsp.gr/ms_SensitiveDataIncludedTaxonomy/en/" target="_blank">META-SHARE Special Category Data Included vocabulary</a></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.targetLanguage">
+    <td><a href="http://w3id.org/meta-share/meta-share/targetLanguage" target="_blank">target language</a></td>
+    <td><a href="#Language" target="_blank">Language</a></td>
+    <td>0..n</td>
+    <td>The language into which a translation is made</td>
+    <td></td>
+    <td></td>
+    <td>P</td>
+  </tr>
+
+  <tr id="Corpus.temporal">
+    <td><a href="http://purl.org/dc/terms/temporal" target="_blank">temporal</a></td>
+    <td><a href="#PeriodOfTime" target="_blank">Period of Time</a></td>
+    <td>0..n</td>
+    <td>Temporal characteristics of the resource</td>
+    <td>A temporal period that the contents of a dataset cover...</td>
+    <td></td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.temporalcoverage" target="_blank">DCAT-AP [A]</a></td>
+  </tr>
+
+  <tr id="Corpus.title">
+    <td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td>
+    <td><a href="#langString" target="_blank">langString</a></td>
+    <td>1..n</td>
+    <td>A name given to the resource</td>
+    <td>This property can be repeated for parallel language versions...</td>
+    <td></td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.title" target="_blank">DCAT-AP [E]</a></td>
+  </tr>
+
+  <tr id="Corpus.version">
+    <td><a href="http://www.w3.org/ns/dcat#version" target="_blank">version</a></td>
+    <td><a href="#string" target="_blank">string</a></td>
+    <td>1..1</td>
+    <td>The version indicator (name or identifier) of a resource</td>
+    <td>This property MUST contain a version number...</td>
+    <td></td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.version" target="_blank">DCAT-AP [E]</a></td>
+  </tr>
+</tbody>
 </tr>
 </thead>
 <tbody><tr id="Corpus.alternative"><td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>An alternative name for the resource.</td><td>It is recommended to use "dct:title" for the full name of a dataset and "dct:alternative" for the short name. This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr><tr id="Corpus.annotationType"><td><a href="http://w3id.org/meta-share/meta-share/annotationType" target="_blank">annotation type</a></td><td><a href="http://w3id.org/meta-share/omtd-share/AnnotationType" target="_blank">Annotation Type</a></td><td>0..n</td><td>Specifies the annotation type of the annotated version(s) of a resource or the annotation type a tool/ service requires or produces as an output</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Annotation_Type_Taxonomy/data" target="_blank">OMTD annotation type vocabulary</a></td><td>P</td></tr><tr id="Corpus.anonymizationDetails"><td><a href="http://w3id.org/meta-share/meta-share/anonymizationDetails" target="_blank">anonymisation details</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource has been anonymised, this field can be used for entering more information, e.g., tool or method used for the anonymisation, by whom it has been performed, whether there was any check of the results, etc.</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr><tr id="Corpus.anonymized"><td><a href="http://w3id.org/meta-share/meta-share/anonymized" target="_blank">anonymised</a></td><td><a href="http://w3id.org/meta-share/meta-share/Anonymized" target="_blank">Anonymised</a></td><td>1..1</td><td>Indicates whether the language resource has been anonymised; anonymous data is information which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in such a manner that the data subject is not or no longer identifiable</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Anonymized_Taxonomy/data" target="_blank">META-SHARE anonymised vocabulary</a></td><td>P</td></tr><tr id="Corpus.conformsTo"><td><a href="http://purl.org/dc/terms/conformsTo" target="_blank">conforms to</a></td><td><a href="http://purl.org/dc/terms/Standard" target="_blank">Standard</a></td><td>0..n</td><td>An established standard to which the described resource conforms</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Standards_Best_practices_Taxonomy/data" target="_blank">META-SHARE vocabulary of standards and best practices</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.conformsto" target="_blank">DCAT-AP [E]</a></td></tr><tr id="Corpus.corpusSubclass"><td><a href="http://w3id.org/meta-share/meta-share/corpusSubclass" target="_blank">corpus subclass</a></td><td><a href="http://w3id.org/meta-share/meta-share/CorpusSubclass" target="_blank">Corpus Subclass</a></td><td>0..1</td><td>Introduces a classification of corpora into types (used for descriptive reasons)</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Corpus_Subclass_Taxonomy/data" target="_blank">META-SHARE corpus subclass vocabulary</a></td><td>P</td></tr><tr id="Corpus.dataProtectionPrincipleApplied"><td><a href="http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied" target="_blank">data protection principle applied</a></td><td><a href="http://w3id.org/meta-share/meta-share/DataProtectionPrinciple" target="_blank">Data Protection Principle</a></td><td>0..n</td><td>Specifies the data protection principles that have been applied in compliance with the General Data Protection Regulation (Regulation (EU) 2016/679)</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Protection_Principle_Taxonomy/data" target="_blank">META-SHARE Data Protection Principle vocabulary</a></td><td>P</td></tr><tr id="Corpus.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>An account of the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.description" target="_blank">DCAT-AP [E]</a></td></tr><tr id="Corpus.detailedLanguage"><td><a href="http://w3id.org/meta-share/meta-share/language" target="_blank">detailed language</a></td><td><a href="#Language" target="_blank">Language</a></td><td>1..n</td><td>Specifies the language that is used in the resource or supported by the tool/service expressed according to the BCP47 recommendation</td><td>This property takes a value in compliance with the BCP47 recommendation and, thus, allows for the detailed description of the language (e.g., British English, Brazilian Portuguese, Greek written with the Latin script, etc.). It must be conformant with the value of "dct:language".</td><td></td><td>P</td></tr><tr id="Corpus.distribution"><td><a href="http://www.w3.org/ns/dcat#distribution" target="_blank">distribution</a></td><td><a href="#Distribution" target="_blank">Distribution</a></td><td>1..n</td><td>An available distribution of the dataset</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.datasetdistribution">DCAT-AP [E]</a></td></tr><tr id="Corpus.domain"><td><a href="http://w3id.org/meta-share/meta-share/domain" target="_blank">domain</a></td><td><a href="http://w3id.org/meta-share/meta-share/Domain" target="_blank">Domain</a></td><td>0..n</td><td>Identifies the domain according to which an entity is classified</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Domain_Taxonomy/data" target="_blank">META-SHARE vocabulary of domains</a></td><td>P</td></tr><tr id="Corpus.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">has policy</a></td><td><a href="#Policy" target="_blank">Policy</a></td><td>1..n</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representation of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.</td><td></td><td>P</td></tr><tr id="Corpus.hasTechnicalOrganisationalMeasure"><td><a href="https://w3id.org/dpv#hasTechnicalOrganisationalMeasure" target="_blank">has Technical Organisational Measure</a></td><td><a href="https://w3id.org/dpv#TechnicalOrganisationalMeasure" target="_blank">Technical Organisational Measure</a></td><td>0..n</td><td>Indicates use or applicability of Technical or Organisational measure</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Technical_and_Organisational_Measure_Taxonomy/data" target="_blank">META-SHARE Technical and Organisational Measure vocabulary</a></td><td>P</td></tr><tr id="Corpus.identifier"><td><a href="http://purl.org/dc/terms/identifier" target="_blank">identifier</a></td><td><a href="#Literal" target="_blank">Literal</a></td><td>0..1</td><td>An unambiguous reference to the resource within a given context</td><td>The main identifier for the resource, e.g. the URI or other unique identifier in the context of the Catalogue. It MUST be automatically assigned by the system when adding the resource to the Catalogue.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.identifier" target="_blank">DCAT-AP [A]</a></td></tr><tr id="Corpus.iprHolder"><td><a href="http://w3id.org/meta-share/meta-share/iprHolder" target="_blank">IPR holder</a></td><td><a href="#Agent" target="_blank">Agent</a></td><td>0..n</td><td>A person or an organisation who holds the full Intellectual Property Rights (Copyright, trademark, etc.) that subsist in the resource. The IPR holder could be different from the creator that may have assigned the rights to the IPR holder (e.g., an author as a creator assigns her rights to the publisher who is the IPR holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work via a specific distributor.</td><td>The IPR holder may be identical in many cases with the Publisher of the resource (see property dct:publisher). In this case, the contact data MAY be copied from the corresponding Publisher entries. There might be also cases with non-identical entities: e.g., when one or several IPR Holders assign another entity as the Publisher responsible for producing, hosting and publishing a resource; such entities may be, for instance, a data distribution agency, or a specific partner representing a project consortium. The subproperty ms:iprHolder is preferred over dct:rightsHolder in order to differentiate with other types of rights (e.g. distribution rights).</td><td></td><td>P</td></tr><tr id="Corpus.isDocumentedBy"><td><a href="http://w3id.org/meta-share/meta-share/isDocumentedBy" target="_blank">is documented by</a></td><td><a href="#Document" target="_blank">Document</a></td><td>0..n</td><td>Links a language resource to a document (e.g., research paper describing its contents or its use in a project, user manual, etc.) or any other form of documentation (e.g., a URL with support information) that is related to the resource</td><td></td><td></td><td>P</td></tr><tr id="Corpus.keyword"><td><a href="http://www.w3.org/ns/dcat#keyword" target="_blank">keyword</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A keyword or tag describing a resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.keyword" target="_blank">DCAT-AP [E]</a></td></tr><tr id="Corpus.language"><td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td><td><a href="#LinguisticSystem" target="_blank">Linguistic System</a></td><td>1..n</td><td>A language of the resource.</td><td>This property is used for the language of the contents of a dataset and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:languge" property is preferred, but the two values must be aligned.</td><td>The EU Authority languages vocabulary (<a href="http://publications.europa.eu/resource/dataset/language" target="_blank">http://publications.europa.eu/resource/dataset/language</a>) and, if not covered, the lexvo vocabulary for languages (<a href="http://lexvo.org/" target="_blank">http://lexvo.org/</a>)</td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.language" target="_blank">DCAT-AP [A]</a></td></tr><tr id="Corpus.license"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>1..n</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td>P</td></tr><tr id="Corpus.lingualityType"><td><a href="http://w3id.org/meta-share/meta-share/lingualityType" target="_blank">linguality type</a></td><td><a href="http://w3id.org/meta-share/meta-share/LingualityType" target="_blank">LingualityType</a></td><td>1..1</td><td>Indicates whether the resource includes one, two or more languages</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Linguality_Type_Taxonomy/data" target="_blank">META-SHARE linguality type vocabulary</a></td><td>P</td></tr><tr id="Corpus.lrType"><td><a href="http://w3id.org/meta-share/meta-share/lrType" target="_blank">LR Type</a></td><td><a href="http://w3id.org/meta-share/meta-share/LRType" target="_blank">LR type</a></td><td>1..1</td><td>Specifies the type of a language resource</td><td>This element allows for a more fine-grained categorisation of datasets into 'corpora' (collections of data files in text, audio, video and/or image modality), 'lexical/conceptual resources' (e.g., lexica, vocabularies, gazetteers, terminological lexica, etc.) and 'grammars'. Note: In the META-SHARE ontology, models and grammars are grouped as "language descriptions" and included as subclasses of datasets. Given the evolution of Machine Learning Models, this has been revisited and models are included as a separate subclass distinguished from datasets.</td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Resource_Type_Taxonomy/data" target="_blank">META-SHARE language resource type vocabulary</a></td><td>P</td></tr><tr id="Corpus.modalityType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">modality type</a></td><td><a href="http://w3id.org/meta-share/meta-share/MediaType" target="_blank">Modality Type</a></td><td>1..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data" target="_blank">META-SHARE media type vocabulary</a></td><td>P</td></tr><tr id="Corpus.multilingualityType"><td><a href="http://w3id.org/meta-share/meta-share/multilingualityType" target="_blank">multilinguality type</a></td><td><a href="http://w3id.org/meta-share/meta-share/MultilingualityType" target="_blank">Multilinguality Type</a></td><td>0..1</td><td>Indicates whether the resource (part) is parallel, comparable or mixed</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Multilinguality_Type_Taxonomy/data" target="_blank">META-SHARE linguality type vocabulary</a></td><td>P</td></tr><tr id="Corpus.otherIdentifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">other identifier</a></td><td><a href="#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>This property MAY be used as an additional identifier for existing identifiers used for the same resource in other Catalogues (e.g. DOI, ISLRN, DataCite, Handle PIDs)</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.identifier" target="_blank">DCAT-AP [A]</a></td></tr><tr id="Corpus.personalDataDetails"><td><a href="http://w3id.org/meta-share/meta-share/personalDataDetails" target="_blank">personal data details</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource includes personal data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr><tr id="Corpus.personalDataIncluded"><td><a href="http://w3id.org/meta-share/meta-share/personalDataIncluded" target="_blank">personal data included</a></td><td><a href="http://w3id.org/meta-share/meta-share/PersonalDataIncluded" target="_blank">Personal Data Included</a></td><td>1..1</td><td>Specifies whether the language resource contains personal data, i.e., any information relating to an identified or identifiable natural person (data subject); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person [Article 4(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]</td><td>This property MUST be filled in for all non-anonymised datasets. If a dataset is anonymised, it is presumed that it contains no personal and sensitive data</td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Personal_Data_Included_Taxonomy/data" target="_blank">META-SHARE personal data included vocabulary</a></td><td>P</td></tr><tr id="Corpus.pivotLanguage"><td><a href="http://w3id.org/meta-share/meta-share/pivotLanguage" target="_blank">pivot language</a></td><td><a href="#Language" target="_blank">Language</a></td><td>0..n</td><td>The language acting as an intermediary for translations between many languages</td><td></td><td></td><td>P</td></tr><tr id="Corpus.publisher"><td><a href="http://purl.org/dc/terms/publisher" target="_blank">publisher</a></td><td><a href="#Agent" target="_blank">Agent</a></td><td>1..1</td><td>An entity responsible for making the resource available</td><td>This property refers to the entity that "publishes", i.e. makes available to the specific platform, the corresponding resource. The information may be identical to the property ms:iprHolder of the resource.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.publisher" target="_blank">DCAT-AP [E]</a></td></tr><tr id="Corpus.sourceLanguage"><td><a href="http://w3id.org/meta-share/meta-share/sourceLanguage" target="_blank">source language</a></td><td><a href="#Language" target="_blank">Language</a></td><td>0..n</td><td>The language from which a translation is made.</td><td></td><td></td><td>P</td></tr><tr id="Corpus.spatial"><td><a href="http://purl.org/dc/terms/spatial" target="_blank">spatial</a></td><td><a href="#Location" target="_blank">Location</a></td><td>0..n</td><td>Spatial characteristics of the resource</td><td>A geographic region that is covered by the dataset. For language data, this refers to the geographic region where the language of the dataset is spoken/written and not where the dataset was implemented; for instance, in the case of a German institution creating a dataset of Cypriot Greek, the geographic region is "Cyprus".</td><td>The EU Vocabularies Continents Named Authority List for continents (<a href="http://publications.europa.eu/resource/dataset/continent" target="_blank">http://publications.europa.eu/resource/dataset/continent</a>), countries (<a href="http://publications.europa.eu/resource/dataset/country" target="_blank">http://publications.europa.eu/resource/dataset/country</a>), places (<a href="http://publications.europa.eu/resource/dataset/place" target="_blank">http://publications.europa.eu/resource/dataset/place</a>) and, if not covered, GeoNames (<a href="https://www.geonames.org/" target="_blank">https://www.geonames.org/</a>)</td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.geographicalCoverage" target="_blank">DCAT-AP [A]</a></td></tr><tr id="Corpus.sensitiveDataDetails"><td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataDetails" target="_blank">special category data details</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>If the resource includes special category data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr><tr id="Corpus.sensitiveDataIncluded"><td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataIncluded" target="_blank">special category data included</a></td><td><a href="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded" target="_blank">Special Category Data Included</a></td><td>1..1</td><td>Specifies whether the language resource contains special category data, i.e., personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person’s sex life or sexual orientation [Article 9(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]</td><td>This property MUST be filled in for all non-anonymised datasets. If a dataset is anonymised, it is presumed that it contains no personal and sensitive data</td><td><a href="http://vocabhub.ilsp.gr/ms_SensitiveDataIncludedTaxonomy/en/" target="_blank">META-SHARE Special Category Data Included vocabulary</a></td><td>P</td></tr><tr id="Corpus.targetLanguage"><td><a href="http://w3id.org/meta-share/meta-share/targetLanguage" target="_blank">target language</a></td><td><a href="#Language" target="_blank">Language</a></td><td>0..n</td><td>The language into which a translation is made</td><td></td><td></td><td>P</td></tr><tr id="Corpus.temporal"><td><a href="http://purl.org/dc/terms/temporal" target="_blank">temporal</a></td><td><a href="#PeriodOfTime" target="_blank">Period of Time</a></td><td>0..n</td><td>Temporal characteristics of the resource</td><td>A temporal period that the contents of a dataset cover. For language data, this can be the time period in which the language of a dataset is spoken.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.temporalcoverage" target="_blank">DCAT-AP [A]</a></td></tr><tr id="Corpus.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions of the property. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.title" target="_blank">DCAT-AP [E]</a></td></tr><tr id="Corpus.version"><td><a href="http://www.w3.org/ns/dcat#version" target="_blank">version</a></td><td><a href="#string" target="_blank">string</a></td><td>1..1</td><td>The version indicator (name or identifier) of a resource</td><td>This property MUST contain a version number or other version designation of the dataset. It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version identifiers should enable comparison of versions and distinguishing major from minor versions, such as Semantic Versioning [SEMVER].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.0/#Dataset.version" target="_blank">DCAT-AP [E]</a></td></tr></tbody>
@@ -1101,6 +1485,30 @@ This property can be repeated for parallel language versions of the property. Th
 <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
 </dl>
 </section>
+<!-- Section MediaType -->
+<section id="MediaType">
+<h3><a data-content="http://purl.org/dc/terms/MediaType" data-placement="right" data-toggle="tooltip" href="http://purl.org/dc/terms/MediaType">Media Type</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A file format or physical medium.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#MediaType">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+<!-- Section MediaTypeOrExtent -->
+<section id="MediaTypeOrExtent">
+<h3><a data-content="http://purl.org/dc/terms/MediaTypeOrExtent" data-placement="right" data-toggle="tooltip" href="http://purl.org/dc/terms/MediaTypeOrExtent">Media Type Or Extent</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A media type or extent.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#MediaTypeOrExtent">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
 <!-- Section Modality -->
 <section id="Modality">
 <h3><a data-content="http://data.europa.eu/it6/Modality" data-placement="right" data-toggle="tooltip" href="http://data.europa.eu/it6/Modality">Modality</a></h3>
@@ -1130,30 +1538,6 @@ This property can be repeated for parallel language versions of the property. Th
 </thead>
 <tbody><tr id="Modality.modalityType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">modality type</a></td><td><a href="http://w3id.org/meta-share/meta-share/MediaType" target="_blank">Modality type</a></td><td>1..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data">META-SHARE media type vocabulary</a></td><td>P</td></tr></tbody></table>
 </div>
-</section>
-<!-- Section MediaType -->
-<section id="MediaType">
-<h3><a data-content="http://purl.org/dc/terms/MediaType" data-placement="right" data-toggle="tooltip" href="http://purl.org/dc/terms/MediaType">Media Type</a></h3>
-<dl>
-<dt>Definition</dt>
-<dd>A file format or physical medium.</dd>
-<dt>Reference</dt>
-<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#MediaType">DCAT-AP [A]</a></dd>
-<dt>Properties</dt>
-<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
-</dl>
-</section>
-<!-- Section MediaTypeOrExtent -->
-<section id="MediaTypeOrExtent">
-<h3><a data-content="http://purl.org/dc/terms/MediaTypeOrExtent" data-placement="right" data-toggle="tooltip" href="http://purl.org/dc/terms/MediaTypeOrExtent">Media Type Or Extent</a></h3>
-<dl>
-<dt>Definition</dt>
-<dd>A media type or extent.</dd>
-<dt>Reference</dt>
-<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#MediaTypeOrExtent">DCAT-AP [A]</a></dd>
-<dt>Properties</dt>
-<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
-</dl>
 </section>
 <!-- Section Period of Time -->
 <section id="PeriodOfTime">
