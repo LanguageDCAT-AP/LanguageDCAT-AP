@@ -93,6 +93,23 @@ aside.example {
     line-height: 1.5;
 }
 
+	.deprecation-banner {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 20000;
+		background-color: rgba(254, 242, 242, 0.9);
+		border-bottom: 2px solid #ef4444;
+		color: #991b1b;
+		padding: 1rem;
+		margin: 0;
+		width: 100%;
+		box-sizing: border-box;
+		font-weight: 500;
+		text-align: center;
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+		font-size: 1.1em;
+	}
 
 </style>
 <script class="remove" defer="" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
@@ -126,6 +143,9 @@ aside.example {
     </p>
 </head>
 <body>
+	<div class="deprecation-banner">
+    	⚠️ <strong>DEPRECATED:</strong> This version of the specification (Release 0.9.1) is deprecated. Please refer to the <a href="../releases/0.9.2/index.html">latest version</a>.
+	</div>
 <!-- Abstract -->
 <section id="abstract">
 <h2>Abstract</h2>
