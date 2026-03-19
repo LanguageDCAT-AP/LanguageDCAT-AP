@@ -1,0 +1,38 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix edc: <https://w3id.org/edc/v0.0.1/ns/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cc:  <http://creativecommons.org/ns#> .
+
+sh:PolicyShape
+    a sh:NodeShape  ;
+    sh:path  edc:policy ;
+    sh:targetClass odrl:Set ;
+    sh:property sh:TitleProp,
+                sh:DescriptionProp ,
+                [
+                    sh:path     adms:identifier ;
+                    sh:property [
+                                    sh:path skos:notation;
+                                    sh:minCount 1 ;
+                                    sh:maxCount 1 ;
+                                    sh:datatype xsd:string ;
+                                    sh:message "skos:notation is required"
+                                ],
+                                [
+                                    sh:path adms:schemaAgency;
+                                    sh:datatype rdf:langString  ;
+                                    sh:uniqueLang     true;
+                                ] ;
+                ],
+                [
+                    sh:path     cc:legalcode ;
+                    sh:maxCount 1;
+                    sh:nodeKind  sh:IRI ;
+                    sh:pattern "^https?://.+$"
+                ].
