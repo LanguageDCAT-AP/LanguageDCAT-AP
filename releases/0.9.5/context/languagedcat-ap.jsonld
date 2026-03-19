@@ -132,6 +132,11 @@
       "@id": "http://w3id.org/meta-share/meta-share/domain",
       "@type": "@id"
     },
+    "Corpus.hasOriginalSource": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/hasOriginalSource",
+      "@type": "@id"
+    },
     "Corpus.hasPolicy": {
       "@container": "@set",
       "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
@@ -186,6 +191,10 @@
     "Corpus.multilingualityType": {
       "@id": "http://w3id.org/meta-share/meta-share/multilingualityType",
       "@type": "@id"
+    },
+    "Corpus.originalSourceDescription": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/originalSourceDescription"
     },
     "Corpus.otherIdentifier": {
       "@container": "@set",
@@ -613,9 +622,9 @@
     "Model.contextLength": {
       "@id": "http://w3id.org/meta-share/meta-share/contextLength"
     },
-    "Model.Creator": {
+    "Model.creator": {
       "@container": "@set",
-      "@id": "http://purl.org/dc/terms/Creator",
+      "@id": "http://purl.org/dc/terms/creator",
       "@type": "@id"
     },
     "Model.dataProtectionPrincipleApplied": {
@@ -789,6 +798,16 @@
     },
     "Model.sensitiveDataIncluded": {
       "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataIncluded",
+      "@type": "@id"
+    },
+    "Model.spatial": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/spatial",
+      "@type": "@id"
+    },
+    "Model.temporal": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/temporal",
       "@type": "@id"
     },
     "Model.title": {
