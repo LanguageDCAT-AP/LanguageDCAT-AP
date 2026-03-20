@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -2139,8 +2139,19 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <p>It is up to the implementers to define the validation they expect. Each implementation happens within a context, and that context is beyond the SHACL expressions here.</p>
 <p>The shapes can be found <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.5/SHACL/languagedcat-ap-SHACL.jsonld">here</a>.</p>
 <h3>Profile in Turtle format</h3>
-<p>All classes, properties and individuals used in the LanguageDCAT-AP profile are available in a file in Turtle format <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.5/ttl/languageDCAT-AP.ttl">here</a>.</p>
+<p>All classes, properties and individuals used in the LanguageDCAT-AP profile are available in a file in Turtle format <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.5/ttl/languageDCAT-AP.ttl">here</a>.</p> 
 </section>
+<section class="informative" id="LDS notes">
+<h2>Notes for implementation in the Language Data Space</h2>
+<p>For reasons of compatibility with the <a href="https://eclipse-dataspace-protocol-base.github.io/DataspaceProtocol/2025-1/">Dataspace Protocol (DSP)</a>, the recommended standard for exchange of datasets for all data spaces, and the implementation supported by the <a href="https://eclipse-edc.github.io/">EDC (Eclipse Dataspace Components) connector</a>, which lies at the heart of the LDS infrastructure, a set of deviations from the profile are deemed indispensable. These concern (a) properties used exclusively in the LDS context, hence not presented in this documentation, and realised through distinct SHACL rules, and (b) properties that appear in the profile with specific features that are bypassed or handled differently in LDS. These are documented here with the required explanations:
+<ul>
+    <li>The properties hasPolicy and Licence are attached both to the Dataset and Distribution class (and respectively for models, at ...) and in DCAT-AP are allowed at the Distribution; however, the DSP requires them to be attached at the Dataset level.</li>
+    <li>The same properties have maximum cardinality 1 at DCAT-AP but n at DSP. We use the .1 cardinality, as suggested by DCAT-AP, yet the catalogues that are automatically extracted from the EDC connector contain multiple policies; for exchange outside LDS, these can be converted to multiple datasets, each with its own policy.</li>
+    <li>In order to use the EDC functionalities, all assets included in the catalogue must be of type dcat:Dataset. Thus, for import into LDS, we require the same for all resource types, including models and tools/services. The distinction is made with the lrtype property.</li>
+</ul>
+</p>
+</section>
+
 <section class="informative" id="examples">
 <h2>Examples</h2>
 <aside class="example" title="Offer 1 Corpus">
@@ -4483,5 +4494,8 @@ function switchTab(event, tabId) {
   container.querySelector('#' + tabId).classList.add('active');
 }
 </script>
-</section></p></section></body>
+</section>
+</p>
+</section>
+</body>
 </html>
