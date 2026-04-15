@@ -9,6 +9,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix cc:  <http://creativecommons.org/ns#> .
 
+# SHACL specific to LDS
 sh:PolicyShape
     a sh:NodeShape  ;
     sh:path  edc:policy ;
