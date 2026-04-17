@@ -32,7 +32,7 @@
                                  dct:language "English"@en ;
                                  rdfs:comment "Based on DCAT-v3, DCAT-AP v3 and MS-OWL v2"@en ;
                                  rdfs:label "LanguageDCAT-AP model"@en ;
-                                 owl:versionInfo "0.9.6" .
+                                 owl:versionInfo "0.9.5" .
 
 #################################################################
 #    Annotation properties
@@ -584,19 +584,19 @@ ms:processingResourceType rdf:type owl:ObjectProperty ;
                           rdfs:label "processing resource type"@en .
 
 
-###  http://w3id.org/meta-share/meta-share/region
-ms:region rdf:type owl:ObjectProperty ;
+###  http://w3id.org/meta-share/meta-share/usedInRegion
+ms:usedInRegion rdf:type owl:ObjectProperty ;
           rdfs:domain ms:Language ;
           rdfs:range dct:Location ;
           rdfs:comment "Specifies the geographical region where a language is used according to the BCP47 recommendation"@en ;
           rdfs:label "region"@en .
 
 
-###  http://w3id.org/meta-share/meta-share/script
-ms:script rdf:type owl:ObjectProperty ;
+###  http://w3id.org/meta-share/meta-share/usedWithScript
+ms:usedWithScript rdf:type owl:ObjectProperty ;
           rdfs:domain ms:Language ;
           rdfs:range ms:Script ;
-          rdfs:comment "Specifies the script used for writing a language"@en ;
+          rdfs:comment "Specifies the script used for writing a language according to the BCP47 recommendation"@en ;
           rdfs:label "script"@en .
 
 
@@ -2466,7 +2466,11 @@ foaf:Person rdf:type owl:Class ;
 
 
 ###  https://w3id.org/dpv#TechnicalOrganisationalMeasure
-dpv:TechnicalOrganisationalMeasure rdf:type owl:Class .
+dpv:TechnicalOrganisationalMeasure rdf:type owl:Class ;
+            rdfs:comment "Technical and Organisational measures used to safeguard and ensure good practices in connection with data and technologies"@en ;
+            rdfs:label "Technical and Organisational Measure"@en .
+
+
 
 
 #################################################################
@@ -21519,10 +21523,6 @@ odrl:purpose rdf:type owl:NamedIndividual ,
              skos:scopeNote "Non-Normative"@en .
 
 
-###  https://w3id.org/dpv#TechnicalOrganisationalMeasure
-dpv:TechnicalOrganisationalMeasure rdf:type owl:NamedIndividual ,
-                                            skos:Concept .
-
 
 #################################################################
 #    Annotations
@@ -21726,9 +21726,6 @@ odrl:systemDevice rdfs:comment "An identified computing system or computing devi
 foaf:name rdfs:comment "A name for some thing."@en ;
           rdfs:label "name"@en .
 
-
-dpv:TechnicalOrganisationalMeasure rdfs:comment "Technical and Organisational measures used to safeguard and ensure good practices in connection with data and technologies"@en ;
-                                   rdfs:label "Technical and Organisational Measure"@en .
 
 
 <https://www.iana.org/assignments/media-types/application_vnd_openxmlformats_officedocument_spreadsheetml_sheet> skos:exactMatch omtd:MsExcel_xlsx .

@@ -1,0 +1,203 @@
+<!-- Section AnnotationType -->
+<section id="AnnotationType">
+<h3><a data-content="http://w3id.org/meta-share/omtd-share/AnnotationType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/omtd-share/AnnotationType">Annotation Type</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Category/class of the annotations (metadata) that are added to the data that is processed</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+<!-- Section Anonymized -->
+<section id="Anonymized">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/Anonymized" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/Anonymized">Anonymised</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Indication of whether the language resource has been anonymised</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+
+<!-- Section Standard -->
+<section id="Standard">
+<h3><a data-content="http://purl.org/dc/terms/Standard" data-placement="right" data-toggle="tooltip" href="http://purl.org/dc/terms/Standard">Standard</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A reference point against which other things can be evaluated or compared.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Standard">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+<!-- Section CorpusSubclass -->
+<section id="CorpusSubclass">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/CorpusSubclass" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/CorpusSubclass">Corpus Subclass</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A classification of corpora into types (used for descriptive reasons)</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+
+<!-- Section DataProtectionPrinciple -->
+<section id="DataProtectionPrinciple">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/DataProtectionPrinciple" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/DataProtectionPrinciple">Data Protection Principle</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Foundational rule that dictates how personal data should be handled to ensure its integrity and confidentiality</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+<!-- Section Domain -->
+<section id="Domain">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/Domain" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/Domain">Domain</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A particular field of thought, activity, or interest related to a language resource, organisation or person activities, etc.</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+
+<!-- Section TechnicalOrganisationalMeasure -->
+<section id="TechnicalOrganisationalMeasure">
+<h3><a data-content="https://w3id.org/dpv#TechnicalOrganisationalMeasure" data-placement="right" data-toggle="tooltip" href="https://w3id.org/dpv#TechnicalOrganisationalMeasure">Technical Organisational Measure</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Technical and Organisational measures used to safeguard and ensure good practices in connection with data and technologies</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+
+<!-- Section TechnicalOrganisationalMeasure -->
+<section id="TechnicalOrganisationalMeasure">
+<h3><a data-content="https://w3id.org/dpv#TechnicalOrganisationalMeasure" data-placement="right" data-toggle="tooltip" href="https://w3id.org/dpv#TechnicalOrganisationalMeasure">Technical Organisational Measure</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Technical and Organisational measures used to safeguard and ensure good practices in connection with data and technologies</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+
+<!-- Section LingualityType -->
+<section id="LingualityType">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/LingualityType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/LingualityType">LingualityType</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Classification of a resource (part) based on the number of languages it includes</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+<!-- Section LRType -->
+<section id="LRType">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/LRType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/LRType">Language Resource Type</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Classification of a resource (part) based on the number of languages it includes</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+
+<!-- Section MediaType -->
+<section id="MediaType">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/MediaType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/MediaType">Modality Type</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A classification of language resources or language resource parts based on the physical medium they are available in (e.g., text, video, audio)</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+<!-- Section MediaType -->
+<section id="MediaType">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/MediaType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/MediaType">Modality Type</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A classification of language resources or language resource parts based on the physical medium they are available in (e.g., text, video, audio)</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+
+<!-- Section MultilingualityType -->
+<section id="MultilingualityType">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/MultilingualityType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/MultilingualityType">Multilinguality Type</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A classification of a bi/multilingual resource (part) into parallel, comparable or mixed</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+<!-- Section PersonalDataIncluded -->
+<section id="PersonalDataIncluded">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/PersonalDataIncluded" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/PersonalDataIncluded">Personal Data Included</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Specification of whether the language resource contains personal data in the sense of article 4(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+<!-- Section SensitiveDataIncluded -->
+<section id="SensitiveDataIncluded">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded">Special Category Data Included</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Specification of whether the language resource contains special category data covered in Article 9(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+
