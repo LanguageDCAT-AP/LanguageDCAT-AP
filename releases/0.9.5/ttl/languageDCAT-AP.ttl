@@ -32,7 +32,7 @@
                                  dct:language "English"@en ;
                                  rdfs:comment "Based on DCAT-v3, DCAT-AP v3 and MS-OWL v2"@en ;
                                  rdfs:label "LanguageDCAT-AP model"@en ;
-                                 owl:versionInfo "0.9.2" .
+                                 owl:versionInfo "0.9.6" .
 
 #################################################################
 #    Annotation properties
@@ -263,6 +263,12 @@ dct:format rdf:type owl:ObjectProperty ;
            rdfs:range dct:MediaTypeOrExtent ;
            rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
            rdfs:label "Format"@en .
+
+###  http://w3id.org/meta-share/meta-share/format
+ms:format rdf:type owl:ObjectProperty ;
+           rdfs:range dct:MediaTypeOrExtent ;
+           rdfs:comment "Indicates the format of a resource or resource part"@en ;
+           rdfs:label "Detailed format"@en .
 
 
 ###  http://purl.org/dc/terms/language
@@ -670,8 +676,8 @@ ms:variant rdf:type owl:ObjectProperty ;
 
 ###  http://w3id.org/meta-share/meta-share/variantOf
 ms:variantOf rdf:type owl:ObjectProperty ;
-             rdfs:domain ms:mlModel ;
-             rdfs:range ms:mlModel ;
+             rdfs:domain ms:MLModel ;
+             rdfs:range ms:MLModel ;
              rdfs:comment "The model on which this model has been based on or derived from or is a variation of" ;
              rdfs:label "variant of"@en ;
              skos:note "Could add as reverse property to it6:hasVariation"@en .
@@ -1955,7 +1961,6 @@ ms:LingualityType rdf:type owl:Class ;
 
 ###  http://w3id.org/meta-share/meta-share/MLModel
 ms:MLModel rdf:type owl:Class ;
-           rdfs:subClassOf ms:DataLanguageResource ;
            rdfs:comment "The model artifact that is created through a training process involving an ML algorithm (that is, the learning algorithm) and the training data to learn from."@en ;
            rdfs:label "Machine Learning model"@en ;
            skos:altLabel "ML model"@en .
@@ -2075,10 +2080,6 @@ ms:WordEmbedding rdf:type owl:Class ;
                  rdfs:subClassOf ms:MLModel ;
                  rdfs:comment "Word embedding is the collective name for a set of language modeling and feature learning techniques in natural language processing where words or phrases from the vocabulary are mapped to vectors of real numbers. [wikipedia]"@en ;
                  rdfs:label "Word embedding"@en .
-
-
-###  http://w3id.org/meta-share/meta-share/mlModel
-ms:mlModel rdf:type owl:Class .
 
 
 ###  http://w3id.org/meta-share/omtd-share/AnnotationType

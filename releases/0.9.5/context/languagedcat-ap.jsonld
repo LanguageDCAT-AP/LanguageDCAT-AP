@@ -268,10 +268,6 @@
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/title"
     },
-    "Data Service.type": {
-      "@id": "http://www.nlpli.gr/dcat-lds#type",
-      "@type": "@id"
-    },
     "Dataset": "http://www.w3.org/ns/dcat#Dataset",
     "Distribution": "http://www.w3.org/ns/dcat#Distribution",
     "Distribution.accessService": {
@@ -365,7 +361,7 @@
       "@id": "http://w3id.org/meta-share/meta-share/languageVarietyName"
     },
     "Language.region": {
-      "@id": "http://w3id.org/meta-share/meta-share/region",
+      "@id": "http://w3id.org/meta-share/meta-share/usedInRegion",
       "@type": "@id"
     },
     "Language.script": {
@@ -784,6 +780,13 @@
     "Model.publisher": {
       "@id": "http://purl.org/dc/terms/publisher",
       "@type": "@id"
+    },
+    "Model.quantizationProcess": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/quantizationProcess"
+    },
+    "Model.quantized": {
+      "@id": "http://w3id.org/meta-share/meta-share/quantized"
     },
     "Model.releaseDate": {
       "@id": "http://data.europa.eu/it6/releaseDate"
