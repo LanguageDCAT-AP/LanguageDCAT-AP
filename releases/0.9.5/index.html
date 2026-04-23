@@ -1177,7 +1177,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <tr id="Model.license"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>1..1</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data.</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#MachineLearningModel.licence" target="_blank">MLDCAT-AP [E]</a></td></tr>
 <tr id="Model.limitations"><td><a href="http://data.europa.eu/it6/limitations" target="_blank">limitations</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>The limited capabilities of the model</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="http://data.europa.eu/it6/limitations" target="_blank">MLDCAT-AP [A]</a></td></tr>
 <tr id="Model.modelDistribution"><td><a href="http://w3id.org/lang-dcat-ap/modelDistribution" target="_blank">model distribution</a></td><td><a href="#ModelDistribution" target="_blank">Model Distribution</a></td><td>1..n</td><td>An available distribution of the model</td><td></td><td></td><td>P</td></tr>
-<tr id="Model.modelFunction"><td><a href="http://w3id.org/meta-share/meta-share/modelFunction" target="_blank">model function</a></td><td><a href="#ModelFunction" target="_blank">Model Function</a></td><td>1..n</td><td>The function/task/operation a model performs</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Operation_Taxonomy/data" target="_blank">OMTD-SHARE vocabulary of operations</a></td><td>P</td></tr>
+<tr id="Model.modelFunction"><td><a href="http://w3id.org/meta-share/meta-share/modelFunction" target="_blank">model function</a></td><td><a href="#Operation" target="_blank">Operation</a></td><td>1..n</td><td>The function/task/operation a model performs</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Operation_Taxonomy/data" target="_blank">OMTD-SHARE vocabulary of operations</a></td><td>P</td></tr>
 <tr id="Model.modelType"><td><a href="http://w3id.org/meta-share/meta-share/modelType" target="_blank">model type</a></td><td><a href="#ModelType" target="_blank">Model Type</a></td><td>1..1</td><td>A classification of models based on their algorithm</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Model_Type_Taxonomy/data" target="_blank">META-SHARE vocabulary of model types</a></td><td>P</td></tr>
 <tr id="Model.modified"><td><a href="http://purl.org/dc/terms/modified" target="_blank">modified</a></td><td><a href="#TemporalLiteral" target="_blank">Temporal Literal</a></td><td>0..1</td><td>The date the machine learning model was last modified.</td><td></td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#MachineLearningModel.modified">MLDCAT-AP [A]</a></td></tr>
 <tr id="Model.otherIdentifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">other identifier</a></td><td><a href="#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>This property MAY be used as an additional identifier for existing identifiers used for the same resource in other Catalogues (e.g. DOI, ISLRN, DataCite, Handle PIDs)</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#MachineLearningModel.identifier" target="_blank">MLDCAT-AP [A]</a></td></tr>
@@ -1195,7 +1195,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <tr id="Model.sensitiveDataIncluded"><td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataIncluded" target="_blank">special category data included</a></td><td><a href="#SensitiveDataIncluded" target="_blank">Special Category Data Included</a></td><td>1..1</td><td>Specifies whether the language resource contains special category data, i.e., personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person’s sex life or sexual orientation [Article 9(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]</td><td>This property MUST be filled in for all non-anonymised datasets. If a dataset is anonymised, it is presumed that it contains no personal and sensitive data</td><td><a href="http://vocabhub.ilsp.gr/ms_SensitiveDataIncludedTaxonomy/en/" target="_blank">META-SHARE Special Category Data Included vocabulary</a></td><td>P</td></tr>
 <tr id="Model.temporal"><td><a href="http://purl.org/dc/terms/temporal" target="_blank">temporal</a></td><td><a href="#PeriodOfTime" target="_blank">Period of Time</a></td><td>0..n</td><td>Temporal characteristics of the resource</td><td>A temporal period that the contents of a dataset cover. For language data, this can be the time period in which the language of a dataset is spoken.</td><td></td><td>P</td></tr>
 <tr id="Model.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-<tr id="Model.trainedOn"><td><a href="http://data.europa.eu/it6/trainedOn" target="_blank">trained on</a></td><td><a href="#Corpus" target="_blank">Corpus</a></td><td>0..n</td><td>The training dataset used to train the machine learning model</td><td></td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#MachineLearningModel.trainedOn" target="_blank">MLDCAT-AP [E]</a></td></tr>
+<tr id="Model.trainedOn"><td><a href="http://data.europa.eu/it6/trainedOn" target="_blank">trained on</a></td><td><a href="#Corpus" target="_blank">Corpus</a></td><td>1..n</td><td>The training dataset used to train the machine learning model</td><td></td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#MachineLearningModel.trainedOn" target="_blank">MLDCAT-AP [E]</a></td></tr>
 <tr id="Model.trainingMethodologies"><td><a href="http://data.europa.eu/it6/trainingMethodologies" target="_blank">training methodologies</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>A description of the methodologies used.</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#MachineLearningModel.trainingMethodologies" target="_blank">MLDCAT-AP [E]</a></td></tr>
 <tr id="Model.trainingProcess"><td><a href="http://data.europa.eu/it6/trainingProcess" target="_blank">training process</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>A description of the training process.</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#MachineLearningModel.trainingProcess" target="_blank">MLDCAT-AP [E]</a></td></tr>
 <tr id="Model.variantOf"><td><a href="http://w3id.org/meta-share/meta-share/variantOf" target="_blank">variant of</a></td><td><a href="#Model" target="_blank">Model</a></td><td>0..n</td><td>The model on which this model has been based on or derived from or is a variation of</td><td></td><td></td><td>P</td></tr>
@@ -1233,10 +1233,10 @@ No reference
 </thead>
 <tbody>
 <tr id="ModelDistribution.accessLevel"><td><a href="http://w3id.org/lang-dcat-ap/accessLevel" target="_blank">access level</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>The level of model access (e.g. weights-level access, black-box access)</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-<tr id="ModelDistribution.accessLocation"><td><a href="http://w3id.org/meta-share/meta-share/accessLocation" target="_blank">access location</a></td><td><a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the resource can be accessed from; it can be used for landing pages or for cases where the resource is accessible via an interface, i.e. cases where the resource itself is not provided with a direct link for downloading</td><td></td><td></td><td>P</td></tr>
+<tr id="ModelDistribution.accessLocation"><td><a href="http://w3id.org/meta-share/meta-share/accessLocation" target="_blank">access location</a></td><td><a href="#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the resource can be accessed from; it can be used for landing pages or for cases where the resource is accessible via an interface, i.e. cases where the resource itself is not provided with a direct link for downloading</td><td></td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.amountOfActiveParameters"><td><a href="http://w3id.org/lang-dcat-ap/amountOfActiveParameters" target="_blank">amount of active parameters</a></td><td><a href="#integer" target="_blank">integer</a></td><td>0..1</td><td>Specifies the number of active parameters</td><td></td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.distributionMethod"><td><a href="http://w3id.org/lang-dcat-ap/distributionMethod" target="_blank">distribution method</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A method of distribution for the model (e.g. enterprise, or subscription based access, access throug API, etc.)</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-<tr id="ModelDistribution.downloadLocation"><td><a href="http://w3id.org/meta-share/meta-share/downloadLocation" target="_blank">download location</a></td><td><a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the language resource (mainly data but also downloadable software programmes or forms) can be downloaded from</td><td></td><td></td><td>P</td></tr>
+<tr id="ModelDistribution.downloadLocation"><td><a href="http://w3id.org/meta-share/meta-share/downloadLocation" target="_blank">download location</a></td><td><a href="#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the language resource (mainly data but also downloadable software programmes or forms) can be downloaded from</td><td></td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.format"><td><a href="http://purl.org/dc/terms/format" target="_blank">format</a></td><td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td><td>1..n</td><td>The file format, physical medium, or dimensions of the resource</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" target="_blank">OMTD-SHARE vocabulary of data formats</a></td><td>P</td></tr>
 <tr id="ModelDistribution.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">has policy</a></td><td><a href="#Policy" target="_blank">Policy</a></td><td>1..1</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representations of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.</td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.license"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>1..1</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td>P</td></tr>
@@ -1907,6 +1907,18 @@ This property can be repeated for parallel language versions. The language tag i
 <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
 </dl>
 </section>
+<!-- Section ModelType -->
+<section id="ModelType">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/ModelType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/ModelType">ModelType</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A classification of models into types based on their algorithm</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
 
 <!-- Section MultilingualityType -->
 <section id="MultilingualityType">
@@ -1914,6 +1926,18 @@ This property can be repeated for parallel language versions. The language tag i
 <dl>
 <dt>Definition</dt>
 <dd>A classification of a bi/multilingual resource (part) into parallel, comparable or mixed</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+<!-- Section Operation -->
+<section id="Operation">
+<h3><a data-content="http://w3id.org/meta-share/omtd-share/Operation" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/omtd-share/Operation">Operation</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>The operation/task/function performed by a tool/service or model</dd>
 <dt>Reference</dt>
 <dd>No reference</dd>
 <dt>Properties</dt>
@@ -1928,7 +1952,6 @@ This property can be repeated for parallel language versions. The language tag i
 <dt><strong>Definition</strong></dt>
 <dd>An interval of time that is named or defined by its start and end dates.</dd>
 <dt><strong>Reference</strong></dt>
-<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#PeriodofTime">DCAT-AP [A]</a></dd>
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#PeriodOfTime.endDate">end date</a>, <a href="#PeriodOfTime.startDate">start date</a>.</dd>
 </dl>
@@ -2093,6 +2116,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 
 
 </section>
+<!-- Section Datatypes -->
 <section id="datatypes">
 <h2>Datatypes</h2>
 <p>The following datatypes are used within this specification.</p>
@@ -2108,6 +2132,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </tr>
 </thead>
 <tbody>
+<tr id="anyURI"><td><a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank">anyURI</a></td><td>anyURI represents an Internationalized Resource Identifier Reference (IRI).  An anyURI value can be absolute or relative, and may have an optional fragment identifier (i.e., it may be an IRI Reference).  This type should be used when the value fulfills the role of an IRI, as defined in [[RFC 3987]] or its successor(s) in the IETF Standards Track.</td></tr>
 <tr id="boolean"><td><a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank">boolean</a></td><td>Boolean has the value space required to support the mathematical concept of binary-valued logic: {true, false}</td></tr>
 <tr id="date"><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td><td>The value space of date consists of top-open intervals of exactly one day in length on the timelines of dateTime, beginning on the beginning moment of each day (in each timezone), i.e. '00:00:00', up to but not including '24:00:00' (which is identical with '00:00:00' of the next day).</td></tr>
 <tr id="float"><td><a href="http://www.w3.org/2001/XMLSchema#float" target="_blank">float</a></td><td>It represents IEEE single-precision 32-bit floating-point numbers. It supports decimal notation, scientific notation, and special values like positive and negative infinity (INF, -INF) and not-a-number (NaN) NaN.</td></tr>
@@ -2245,8 +2270,8 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <td><a href="http://w3id.org/meta-share/meta-share/modelType" target="_blank">model type</a></td>
 <td><a href="#Model">Model</a></td>
 <td><a href="http://w3id.org/meta-share/meta-share/ModelType" target="_blank">Model Type</a></td>
+<td>A classification of models into types based on their algorithm</td>
 <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Model_Type_Taxonomy/data" target="_blank">Model Type Taxonomy</a></td>
-<td></td>
 </tr>
 <tr id="MultilingualityTypeTaxonomy">
 <td><a href="http://w3id.org/meta-share/meta-share/multilingualityType" target="_blank">multilinguality type</a></td>
@@ -2259,8 +2284,8 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <td><a href="http://w3id.org/meta-share/meta-share/modelFunction" target="_blank">model function</a></td>
 <td><a href="#Model">Model</a></td>
 <td><a href="http://w3id.org/meta-share/omtd-share/Operation" target="_blank">Operation</a></td>
+<td>The operation/task/function performed by a tool/service or model</td>
 <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Operation_Taxonomy/data" target="_blank">Operation Taxonomy</a></td>
-<td></td>
 </tr>
 <tr id="PackageFormatTaxonomy">
 <td><a href="http://www.w3.org/ns/dcat#packageFormat" target="_blank">package format</a></td>
