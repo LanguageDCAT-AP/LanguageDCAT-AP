@@ -365,7 +365,7 @@
       "@type": "@id"
     },
     "Language.script": {
-      "@id": "http://w3id.org/meta-share/meta-share/script",
+      "@id": "http://w3id.org/meta-share/meta-share/usedWithScript",
       "@type": "@id"
     },
     "Language.variant": {
