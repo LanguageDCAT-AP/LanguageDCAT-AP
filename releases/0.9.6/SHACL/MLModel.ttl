@@ -1,0 +1,502 @@
+@prefix : <https://language-data-space.eu/entity/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> . # OK
+@prefix edc: <https://w3id.org/edc/v0.0.1/ns/> . # OK
+@prefix loc: <http://id.loc.gov/vocabulary/iso639-1/> . # TODO
+@prefix iana: <http://www.iana.org/assignments/media-types/application/> . # TODO
+@prefix lds: <https://language-data-space.eu/entity/> .
+@prefix adms: <http://www.w3.org/ns/adms#> . # OK
+@prefix euvoc_auth: <http://publications.europa.eu/resource/authority/>  . # OK
+@prefix dcat: <http://www.w3.org/ns/dcat#> . # OK
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> . # OK
+@prefix dct: <http://purl.org/dc/terms/> . # OK
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . # OK
+@prefix ms: <http://w3id.org/meta-share/meta-share/> . # OK
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> . # OK
+@prefix omtd: <http://w3id.org/meta-share/omtd-share/> . # OK
+@prefix owl: <http://www.w3.org/2002/07/owl#> . # OK
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . # OK
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . # OK
+@prefix schema: <https://schema.org/> . # OK
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> . # OK
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . # OK
+@prefix it6: <http://data.europa.eu/it6/> . # OK
+@prefix dcatlds: <http://w3id.org/lang-dcat-ap/> .
+
+
+sh:MLModelShape
+    a sh:NodeShape ;
+    sh:closed true;
+    sh:ignoredProperties (rdf:type) ;
+    sh:targetClass edc:Asset ;
+    # Common Properties
+    sh:property
+            sh:LrTypePropVal,
+            sh:LrTypePropCRD,
+            sh:TitleProp,
+            sh:AlternativeProp,
+            sh:DescriptionProp,
+            sh:AdmsIdentifierProp,
+            sh:VersionProp,
+            sh:KeywordProp,
+            sh:ConformsProp,
+            sh:DomainProp,
+            sh:IprHolderProp,
+            sh:DocumentedByProp,
+            sh:ModelDistributionProp ;
+    sh:property
+            sh:CreatorProp ,
+            sh:InputModalityProp ,
+            sh:OutputModalityProp ,
+            sh:AnonymizedProp,
+            sh:AnonymizationDetailsProp ,
+            sh:SensitiveDataIncludedProp,
+            sh:SensitiveDataDetailsProp,
+            sh:PersonalDataIncludedProp,
+            sh:PersonalDataDetailsProp,
+            sh:ΗasTechnicalOrganisationalMeasureProp,
+            sh:DataProtectionPrincipleAppliedProp,
+            sh:LingualityTypeProp,
+            sh:InputLanguageProp ,
+            sh:OutputLanguageProp ,
+#            sh:SourceLanguageProp ,
+#            sh:TargetLanguageProp ,
+            sh:TemporalProp,
+            sh:SpatialProp ,
+            sh:ModelVariantProp ,
+            sh:TrainedOnProp ,
+#            sh:CreationDetailsProp ,
+            sh:FinetuneDatasetProp ,
+            sh:EvaluationDatasetProp ,
+            sh:EvaluationResultsProp ,
+            sh:BiasProp ,
+            sh:LimitationsProp ,
+            sh:InstructionsProp ,
+            sh:FineTuningMethodologyProp ,
+            sh:TrainingMethodologiesProp ,
+            sh:TrainingProcessProp ,
+            sh:RequiresSoftwareProp ,
+            sh:DesignSpecificationsProp ,
+            sh:ReleaseDateProp ,
+            sh:ModifiedProp ,
+            sh:ContextLengthProp ,
+            sh:QuantizedProp ,
+            sh:QuantizationProcessProp ,
+            sh:ParameterPrecisionProp ,
+            sh:IntendedUseProp ,
+            sh:ModelTypeProp ,
+            sh:BenchmarkProp  ,
+            sh:TrainingImpactProp ,
+            sh:InferencingImpactProp ,
+            sh:ModelFunctionProp .
+
+sh:ModelFunctionProp
+    a sh:PropertyShape ;
+    sh:path         ms:modelFunction ;
+    sh:node         sh:ModelFunctionRestriction;
+    sh:nodeKind     sh:IRI ;
+    sh:minCount     1 .
+
+
+sh:ModelTypeProp
+    a sh:PropertyShape ;
+    sh:path         ms:modelType ;
+    sh:node         sh:ModelTypeRestriction  ;
+    sh:nodeKind     sh:IRI ;
+    sh:minCount     1 ;
+    sh:maxCount     1 .
+
+
+sh:ModelVariantProp
+    a sh:PropertyShape ;
+    sh:path         ms:variantOf ;
+    sh:node         sh:MsLanguageResourceRef  .
+
+
+sh:TrainedOnProp
+    a sh:PropertyShape ;
+    sh:path         it6:trainedOn ;
+    sh:node         sh:MsLanguageResourceRef  .
+
+
+sh:CreationDetailsProp
+    a sh:PropertyShape ;
+    sh:path         ms:creationDetails ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+sh:FinetuneDatasetProp
+    a sh:PropertyShape ;
+    sh:path         ms:finetuneDataset ;
+    sh:node         sh:MsLanguageResourceRef  .
+
+
+sh:EvaluationDatasetProp
+    a sh:PropertyShape ;
+    sh:path         ms:evaluationDataset ;
+    sh:node         sh:MsLanguageResourceRef  .
+
+
+sh:EvaluationResultsProp
+    a sh:PropertyShape ;
+    sh:path         ms:evaluationResults ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+
+sh:BiasProp
+    a sh:PropertyShape ;
+    sh:path         it6:bias ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+
+sh:LimitationsProp
+    a sh:PropertyShape ;
+    sh:path         it6:limitations ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+
+sh:InstructionsProp
+    a sh:PropertyShape ;
+    sh:path         dcatlds:instructions ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+
+sh:FineTuningMethodologyProp
+    a sh:PropertyShape ;
+    sh:path         dcatlds:finetuningMethodology ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+
+sh:TrainingMethodologiesProp
+    a sh:PropertyShape ;
+    sh:path         it6:trainingMethodologies ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+sh:TrainingProcessProp
+    a sh:PropertyShape ;
+    sh:path         it6:trainingProcess ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+sh:DesignSpecificationsProp
+    a sh:PropertyShape ;
+    sh:path         it6:designSpecifications ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+
+sh:ReleaseDateProp
+    a sh:PropertyShape ;
+    sh:path it6:releaseDate ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 .
+
+sh:ModifiedProp
+    a sh:PropertyShape ;
+    sh:path dct:modified ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 .
+
+sh:ContextLengthProp
+    a sh:PropertyShape ;
+    sh:path         ms:contextLength ;
+    sh:datatype     xsd:integer ;
+    sh:minExclusive 0;
+    sh:maxCount     1 .
+
+
+sh:QuantizedProp
+    a sh:PropertyShape ;
+    sh:path         ms:quantized ;
+    sh:datatype     xsd:boolean  ;
+    sh:maxCount     1 .
+
+
+sh:QuantizationProcessProp
+    a sh:PropertyShape ;
+    sh:path         ms:quantizationProcess ;
+    sh:uniqueLang     true;
+    sh:datatype     rdf:langString .
+
+sh:IntendedUseProp
+    a sh:PropertyShape ;
+    sh:path         it6:intendedUse ;
+    sh:uniqueLang   true;
+    sh:datatype     rdf:langString;
+    sh:minCount     1.
+
+sh:ParameterPrecisionProp
+    a sh:PropertyShape ;
+    sh:path         ms:parameterPrecision ;
+    sh:datatype     xsd:string ;
+    sh:maxCount     1 .
+
+sh:InputLanguageProp
+    a sh:PropertyShape   ;
+    sh:path         dcatlds:inputLanguage ;
+    sh:property     [
+          sh:path         ms:languageCode;
+          sh:node         sh:LanguageRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:minCount 1;
+          sh:maxCount 1;
+          sh:message  "Invalid language"@en ;
+      ],
+    [
+          sh:path         ms:region ;
+          sh:node         sh:LocationRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:maxCount 1;
+      ],
+    [
+          sh:path         ms:script ;
+          sh:node         sh:ScriptRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:maxCount 1;
+      ],
+    [
+          sh:path         ms:variant ;
+          sh:node         sh:VariantRestriction ;
+          sh:nodeKind     sh:IRI ;
+      ],
+    [
+          sh:path         ms:languageVarietyName ;
+          sh:datatype     rdf:langString ;
+          sh:uniqueLang     true;
+      ] ;
+    sh:minCount     1 .
+
+sh:OutputLanguageProp
+    a sh:PropertyShape   ;
+    sh:path         dcatlds:outputLanguage ;
+    sh:property     [
+          sh:path         ms:languageCode;
+          sh:node         sh:LanguageRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:minCount 1;
+          sh:maxCount 1;
+          sh:message  "Invalid language"@en ;
+      ],
+    [
+          sh:path         ms:region ;
+          sh:node         sh:LocationRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:maxCount 1;
+      ],
+    [
+          sh:path         ms:script ;
+          sh:node         sh:ScriptRestriction ;
+          sh:nodeKind     sh:IRI ;
+          sh:maxCount 1;
+      ],
+    [
+          sh:path         ms:variant ;
+          sh:node         sh:VariantRestriction ;
+          sh:nodeKind     sh:IRI ;
+      ],
+    [
+          sh:path         ms:languageVarietyName ;
+          sh:datatype     rdf:langString ;
+          sh:uniqueLang     true;
+      ] .
+
+
+sh:InputModalityProp
+    a sh:PropertyShape ;
+    sh:path         it6:hasInputModality ;
+    sh:class        it6:Modality ;
+    sh:minCount     1 .
+
+sh:OutputModalityProp
+    a sh:PropertyShape ;
+    sh:path         it6:hasOutputModality ;
+    sh:class        it6:Modality ;
+    sh:minCount     1 .
+
+sh:BenchmarkProp
+    a sh:PropertyShape ;
+    sh:path         it6:hasBenchmark ;
+    sh:class        it6:Benchmark .
+
+sh:TrainingImpactProp
+    a sh:PropertyShape ;
+    sh:path         it6:hasTrainingImpact ;
+    sh:class        it6:EnvironmentalImpact .
+
+sh:InferencingImpactProp
+    a sh:PropertyShape ;
+    sh:path         it6:hasInferencingImpact ;
+    sh:class        it6:EnvironmentalImpact .
+
+# SHACL specific to LDS
+# MD: 1..n in documentation
+sh:ModelDistributionProp
+    a sh:PropertyShape ;
+    sh:path         dcatlds:modelDistribution ;
+    sh:class        dcatlds:ModelDistribution ;
+    sh:minCount     1 ;
+    sh:maxCount     1 .
+
+sh:MeasurementMethodologyProp
+    a sh:PropertyShape ;
+    sh:path         it6:measurementMethodology ;
+    sh:uniqueLang   true;
+    sh:datatype     rdf:langString .
+
+sh:PowerConsumptionProp
+    a sh:PropertyShape ;
+    sh:path         it6:powerConsumption ;
+    sh:uniqueLang   true;
+    sh:datatype     rdf:langString .
+
+sh:ModalityShape
+    a sh:NodeShape   ;
+    sh:ignoredProperties (rdf:type) ;
+    sh:targetClass  it6:Modality ;
+    sh:property     sh:MediaTypeProp .
+
+sh:BenchmarkShape
+    a sh:NodeShape   ;
+    sh:ignoredProperties (rdf:type) ;
+    sh:targetClass  it6:Benchmark ;
+    sh:property     sh:TitleProp .
+
+sh:EnvironmentalImpact
+    a sh:NodeShape   ;
+    sh:ignoredProperties (rdf:type) ;
+    sh:targetClass  it6:EnvironmentalImpact ;
+    sh:property     sh:MeasurementMethodologyProp , sh:PowerConsumptionProp   .
+
+sh:DistributionMethodProp
+    a sh:PropertyShape ;
+    sh:path         dcatlds:distributionMethod ;
+    sh:uniqueLang   true;
+    sh:datatype     rdf:langString;
+    sh:minCount     1 .
+
+sh:RequiresSoftwareProp
+    a sh:PropertyShape ;
+    sh:path         ms:requiresSoftware ;
+    sh:uniqueLang   true;
+    sh:datatype     rdf:langString .
+
+sh:AccessLevelProp
+    a sh:PropertyShape ;
+    sh:path         dcatlds:accessLevel ;
+    sh:uniqueLang   true;
+    sh:datatype     rdf:langString;
+    sh:minCount     1 .
+
+sh:TokensPerParameterProp
+    a sh:PropertyShape ;
+    sh:path         dcatlds:tokensPerParameter ;
+    sh:datatype     xsd:integer ;
+    sh:minExclusive 0;
+    sh:maxCount     1 ; .
+
+sh:AmountOfActiveParametersProp
+    a sh:PropertyShape ;
+    sh:path         dcatlds:amountOfActiveParameters ;
+    sh:datatype     xsd:integer ;
+    sh:minExclusive 0;
+    sh:maxCount     1 ; .
+
+
+# SHACL specific to LDS
+# MD discuss
+sh:ModelDistributionShape
+    a sh:NodeShape   ;
+    sh:ignoredProperties (rdf:type) ;
+    sh:targetClass  dcatlds:ModelDistribution ;
+    sh:property     [
+          sh:path ms:accessLocation ;
+          sh:maxCount 1 ;
+          sh:datatype xsd:anyURI ;
+      ] ,
+    [
+          sh:path ms:downloadLocation ;
+          sh:maxCount 1 ;
+          sh:datatype xsd:anyURI ;
+      ] ;
+    sh:xone (
+          [
+              sh:path ms:accessLocation ;
+              sh:minCount 1 ;
+              sh:maxCount 1 ;
+          ]
+          [
+              sh:path ms:downloadLocation ;
+              sh:minCount 1 ;
+              sh:maxCount 1 ;
+          ]
+      ) ;
+    sh:property     sh:SizeProp,
+    sh:DistributionMethodProp,
+    sh:TokensPerParameterProp,
+    sh:AccessLevelProp ,
+    sh:AmountOfActiveParametersProp ;
+    sh:property     [
+          sh:path           dct:format;
+          sh:minCount       1 ;
+          sh:node           sh:DataFormatRestriction  ;
+          sh:nodeKind       sh:IRI ],
+    [
+          sh:path           dct:title ;
+          sh:uniqueLang     true;
+          sh:datatype       rdf:langString
+      ],
+    [
+          sh:path         ms:mediaType ;
+          sh:node         sh:MediaTypeRestriction  ;
+          sh:nodeKind     sh:IRI ;
+          sh:message "Invalid media type"
+      ].
+
+# MD discuss
+sh:CreatorProp
+    a sh:PropertyShape ;
+    sh:path         dct:creator ;
+    sh:or ([sh:class foaf:Person] [sh:class foaf:Organization]) ;
+    sh:property [sh:path         foaf:name ;
+                 sh:datatype     rdf:langString;
+                 sh:uniqueLang     true; sh:minCount 1],
+    [
+          sh:path  adms:identifier ;
+          sh:property sh:NotationAgentPropVal ,
+          sh:NotationAgentPropCRD ,
+          [
+                       sh:path adms:schemaAgency;
+                       sh:datatype rdf:langString  ;
+                       sh:uniqueLang     true;
+                   ]
+      ] ;
+    sh:message "The provided type for IPR Holder (ms:iprHolder) is invalid. Must be one of: 'foaf:Person', 'foaf:Organization'" .
+
+
+sh:ModelFunctionRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Model Function Restriction" ;
+    rdfs:label "Model Function Restriction" ;
+    sh:property [
+          sh:hasValue omtd:OperationScheme ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+
+sh:ModelTypeRestriction
+    a sh:NodeShape ;
+    rdfs:comment "Model Type Restriction" ;
+    rdfs:label "Model Type Restriction" ;
+    sh:property [
+          sh:hasValue ms:ModelTypeTaxonomy ;
+          sh:nodeKind sh:IRI ;
+          sh:path skos:inScheme ;
+      ] .
+
+

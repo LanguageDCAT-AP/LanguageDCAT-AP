@@ -1,6 +1,5 @@
 @prefix : <http://w3id.org/lang-dcat-ap/> .
 @prefix cc: <http://creativecommons.org/ns#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix ms: <http://w3id.org/meta-share/meta-share/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dpv: <https://w3id.org/dpv#> .
@@ -30,14 +29,14 @@
                                  dct:language "English"@en ;
                                  rdfs:comment "Based on DCAT-v3, DCAT-AP v3 and MS-OWL v2"@en ;
                                  rdfs:label "LanguageDCAT-AP model"@en ;
-                                 owl:versionInfo "0.9.5" .
+                                 owl:versionInfo "0.9.6" .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
-###  http://purl.org/dc/elements/1.1/source
-dc:source rdf:type owl:AnnotationProperty .
+###  http://purl.org/dc/elements/source
+dct:source rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/created
@@ -576,19 +575,19 @@ ms:processingResourceType rdf:type owl:ObjectProperty ;
                           rdfs:label "processing resource type"@en .
 
 
-###  http://w3id.org/meta-share/meta-share/region
-ms:region rdf:type owl:ObjectProperty ;
+###  http://w3id.org/meta-share/meta-share/usedInRegion
+ms:usedInRegion rdf:type owl:ObjectProperty ;
           rdfs:domain ms:Language ;
           rdfs:range dct:Location ;
           rdfs:comment "Specifies the geographical region where a language is used according to the BCP47 recommendation"@en ;
           rdfs:label "region"@en .
 
 
-###  http://w3id.org/meta-share/meta-share/script
-ms:script rdf:type owl:ObjectProperty ;
+###  http://w3id.org/meta-share/meta-share/usedWithScript
+ms:usedWithScript rdf:type owl:ObjectProperty ;
           rdfs:domain ms:Language ;
           rdfs:range ms:Script ;
-          rdfs:comment "Specifies the script used for writing a language"@en ;
+          rdfs:comment "Specifies the script used for writing a language according to the BCP47 recommendation"@en ;
           rdfs:label "script"@en .
 
 
@@ -1269,8 +1268,8 @@ it6:trainingProcess rdf:type owl:DatatypeProperty ;
                     rdfs:label "training process"@en .
 
 
-###  http://purl.org/dc/elements/1.1/date
-dc:date rdf:type owl:DatatypeProperty .
+###  http://purl.org/dc/elements/date
+dct:date rdf:type owl:DatatypeProperty .
 
 
 ###  http://purl.org/dc/terms/alternative
@@ -1302,7 +1301,7 @@ dct:identifier rdf:type owl:DatatypeProperty ;
 
 ###  http://purl.org/dc/terms/modified
 dct:modified rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf dc:date ,
+             rdfs:subPropertyOf dct:date ,
                                 dct:date ;
              rdfs:range xsd:date .
 
@@ -14227,7 +14226,7 @@ omtd:Csv rdf:type owl:NamedIndividual ,
 omtd:DataCollection rdf:type owl:NamedIndividual ,
                              omtd:Operation ,
                              skos:Concept ;
-                    dc:source <https://en.wikipedia.org/wiki/Data_collection> ;
+                    dct:source <https://en.wikipedia.org/wiki/Data_collection> ;
                     rdfs:comment "The process of gathering and measuring information on targeted variables in an established systematic fashion, which then enables one to answer relevant questions and evaluate outcomes"@en ;
                     rdfs:label "Data collection"@en ;
                     skos:broader omtd:SupportOperation ;
@@ -14415,7 +14414,7 @@ omtd:DependencyConversion rdf:type owl:NamedIndividual ,
 omtd:DependencyParsing rdf:type owl:NamedIndividual ,
                                 omtd:Operation ,
                                 skos:Concept ;
-                       dc:source "adapted from https://nlp.stanford.edu/software/nndep.shtml"@en ;
+                       dct:source "adapted from https://nlp.stanford.edu/software/nndep.shtml"@en ;
                        rdfs:comment "The task/process of identifying and marking the grammatical structure of a sentence, establishing relationships between \"\"head\"\" words and words that modify those heads"@en ;
                        rdfs:label "Dependency parsing"@en ;
                        skos:broader omtd:Parsing ;
@@ -15099,7 +15098,7 @@ omtd:FastInfoset rdf:type owl:NamedIndividual ,
 omtd:FeatureExtraction rdf:type owl:NamedIndividual ,
                                 omtd:Operation ,
                                 skos:Concept ;
-                       dc:source <http://scikit-learn.org/stable/modules/feature_extraction.html> ;
+                       dct:source <http://scikit-learn.org/stable/modules/feature_extraction.html> ;
                        rdfs:comment "Feature extraction consists in transforming arbitrary data, such as text or images, into numerical features usable for machine learning"@en ;
                        rdfs:label "Feature extraction"@en ;
                        skos:broader omtd:SupportOperation ;
@@ -15123,7 +15122,7 @@ omtd:FillMask rdf:type owl:NamedIndividual ,
 omtd:FlowControl rdf:type owl:NamedIndividual ,
                           omtd:Operation ,
                           skos:Concept ;
-                 dc:source <https://en.wikipedia.org/wiki/Flow_control_(data)> ;
+                 dct:source <https://en.wikipedia.org/wiki/Flow_control_(data)> ;
                  rdfs:label "Flow control"@en ;
                  skos:broader omtd:SupportOperation ;
                  skos:inScheme omtd:OperationScheme ;
@@ -18593,7 +18592,7 @@ omtd:SemanticClassLabelling rdf:type owl:NamedIndividual ,
 omtd:SemanticFrame rdf:type owl:NamedIndividual ,
                             omtd:AnnotationType ,
                             skos:Concept ;
-                   dc:source <https://framenet.icsi.berkeley.edu/fndrupal/glossary> ;
+                   dct:source <https://framenet.icsi.berkeley.edu/fndrupal/glossary> ;
                    rdfs:label "Semantic frame"@en ;
                    rdfs:seeAlso "http://dkpro.github.io/dkpro-core/releases/1.8.0/docs/typesystem-reference.html#de.tudarmstadt.ukp.dkpro.core.api.semantics.type.SemanticPredicate" ;
                    skos:altLabel "Frame"@en ;
@@ -20283,7 +20282,7 @@ omtd:TopicDetection rdf:type owl:NamedIndividual ,
 omtd:TrainingOfLanguageModels rdf:type owl:NamedIndividual ,
                                        omtd:Operation ,
                                        skos:Concept ;
-                              dc:source "Adapted from http://homepages.inf.ed.ac.uk/lzhang10/slm.html" ;
+                              dct:source "Adapted from http://homepages.inf.ed.ac.uk/lzhang10/slm.html" ;
                               rdfs:comment "The task/process of training (statistical) language models that  that can estimate the distribution of natural language as accurately as possible"@en ;
                               rdfs:label "Training of language models"@en ;
                               skos:broader omtd:LanguageModelling ;
@@ -20295,7 +20294,7 @@ omtd:TrainingOfLanguageModels rdf:type owl:NamedIndividual ,
 omtd:TrainingOfMachineLearningModels rdf:type owl:NamedIndividual ,
                                               omtd:Operation ,
                                               skos:Concept ;
-                                     dc:source "adapted from http://docs.aws.amazon.com/machine-learning/latest/dg/training-ml-models.html" ;
+                                     dct:source "adapted from http://docs.aws.amazon.com/machine-learning/latest/dg/training-ml-models.html" ;
                                      rdfs:comment "The task/process of creating Machine Learning (ML) models by providing a ML algorithm with training data that help the algorithm discover patterns in data, and construct the appropriate models using these discoveries"@en ;
                                      rdfs:label "Training of Machine Learning models"@en ;
                                      skos:broader omtd:LanguageModelling ;
