@@ -2471,8 +2471,6 @@ dpv:TechnicalOrganisationalMeasure rdf:type owl:Class ;
             rdfs:label "Technical and Organisational Measure"@en .
 
 
-
-
 #################################################################
 #    Individuals
 #################################################################

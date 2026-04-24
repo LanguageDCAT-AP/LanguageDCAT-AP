@@ -159,7 +159,7 @@ One of the main objectives of LanguageDCAT-AP is to cover the requirements of ex
 <p>It is important to stress that LT services are represented with a distinct <a href="#ToolService">class</a> from that of <a href="#DataService">Data services</a> as their description needs impose a richer and more complex set of properties. The fact that they are not linked to specific datasets but can be used to process different types of data and enrich them with new information, or retrieve from them information and/or generate new resources reinforces the arguments for their separate treatment.</p>
 </section>
 <!-- Conformance -->
-<section class="informative" id="conformance">
+<section id="conformance">
 </section>
 <!-- Terminology -->
 <section id="terminology">
@@ -1346,9 +1346,9 @@ No reference
 <tbody>
 <tr id="Policy.alternative"><td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>An alternative name for the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="Policy.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>An account of the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-<tr id="Policy.hadPrimarySource"><td><a href="http://www.w3.org/ns/prov#hadPrimarySource" target="_blank">had primary source</a></td><td><a href="http://www.w3.org/ns/prov#Entity" target="_blank">Entity</a></td><td>0..1</td><td>A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. A primary source relation is a particular case of derivation of secondary materials from their primary sources. It is recognised that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain.</td><td></td><td></td><td>P</td></tr>
+<tr id="Policy.hadPrimarySource"><td><a href="http://www.w3.org/ns/prov#hadPrimarySource" target="_blank">had primary source</a></td><td><a href="#Entity" target="_blank">Entity</a></td><td>0..1</td><td>A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. A primary source relation is a particular case of derivation of secondary materials from their primary sources. It is recognised that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain.</td><td></td><td></td><td>P</td></tr>
 <tr id="Policy.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td></td><td></td><td>P</td></tr>
-<tr id="Policy.legalCode"><td><a href="http://creativecommons.org/ns#legalCode" target="_blank">legal code</a></td><td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">Resource</a></td><td>0..1</td><td>The URL of the legal text of a Licence.</td><td></td><td></td><td>P</td></tr>
+<tr id="Policy.legalCode"><td><a href="http://creativecommons.org/ns#legalCode" target="_blank">legal code</a></td><td><a href="#Resource" target="_blank">Resource</a></td><td>0..1</td><td>The URL of the legal text of a Licence.</td><td></td><td></td><td>P</td></tr>
 <tr id="Policy.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="Policy.wasAttributedTo"><td><a href="http://www.w3.org/ns/prov#wasAttributedTo" target="_blank">was attributed to</a></td><td><a href="#Agent" target="_blank">Agent</a></td><td>0..1</td><td>Attribution is the ascribing of an entity to an agent.</td><td></td><td></td><td>P</td></tr></tbody>
 </table>
@@ -1356,7 +1356,7 @@ No reference
 </section>
 <!-- Section ProcessingResource -->
 <section id="ProcessingResource">
-<h3><a data-content="http://w3id.org/meta-share/meta-share/ProcessingResource" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/ProcessingResource">Processing resource</a></h3>
+<h3><a data-content="http://w3id.org/meta-share/meta-share/ProcessingResource" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/ProcessingResource">Processing Resource</a></h3>
 <dl>
 <dt><strong>Definition</strong></dt>
 <dd>A set of requirements posed on the resource that is input for processing by a tool/service or that is output after the processing</dd>
@@ -1385,7 +1385,7 @@ No reference
 <tr id="ProcessingResource.format"><td><a href="http://purl.org/dc/terms/format" target="_blank">format</a></td><td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td><td>0..n</td><td>The file format, physical medium, or dimensions of the resource</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" target="_blank">OMTD-SHARE vocabulary of data formats</a></td><td>P</td></tr>
 <tr id="ProcessingResource.language"><td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td><td><a href="#LinguisticSystem" target="_blank">Linguistic System</a></td><td>0..n</td><td>A language of the resource.</td><td>This property is used for the language of the contents of a dataset and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:language" property is preferred, but the two values must be aligned.</td><td>The EU Authority languages vocabulary (<a href="http://publications.europa.eu/resource/dataset/language" target="_blank">http://publications.europa.eu/resource/dataset/language</a>)</td><td>P</td></tr>
 <tr id="ProcessingResource.mediaType"><td><a href="http://www.w3.org/ns/dcat#mediaType" target="_blank">media type</a></td><td><a href="#MediaType" target="_blank">Media Type</a></td><td>0..n</td><td>The media type of the distribution as defined by IANA [IANA-MEDIA-TYPES].</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">IANA-MEDIA-TYPES vocabulary</a></td><td>P</td></tr>
-<tr id="ProcessingResource.modalityType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">modality type</a></td><td><a href="http://w3id.org/meta-share/meta-share/MediaType" target="_blank">Modality Type</a></td><td>0  ..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data" target="_blank">META-SHARE media type vocabulary</a></td><td>P</td></tr>
+<tr id="ProcessingResource.modalityType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">modality type</a></td><td><a href="#ModalityType" target="_blank">Modality Type</a></td><td>0  ..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data" target="_blank">META-SHARE media type vocabulary</a></td><td>P</td></tr>
 <tr id="ProcessingResource.processingResourceType"><td><a href="http://w3id.org/meta-share/meta-share/processingResourceType" target="_blank">processing resource type</a></td><td><a href="http://w3id.org/meta-share/meta-share/ProcessingResourceType" target="_blank">Processing Resource Type</a></td><td>1..1</td><td>The type of the resource that a tool/service takes as input or produces as output</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Processing_Resource_Types_Taxonomy/data" target="_blank">META-SHARE processing resource types vocabulary</a></td><td>P</td></tr></tbody>
 </table>
 </div>
@@ -1399,7 +1399,7 @@ No reference
 <dt><strong>Reference</strong></dt>
 No reference
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#SoftwareDistribution.accessLocation">access location</a>, <a href="#SoftwareDistribution.downloadLocation">download location</a>, <a href="#SoftwareDistribution.executionLocation">execution location</a>, <a href="#SoftwareDistribution.distributionForm">distribution form</a>.</dd>
+<dd>For this entity the following properties are defined: <a href="#SoftwareDistribution.accessLocation">access location</a>, <a href="#SoftwareDistribution.downloadLocation">download location</a>, <a href="#SoftwareDistribution.executionLocation">execution location</a>, <a href="#SoftwareDistribution.softwareDistributionForm">software distribution form</a>.</dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -1456,33 +1456,32 @@ No reference
 </thead>
 <tbody>
 <tr id="ToolService.alternative"><td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>An alternative name for the resource.</td><td>It is recommended to use "dct:title" for the full name of a resource and "dct:alternative" for the short name. This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-<tr id="ToolService.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>An account of the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.description" target="_blank">DCAT-AP [E]</a></td></tr>
-<tr id="ToolService.domain"><td><a href="http://w3id.org/meta-share/meta-share/domain" target="_blank">domain</a></td><td><a href="http://w3id.org/meta-share/meta-share/Domain" target="_blank">Domain</a></td><td>0..n</td><td>Identifies the domain according to which an entity is classified</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Domain_Taxonomy/data" target="_blank">META-SHARE vocabulary of domains</a></td><td>P</td></tr>
-<tr id="ToolService.function"><td><a href="http://w3id.org/meta-share/meta-share/function" target="_blank">function</a></td><td><a href="http://w3id.org/meta-share/omtd-share/Operation" target="_blank">Operation</a></td><td>1..n</td><td>Specifies the operation/function/task that a software object performs</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Operation_Taxonomy/data" target="_blank">OMTD-SHARE vocabulary of operations</a></td><td>P</td></tr>
+<tr id="ToolService.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>An account of the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
+<tr id="ToolService.domain"><td><a href="http://w3id.org/meta-share/meta-share/domain" target="_blank">domain</a></td><td><a href="#Domain" target="_blank">Domain</a></td><td>0..n</td><td>Identifies the domain according to which an entity is classified</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Domain_Taxonomy/data" target="_blank">META-SHARE vocabulary of domains</a></td><td>P</td></tr>
+<tr id="ToolService.function"><td><a href="http://w3id.org/meta-share/meta-share/function" target="_blank">function</a></td><td><a href="#Operation" target="_blank">Operation</a></td><td>1..n</td><td>Specifies the operation/function/task that a software object performs</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Operation_Taxonomy/data" target="_blank">OMTD-SHARE vocabulary of operations</a></td><td>P</td></tr>
 <tr id="ToolService.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">has policy</a></td><td><a href="#Policy" target="_blank">Policy</a></td><td>1..1</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representations of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.</td><td></td><td>P</td></tr>
-<tr id="ToolService.identifier"><td><a href="http://purl.org/dc/terms/identifier" target="_blank">identifier</a></td><td><a href="#Literal" target="_blank">Literal</a></td><td>0..1</td><td>An unambiguous reference to the resource within a given context</td><td>The main identifier for the resource, e.g. the URI or other unique identifier in the context of the Catalogue. It MUST be automatically assigned by the system when adding the resource to the Catalogue.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.identifier" target="_blank">DCAT-AP [A]</a></td></tr>
+<tr id="ToolService.identifier"><td><a href="http://purl.org/dc/terms/identifier" target="_blank">identifier</a></td><td><a href="#Literal" target="_blank">Literal</a></td><td>0..1</td><td>An unambiguous reference to the resource within a given context</td><td>The main identifier for the resource, e.g. the URI or other unique identifier in the context of the Catalogue. It MUST be automatically assigned by the system when adding the resource to the Catalogue.</td><td></td><td>P</tr>
 <tr id="ToolService.inputContentResource"><td><a href="http://w3id.org/meta-share/meta-share/inputContentResource" target="_blank">input content resource</a></td><td><a href="#ProcessingResource" target="_blank">Processing Resource</a></td><td>1..n</td><td>Specifies the requirements set by a tool/service for the (content) resource that it processes</td><td></td><td></td><td>P</td></tr>
 <tr id="ToolService.iprHolder"><td><a href="http://w3id.org/meta-share/meta-share/iprHolder" target="_blank">IPR holder</a></td><td><a href="#Agent" target="_blank">Agent</a></td><td>0..n</td><td>A person or an organisation who holds the full Intellectual Property Rights (Copyright, trademark, etc.) that subsist in the resource. The IPR holder could be different from the creator that may have assigned the rights to the IPR holder (e.g., an author as a creator assigns her rights to the publisher who is the IPR holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work via a specific distributor.</td><td>The IPR holder may be identical in many cases with the Publisher of the resource (see property dct:publisher). In this case, the contact data MAY be copied from the corresponding Publisher entries. There might be also cases with non-identical entities: e.g., when one or several IPR Holders assign another entity as the Publisher responsible for producing, hosting and publishing a resource; such entities may be, for instance, a data distribution agency, or a specific partner representing a project consortium. The subproperty ms:iprHolder is preferred over dct:rightsHolder in order to differentiate with other types of rights (e.g. distribution rights).</td><td></td><td>P</td></tr>
 <tr id="ToolService.isDocumentedBy"><td><a href="http://w3id.org/meta-share/meta-share/isDocumentedBy" target="_blank">is documented by</a></td><td><a href="#Document" target="_blank">Document</a></td><td>0..n</td><td>Links a language resource to a document (e.g., research paper describing its contents or its use in a project, user manual, etc.) or any other form of documentation (e.g., a URL with support information) that is related to the resource</td><td></td><td></td><td>P</td></tr>
-<tr id="ToolService.keyword"><td><a href="http://www.w3.org/ns/dcat#keyword" target="_blank">keyword</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A keyword or tag describing a resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.keyword" target="_blank">DCAT-AP [E]</a></td></tr>
+<tr id="ToolService.keyword"><td><a href="http://www.w3.org/ns/dcat#keyword" target="_blank">keyword</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A keyword or tag describing a resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="ToolService.languageDependent"><td><a href="http://w3id.org/meta-share/meta-share/languageDependent" target="_blank">language dependent</a></td><td><a href="#boolean" target="_blank">boolean</a></td><td>1..1</td><td>Indicates whether the operation of the tool or service is language dependent or not</td><td></td><td></td><td>P</td></tr>
-<tr id="ToolService.lrType"><td><a href="http://w3id.org/meta-share/meta-share/lrType" target="_blank">language resource type</a></td><td><a href="http://w3id.org/meta-share/meta-share/LRType" target="_blank">Language Resource Type</a></td><td>1..1</td><td>Specifies the type of a language resource</td><td>This element allows for a more fine-grained categorisation of datasets into 'corpora' (collections of data files in text, audio, video and/or image modality), 'lexical/conceptual resources' (e.g., lexica, vocabularies, gazetteers, terminological lexica, etc.) and 'grammars'. Note: In the META-SHARE ontology, models and grammars are grouped as "language descriptions" and included as subclasses of datasets. Given the evolution of Machine Learning Models, this has been revisited and models are included as a separate subclass distinguished from datasets.</td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Resource_Type_Taxonomy/data" target="_blank">META-SHARE language resource type vocabulary</a></td><td>P</td></tr>
+<tr id="ToolService.lrType"><td><a href="http://w3id.org/meta-share/meta-share/lrType" target="_blank">language resource type</a></td><td><a href="#LRType" target="_blank">Language Resource Type</a></td><td>1..1</td><td>Specifies the type of a language resource</td><td>This element allows for a more fine-grained categorisation of datasets into 'corpora' (collections of data files in text, audio, video and/or image modality), 'lexical/conceptual resources' (e.g., lexica, vocabularies, gazetteers, terminological lexica, etc.) and 'grammars'. Note: In the META-SHARE ontology, models and grammars are grouped as "language descriptions" and included as subclasses of datasets. Given the evolution of Machine Learning Models, this has been revisited and models are included as a separate subclass distinguished from datasets.</td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Resource_Type_Taxonomy/data" target="_blank">META-SHARE language resource type vocabulary</a></td><td>P</td></tr>
 <tr id="ToolService.license"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>1..1</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td>P</td></tr>
-<tr id="ToolService.otherIdentifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">other identifier</a></td><td><a href="#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>This property MAY be used as an additional identifier for existing identifiers used for the same resource in other Catalogues (e.g. DOI, ISLRN, DataCite, Handle PIDs)</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.identifier" target="_blank">DCAT-AP [A]</a></td></tr>
+<tr id="ToolService.otherIdentifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">other identifier</a></td><td><a href="#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>This property MAY be used as an additional identifier for existing identifiers used for the same resource in other Catalogues (e.g. DOI, ISLRN, DataCite, Handle PIDs)</td><td></td><td>P</tr>
 <tr id="ToolService.outputResource"><td><a href="http://w3id.org/meta-share/meta-share/outputResource" target="_blank">output resource</a></td><td><a href="#ProcessingResource" target="_blank">Processing Resource</a></td><td>0..n</td><td>Specifies the output results of a tool/service, i.e. the features of the processed (content) resource</td><td></td><td></td><td>P</td></tr>
-<tr id="ToolService.publisher"><td><a href="http://purl.org/dc/terms/publisher" target="_blank">publisher</a></td><td><a href="#Agent" target="_blank">Agent</a></td><td>1..1</td><td>An entity responsible for making the resource available</td><td>This property refers to the entity that "publishes", i.e. makes available to the specific platform, the corresponding resource. The information may be identical to the property ms:iprHolder of the resource.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.publisher" target="_blank">DCAT-AP [E]</a></td></tr>
+<tr id="ToolService.publisher"><td><a href="http://purl.org/dc/terms/publisher" target="_blank">publisher</a></td><td><a href="#Agent" target="_blank">Agent</a></td><td>1..1</td><td>An entity responsible for making the resource available</td><td>This property refers to the entity that "publishes", i.e. makes available to the specific platform, the corresponding resource. The information may be identical to the property ms:iprHolder of the resource.</td><td></td><td>P</tr>
 <tr id="ToolService.softwareDistribution"><td><a href="http://w3id.org/meta-share/meta-share/softwareDistribution" target="_blank">software distribution</a></td><td><a href="#SoftwareDistribution" target="_blank">Software Distribution</a></td><td>1..n</td><td>An available distribution of the tool/service</td><td></td><td></td><td>P</td></tr>
-<tr id="ToolService.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.title" target="_blank">DCAT-AP [E]</a></td></tr>
-<tr id="ToolService.version"><td><a href="http://www.w3.org/ns/dcat#version" target="_blank">version</a></td><td><a href="#string" target="_blank">string</a></td><td>1..1</td><td>The version indicator (name or identifier) of a resource</td><td>This property MUST contain a version number or other version designation of the dataset. It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version identifiers should enable comparison of versions and distinguishing major from minor versions, such as <a href="https://semver.org/">Semantic Versioning</a>.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.version" target="_blank">DCAT-AP [E]</a></td></tr></tbody>
+<tr id="ToolService.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
+<tr id="ToolService.version"><td><a href="http://www.w3.org/ns/dcat#version" target="_blank">version</a></td><td><a href="#string" target="_blank">string</a></td><td>1..1</td><td>The version indicator (name or identifier) of a resource</td><td>This property MUST contain a version number or other version designation of the dataset. It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version identifiers should enable comparison of versions and distinguishing major from minor versions, such as <a href="https://semver.org/">Semantic Versioning</a>.</td><td></td><td>P</td></tr></tbody>
 </table>
 </div>
 </section>
 </section>
-<!-- Supportive Entities -->
+<!-- Section supportive Entities -->
 <section id="supportiveEntities">
 <h2>Supportive entities</h2>
 <p>The supportive entities are supporting the main entities in the Application Profile. They are included in the Application Profile because they form the range of properties.</p>
-<p>In addition to the entities described in this section, there is also a number of classes used as range for properties that take values from controlled vocabularies. No properties are defined for these classes and are, therefore, not described here; instead, they are listed in the table of controlled vocabularies included in the Section <a href="#controlledVocabs">Controlled vocabularies</a>).</p>
 
 <!-- Section AnnotationType -->
 <section id="AnnotationType">
@@ -1542,6 +1541,68 @@ No reference
 <tr id="Benchmark.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>The name assigned to the resource.</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#Benchmark.title">MLDCAT-AP [A]</a></td></tr></tbody></table>
 </div>
 </section>
+<!-- Section Catalogue Record -->
+<section id="CatalogueRecord">
+<h3><a data-content="http://www.w3.org/ns/dcat#CatalogRecord" data-placement="right" data-toggle="tooltip" href="http://www.w3.org/ns/dcat#CatalogRecord">Catalogue Record</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A description of a Catalogued Resource's entry in the Catalogue.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>For this entity the following properties are defined: <a href="#CatalogueRecord.description">description</a>, <a href="#CatalogueRecord.descriptionVersion">description version</a>, <a href="#CatalogueRecord.modificationDate">modification date</a>, <a href="#CatalogueRecord.primaryTopic">primary topic</a>.</dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:10%;"/>
+<col style="width:10%;"/>
+<col style="width:5%;"/>
+<col style="width:25%;"/>
+<col style="width:25%;"/>
+<col style="width:13%;"/>
+<col style="width:12%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr id="CatalogueRecord.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..*</td><td>A free-text account of the record.</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord.description">DCAT-AP [E]</a></td></tr>
+<tr id="CatalogueRecord.descriptionVersion"><td><a href="http://data.europa.eu/it6/descriptionVersion" target="_blank">description version</a></td><td><a href="#Literal" target="_blank">Literal</a></td><td>0..1</td><td>It refers to the version of the description. '1' for original version.</td><td></td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#CatalogueRecord.descriptionVersion">MLDCAT-AP [A]</a></td></tr>
+<tr id="CatalogueRecord.modificationDate"><td><a href="http://purl.org/dc/terms/modified" target="_blank">modification date</a></td><td><a href="#TemporalLiteral" target="_blank">Temporal Literal</a></td><td>1..1</td><td>The most recent date on which the Catalogue entry was changed or modified.</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord.modificationdate">DCAT-AP [A]</a></td></tr>
+<tr id="CatalogueRecord.primaryTopic"><td><a href="http://xmlns.com/foaf/0.1/primaryTopic" target="_blank">primary topic</a></td><td><a href="#CataloguedResource" target="_blank">Catalogued Resource</a></td><td>1..1</td><td>A link to the Dataset, Data service or Catalog described in the record.</td><td>A catalogue record will refer to one entity in a catalogue. This can be either a Dataset or a Data Service. To ensure an unambigous reading of the cardinality the range is set to Catalogued Resource. However it is not the intend with this range to require the explicit use of the class Catalogued Record. As abstract class, a subclass should be used.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord.primarytopic">DCAT-AP [A]</a></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Section Catalogued Resource -->
+<section id="CataloguedResource">
+<h3><a data-content="http://www.w3.org/ns/dcat#Resource" data-placement="right" data-toggle="tooltip" href="http://www.w3.org/ns/dcat#CataloguedResource">Catalogued Resource</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Resource published or curated by a single agent.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CataloguedResource">DCAT-AP [A]</a></dd>
+<dt>Usage Note</dt>
+<dd>Abstract class for DCAT-AP. Therefore only subclasses should be used in a data exchange.</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+<!-- Section Concept -->
+<section id="Concept">
+<h3><a data-content="http://www.w3.org/2004/02/skos/core#Concept" data-placement="right" data-toggle="tooltip" href="http://www.w3.org/2004/02/skos/core#Concept">Concept</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>An idea or notion; a unit of thought.</dd>
+<dt>Reference</dt>
+<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Concept">DCAT-AP [A]</a></dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
 <!-- Section CorpusSubclass -->
 <section id="CorpusSubclass">
 <h3><a data-content="http://w3id.org/meta-share/meta-share/CorpusSubclass" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/CorpusSubclass">Corpus Subclass</a></h3>
@@ -1566,6 +1627,40 @@ No reference
 <dt>Properties</dt>
 <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
 </dl>
+</section>
+
+<!-- Section Document -->
+<section id="Document">
+<h3><a data-content="http://xmlns.com/foaf/0.1/Document" data-placement="right" data-toggle="tooltip" href="http://xmlns.com/foaf/0.1/Document">Document</a></h3>
+<dl>
+<dt><strong>Definition</strong></dt>
+<dd>A document.</dd>
+<dt><strong>Reference</strong></dt>
+<dd>No reference</dd>
+<dt><strong>Properties</strong></dt>
+<dd>For this entity the following properties are defined: <a href="#Document.citationText">citation text</a>, <a href="#Document.identifier">identifier</a>.</dd>
+</dl>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:10%;"/>
+<col style="width:10%;"/>
+<col style="width:5%;"/>
+<col style="width:25%;"/>
+<col style="width:25%;"/>
+<col style="width:13%;"/>
+<col style="width:12%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr id="Document.citationText"><td><a href="http://w3id.org/meta-share/meta-share/citationText" target="_blank">citation text</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>The text with which a document or language resource can be cited (typically the full citation, incl. title, authors, publisher, etc.)</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
+<tr id="Document.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>It is recommended to add the DOI or a URL where the document can be accessed</td><td></td><td>P</td></tr></tbody>
+</table>
+</div>
 </section>
 
 <!-- Section Domain -->
@@ -1616,101 +1711,6 @@ No reference
 </table>
 </div>
 </section>
-<!-- Section Catalogue Record -->
-<section id="CatalogueRecord">
-<h3><a data-content="http://www.w3.org/ns/dcat#CatalogRecord" data-placement="right" data-toggle="tooltip" href="http://www.w3.org/ns/dcat#CatalogRecord">Catalogue Record</a></h3>
-<dl>
-<dt>Definition</dt>
-<dd>A description of a Catalogued Resource's entry in the Catalogue.</dd>
-<dt>Reference</dt>
-<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord">DCAT-AP [A]</a></dd>
-<dt>Properties</dt>
-<dd>For this entity the following properties are defined: <a href="#CatalogueRecord.description">description</a>, <a href="#CatalogueRecord.descriptionVersion">description version</a>, <a href="#CatalogueRecord.modificationDate">modification date</a>, <a href="#CatalogueRecord.primaryTopic">primary topic</a>.</dd>
-</dl>
-<div class="u-table-overflow">
-<table class="data-table simple">
-<colgroup>
-<col style="width:10%;"/>
-<col style="width:10%;"/>
-<col style="width:5%;"/>
-<col style="width:25%;"/>
-<col style="width:25%;"/>
-<col style="width:13%;"/>
-<col style="width:12%;"/>
-</colgroup>
-<thead>
-<tr>
-<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
-</tr>
-</thead>
-<tbody>
-<tr id="CatalogueRecord.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..*</td><td>A free-text account of the record.</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord.description">DCAT-AP [E]</a></td></tr>
-<tr id="CatalogueRecord.descriptionVersion"><td><a href="http://data.europa.eu/it6/descriptionVersion" target="_blank">description version</a></td><td><a href="#Literal" target="_blank">Literal</a></td><td>0..1</td><td>It refers to the version of the description. '1' for original version.</td><td></td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#CatalogueRecord.descriptionVersion">MLDCAT-AP [A]</a></td></tr>
-<tr id="CatalogueRecord.modificationDate"><td><a href="http://purl.org/dc/terms/modified" target="_blank">modification date</a></td><td><a href="#TemporalLiteral" target="_blank">Temporal Literal</a></td><td>1..1</td><td>The most recent date on which the Catalogue entry was changed or modified.</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord.modificationdate">DCAT-AP [A]</a></td></tr>
-<tr id="CatalogueRecord.primaryTopic"><td><a href="http://xmlns.com/foaf/0.1/primaryTopic" target="_blank">primary topic</a></td><td><a href="#CataloguedResource" target="_blank">Catalogued Resource</a></td><td>1..1</td><td>A link to the Dataset, Data service or Catalog described in the record.</td><td>A catalogue record will refer to one entity in a catalogue. This can be either a Dataset or a Data Service. To ensure an unambigous reading of the cardinality the range is set to Catalogued Resource. However it is not the intend with this range to require the explicit use of the class Catalogued Record. As abstract class, a subclass should be used.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CatalogueRecord.primarytopic">DCAT-AP [A]</a></td></tr>
-</tbody>
-</table>
-</div>
-</section>
-<!-- Section Catalogue Resource -->
-<section id="CataloguedResource">
-<h3><a data-content="http://www.w3.org/ns/dcat#CataloguedResource" data-placement="right" data-toggle="tooltip" href="http://www.w3.org/ns/dcat#CataloguedResource">Catalogued Resource</a></h3>
-<dl>
-<dt>Definition</dt>
-<dd>Resource published or curated by a single agent.</dd>
-<dt>Reference</dt>
-<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#CataloguedResource">DCAT-AP [A]</a></dd>
-<dt>Usage Note</dt>
-<dd>Abstract class for DCAT-AP. Therefore only subclasses should be used in a data exchange.</dd>
-<dt>Properties</dt>
-<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
-</dl>
-</section>
-<!-- Section Concept -->
-<section id="Concept">
-<h3><a data-content="http://www.w3.org/2004/02/skos/core#Concept" data-placement="right" data-toggle="tooltip" href="http://www.w3.org/2004/02/skos/core#Concept">Concept</a></h3>
-<dl>
-<dt>Definition</dt>
-<dd>An idea or notion; a unit of thought.</dd>
-<dt>Reference</dt>
-<dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Concept">DCAT-AP [A]</a></dd>
-<dt>Properties</dt>
-<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
-</dl>
-</section>
-<!-- Section Document -->
-<section id="Document">
-<h3><a data-content="http://xmlns.com/foaf/0.1/Document" data-placement="right" data-toggle="tooltip" href="http://xmlns.com/foaf/0.1/Document">Document</a></h3>
-<dl>
-<dt><strong>Definition</strong></dt>
-<dd>A document.</dd>
-<dt><strong>Reference</strong></dt>
-<dd>No reference</dd>
-<dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Document.citationText">citation text</a>, <a href="#Document.identifier">identifier</a>.</dd>
-</dl>
-<div class="u-table-overflow">
-<table class="data-table simple">
-<colgroup>
-<col style="width:10%;"/>
-<col style="width:10%;"/>
-<col style="width:5%;"/>
-<col style="width:25%;"/>
-<col style="width:25%;"/>
-<col style="width:13%;"/>
-<col style="width:12%;"/>
-</colgroup>
-<thead>
-<tr>
-<th>Property</th><th>Range</th><th>Cardinality</th><th>Definition</th><th>Usage</th><th>Controlled vocabulary</th><th>Reference</th>
-</tr>
-</thead>
-<tbody>
-<tr id="Document.citationText"><td><a href="http://w3id.org/meta-share/meta-share/citationText" target="_blank">citation text</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>The text with which a document or language resource can be cited (typically the full citation, incl. title, authors, publisher, etc.)</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-<tr id="Document.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>It is recommended to add the DOI or a URL where the document can be accessed</td><td></td><td>P</td></tr></tbody>
-</table>
-</div>
-</section>
 <!-- section Identifier -->
 <section id="Identifier">
 <h3><a data-content="http://www.w3.org/ns/adms#Identifier" data-placement="right" data-toggle="tooltip" href="http://www.w3.org/ns/adms#Identifier">Identifier</a></h3>
@@ -1749,10 +1749,47 @@ This property can be repeated for parallel language versions. The language tag i
 
 <!-- Section LanguageCode -->
 <section id="LanguageCode">
-<h3><a data-content="http://w3id.org/meta-share/meta-share/LanguageCode" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/LanguageCode">LanguageCode</a></h3>
+<h3><a data-content="http://w3id.org/meta-share/meta-share/LanguageCode" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/LanguageCode">Language Code</a></h3>
 <dl>
 <dt>Definition</dt>
 <dd>Language as defined for use as the first part in the BCP47 recommendation (taken from ISO 639)</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
+<!-- Section LRType -->
+<section id="LRType">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/LRType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/LRType">Language Resource Type</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Classification of a resource (part) based on the number of languages it includes</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+<!-- Section LCRSubclass -->
+<section id="LCRSubclass">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/LCRSubclass" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/LCRSubclass">Lexical/Conceptual Resource Subclass</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>A classification of lexical/conceptual resources into types (used for descriptive reasons)</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+<!-- Section LingualityType -->
+<section id="LingualityType">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/LingualityType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/LingualityType">LingualityType</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Classification of a resource (part) based on the number of languages it includes</dd>
 <dt>Reference</dt>
 <dd>No reference</dd>
 <dt>Properties</dt>
@@ -1772,45 +1809,6 @@ This property can be repeated for parallel language versions. The language tag i
 <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
 </dl>
 </section> 
-
-<!-- Section LRType -->
-<section id="LRType">
-<h3><a data-content="http://w3id.org/meta-share/meta-share/LRType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/LRType">Language Resource Type</a></h3>
-<dl>
-<dt>Definition</dt>
-<dd>Classification of a resource (part) based on the number of languages it includes</dd>
-<dt>Reference</dt>
-<dd>No reference</dd>
-<dt>Properties</dt>
-<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
-</dl>
-</section>
-
-<!-- Section LCRSubclass -->
-<section id="LCRSubclass">
-<h3><a data-content="http://w3id.org/meta-share/meta-share/LCRSubclass" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/LCRSubclass">Lexical/Conceptual Resource Subclass</a></h3>
-<dl>
-<dt>Definition</dt>
-<dd>A classification of lexical/conceptual resources into types (used for descriptive reasons)</dd>
-<dt>Reference</dt>
-<dd>No reference</dd>
-<dt>Properties</dt>
-<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
-</dl>
-</section>
-
-<!-- Section LingualityType -->
-<section id="LingualityType">
-<h3><a data-content="http://w3id.org/meta-share/meta-share/LingualityType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/LingualityType">LingualityType</a></h3>
-<dl>
-<dt>Definition</dt>
-<dd>Classification of a resource (part) based on the number of languages it includes</dd>
-<dt>Reference</dt>
-<dd>No reference</dd>
-<dt>Properties</dt>
-<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
-</dl>
-</section>
 
 <!-- Section Location -->
 <section id="Location">
@@ -1892,7 +1890,7 @@ This property can be repeated for parallel language versions. The language tag i
 </tr>
 </thead>
 <tbody>
-<tr id="Modality.modalityType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">modality type</a></td><td><a href="http://w3id.org/meta-share/meta-share/MediaType" target="_blank">Modality type</a></td><td>1..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data">META-SHARE media type vocabulary</a></td><td>P</td></tr></tbody></table>
+<tr id="Modality.modalityType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">modality type</a></td><td><a href="#ModalityType" target="_blank">Modality type</a></td><td>1..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data">META-SHARE media type vocabulary</a></td><td>P</td></tr></tbody></table>
 </div>
 </section>
 <!-- Section ModalityType -->
@@ -1909,7 +1907,7 @@ This property can be repeated for parallel language versions. The language tag i
 </section>
 <!-- Section ModelType -->
 <section id="ModelType">
-<h3><a data-content="http://w3id.org/meta-share/meta-share/ModelType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/ModelType">ModelType</a></h3>
+<h3><a data-content="http://w3id.org/meta-share/meta-share/ModelType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/ModelType">Model Type</a></h3>
 <dl>
 <dt>Definition</dt>
 <dd>A classification of models into types based on their algorithm</dd>
@@ -1991,6 +1989,19 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </dl>
 </section>
 
+<!-- Section ProcessingResourceType -->
+<section id="ProcessingResourceType">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/ProcessingResourceType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/ProcessingResourceType">Processing Resource Type</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>The type of the resource that a tool/service takes as input or produces as output</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
 <!-- Section SensitiveDataIncluded -->
 <section id="SensitiveDataIncluded">
 <h3><a data-content="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded">Special Category Data Included</a></h3>
@@ -2059,13 +2070,26 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </thead>
 <tbody>
 <tr id="Size.amount"><td><a href="http://w3id.org/meta-share/meta-share/amount" target="_blank">amount</a></td><td><a href="#float" target="_blank">float</a></td><td>1..1</td><td>Specifies the number of units that constitute anything that can be measured (e.g. size of a data resource or cost, etc.)</td><td></td><td></td><td>P</td></tr>
-<tr id="Size.sizeUnit"><td><a href="http://w3id.org/meta-share/meta-share/sizeUnit" target="_blank">size unit</a></td><td><a href="http://w3id.org/meta-share/meta-share/SizeUnit" target="_blank">Size Unit</a></td><td>1..1</td><td>Specifies the unit that is used when providing information on the size of the resource or of resource parts</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Size_Unit_Taxonomy/data" target="_blank">META-SHARE size unit vocabulary</a></td><td>P</td></tr></tbody>
+<tr id="Size.sizeUnit"><td><a href="http://w3id.org/meta-share/meta-share/sizeUnit" target="_blank">size unit</a></td><td><a href="#SizeUnit" target="_blank">Size Unit</a></td><td>1..1</td><td>Specifies the unit that is used when providing information on the size of the resource or of resource parts</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Size_Unit_Taxonomy/data" target="_blank">META-SHARE size unit vocabulary</a></td><td>P</td></tr></tbody>
 </table>
 </div>
 </section>
+<!-- Section SizeUnit -->
+<section id="SizeUnit">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/SizeUnit" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/SizeUnit">Size Unit</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>The unit of measurement used for determining and describing the size of a resource (part)</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
 <!-- Section SoftwareDistributionForm -->
 <section id="SoftwareDistributionForm">
-<h3><a data-content="http://w3id.org/meta-share/meta-share/SoftwareDistributionForm" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/SoftwareDistributionForm">Software distribution form</a></h3>
+<h3><a data-content="http://w3id.org/meta-share/meta-share/SoftwareDistributionForm" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/SoftwareDistributionForm">Software Distribution Form</a></h3>
 <dl>
 <dt>Definition</dt>
 <dd>The medium, delivery channel or form (e.g., source code, API, web service, etc.) through which a software object is distributed</dd>
@@ -2088,7 +2112,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </dl>
 </section>
 
-!-- Section TechnicalOrganisationalMeasure -->
+<!-- Section TechnicalOrganisationalMeasure -->
 <section id="TechnicalOrganisationalMeasure">
 <h3><a data-content="https://w3id.org/dpv#TechnicalOrganisationalMeasure" data-placement="right" data-toggle="tooltip" href="https://w3id.org/dpv#TechnicalOrganisationalMeasure">Technical Organisational Measure</a></h3>
 <dl>
@@ -2132,7 +2156,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </tr>
 </thead>
 <tbody>
-<tr id="anyURI"><td><a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank">anyURI</a></td><td>anyURI represents an Internationalized Resource Identifier Reference (IRI).  An anyURI value can be absolute or relative, and may have an optional fragment identifier (i.e., it may be an IRI Reference).  This type should be used when the value fulfills the role of an IRI, as defined in [[RFC 3987]] or its successor(s) in the IETF Standards Track.</td></tr>
+<tr id="anyURI"><td><a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank">anyURI</a></td><td>anyURI represents an Internationalized Resource Identifier Reference (IRI).  An anyURI value can be absolute or relative, and may have an optional fragment identifier (i.e., it may be an IRI Reference).  This type should be used when the value fulfills the role of an IRI, as defined in [[rfc3987]] or its successor(s) in the IETF Standards Track.</td></tr>
 <tr id="boolean"><td><a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank">boolean</a></td><td>Boolean has the value space required to support the mathematical concept of binary-valued logic: {true, false}</td></tr>
 <tr id="date"><td><a href="http://www.w3.org/2001/XMLSchema#date" target="_blank">date</a></td><td>The value space of date consists of top-open intervals of exactly one day in length on the timelines of dateTime, beginning on the beginning moment of each day (in each timezone), i.e. '00:00:00', up to but not including '24:00:00' (which is identical with '00:00:00' of the next day).</td></tr>
 <tr id="float"><td><a href="http://www.w3.org/2001/XMLSchema#float" target="_blank">float</a></td><td>It represents IEEE single-precision 32-bit floating-point numbers. It supports decimal notation, scientific notation, and special values like positive and negative infinity (INF, -INF) and not-a-number (NaN) NaN.</td></tr>
@@ -2207,6 +2231,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <td><a href="http://purl.org/dc/terms/format" target="_blank">format</a></td>
 <td><a href="#Distribution">Distribution</a></td>
 <td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td>
+<td>A media type or extent.</td>
 <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" target="_blank">Data Format Taxonomy</a></td>
 <td></td>
 </tr>
@@ -2291,6 +2316,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <td><a href="http://www.w3.org/ns/dcat#packageFormat" target="_blank">package format</a></td>
 <td><a href="#Distribution">Distribution</a></td>
 <td><a href="#MediaType" target="_blank">Media type</a></td>
+<td>A file format or physical medium.</td>
 <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Package_Format_Taxonomy/data" target="_blank">Package Format Taxonomy</a></td>
 <td></td>
 </tr>
@@ -2303,8 +2329,9 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </tr>
 <tr id="ProcessingResourceTypesTaxonomy">
 <td><a href="http://w3id.org/meta-share/meta-share/processingResourceType" target="_blank">processing resource type</a></td>
-<td><a href="#ProcessingResource">Processing resource</a></td>
+<td><a href="#ProcessingResource">Processing Resource</a></td>
 <td><a href="http://w3id.org/meta-share/meta-share/ProcessingResourceType" target="_blank">Processing Resource Type</a></td>
+<td>The type of the resource that a tool/service takes as input or produces as output</td>
 <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Processing_Resource_Types_Taxonomy/data" target="_blank">Processing Resource Types Taxonomy</a></td>
 <td></td>
 </tr>
@@ -2320,13 +2347,15 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <td><a href="http://w3id.org/meta-share/meta-share/sizeUnit" target="_blank">size unit</a></td>
 <td><a href="#Size">Size</a></td>
 <td><a href="http://w3id.org/meta-share/meta-share/SizeUnit" target="_blank">Size Unit</a></td>
+<td>The unit of measurement used for determining and describing the size of a resource (part)</td>
 <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Size_Unit_Taxonomy/data" target="_blank">Size Unit Taxonomy</a></td>
 <td></td>
 </tr>
 <tr id="ScriptTaxonomy">
-<td><a href="http://w3id.org/meta-share/meta-share/script" target="_blank">script</a></td>
+<td><a href="http://w3id.org/meta-share/meta-share/usedWithScript" target="_blank">script</a></td>
 <td><a href="#Language">Language</a></td>
 <td><a href="http://w3id.org/meta-share/meta-share/Script" target="_blank">Script</a></td>
+<td>The alphabet (set of letters or characters in which a certain language is written) in compliance with the BCP47 recommendation</td>
 <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Script_taxonomy/data" target="_blank">Script Taxonomy</a></td>
 <td></td>
 </tr>
@@ -2334,6 +2363,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <td><a href="http://w3id.org/meta-share/meta-share/softwareDistributionForm" target="_blank">software distribution form</a></td>
 <td><a href="#SoftwareDistribution">Software Distribution</a></td>
 <td><a href="http://w3id.org/meta-share/meta-share/SoftwareDistributionForm" target="_blank">Software Distribution Form</a></td>
+<td>The medium, delivery channel or form (e.g., source code, API, web service, etc.) through which a software object is distributed</td>
 <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Software_Distribution_Form_Taxonomy/data" target="_blank">Software Distribution Forms Taxonomy</a></td>
 <td></td>
 </tr>
@@ -2370,6 +2400,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <td><a href="http://www.w3.org/ns/dcat#mediaType" target="_blank">media type</a></td>
 <td><a href="#Distribution">Distribution</a></td>
 <td><a href="#MediaType" target="_blank">Media Type</a></td>
+<td>A file format or physical medium.
 <td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">IANA-MEDIA-TYPES vocabulary</a></td>
 <td></td>
 </tr>
