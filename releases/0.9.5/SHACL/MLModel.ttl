@@ -407,8 +407,7 @@ sh:AmountOfActiveParametersProp
     sh:maxCount     1 ; .
 
 
-# SHACL specific to LDS
-# MD discuss
+# MD discuss rules upon condition
 sh:ModelDistributionShape
     a sh:NodeShape   ;
     sh:ignoredProperties (rdf:type) ;
@@ -457,7 +456,6 @@ sh:ModelDistributionShape
           sh:message "Invalid media type"
       ].
 
-# MD discuss
 sh:CreatorProp
     a sh:PropertyShape ;
     sh:path         dct:creator ;

@@ -22,7 +22,6 @@
 
 
 
-# MD discuss
 sh:ToolServiceShape
     a                    sh:NodeShape ;
     sh:closed            true ;
@@ -131,6 +130,7 @@ sh:OptLanguageProp
           sh:uniqueLang     true;
       ] .
 
+# MD: change error to "Invalid modality type"
 sh:MediaTypePropOpt
     a sh:PropertyShape ;
     sh:path         ms:mediaType ;
@@ -140,7 +140,6 @@ sh:MediaTypePropOpt
 
 # SoftwareDistribution
 
-# MD discuss 1..n in documentation
 sh:SoftwareDistributionFormProp
     a           sh:PropertyShape ;
     sh:path     ms:softwareDistributionForm ;

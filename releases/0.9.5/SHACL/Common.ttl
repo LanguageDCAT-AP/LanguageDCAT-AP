@@ -22,6 +22,14 @@
 @prefix dpv: <https://w3id.org/dpv#> . # OK
 @prefix dcatlds: <http://w3id.org/lang-dcat-ap/> .
 
+#-------------------------------------------------------------------------
+# Shapes covering LanguageDCAT-AP v0.9.5 
+# Shapes with comment "SHACL specific to LDS" are intended only for  
+# validation of metadata records to be imported into LDS AND are not included  
+# in the profile's documentation (https://languagedcat-ap.github.io/LanguageDCAT-AP/); 
+# for general uses of the profile they MUST be commented or removed
+#-------------------------------------------------------------------------
+
 # SHACL specific to LDS
 []
     a sh:NodeShape ;
@@ -122,7 +130,7 @@ sh:SizeUnitPropCRD
     sh:message  "Size unit (ms:sizeUnit) is either missing or provided multiple times" .
 
 # SHACL specific to LDS
-# MD: this is only for organisation identifiers
+#MD: this is only for organisation identifiers; maybe remove?
 sh:NotationAgentPropVal
     a sh:PropertyShape ;
     sh:path     skos:notation ;
@@ -141,7 +149,7 @@ sh:NotationDocPropCRD
     sh:message  "Notation (skos:notation) is either missing or provided multiple times" .
 
 # SHACL specific to LDS
-# MD: this is only for resource identifiers
+#MD: this is only for resource identifiers; maybe remove?
 sh:NotationDocPropVal
     a sh:PropertyShape ;
     sh:path     skos:notation ;
@@ -176,6 +184,7 @@ sh:DocumentedByProp
                                     sh:uniqueLang     true;
                                 ];
                 ] .
+
 sh:OriginalSourceDescriptionProp
     a sh:PropertyShape ;
     sh:path         ms:originalSourceDescription;
@@ -202,6 +211,7 @@ sh:LrTypePropCRD
     sh:maxCount     1 ;
     sh:message      "Language resource type (ms:lrType) is either missing or provided multiple times" .
 
+#MD: check range
 sh:CostProp
     a sh:PropertyShape ;
     sh:path         ms:cost ;
@@ -223,6 +233,7 @@ sh:CostProp
     sh:minCount     0 ;
     sh:maxCount     1 .
 
+#MD: change error to "Invalid modality type"
 sh:MediaTypeProp
     a sh:PropertyShape ;
     sh:path         ms:mediaType ;
@@ -702,6 +713,7 @@ sh:HasOriginalSourceProp
     sh:path         ms:hasOriginalSource ;
     sh:node         sh:MsLanguageResourceRef  .
 
+#MD: check if I have deleted something
 #sh:SampleDistrProp
 
 #MD: in ttl xsd:float
@@ -729,7 +741,7 @@ sh:PackageFormatProp
     sh:nodeKind     sh:IRI ;
     sh:maxCount     1 .
 
-# MD: in ttl xsd:nonNegativeInteger
+#MD: in ttl xsd:nonNegativeInteger
 sh:ByteSizeProp
     a sh:PropertyShape ;
     sh:path         dcat:byteSize ;
@@ -812,6 +824,8 @@ sh:AccessUrlProp
     sh:path         dcat:accessURL ;
     sh:nodeKind     sh:IRI .
 
+# SHACL specific to LDS
+#MD discuss
 sh:DatasetDistributionProp
     a sh:PropertyShape ;
     sh:path         dcat:distribution ;
@@ -924,6 +938,7 @@ sh:ConformsProp
     sh:nodeKind sh:IRI ;
     sh:node     sh:ConformsToRestriction .
 
+#MD decide on notation
 sh:MsLanguageResourceRef
     a sh:NodeShape ;
     sh:property     sh:TitleProp,
@@ -949,6 +964,7 @@ sh:MsLanguageResourceRef
                     ] .
 
 #CV RESTRICTIONS
+#MD where is the lexvo?
 sh:DCTLanguageRestriction
     a sh:NodeShape ;
     rdfs:comment "DCT Language Restriction" ;
@@ -993,7 +1009,6 @@ sh:CurrencyRestriction
           sh:nodeKind sh:IRI ;
           sh:path skos:inScheme ] .
 
-#MD discuss
 sh:DataFormatRestriction
     a sh:NodeShape ;
     rdfs:comment "Data Format Restriction" ;
