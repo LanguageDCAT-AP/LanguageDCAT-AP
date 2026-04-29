@@ -28,7 +28,8 @@
                                  dct:issued "2024-07-01" ;
                                  dct:language "English"@en ;
                                  rdfs:comment "Based on DCAT-v3, DCAT-AP v3 and MS-OWL v2"@en ;
-                                 rdfs:label "LanguageDCAT-AP model"@en ;
+                                 rdfs:label "LanguageDCAT-AP"@en ;
+                                 dct:title "LanguageDCAT-AP"@en ;
                                  owl:versionInfo "0.9.5" .
 
 #################################################################
