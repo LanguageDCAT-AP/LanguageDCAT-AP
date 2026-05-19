@@ -865,7 +865,6 @@
       "@type": "@id"
     },
     "ProcessingResourceType": "http://w3id.org/meta-share/meta-share/ProcessingResourceType",
-    "Region": "http://w3id.org/meta-share/meta-share/Region",
     "Script": "http://w3id.org/meta-share/meta-share/Script",
     "Size": "http://w3id.org/meta-share/meta-share/Size",
     "Size.amount": {
