@@ -50,6 +50,11 @@
       "@language": "en"
     }
   ],
+  "ms:conformsTo": [
+    {
+      "@id": "dcatlds:0.9.2",
+    }
+  ],
   "dct:description": [
     {
       "@value": "The ABSITA dataset contains 4,121 reviews written in Italian and collected from the website booking.com. Reviews are annotated according to seven aspects: pulizia (cleanliness), comfort, servizi (amenities), staff, qualita-prezzo (value), wifi (wireless Internet connection) and posizione (location). For each aspect, the polarity (positive, negative) of its mention has been annotated. The positive and negative polarities are annotated independently, thus for each aspect four sentiment classes are possible: positive (positive=1, negative=0), negative (positive=0, negative=1), neutral (positive=0, negative=0), mixed (positive=1, negative=1).The dataset has been created and used in the context of the ABSITA task (http://sag.art.uniroma2.it/absita/), organised as part of EVALITA 2018 (http://www.evalita.it/2018).",

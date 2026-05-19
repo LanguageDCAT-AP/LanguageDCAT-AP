@@ -2,7 +2,7 @@
   "@context": {
     "Agent": "http://xmlns.com/foaf/0.1/Agent",
     "AnnotationType": "http://w3id.org/meta-share/omtd-share/AnnotationType",
-    "Anonymized": "http://w3id.org/meta-share/meta-share/Anonymized",
+    "Anonymised": "http://w3id.org/meta-share/meta-share/Anonymized",
     "Catalogue": "http://www.w3.org/ns/dcat#Catalog",
     "Catalogue.creator": {
       "@container": "@set",
@@ -86,11 +86,11 @@
       "@id": "http://w3id.org/meta-share/meta-share/annotationType",
       "@type": "@id"
     },
-    "Corpus.anonymizationDetails": {
+    "Corpus.anonymisationDetails": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/anonymizationDetails"
     },
-    "Corpus.anonymized": {
+    "Corpus.anonymised": {
       "@id": "http://w3id.org/meta-share/meta-share/anonymized",
       "@type": "@id"
     },
@@ -160,17 +160,17 @@
       "@id": "http://purl.org/dc/terms/language",
       "@type": "@id"
     },
-    "Corpus.license": {
+    "Corpus.languageResourceType": {
+      "@id": "http://w3id.org/meta-share/meta-share/lrType",
+      "@type": "@id"
+    },
+    "Corpus.licence": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
       "@type": "@id"
     },
     "Corpus.lingualityType": {
       "@id": "http://w3id.org/meta-share/meta-share/lingualityType",
-      "@type": "@id"
-    },
-    "Corpus.lrType": {
-      "@id": "http://w3id.org/meta-share/meta-share/lrType",
       "@type": "@id"
     },
     "Corpus.modalityType": {
@@ -204,14 +204,6 @@
       "@id": "http://purl.org/dc/terms/publisher",
       "@type": "@id"
     },
-    "Corpus.sensitiveDataDetails": {
-      "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataDetails"
-    },
-    "Corpus.sensitiveDataIncluded": {
-      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataIncluded",
-      "@type": "@id"
-    },
     "Corpus.sourceLanguage": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/sourceLanguage",
@@ -220,6 +212,14 @@
     "Corpus.spatial": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/spatial",
+      "@type": "@id"
+    },
+    "Corpus.specialCategoryDataDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataDetails"
+    },
+    "Corpus.specialCategoryDataIncluded": {
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataIncluded",
       "@type": "@id"
     },
     "Corpus.targetLanguage": {
@@ -239,22 +239,22 @@
     "Corpus.version": {
       "@id": "http://www.w3.org/ns/dcat#version"
     },
-    "Corpus Subclass": "http://w3id.org/meta-share/meta-share/CorpusSubclass",
-    "Data Protection Principle": "http://w3id.org/meta-share/meta-share/DataProtectionPrinciple",
-    "Data Service": "http://www.w3.org/ns/dcat#DataService",
-    "Data Service.endpointDescription": {
+    "CorpusSubclass": "http://w3id.org/meta-share/meta-share/CorpusSubclass",
+    "DataProtectionPrinciple": "http://w3id.org/meta-share/meta-share/DataProtectionPrinciple",
+    "DataService": "http://www.w3.org/ns/dcat#DataService",
+    "DataService.endpointDescription": {
       "@container": "@set",
       "@id": "http://www.w3.org/ns/dcat#endpointDescription"
     },
-    "Data Service.endpointURL": {
+    "DataService.endpointURL": {
       "@id": "http://www.w3.org/ns/dcat#endpointURL",
       "@type": "@id"
     },
-    "Data Service.title": {
+    "DataService.title": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/title"
     },
-    "Data Service.type": {
+    "DataService.type": {
       "@id": "http://www.nlpli.gr/dcat-lds#type",
       "@type": "@id"
     },
@@ -286,7 +286,7 @@
       "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
       "@type": "@id"
     },
-    "Distribution.license": {
+    "Distribution.licence": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
       "@type": "@id"
@@ -354,18 +354,19 @@
       "@id": "http://w3id.org/meta-share/meta-share/variant",
       "@type": "@id"
     },
-    "Language Code": "http://w3id.org/meta-share/meta-share/LanguageCode",
-    "LCR subclass": "http://w3id.org/meta-share/meta-share/LCRsubclass",
-    "LexicalConceptualResource": "http://w3id.org/meta-share/meta-share/LexicalConceptualResource",
+    "LanguageCode": "http://w3id.org/meta-share/meta-share/LanguageCode",
+    "LanguageResourceType": "http://w3id.org/meta-share/meta-share/LRType",
+    "LCRSubclass": "http://w3id.org/meta-share/meta-share/LCRSubclass",
+    "LCR": "http://w3id.org/meta-share/meta-share/LexicalConceptualResource",
     "LCR.alternative": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/alternative"
     },
-    "LCR.anonymizationDetails": {
+    "LCR.anonymisationDetails": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/anonymizationDetails"
     },
-    "LCR.anonymized": {
+    "LCR.anonymised": {
       "@id": "http://w3id.org/meta-share/meta-share/anonymized",
       "@type": "@id"
     },
@@ -440,6 +441,10 @@
       "@id": "http://purl.org/dc/terms/language",
       "@type": "@id"
     },
+    "LCR.languageResourceType": {
+      "@id": "http://w3id.org/meta-share/meta-share/lrType",
+      "@type": "@id"
+    },
     "LCR.license": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
@@ -452,10 +457,6 @@
     "LCR.linguisticInformation": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/linguisticInformation",
-      "@type": "@id"
-    },
-    "LCR.lrType": {
-      "@id": "http://w3id.org/meta-share/meta-share/lrType",
       "@type": "@id"
     },
     "LCR.metaLanguage": {
@@ -498,14 +499,6 @@
       "@id": "http://purl.org/dc/terms/publisher",
       "@type": "@id"
     },
-    "LCR.sensitiveDataDetails": {
-      "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataDetails"
-    },
-    "LCR.sensitiveDataIncluded": {
-      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataIncluded",
-      "@type": "@id"
-    },
     "LCR.sourceLanguage": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/sourceLanguage",
@@ -514,6 +507,14 @@
     "LCR.spatial": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/spatial",
+      "@type": "@id"
+    },
+    "LCR.specialCategoryDataDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataDetails"
+    },
+    "LCR.specialCategoryDataIncluded": {
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataIncluded",
       "@type": "@id"
     },
     "LCR.targetLanguage": {
@@ -560,10 +561,9 @@
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/title"
     },
-    "Linguality Type": "http://w3id.org/meta-share/meta-share/LingualityType",
-    "Linguistic System": "http://purl.org/dc/terms/LinguisticSystem",
+    "LingualityType": "http://w3id.org/meta-share/meta-share/LingualityType",
+    "LinguisticSystem": "http://purl.org/dc/terms/LinguisticSystem",
     "Location": "http://purl.org/dc/terms/Location",
-    "LRType": "http://w3id.org/meta-share/meta-share/LRType",
     "MediaType": "http://purl.org/dc/terms/MediaType",
     "ModalityType": "http://w3id.org/meta-share/meta-share/MediaType",
     "MediaTypeOrExtent": "http://purl.org/dc/terms/MediaTypeOrExtent",
@@ -573,11 +573,11 @@
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/alternative"
     },
-    "Model.anonymizationDetails": {
+    "Model.anonymisationDetails": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/anonymizationDetails"
     },
-    "Model.anonymized": {
+    "Model.anonymised": {
       "@id": "http://w3id.org/meta-share/meta-share/anonymized",
       "@type": "@id"
     },
@@ -668,7 +668,7 @@
       "@id": "http://purl.org/dc/terms/language",
       "@type": "@id"
     },
-    "Model.license": {
+    "Model.licence": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
       "@type": "@id"
@@ -681,7 +681,7 @@
       "@id": "http://w3id.org/meta-share/meta-share/lingualityType",
       "@type": "@id"
     },
-    "Model.lrType": {
+    "Model.languageResourceType": {
       "@id": "http://w3id.org/meta-share/meta-share/lrType",
       "@type": "@id"
     },
@@ -719,20 +719,12 @@
       "@id": "http://purl.org/dc/terms/publisher",
       "@type": "@id"
     },
-    "Model.quantizationProcess": {
+    "Model.quantisationProcess": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/quantizationProcess"
     },
-    "Model.quantized": {
+    "Model.quantised": {
       "@id": "http://w3id.org/meta-share/meta-share/quantized"
-    },
-    "Model.sensitiveDataDetails": {
-      "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataDetails"
-    },
-    "Model.sensitiveDataIncluded": {
-      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataIncluded",
-      "@type": "@id"
     },
     "Model.sourceLanguage": {
       "@container": "@set",
@@ -742,6 +734,14 @@
     "Model.spatial": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/spatial",
+      "@type": "@id"
+    },
+    "Model.specialCategoryDataDetails": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataDetails"
+    },
+    "Model.specialCategoryDataIncluded": {
+      "@id": "http://w3id.org/meta-share/meta-share/sensitiveDataIncluded",
       "@type": "@id"
     },
     "Model.targetLanguage": {
@@ -867,7 +867,6 @@
     "ProcessingResourceType": "http://w3id.org/meta-share/meta-share/ProcessingResourceType",
     "Region": "http://w3id.org/meta-share/meta-share/Region",
     "Script": "http://w3id.org/meta-share/meta-share/Script",
-    "SensitiveDataIncluded": "http://w3id.org/meta-share/meta-share/SensitiveDataIncluded",
     "Size": "http://w3id.org/meta-share/meta-share/Size",
     "Size.amount": {
       "@id": "http://w3id.org/meta-share/meta-share/amount"
@@ -892,6 +891,7 @@
       "@type": "@id"
     },
     "SoftwareDistributionForm": "http://w3id.org/meta-share/meta-share/SoftwareDistributionForm",
+    "SpecialCategoryDataIncluded": "http://w3id.org/meta-share/meta-share/SensitiveDataIncluded",
     "Standard": "http://purl.org/dc/terms/Standard",
     "TechnicalOrganisationalMeasure": "https://w3id.org/dpv#TechnicalOrganisationalMeasure",
     "ToolService": "http://w3id.org/meta-share/meta-share/ToolService",
@@ -944,13 +944,13 @@
     "ToolService.languageDependent": {
       "@id": "http://w3id.org/meta-share/meta-share/languageDependent"
     },
-    "ToolService.license": {
-      "@container": "@set",
-      "@id": "http://purl.org/dc/terms/license",
+    "ToolService.languageResourceType": {
+      "@id": "http://w3id.org/meta-share/meta-share/lrType",
       "@type": "@id"
     },
-    "ToolService.lrType": {
-      "@id": "http://w3id.org/meta-share/meta-share/lrType",
+    "ToolService.licence": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/license",
       "@type": "@id"
     },
     "ToolService.otherIdentifier": {
