@@ -625,6 +625,11 @@
       "@container": "@set",
       "@id": "http://data.europa.eu/it6/designSpecifications"
     },
+    "Model.detailedLanguage": {
+      "@container": "@set",
+      "@id": "http://w3id.org/meta-share/meta-share/language",
+      "@type": "@id"
+    },
     "Model.domain": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/domain",
@@ -714,13 +719,13 @@
       "@container": "@set",
       "@id": "http://www.w3.org/ns/dcat#keyword"
     },
-    "Model.languageResourceType": {
-      "@id": "http://w3id.org/meta-share/meta-share/lrType",
-      "@type": "@id"
-    },
     "Model.language": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/language",
+      "@type": "@id"
+    },
+    "Model.languageResourceType": {
+      "@id": "http://w3id.org/meta-share/meta-share/lrType",
       "@type": "@id"
     },
     "Model.licence": {
@@ -1010,6 +1015,11 @@
     "ToolService.alternative": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/alternative"
+    },
+    "ToolService.conformsTo": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/conformsTo",
+      "@type": "@id"
     },
     "ToolService.description": {
       "@container": "@set",

@@ -26,13 +26,15 @@
 @prefix wikidata: <http://www.wikidata.org/entity/> .
 @base <http://w3id.org/lang-dcat-ap/> .
 
-<http://w3id.org/lang-dcat-ap/> rdf:type owl:Ontology ;
+<http://w3id.org/lang-dcat-ap/0.9.2> rdf:type owl:Ontology ;
                                  dct:created "2023-06-01" ;
-                                 dct:issued "2024-07-01" ;
+                                 dct:issued "2026-02-05" ;
                                  dct:language "English"@en ;
-                                 rdfs:comment "Based on DCAT-v3, DCAT-AP v3 and MS-OWL v2"@en ;
-                                 rdfs:label "LanguageDCAT-AP model"@en ;
+                                 rdfs:comment "Based on DCAT-v3, DCAT-AP v3, MLDCAT-AP and MS-OWL v2"@en ;
+                                 dct:title "LanguageDCAT-AP model v0.9.2"@en ;
+                                 rdfs:label "LanguageDCAT-AP model v0.9.2"@en ;
                                  owl:versionInfo "0.9.2" .
+
 
 #################################################################
 #    Annotation properties

@@ -356,7 +356,6 @@
     },
     "LanguageCode": "http://w3id.org/meta-share/meta-share/LanguageCode",
     "LanguageResourceType": "http://w3id.org/meta-share/meta-share/LRType",
-    "LCRSubclass": "http://w3id.org/meta-share/meta-share/LCRSubclass",
     "LCR": "http://w3id.org/meta-share/meta-share/LexicalConceptualResource",
     "LCR.alternative": {
       "@container": "@set",
@@ -534,6 +533,7 @@
     "LCR.version": {
       "@id": "http://www.w3.org/ns/dcat#version"
     },
+    "LCRSubclass": "http://w3id.org/meta-share/meta-share/LCRSubclass",
     "Licence": "http://purl.org/dc/terms/LicenseDocument",
     "Licence.alternative": {
       "@container": "@set",
@@ -565,9 +565,9 @@
     "LinguisticSystem": "http://purl.org/dc/terms/LinguisticSystem",
     "Location": "http://purl.org/dc/terms/Location",
     "MediaType": "http://purl.org/dc/terms/MediaType",
-    "ModalityType": "http://w3id.org/meta-share/meta-share/MediaType",
     "MediaTypeOrExtent": "http://purl.org/dc/terms/MediaTypeOrExtent",
     "MicrostructureFeature": "http://w3id.org/meta-share/lexmeta#MicrostructureFeature",
+    "ModalityType": "http://w3id.org/meta-share/meta-share/MediaType",
     "Model": "http://w3id.org/meta-share/meta-share/MLModel",
     "Model.alternative": {
       "@container": "@set",
@@ -668,6 +668,10 @@
       "@id": "http://purl.org/dc/terms/language",
       "@type": "@id"
     },
+    "Model.languageResourceType": {
+      "@id": "http://w3id.org/meta-share/meta-share/lrType",
+      "@type": "@id"
+    },
     "Model.licence": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
@@ -679,10 +683,6 @@
     },
     "Model.lingualityType": {
       "@id": "http://w3id.org/meta-share/meta-share/lingualityType",
-      "@type": "@id"
-    },
-    "Model.languageResourceType": {
-      "@id": "http://w3id.org/meta-share/meta-share/lrType",
       "@type": "@id"
     },
     "Model.modalityType": {
@@ -897,6 +897,11 @@
     "ToolService.alternative": {
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/alternative"
+    },
+    "ToolService.conformsTo": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/conformsTo",
+      "@type": "@id"
     },
     "ToolService.description": {
       "@container": "@set",
