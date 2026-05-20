@@ -562,13 +562,13 @@
       "@container": "@set",
       "@id": "http://purl.org/dc/terms/description"
     },
-    "Licence.legalCode": {
-      "@id": "http://creativecommons.org/ns#legalCode",
-      "@type": "@id"
-    },
-    "Licence.otherIdentifier": {
+    "Licence.identifier": {
       "@container": "@set",
       "@id": "http://www.w3.org/ns/adms#identifier",
+      "@type": "@id"
+    },
+    "Licence.legalCode": {
+      "@id": "http://creativecommons.org/ns#legalCode",
       "@type": "@id"
     },
     "Licence.seeAlso": {

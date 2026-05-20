@@ -1075,7 +1075,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt>Reference</dt>
 <dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#LicenceDocument">DCAT-AP [A]</a></dd>
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Licence.alternative">alternative</a>, <a href="#Licence.description">description</a>, <a href="#Licence.legalCode">legal code</a>, <a href="#Licence.seeAlso">see also</a>, <a href="#Licence.otherIdentifier">other identifier</a>, <a href="#Licence.title">title</a>.</dd>
+<dd>For this entity the following properties are defined: <a href="#Licence.alternative">alternative</a>, <a href="#Licence.description">description</a>, <a href="#Licence.identifier">identifier</a>, <a href="#Licence.legalCode">legal code</a>, <a href="#Licence.seeAlso">see also</a>, <a href="#Licence.title">title</a>.</dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -1112,21 +1112,21 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <td></td>
 <td>P</td>
 </tr>
+<tr id="Licence.identifier">
+<td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td>
+<td><a href="#Identifier" target="_blank">Identifier</a></td>
+<td>0..n</td>
+<td>Links a resource to an adms:Identifier class.</td>
+<td>When a standard licence is used, this MUST be the identifier from the SPDX list of licences.</td>
+<td></td>
+<td>P</td>
+</tr>
 <tr id="Licence.legalCode">
 <td><a href="http://creativecommons.org/ns#legalCode" target="_blank">legal code</a></td>
 <td><a href="#Resource" target="_blank">Resource</a></td>
 <td>1..1</td>
 <td>The URL of the legal text of a Licence.</td>
 <td></td>
-<td></td>
-<td>P</td>
-</tr>
-<tr id="Licence.otherIdentifier">
-<td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">other identifier</a></td>
-<td><a href="#Identifier" target="_blank">Identifier</a></td>
-<td>0..n</td>
-<td>Links a resource to an adms:Identifier class.</td>
-<td>When a standard licence is used, this MUST be the identifier from the SPDX list of licences.</td>
 <td></td>
 <td>P</td>
 </tr>
