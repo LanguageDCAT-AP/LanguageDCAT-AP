@@ -9793,6 +9793,17 @@ ms:AnonymizedTaxonomy rdf:type owl:NamedIndividual ,
                       skos:prefLabel "Anonymised Taxonomy"@en-GB ,
                                      "Anonymized Taxonomy"@en .
 
+###  http://w3id.org/lang-dcat-ap/0.9.2
+dcatlds:0.9.2 rdf:type owl:NamedIndividual ,
+                   ms:StandardBestPractice ,
+                   skos:Concept ;
+          rdfs:label "LanguageDCAT-AP v0.9.2"@en ;
+          rdfs:seeAlso "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.2/" ;
+
+          skos:inScheme ms:StandardBestPracticeTaxonomy ;
+       skos:topConceptOf ms:StandardBestPracticeTaxonomy ;
+          skos:prefLabel "LanguageDCAT-AP v0.9.2"@en .
+
 
 ###  http://w3id.org/meta-share/meta-share/BML
 ms:BML rdf:type owl:NamedIndividual ,
