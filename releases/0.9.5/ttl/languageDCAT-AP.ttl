@@ -264,7 +264,10 @@ dct:format rdf:type owl:ObjectProperty ;
 
 ###  http://purl.org/dc/terms/language
 dct:language rdf:type owl:ObjectProperty ;
-             rdfs:range dct:LinguisticSystem .
+             rdfs:range dct:LinguisticSystem ;
+             rdfs:comment "A language of the resource."@en ;
+             rdfs:label "Language"@en ;
+             skos:note "DCMI note: Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [IETF-BCP47] language tag."@en .
 
 
 ###  http://purl.org/dc/terms/license
@@ -1145,10 +1148,13 @@ odrl:hasPolicy rdf:type owl:ObjectProperty ;
 
 
 ###  http://www.w3.org/ns/odrl/2/operator
-odrl:operator rdf:type owl:ObjectProperty ;
+odrl:operator rdf:type owl:ObjectProperty , skos:Concept ;
               rdfs:domain odrl:Constraint ;
-              rdfs:range odrl:Operator .
-
+              rdfs:range odrl:Operator ;
+              rdfs:comment "The operator function applied to operands of a Constraint"@en ;
+              rdfs:isDefinedBy odrl: ;
+              rdfs:label "Has Operator"@en ;
+              skos:definition "The operator function applied to operands of a Constraint"@en .
 
 ###  http://www.w3.org/ns/prov#hadPrimarySource
 prov:hadPrimarySource rdf:type owl:ObjectProperty ;
@@ -1280,10 +1286,6 @@ dct:alternative rdf:type owl:DatatypeProperty ;
                 rdfs:label "Alternative title"@en .
 
 
-###  http://purl.org/dc/terms/date
-dct:date rdf:type owl:DatatypeProperty .
-
-
 ###  http://purl.org/dc/terms/description
 dct:description rdf:type owl:DatatypeProperty ;
                 rdfs:subPropertyOf owl:topDataProperty ;
@@ -1301,9 +1303,13 @@ dct:identifier rdf:type owl:DatatypeProperty ;
 
 ###  http://purl.org/dc/terms/modified
 dct:modified rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf dct:date ,
-                                dct:date ;
-             rdfs:range xsd:date .
+             rdfs:subPropertyOf dct:date ;
+             rdfs:range xsd:date ;
+             dct:description "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en ;
+             dct:issued "2000-07-11"^^xsd:date ;
+             rdfs:comment "Date on which the resource was changed."@en ;
+             rdfs:isDefinedBy dct: ;
+             rdfs:label "Date Modified"@en .
 
 
 ###  http://purl.org/dc/terms/title
@@ -1750,7 +1756,10 @@ dcat:version rdf:type owl:DatatypeProperty ;
 
 ###  http://xmlns.com/foaf/0.1/name
 foaf:name rdf:type owl:DatatypeProperty ;
-          rdfs:domain owl:Thing .
+          rdfs:domain owl:Thing ;
+          rdfs:comment "A name for some thing."@en ;
+          rdfs:label "name"@en .
+
 
 
 #################################################################
@@ -1836,7 +1845,12 @@ dcatlds:PurposeOfUse rdf:type owl:Class ;
 
 
 ###  http://w3id.org/lang-dcat-ap/ScopeOfUse
-dcatlds:ScopeOfUse rdf:type owl:Class .
+dcatlds:ScopeOfUse rdf:type owl:Class ,
+                            owl:NamedIndividual ,
+                            odrl:leftOperand ;
+                   rdfs:comment "The scope of use (internal, external) of a resource"@en ;
+                   rdfs:label "Scope of use"@en .
+
 
 
 ###  http://w3id.org/meta-share/lexmeta#MicrostructureFeature
@@ -1917,10 +1931,6 @@ ms:LanguageCode rdf:type owl:Class ;
                 rdfs:subClassOf dct:LinguisticSystem ;
                 rdfs:comment "Language as defined for use as the first part in the BCP47 recommendation (taken from ISO 639)"@en ;
                 rdfs:label "Language"@en .
-
-
-###  http://w3id.org/meta-share/meta-share/LanguageDescription
-ms:LanguageDescription rdf:type owl:Class .
 
 
 ###  http://w3id.org/meta-share/meta-share/LanguageResource
@@ -2101,7 +2111,6 @@ omtd:Operation rdf:type owl:Class ;
 
 ###  http://www.w3.org/2000/01/rdf-schema#Resource
 rdfs:Resource rdf:type owl:Class .
-
 
 ###  http://www.w3.org/2004/02/skos/core#Collection
 skos:Collection rdf:type owl:Class .
@@ -2402,8 +2411,13 @@ odrl:LeftOperand rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/odrl/2/Operator
-odrl:Operator rdf:type owl:Class .
-
+odrl:Operator rdf:type owl:Class ,
+                       owl:NamedIndividual ,
+                       skos:Concept ;
+              rdfs:isDefinedBy odrl: ;
+              rdfs:label "Operator"@en ;
+              skos:definition "Operator for constraint expression."@en ;
+              skos:note "Instances of the Operator class representing relational operators."@en .
 
 ###  http://www.w3.org/ns/odrl/2/Policy
 odrl:Policy rdf:type owl:Class .
@@ -2457,10 +2471,6 @@ dpv:TechnicalOrganisationalMeasure rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  http://purl.org/dc/terms/modified
-dct:modified rdf:type owl:NamedIndividual ;
-             dct:description "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en .
-
 
 ###  http://w3id.org/lang-dcat-ap/
 <http://w3id.org/lang-dcat-ap/> rdf:type owl:NamedIndividual ;
@@ -2481,10 +2491,6 @@ dcatlds:PurposeOfUseTaxonomy rdf:type owl:NamedIndividual ,
                                                 dcatlds:research ;
                              skos:prefLabel "Purpose of Use Taxonomy"@en .
 
-
-###  http://w3id.org/lang-dcat-ap/ScopeOfUse
-dcatlds:ScopeOfUse rdf:type owl:NamedIndividual ,
-                            odrl:leftOperand .
 
 
 ###  http://w3id.org/lang-dcat-ap/ScopeOfUseTaxonomy
@@ -11847,7 +11853,12 @@ ms:minute rdf:type owl:NamedIndividual ,
 ###  http://w3id.org/meta-share/meta-share/mlModel
 ms:mlModel rdf:type owl:NamedIndividual ,
                     ms:LRType ,
-                    skos:Concept .
+                    skos:Concept ;
+           rdfs:label "model"@en ;
+           skos:definition "Value for 'LR type' for machine learning models (e.g., language models, LLMs)"@en ;
+           skos:inScheme ms:LRTypeTaxonomy ;
+           skos:prefLabel "model"@en ;
+           skos:topConceptOf ms:LRTypeTaxonomy .
 
 
 ###  http://w3id.org/meta-share/meta-share/monolingual
@@ -21473,12 +21484,10 @@ omtd:yaml rdf:type owl:NamedIndividual ,
 
 ###  http://www.w3.org/ns/odrl/2/Constraint
 odrl:Constraint rdf:type owl:NamedIndividual ,
-                         skos:Concept .
-
-
-###  http://www.w3.org/ns/odrl/2/Operator
-odrl:Operator rdf:type owl:NamedIndividual ,
-                       skos:Concept .
+                         skos:Concept ;
+                rdfs:isDefinedBy odrl: ;
+                rdfs:label "Constraint"@en ;
+                skos:definition "A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule."@en .
 
 
 ###  http://www.w3.org/ns/odrl/2/elapsedTime
@@ -21491,11 +21500,6 @@ odrl:elapsedTime rdf:type owl:NamedIndividual ,
                  skos:definition "A continuous elapsed time period which may be used for exercising of the action of the Rule. Right operand value MUST be an xsd:duration as defined by [[xmlschema11-2]]."@en ;
                  skos:note "Only the eq, lt, lteq operators SHOULD be used. See also Metered Time. <br />Example: <code>elpasedTime eq P60M</code> indicates a total elapsed time of 60 Minutes." ;
                  skos:scopeNote "Non-Normative"@en .
-
-
-###  http://www.w3.org/ns/odrl/2/operator
-odrl:operator rdf:type owl:NamedIndividual ,
-                       skos:Concept .
 
 
 ###  http://www.w3.org/ns/odrl/2/payAmount
@@ -21521,24 +21525,20 @@ odrl:purpose rdf:type owl:NamedIndividual ,
              skos:note "Example: Educational use."@en ;
              skos:scopeNote "Non-Normative"@en .
 
+
+###  http://www.w3.org/ns/odrl/2/systemDevice
+odrl:systemDevice rdf:type odrl:LeftOperand , owl:NamedIndividual , skos:Concept ;
+  rdfs:isDefinedBy odrl: ;
+  rdfs:label "Connector"@en ;
+  skos:definition "An identified computing system or computing device used for exercising the action of the Rule."@en ;
+  skos:note "Example: The system device can be identified by a unique code created from the used hardware."@en ,
+            "PL: changed label"@en ;
+    skos:scopeNote "Non-Normative"@en .
+
+
 #################################################################
 #    Annotations
 #################################################################
-
-dct:language rdfs:comment "A language of the resource."@en ;
-             rdfs:label "Language"@en ;
-             skos:note "DCMI note: Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [IETF-BCP47] language tag."@en .
-
-
-dct:modified dct:issued "2000-07-11"^^xsd:date ;
-             rdfs:comment "Date on which the resource was changed."@en ;
-             rdfs:isDefinedBy dct: ;
-             rdfs:label "Date Modified"@en .
-
-
-dcatlds:ScopeOfUse rdfs:comment "The scope of use (internal, external) of a resource"@en ;
-                   rdfs:label "Scope of use"@en .
-
 
 ms:AudioType skos:exactMatch lexmeta:audioContent .
 
@@ -21624,14 +21624,6 @@ ms:irregularForm skos:exactMatch lexmeta:irregularForm .
 
 ms:meronym skos:exactMatch lexmeta:meronym .
 
-
-ms:mlModel rdfs:label "model"@en ;
-           skos:definition "Value for 'LR type' for machine learning models (e.g., language models, LLMs)"@en ;
-           skos:inScheme ms:LRTypeTaxonomy ;
-           skos:prefLabel "model"@en ;
-           skos:topConceptOf ms:LRTypeTaxonomy .
-
-
 ms:mood skos:exactMatch lexmeta:mood .
 
 
@@ -21693,36 +21685,6 @@ ms:variant1 skos:exactMatch lexmeta:variant .
 
 
 ms:voice1 skos:exactMatch lexmeta:voice .
-
-
-odrl:Constraint rdfs:isDefinedBy odrl: ;
-                rdfs:label "Constraint"@en ;
-                skos:definition "A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule."@en .
-
-
-odrl:Operator rdfs:isDefinedBy odrl: ;
-              rdfs:label "Operator"@en ;
-              skos:definition "Operator for constraint expression."@en ;
-              skos:note "Instances of the Operator class representing relational operators."@en .
-
-
-odrl:operator rdfs:comment "The operator function applied to operands of a Constraint"@en ;
-              rdfs:isDefinedBy odrl: ;
-              rdfs:label "Has Operator"@en ;
-              skos:definition "The operator function applied to operands of a Constraint"@en .
-
-
-odrl:systemDevice rdfs:comment "An identified computing system or computing device used for exercising the action of the Rule."@en ;
-                  rdfs:isDefinedBy odrl: ;
-                  rdfs:label "Connector"@en ;
-                  skos:note "Example: The system device can be identified by a unique code created from the used hardware."@en ,
-                            "PL: changed label"@en ;
-                  skos:scopeNote "Non-Normative"@en .
-
-
-foaf:name rdfs:comment "A name for some thing."@en ;
-          rdfs:label "name"@en .
-
 
 
 <https://www.iana.org/assignments/media-types/application_vnd_openxmlformats_officedocument_spreadsheetml_sheet> skos:exactMatch omtd:MsExcel_xlsx .

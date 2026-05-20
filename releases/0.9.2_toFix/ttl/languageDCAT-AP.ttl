@@ -1,7 +1,5 @@
 @prefix : <http://w3id.org/lang-dcat-ap/> .
-@prefix at: <http://publications.europa.eu/ontology/authority/> .
 @prefix cc: <http://creativecommons.org/ns#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix ms: <http://w3id.org/meta-share/meta-share/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dpv: <https://w3id.org/dpv#> .
@@ -18,7 +16,6 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix lexbib: <https://lexbib.elex.is/entity/> .
 @prefix schema: <http://schema.org/> .
 @prefix dcatlds: <http://w3id.org/lang-dcat-ap/> .
@@ -40,8 +37,8 @@
 #    Annotation properties
 #################################################################
 
-###  http://purl.org/dc/elements/1.1/source
-dc:source rdf:type owl:AnnotationProperty .
+###  http://purl.org/dc/elements/source
+dct:source rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/created
@@ -194,7 +191,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
 cc:legalcode rdf:type owl:ObjectProperty ;
              rdfs:domain dct:LicenseDocument ;
              rdfs:range rdfs:Resource ;
-             rdfs:comment "The URL of the legal text of a Licence."@en-GB ,
+             rdfs:comment "The URL of the legal text of a Licence."@en-gb ,
                           "The URL of the legal text of a License."@en ;
              rdfs:label "link to legal text"@en ;
              skos:note "Added as domain dct:LicenseDocument instead of cc:License (subclassOf dct:LicenseDocument)"@en .
@@ -232,14 +229,17 @@ dct:format rdf:type owl:ObjectProperty ;
 
 ###  http://purl.org/dc/terms/language
 dct:language rdf:type owl:ObjectProperty ;
-             rdfs:range dct:LinguisticSystem .
+             rdfs:range dct:LinguisticSystem ;
+             rdfs:comment "A language of the resource."@en ;
+             rdfs:label "Language"@en ;
+             skos:note "DCMI note: Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [IETF-BCP47] language tag."@en .
 
 
 ###  http://purl.org/dc/terms/license
 dct:license rdf:type owl:ObjectProperty ;
             rdfs:range dct:LicenseDocument ;
             rdfs:comment "A legal document giving official permission to do something with the resource."@en ;
-            rdfs:label "Licence"@en-GB ,
+            rdfs:label "Licence"@en-gb ,
                        "License"@en .
 
 
@@ -275,11 +275,11 @@ ms:annotationType rdf:type owl:ObjectProperty ;
 
 ###  http://w3id.org/meta-share/meta-share/anonymized
 ms:anonymized rdf:type owl:ObjectProperty ;
-              rdfs:domain ms:DataLanguageResource ;
+              rdfs:domain ms:LanguageResource ;
               rdfs:range ms:Anonymized ;
-              rdfs:comment "Indicates whether the language resource has been anonymised; anonymous data is information which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in such a manner that the data subject is not or no longer identifiable"@en-GB ,
+              rdfs:comment "Indicates whether the language resource has been anonymised; anonymous data is information which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in such a manner that the data subject is not or no longer identifiable"@en-gb ,
                            "Indicates whether the language resource has been anonymized; anonymous data is information which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in such a manner that the data subject is not or no longer identifiable"@en ;
-              rdfs:label "anonymised"@en-GB ,
+              rdfs:label "anonymised"@en-gb ,
                          "anonymized"@en .
 
 
@@ -293,7 +293,7 @@ ms:corpusSubclass rdf:type owl:ObjectProperty ;
 
 ###  http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied
 ms:dataProtectionPrincipleApplied rdf:type owl:ObjectProperty ;
-                                  rdfs:domain ms:DataLanguageResource ;
+                                  rdfs:domain ms:LanguageResource ;
                                   rdfs:range ms:DataProtectionPrinciple ;
                                   rdfs:comment "Specifies the data protection principles that have been applied in compliance with the General Data Protection Regulation (Regulation (EU) 2016/679)"@en ;
                                   rdfs:label "applied data protection principle"@en .
@@ -366,7 +366,7 @@ ms:inputContentResource rdf:type owl:ObjectProperty ;
 ms:iprHolder rdf:type owl:ObjectProperty ;
              rdfs:domain ms:LanguageResource ;
              rdfs:range foaf:Agent ;
-             rdfs:comment "A person or an organisation who holds the full Intellectual Property Rights (Copyright, trademark, etc.) that subsist in the resource. The IPR holder could be different from the creator that may have assigned the rights to the IPR holder (e.g., an author as a creator assigns her rights to the publisher who is the IPR holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work via a specific distributor."@en-GB ,
+             rdfs:comment "A person or an organisation who holds the full Intellectual Property Rights (Copyright, trademark, etc.) that subsist in the resource. The IPR holder could be different from the creator that may have assigned the rights to the IPR holder (e.g., an author as a creator assigns her rights to the publisher who is the IPR holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work via a specific distributor."@en-gb ,
                           "A person or an organization who holds the full Intellectual Property Rights (Copyright, trademark, etc.) that subsist in the resource. The IPR holder could be different from the creator that may have assigned the rights to the IPR holder (e.g., an author as a creator assigns her rights to the publisher who is the IPR holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work via a specific distributor."@en ;
              rdfs:label "IPR holder"@en ;
              skos:altLabel "intellectual property rights holder"@en ,
@@ -494,7 +494,7 @@ ms:outputResource rdf:type owl:ObjectProperty ;
 
 ###  http://w3id.org/meta-share/meta-share/personalDataIncluded
 ms:personalDataIncluded rdf:type owl:ObjectProperty ;
-                        rdfs:domain ms:DataLanguageResource ;
+                        rdfs:domain ms:LanguageResource ;
                         rdfs:range ms:PersonalDataIncluded ;
                         rdfs:comment "Specifies whether the language resource contains personal data, i.e., any information relating to an identified or identifiable natural person (data subject); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person [Article 4(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]"@en ;
                         rdfs:label "personal data included"@en .
@@ -535,7 +535,7 @@ ms:script rdf:type owl:ObjectProperty ;
 
 ###  http://w3id.org/meta-share/meta-share/sensitiveDataIncluded
 ms:sensitiveDataIncluded rdf:type owl:ObjectProperty ;
-                         rdfs:domain ms:DataLanguageResource ;
+                         rdfs:domain ms:LanguageResource ;
                          rdfs:range ms:SensitiveDataIncluded ;
                          rdfs:comment "Specifies whether the language resource contains special category data, i.e., personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person’s sex life or sexual orientation [Article 9(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]"@en ;
                          rdfs:label "special category data included"@en .
@@ -609,8 +609,8 @@ ms:variant rdf:type owl:ObjectProperty ;
 
 ###  http://w3id.org/meta-share/meta-share/variantOf
 ms:variantOf rdf:type owl:ObjectProperty ;
-             rdfs:domain ms:mlModel ;
-             rdfs:range ms:mlModel ;
+             rdfs:domain ms:MLModel ;
+             rdfs:range ms:MLModel ;
              rdfs:comment "The model on which this model has been based on or derived from or is a variation of" ;
              rdfs:label "variant of"@en ;
              skos:note "Could add as reverse property to it6:hasVariation"@en .
@@ -926,7 +926,7 @@ dcat:record rdf:type owl:ObjectProperty ;
             rdfs:domain dcat:Catalog ;
             rdfs:range dcat:CatalogRecord ;
             rdfs:comment "A record describing the registration of a single dataset or data service that is part of the catalog."@en ,
-                         "A record describing the registration of a single dataset or data service that is part of the catalogue."@en-GB ,
+                         "A record describing the registration of a single dataset or data service that is part of the catalogue."@en-gb ,
                          "Describe la registración de un conjunto de datos o un servicio de datos en el catálogo."@es ,
                          "En post der beskriver registreringen af et enkelt datasæt eller en datatjeneste som er opført i kataloget."@da ,
                          "Propojuje katalog a jeho záznamy."@cs ,
@@ -948,7 +948,7 @@ dcat:record rdf:type owl:ObjectProperty ;
                        "カタログ・レコード"@ja ;
             skos:altLabel "har post"@da ;
             skos:definition "A record describing the registration of a single dataset or data service that is part of the catalog."@en ,
-                            "A record describing the registration of a single dataset or data service that is part of the catalogue."@en-GB ,
+                            "A record describing the registration of a single dataset or data service that is part of the catalogue."@en-gb ,
                             "Describe la registración de un conjunto de datos o un servicio de datos en el catálogo."@es ,
                             "En post der beskriver registreringen af et enkelt datasæt eller en datatjeneste som er opført i kataloget."@da ,
                             "Propojuje katalog a jeho záznamy."@cs ,
@@ -1025,7 +1025,7 @@ dcat:theme rdf:type owl:ObjectProperty ;
                           "Il set di concetti skos usati per categorizzare le risorse sono organizzati in skos:ConceptScheme che descrive tutte le categorie e le loro relazioni nel catalogo."@it ,
                           "Sada instancí třídy skos:Concept použitá pro kategorizaci zdrojů je organizována do schématu konceptů skos:ConceptScheme, které popisuje všechny kategorie v katalogu a jejich vztahy."@cs ,
                           "Samlingen af begreber (skos:Concept) der anvendes til at emneinddele ressourcer organiseres i et begrebssystem (skos:ConceptScheme) som beskriver alle emnerne og deres relationer i kataloget."@da ,
-                          "The set of skos:Concepts used to categorise the resources are organised in a skos:ConceptScheme describing all the categories and their relations in the catalogue."@en-GB ,
+                          "The set of skos:Concepts used to categorise the resources are organised in a skos:ConceptScheme describing all the categories and their relations in the catalogue."@en-gb ,
                           "The set of skos:Concepts used to categorize the resources are organized in a skos:ConceptScheme describing all the categories and their relations in the catalog."@en ,
                           "Un ensemble de skos:Concepts utilisés pour catégoriser les ressources sont organisés en un skos:ConceptScheme décrivant toutes les catégories et ses relations dans le catalogue."@fr ,
                           "Το σετ των skos:Concepts που χρησιμοποιείται για να κατηγοριοποιήσει τα σύνολα δεδομένων είναι οργανωμένο εντός ενός skos:ConceptScheme που περιγράφει όλες τις κατηγορίες και τις σχέσεις αυτών στον κατάλογο."@el ,
@@ -1043,7 +1043,7 @@ dcat:themeTaxonomy rdf:type owl:ObjectProperty ;
                                 "Il sistema di organizzazione della conoscenza (KOS) usato per classificare i dataset del catalogo."@it ,
                                 "Le systhème d'ogranisation de connaissances utilisé pour classifier les jeux de données du catalogue."@fr ,
                                 "Systém organizace znalostí (KOS) použitý pro klasifikaci datových sad v katalogu."@cs ,
-                                "The knowledge organisation system (KOS) used to classify catalogue's datasets."@en-GB ,
+                                "The knowledge organisation system (KOS) used to classify catalogue's datasets."@en-gb ,
                                 "The knowledge organization system (KOS) used to classify catalog's datasets."@en ,
                                 "Vidensorganiseringssystem (KOS) som anvendes til at klassificere datasæt i kataloget."@da ,
                                 "Το σύστημα οργάνωσης γνώσης που χρησιμοποιείται για την κατηγοριοποίηση των συνόλων δεδομένων του καταλόγου."@el ,
@@ -1064,14 +1064,14 @@ dcat:themeTaxonomy rdf:type owl:ObjectProperty ;
                                    "Il sistema di organizzazione della conoscenza (KOS) usato per classificare i dataset del catalogo."@it ,
                                    "Le systhème d'ogranisation de connaissances utilisé pour classifier les jeux de données du catalogue."@fr ,
                                    "Systém organizace znalostí (KOS) použitý pro klasifikaci datových sad v katalogu."@cs ,
-                                   "The knowledge organisation system (KOS) used to classify catalogue's datasets."@en-GB ,
+                                   "The knowledge organisation system (KOS) used to classify catalogue's datasets."@en-gb ,
                                    "The knowledge organization system (KOS) used to classify catalog's datasets."@en ,
                                    "Vidensorganiseringssystem (KOS) som anvendes til at klassificere datasæt i kataloget."@da ,
                                    "Το σύστημα οργάνωσης γνώσης που χρησιμοποιείται για την κατηγοριοποίηση των συνόλων δεδομένων του καταλόγου."@el ,
                                    "لائحة التصنيفات المستخدمه لتصنيف قوائم البيانات ضمن الفهرس"@ar ,
                                    "カタログのデータセットを分類するために用いられる知識組織化体系（KOS；knowledge organization system）。"@ja ;
                    skos:scopeNote "Det anbefales at taksonomien organiseres i et skos:ConceptScheme, skos:Collection, owl:Ontology eller lignende, som giver mulighed for at ethvert medlem af taksonomien kan forsynes med en IRI og udgives som linked-data."@da ,
-                                  "It is recommended that the taxonomy is organised in a skos:ConceptScheme, skos:Collection, owl:Ontology or similar, which allows each member to be denoted by an IRI and published as linked-data."@en-GB ,
+                                  "It is recommended that the taxonomy is organised in a skos:ConceptScheme, skos:Collection, owl:Ontology or similar, which allows each member to be denoted by an IRI and published as linked-data."@en-gb ,
                                   "It is recommended that the taxonomy is organized in a skos:ConceptScheme, skos:Collection, owl:Ontology or similar, which allows each member to be denoted by an IRI and published as linked-data."@en ,
                                   "Je doporučeno, aby byla taxonomie vyjádřena jako skos:ConceptScheme, skos:Collection, owl:Ontology nebo podobné, aby mohla být každá položka identifikována pomocí IRI a publikována jako propojená data."@cs ,
                                   "Se recomienda que la taxonomía se organice como un skos:ConceptScheme, skos:Collection, owl:Ontology o similar, los cuáles permiten que cada miembro se denote con una IRI y se publique como datos enlazados."@es ,
@@ -1087,16 +1087,20 @@ odrl:hasPolicy rdf:type owl:ObjectProperty ;
 
 
 ###  http://www.w3.org/ns/odrl/2/operator
-odrl:operator rdf:type owl:ObjectProperty ;
+odrl:operator rdf:type owl:ObjectProperty , skos:Concept ;
               rdfs:domain odrl:Constraint ;
-              rdfs:range odrl:Operator .
+              rdfs:range odrl:Operator ;
+              rdfs:comment "The operator function applied to operands of a Constraint"@en ;
+              rdfs:isDefinedBy odrl: ;
+              rdfs:label "Has Operator"@en ;
+              skos:definition "The operator function applied to operands of a Constraint"@en .
 
 
 ###  http://www.w3.org/ns/prov#hadPrimarySource
 prov:hadPrimarySource rdf:type owl:ObjectProperty ;
                       rdfs:domain prov:Entity ;
                       rdfs:range prov:Entity ;
-                      rdfs:comment "A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. A primary source relation is a particular case of derivation of secondary materials from their primary sources. It is recognised that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain."@en-GB ,
+                      rdfs:comment "A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. A primary source relation is a particular case of derivation of secondary materials from their primary sources. It is recognised that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain."@en-gb ,
                                    "A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. A primary source relation is a particular case of derivation of secondary materials from their primary sources. It is recognized that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain."@en ;
                       rdfs:label "had primary source"@en .
 
@@ -1128,7 +1132,6 @@ foaf:primaryTopic rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/dpv#hasTechnicalOrganisationalMeasure
 dpv:hasTechnicalOrganisationalMeasure rdf:type owl:ObjectProperty ;
-                                      rdfs:domain ms:DataLanguageResource ;
                                       rdfs:range dpv:TechnicalOrganisationalMeasure ;
                                       rdfs:comment "Indicates use or applicability of Technical or Organisational measure"@en ;
                                       rdfs:label "has technical and organisational measure"@en .
@@ -1138,19 +1141,6 @@ dpv:hasTechnicalOrganisationalMeasure rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
-###  http://w3id.org/meta-share/meta-share/downloadLocation
-ms:downloadLocation rdf:type owl:DatatypeProperty ;
-  rdfs:domain ms:SoftwareDistribution ;
-  rdfs:range xsd:anyURI ;
-  rdfs:comment "A URL where the language resource (mainly data but also downloadable software programmes or forms) can be downloaded from"@en ;
-  rdfs:label "download location"@en .
-
-###  http://w3id.org/meta-share/meta-share/accessLocation
-ms:accessLocation rdf:type owl:DatatypeProperty ;
-  rdfs:domain ms:SoftwareDistribution ;
-  rdfs:range xsd:anyURI ;
-  rdfs:comment "A URL where the resource can be accessed from; it can be used for landing pages or for cases where the resource is accessible via an interface, i.e. cases where the resource itself is not provided with a direct link for downloading"@en ;
-  rdfs:label "access location"@en .
 
 ###  http://data.europa.eu/it6/bias
 it6:bias rdf:type owl:DatatypeProperty ;
@@ -1199,6 +1189,14 @@ dct:title rdf:type owl:DatatypeProperty ;
           skos:example "Times corpus (1990 - 2000), WordNet lexicon, MAPA anonymizer"@en .
 
 
+###  http://w3id.org/meta-share/meta-share/accessLocation
+ms:accessLocation rdf:type owl:DatatypeProperty ;
+  rdfs:domain ms:SoftwareDistribution ;
+  rdfs:range xsd:anyURI ;
+  rdfs:comment "A URL where the resource can be accessed from; it can be used for landing pages or for cases where the resource is accessible via an interface, i.e. cases where the resource itself is not provided with a direct link for downloading"@en ;
+  rdfs:label "access location"@en .
+
+
 ###  http://w3id.org/meta-share/meta-share/amount
 ms:amount rdf:type owl:DatatypeProperty ;
           rdfs:domain [ rdf:type owl:Class ;
@@ -1213,11 +1211,11 @@ ms:amount rdf:type owl:DatatypeProperty ;
 
 ###  http://w3id.org/meta-share/meta-share/anonymizationDetails
 ms:anonymizationDetails rdf:type owl:DatatypeProperty ;
-                        rdfs:domain ms:DataLanguageResource ;
+                        rdfs:domain ms:LanguageResource ;
                         rdfs:range rdf:langString ;
-                        rdfs:comment "If the resource has been anonymised, this field can be used for entering more information, e.g., tool or method used for the anonymisation, by whom it has been performed, whether there was any check of the results, etc."@en-GB ,
+                        rdfs:comment "If the resource has been anonymised, this field can be used for entering more information, e.g., tool or method used for the anonymisation, by whom it has been performed, whether there was any check of the results, etc."@en-gb ,
                                      "If the resource has been anonymized, this field can be used for entering more information, e.g., tool or method used for the anonymization, by whom it has been performed, whether there was any check of the results, etc."@en ;
-                        rdfs:label "anonymisation details"@en-GB ,
+                        rdfs:label "anonymisation details"@en-gb ,
                                    "anonymization details"@en .
 
 
@@ -1254,6 +1252,14 @@ ms:deprecationDate rdf:type owl:DatatypeProperty ;
                    rdfs:range xsd:date ;
                    rdfs:comment "The date on which an entity was deprecated."@en ;
                    rdfs:label "deprecation date"@en .
+
+
+###  http://w3id.org/meta-share/meta-share/downloadLocation
+ms:downloadLocation rdf:type owl:DatatypeProperty ;
+  rdfs:domain ms:SoftwareDistribution ;
+  rdfs:range xsd:anyURI ;
+  rdfs:comment "A URL where the language resource (mainly data but also downloadable software programmes or forms) can be downloaded from"@en ;
+  rdfs:label "download location"@en .
 
 
 ###  http://w3id.org/meta-share/meta-share/evaluationResults
@@ -1336,9 +1342,9 @@ ms:parameterPrecision rdf:type owl:DatatypeProperty ;
 
 ###  http://w3id.org/meta-share/meta-share/personalDataDetails
 ms:personalDataDetails rdf:type owl:DatatypeProperty ;
-                       rdfs:domain ms:DataLanguageResource ;
+                       rdfs:domain ms:LanguageResource ;
                        rdfs:range rdf:langString ;
-                       rdfs:comment "If the resource includes personal data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)"@en-GB ,
+                       rdfs:comment "If the resource includes personal data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)"@en-gb ,
                                     "If the resource includes personal data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymization, further request for use, etc.)"@en ;
                        rdfs:label "personal data details"@en .
 
@@ -1347,9 +1353,9 @@ ms:personalDataDetails rdf:type owl:DatatypeProperty ;
 ms:quantizationProcess rdf:type owl:DatatypeProperty ;
                        rdfs:domain ms:MLModel ;
                        rdfs:range rdf:langString ;
-                       rdfs:comment "The process used for the quantisation"@en-GB ,
+                       rdfs:comment "The process used for the quantisation"@en-gb ,
                                     "The process used for the quantization"@en ;
-                       rdfs:label "quantisation process"@en-GB ,
+                       rdfs:label "quantisation process"@en-gb ,
                                   "quantization process"@en .
 
 
@@ -1357,17 +1363,17 @@ ms:quantizationProcess rdf:type owl:DatatypeProperty ;
 ms:quantized rdf:type owl:DatatypeProperty ;
              rdfs:domain ms:MLModel ;
              rdfs:range xsd:boolean ;
-             rdfs:comment "Whether this version is quantised"@en-GB ,
+             rdfs:comment "Whether this version is quantised"@en-gb ,
                           "Whether this version is quantized"@en ;
-             rdfs:label "quantised"@en-GB ,
+             rdfs:label "quantised"@en-gb ,
                         "quantized"@en .
 
 
 ###  http://w3id.org/meta-share/meta-share/sensitiveDataDetails
 ms:sensitiveDataDetails rdf:type owl:DatatypeProperty ;
-                        rdfs:domain ms:DataLanguageResource ;
+                        rdfs:domain ms:LanguageResource ;
                         rdfs:range rdf:langString ;
-                        rdfs:comment "If the resource includes special category data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)"@en-GB ,
+                        rdfs:comment "If the resource includes special category data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymisation, further request for use, etc.)"@en-gb ,
                                      "If the resource includes special category data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymization, further request for use, etc.)"@en ;
                         rdfs:label "special category data details"@en .
 
@@ -1558,7 +1564,10 @@ dcat:version rdf:type owl:DatatypeProperty ;
 
 ###  http://xmlns.com/foaf/0.1/name
 foaf:name rdf:type owl:DatatypeProperty ;
-          rdfs:domain owl:Thing .
+          rdfs:domain owl:Thing ;
+          rdfs:comment "A name for some thing."@en ;
+          rdfs:label "name"@en .
+
 
 
 #################################################################
@@ -1572,7 +1581,7 @@ foaf:name rdf:type owl:DatatypeProperty ;
 ###  http://purl.org/dc/terms/LicenseDocument
 dct:LicenseDocument rdf:type owl:Class ;
                     rdfs:comment "A legal document giving official permission to do something with a resource."@en ;
-                    rdfs:label "Licence Document"@en-GB ,
+                    rdfs:label "Licence Document"@en-gb ,
                                "License Document"@en .
 
 
@@ -1618,10 +1627,12 @@ dcatlds:PurposeOfUse rdf:type owl:Class ;
                      rdfs:comment "The purpose for which a resource can be used"@en ;
                      rdfs:label "Purpose of use"@en .
 
-
 ###  http://w3id.org/lang-dcat-ap/ScopeOfUse
-dcatlds:ScopeOfUse rdf:type owl:Class .
-
+dcatlds:ScopeOfUse rdf:type owl:Class ,
+                            owl:NamedIndividual ,
+                            odrl:leftOperand ;
+                   rdfs:comment "The scope of use (internal, external) of a resource"@en ;
+                   rdfs:label "Scope of use"@en .
 
 ###  http://w3id.org/meta-share/lexmeta#MicrostructureFeature
 lexmeta:MicrostructureFeature rdf:type owl:Class ;
@@ -1631,9 +1642,9 @@ lexmeta:MicrostructureFeature rdf:type owl:Class ;
 
 ###  http://w3id.org/meta-share/meta-share/Anonymized
 ms:Anonymized rdf:type owl:Class ;
-              rdfs:comment "Indication of whether the language resource has been anonymised"@en-GB ,
+              rdfs:comment "Indication of whether the language resource has been anonymised"@en-gb ,
                            "Indication of whether the language resource has been anonymized"@en ;
-              rdfs:label "Anonymised"@en-GB ,
+              rdfs:label "Anonymised"@en-gb ,
                          "Anonymized"@en .
 
 
@@ -1670,7 +1681,7 @@ ms:DataProtectionPrinciple rdf:type owl:Class ;
 
 ###  http://w3id.org/meta-share/meta-share/Domain
 ms:Domain rdf:type owl:Class ;
-          rdfs:comment "A particular field of thought, activity, or interest related to a language resource, organisation or person activities, etc."@en-GB ,
+          rdfs:comment "A particular field of thought, activity, or interest related to a language resource, organisation or person activities, etc."@en-gb ,
                        "A particular field of thought, activity, or interest related to a language resource, organization or person activities, etc."@en ;
           rdfs:label "Domain"@en ;
           skos:note "Adapted from https://www.collinsdictionary.com/dictionary/english/domain"@en .
@@ -1732,7 +1743,6 @@ ms:LingualityType rdf:type owl:Class ;
 
 ###  http://w3id.org/meta-share/meta-share/MLModel
 ms:MLModel rdf:type owl:Class ;
-           rdfs:subClassOf ms:DataLanguageResource ;
            rdfs:comment "The model artifact that is created through a training process involving an ML algorithm (that is, the learning algorithm) and the training data to learn from."@en ;
            rdfs:label "Machine Learning model"@en ;
            skos:altLabel "ML model"@en .
@@ -1767,7 +1777,7 @@ ms:NGramModel rdf:type owl:Class ;
 ms:NeuralNetwork rdf:type owl:Class ;
                  rdfs:subClassOf ms:MLModel ;
                  rdfs:comment "A set of algorithms, modeled loosely after the human brain, designed to recognize patterns [adapted from https://skymind.ai/wiki/neural-network]"@en ,
-                              "A set of algorithms, modelled loosely after the human brain, designed to recognise patterns [adapted from https://skymind.ai/wiki/neural-network]"@en-GB ;
+                              "A set of algorithms, modelled loosely after the human brain, designed to recognise patterns [adapted from https://skymind.ai/wiki/neural-network]"@en-gb ;
                  rdfs:label "Neural network"@en .
 
 
@@ -1853,10 +1863,6 @@ ms:WordEmbedding rdf:type owl:Class ;
                  rdfs:label "Word embedding"@en .
 
 
-###  http://w3id.org/meta-share/meta-share/mlModel
-ms:mlModel rdf:type owl:Class .
-
-
 ###  http://w3id.org/meta-share/omtd-share/AnnotationType
 omtd:AnnotationType rdf:type owl:Class ;
                     rdfs:comment "Category/class of the annotations (metadata) that are added to the data/text that is processed"@en ;
@@ -1887,21 +1893,16 @@ omtd:Operation rdf:type owl:Class ;
 ###  http://www.w3.org/2000/01/rdf-schema#Resource
 rdfs:Resource rdf:type owl:Class .
 
-
 ###  http://www.w3.org/2004/02/skos/core#Collection
 skos:Collection rdf:type owl:Class .
-
-
-###  http://www.w3.org/2004/02/skos/core#Concept
-skos:Concept rdf:type owl:Class .
 
 
 ###  http://www.w3.org/2004/02/skos/core#ConceptScheme
 skos:ConceptScheme rdf:type owl:Class .
 
 
-###  http://www.w3.org/2004/02/skos/core#Conept
-skos:Conept rdf:type owl:Class .
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/adms#Identifier
@@ -1914,7 +1915,7 @@ adms:Identifier rdf:type owl:Class ;
 dcat:Catalog rdf:type owl:Class ;
              rdfs:subClassOf dcat:Dataset ;
              rdfs:comment "A curated collection of metadata about resources (e.g., datasets and data services in the context of a data catalog)."@en ,
-                          "A curated collection of metadata about resources (e.g., datasets and data services in the context of a data catalogue)."@en-GB ,
+                          "A curated collection of metadata about resources (e.g., datasets and data services in the context of a data catalogue)."@en-gb ,
                           "En udvalgt og arrangeret samling af metadata om ressourcer (fx datasæt og datatjenester i kontekst af et datakatalog)."@da ,
                           "Una colección curada de metadatos sobre recursos (por ejemplo, conjuntos de datos y servicios de datos en el contexto de un catálogo de datos)."@es ,
                           "Una raccolta curata di metadati sulle risorse (ad es. sui dataset e relativi servizi nel contesto di cataloghi di dati)."@it ,
@@ -1926,7 +1927,7 @@ dcat:Catalog rdf:type owl:Class ;
              rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
              rdfs:label "Catalog"@en ,
                         "Catalogo"@it ,
-                        "Catalogue"@en-GB ,
+                        "Catalogue"@en-gb ,
                         "Catalogue"@fr ,
                         "Catálogo"@es ,
                         "Katalog"@cs ,
@@ -1935,7 +1936,7 @@ dcat:Catalog rdf:type owl:Class ;
                         "فهرس قوائم البيانات"@ar ,
                         "カタログ"@ja ;
              skos:definition "A curated collection of metadata about resources (e.g., datasets and data services in the context of a data catalog)."@en ,
-                             "A curated collection of metadata about resources (e.g., datasets and data services in the context of a data catalogue)."@en-GB ,
+                             "A curated collection of metadata about resources (e.g., datasets and data services in the context of a data catalogue)."@en-gb ,
                              "En samling af metadata om ressourcer (fx datasæt og datatjenester i kontekst af et datakatalog)."@da ,
                              "Una colección curada de metadatos sobre recursos (por ejemplo, conjuntos de datos y servicios de datos en el contexto de un catálogo de datos)."@es ,
                              "Una raccolta curata di metadati sulle risorse (ad es. sui dataset e relativi servizi nel contesto di cataloghi di dati)."@it ,
@@ -1946,7 +1947,7 @@ dcat:Catalog rdf:type owl:Class ;
                              "データ・カタログは、データセットに関するキュレートされたメタデータの集合です。"@ja ;
              skos:editorialNote "English, Italian, Spanish definitions updated in this revision. Multilingual text not yet updated."@en ;
              skos:scopeNote "A web-based data catalog is typically represented as a single instance of this class."@en ,
-                            "A web-based data catalogue is typically represented as a single instance of this class."@en-GB ,
+                            "A web-based data catalogue is typically represented as a single instance of this class."@en-gb ,
                             "Et webbaseret datakatalog repræsenteres typisk ved en enkelt instans af denne klasse."@da ,
                             "Normalmente, un catalogo di dati nel web viene rappresentato come una singola istanza di questa classe."@it ,
                             "Normalmente, un catálogo de datos disponible en la web se representa como una única instancia de esta clase."@es ,
@@ -1967,7 +1968,7 @@ dcat:CatalogRecord rdf:type owl:Class ;
                                    ] ;
                    rdfs:comment "1つのデータセットを記述したデータ・カタログ内のレコード。"@ja ,
                                 "A record in a data catalog, describing the registration of a single dataset or data service."@en ,
-                                "A record in a data catalogue, describing the registration of a single dataset or data service."@en-GB ,
+                                "A record in a data catalogue, describing the registration of a single dataset or data service."@en-gb ,
                                 "En post i et datakatalog der beskriver registreringen af et enkelt datasæt eller en datatjeneste."@da ,
                                 "Un record in un catalogo di dati che descrive un singolo dataset o servizio di dati."@it ,
                                 "Un registre du catalogue ou une entrée du catalogue, décrivant un seul jeu de données."@fr ,
@@ -1976,7 +1977,7 @@ dcat:CatalogRecord rdf:type owl:Class ;
                                 "Μία καταγραφή ενός καταλόγου, η οποία περιγράφει ένα συγκεκριμένο σύνολο δεδομένων."@el ;
                    rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
                    rdfs:label "Catalog Record"@en ,
-                              "Catalogue Record"@en-GB ,
+                              "Catalogue Record"@en-gb ,
                               "Katalogizační záznam"@cs ,
                               "Katalogpost"@da ,
                               "Record di catalogo"@it ,
@@ -1987,7 +1988,7 @@ dcat:CatalogRecord rdf:type owl:Class ;
                               "カタログ・レコード"@ja ;
                    skos:definition "1つのデータセットを記述したデータ・カタログ内のレコード。"@ja ,
                                    "A record in a data catalog, describing the registration of a single dataset or data service."@en ,
-                                   "A record in a data catalogue, describing the registration of a single dataset or data service."@en-GB ,
+                                   "A record in a data catalogue, describing the registration of a single dataset or data service."@en-gb ,
                                    "En post i et datakatalog der beskriver registreringen af et enkelt datasæt eller en datatjeneste."@da ,
                                    "Un record in un catalogo di dati che descrive un singolo dataset o servizio di dati."@it ,
                                    "Un registre du catalogue ou une entrée du catalogue, décrivant un seul jeu de données."@fr ,
@@ -2001,7 +2002,7 @@ dcat:CatalogRecord rdf:type owl:Class ;
                                   "Questa classe è opzionale e non tutti i cataloghi la utilizzeranno. Esiste per cataloghi in cui si opera una distinzione tra i metadati relativi al dataset ed i metadati relativi alla gestione del dataset nel catalogo. Ad esempio, la  proprietà per indicare la data di pubblicazione del dataset rifletterà la data in cui l'informazione è stata originariamente messa a disposizione dalla casa editrice, mentre la data di pubblicazione per il record nel catalogo rifletterà la data in cui il dataset è stato aggiunto al catalogo. Nei casi dove solo quest'ultima sia nota, si utilizzerà esclusivamente la data di  pubblicazione relativa al record del catalogo. Si noti che l'Ontologia W3C PROV permette di descrivere ulteriori informazioni sulla provenienza, quali i dettagli del processo, la procedura e l'agente coinvolto in una particolare modifica di un dataset."@it ,
                                   "Tato třída je volitelná a ne všechny katalogy ji využijí. Existuje pro katalogy, ve kterých se rozlišují metadata datové sady či datové služby a metadata o záznamu o datové sadě či datové službě v katalogu. Například datum publikace datové sady odráží datum, kdy byla datová sada původně zveřejněna poskytovatelem dat, zatímco datum publikace katalogizačního záznamu je datum zanesení datové sady do katalogu. V případech kdy se obě data liší, nebo je známo jen to druhé, by mělo být specifikováno jen datum publikace katalogizačního záznamu. Všimněte si, že ontologie W3C PROV umožňuje popsat další informace o původu jako například podrobnosti o procesu konkrétní změny datové sady a jeho účastnících."@cs ,
                                   "This class is optional and not all catalogs will use it. It exists for catalogs where a distinction is made between metadata about a dataset or data service and metadata about the entry for the dataset or data service in the catalog. For example, the publication date property of the dataset reflects the date when the information was originally made available by the publishing agency, while the publication date of the catalog record is the date when the dataset was added to the catalog. In cases where both dates differ, or where only the latter is known, the publication date should only be specified for the catalog record. Notice that the W3C PROV Ontology allows describing further provenance information such as the details of the process and the agent involved in a particular change to a dataset."@en ,
-                                  "This class is optional and not all catalogues will use it. It exists for catalogues where a distinction is made between metadata about a dataset or data service and metadata about the entry for the dataset or data service in the catalogue. For example, the publication date property of the dataset reflects the date when the information was originally made available by the publishing agency, while the publication date of the catalogue record is the date when the dataset was added to the catalogue. In cases where both dates differ, or where only the latter is known, the publication date should only be specified for the catalogue record. Notice that the W3C PROV Ontology allows describing further provenance information such as the details of the process and the agent involved in a particular change to a dataset."@en-GB ,
+                                  "This class is optional and not all catalogues will use it. It exists for catalogues where a distinction is made between metadata about a dataset or data service and metadata about the entry for the dataset or data service in the catalogue. For example, the publication date property of the dataset reflects the date when the information was originally made available by the publishing agency, while the publication date of the catalogue record is the date when the dataset was added to the catalogue. In cases where both dates differ, or where only the latter is known, the publication date should only be specified for the catalogue record. Notice that the W3C PROV Ontology allows describing further provenance information such as the details of the process and the agent involved in a particular change to a dataset."@en-gb ,
                                   "Αυτή η κλάση είναι προαιρετική και δεν χρησιμοποιείται από όλους τους καταλόγους. Υπάρχει για τις περιπτώσεις καταλόγων όπου γίνεται διαχωρισμός μεταξύ των μεταδεδομένων για το σύνολο των δεδομένων και των μεταδεδομένων για την καταγραφή του συνόλου δεδομένων εντός του καταλόγου. Για παράδειγμα, η ιδιότητα της ημερομηνίας δημοσίευσης του συνόλου δεδομένων δείχνει την ημερομηνία κατά την οποία οι πληροφορίες έγιναν διαθέσιμες από τον φορέα δημοσίευσης, ενώ η ημερομηνία δημοσίευσης της καταγραφής του καταλόγου δείχνει την ημερομηνία που το σύνολο δεδομένων προστέθηκε στον κατάλογο. Σε περιπτώσεις που οι δύο ημερομηνίες διαφέρουν, ή που μόνο η τελευταία είναι γνωστή, η ημερομηνία δημοσίευσης θα πρέπει να δίνεται για την καταγραφή του καταλόγου. Να σημειωθεί πως η οντολογία W3C PROV επιτρέπει την περιγραφή επιπλέον πληροφοριών ιστορικού όπως λεπτομέρειες για τη διαδικασία και τον δράστη που εμπλέκονται σε μία συγκεκριμένη αλλαγή εντός του συνόλου δεδομένων."@el ,
                                   "このクラスはオプションで、すべてのカタログがそれを用いるとは限りません。これは、データセットに関するメタデータとカタログ内のデータセットのエントリーに関するメタデータとで区別が行われるカタログのために存在しています。例えば、データセットの公開日プロパティーは、公開機関が情報を最初に利用可能とした日付を示しますが、カタログ・レコードの公開日は、データセットがカタログに追加された日付です。両方の日付が異っていたり、後者だけが分かっている場合は、カタログ・レコードに対してのみ公開日を指定すべきです。W3CのPROVオントロジー[prov-o]を用いれば、データセットに対する特定の変更に関連するプロセスやエージェントの詳細などの、さらに詳しい来歴情報の記述が可能となることに注意してください。"@ja .
 
@@ -2088,17 +2089,17 @@ dcat:Dataset rdf:type owl:Class ;
                             "Questa classe rappresenta il dataset come pubblicato dall’editore. Nel caso in cui sia necessario operare  una distinzione fra i metadati originali del dataset e il record dei metadati ad esso associato nel catalogo (ad esempio, per distinguere la data di modifica del dataset da quella del dataset nel catalogo) si può impiegare la classe catalog record."@it ,
                             "Tato třída reprezentuje datovou sadu tak, jak je publikována poskytovatelem dat. V případě potřeby rozlišení datové sady a jejího katalogizačního záznamu (jelikož metadata jako datum modifikace se mohou lišit) pro něj může být použita třída \"katalogizační záznam\"."@cs ,
                             "The notion of dataset in DCAT is broad and inclusive, with the intention of accommodating resource types arising from all communities. Data comes in many forms including numbers, text, pixels, imagery, sound and other multi-media, and potentially other types, any of which might be collected into a dataset."@en ,
-                            "This class describes the conceptual dataset. One or more representations might be available, with differing schematic layouts and formats or serialisations."@en-GB ,
+                            "This class describes the conceptual dataset. One or more representations might be available, with differing schematic layouts and formats or serialisations."@en-gb ,
                             "This class describes the conceptual dataset. One or more representations might be available, with differing schematic layouts and formats or serializations."@en ,
                             "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalog is necessary (because metadata such as modification date and maintainer might differ), the catalog record class can be used for the latter."@en ,
-                            "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalogue is necessary (because metadata such as modification date and maintainer might differ), the catalogue record class can be used for the latter."@en-GB ,
+                            "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalogue is necessary (because metadata such as modification date and maintainer might differ), the catalogue record class can be used for the latter."@en-gb ,
                             "Η κλάση αυτή αναπαριστά το σύνολο δεδομένων αυτό καθ'εαυτό, όπως έχει δημοσιευθεί από τον εκδότη. Σε περιπτώσεις όπου είναι απαραίτητος ο διαχωρισμός μεταξύ του συνόλου δεδομένων και της καταγραφής αυτού στον κατάλογο (γιατί μεταδεδομένα όπως η ημερομηνία αλλαγής και ο συντηρητής μπορεί να διαφέρουν) η κλάση της καταγραφής καταλόγου μπορεί να χρησιμοποιηθεί για το τελευταίο."@el ,
                             "このクラスは、データセットの公開者が公開する実際のデータセットを表わします。カタログ内の実際のデータセットとそのエントリーとの区別が必要な場合（修正日と維持者などのメタデータが異なるかもしれないので）は、後者にcatalog recordというクラスを使用できます。"@ja .
 
 
 ###  http://www.w3.org/ns/dcat#Distribution
 dcat:Distribution rdf:type owl:Class ;
-                  rdfs:comment "A specific representation of a dataset. A dataset might be available in multiple serialisations that may differ in various ways, including natural language, media-type or format, schematic organisation, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en-GB ,
+                  rdfs:comment "A specific representation of a dataset. A dataset might be available in multiple serialisations that may differ in various ways, including natural language, media-type or format, schematic organisation, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en-gb ,
                                "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ,
                                "En specifik repræsentation af et datasæt. Et datasæt kan være tilgængelig i mange serialiseringer der kan variere på forskellige vis, herunder sprog, medietype eller format, systemorganisering, tidslig- og geografisk opløsning, detaljeringsniveau eller profiler (der kan specificere en eller flere af ovenstående)."@da ,
                                "Konkrétní reprezentace datové sady. Datová sada může být dostupná v různých serializacích, které se mohou navzájem lišit různými způsoby, mimo jiné přirozeným jazykem, media-typem či formátem, schematickou organizací, časovým a prostorovým rozlišením, úrovní detailu či profily (které mohou specifikovat některé či všechny tyto rozdíly)."@cs ,
@@ -2122,7 +2123,7 @@ dcat:Distribution rdf:type owl:Class ;
                                 "Datamanifestation"@da ,
                                 "Datarepræsentation"@da ,
                                 "Dataudstilling"@da ;
-                  skos:definition "A specific representation of a dataset. A dataset might be available in multiple serialisations that may differ in various ways, including natural language, media-type or format, schematic organisation, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en-GB ,
+                  skos:definition "A specific representation of a dataset. A dataset might be available in multiple serialisations that may differ in various ways, including natural language, media-type or format, schematic organisation, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en-gb ,
                                   "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ,
                                   "En specifik repræsentation af et datasæt. Et datasæt kan være tilgængelig i mange serialiseringer der kan variere på forskellige vis, herunder sprog, medietype eller format, systemorganisering, tidslig- og geografisk opløsning, detaljeringsniveau eller profiler (der kan specificere en eller flere af ovenstående)."@da ,
                                   "Konkrétní reprezentace datové sady. Datová sada může být dostupná v různých serializacích, které se mohou navzájem lišit různými způsoby, mimo jiné přirozeným jazykem, media-typem či formátem, schematickou organizací, časovým a prostorovým rozlišením, úrovní detailu či profily (které mohou specifikovat některé či všechny tyto rozdíly)."@cs ,
@@ -2172,7 +2173,7 @@ dcat:Resource rdf:type owl:Class ;
                              "dcat:Resource er et udvidelsespunkt der tillader oprettelsen af enhver type af kataloger. Yderligere subklasser kan defineres i en DCAT-profil eller i en applikation til kataloger med andre typer af ressourcer."@da ,
                              "dcat:Resource es un punto de extensión que permite la definición de cualquier tipo de catálogo. Se pueden definir subclases adicionales en perfil de DCAT o una aplicación para catálogos de otro tipo de recursos."@es ,
                              "dcat:Resource is an extension point that enables the definition of any kind of catalog. Additional subclasses may be defined in a DCAT profile or application for catalogs of other kinds of resources."@en ,
-                             "dcat:Resource is an extension point that enables the definition of any kind of catalog. Additional subclasses may be defined in a DCAT profile or application for catalogues of other kinds of resources."@en-GB ,
+                             "dcat:Resource is an extension point that enables the definition of any kind of catalog. Additional subclasses may be defined in a DCAT profile or application for catalogues of other kinds of resources."@en-gb ,
                              "dcat:Resource je bod pro rozšíření umožňující definici různých druhů katalogů. Další podtřídy lze definovat v profilech DCAT či aplikacích pro katalogy zdrojů jiných druhů."@cs ,
                              "dcat:Resource è un punto di estensione che consente la definizione di qualsiasi tipo di catalogo. Sottoclassi aggiuntive possono essere definite in un profilo DCAT o in un'applicazione per cataloghi di altri tipi di risorse."@it .
 
@@ -2194,8 +2195,13 @@ odrl:LeftOperand rdf:type owl:Class .
 
 
 ###  http://www.w3.org/ns/odrl/2/Operator
-odrl:Operator rdf:type owl:Class .
-
+odrl:Operator rdf:type owl:Class ,
+                       owl:NamedIndividual ,
+                       skos:Concept ;
+              rdfs:isDefinedBy odrl: ;
+              rdfs:label "Operator"@en ;
+              skos:definition "Operator for constraint expression."@en ;
+              skos:note "Instances of the Operator class representing relational operators."@en .
 
 ###  http://www.w3.org/ns/odrl/2/Policy
 odrl:Policy rdf:type owl:Class .
@@ -2229,7 +2235,7 @@ foaf:Document rdf:type owl:Class ;
 foaf:Organization rdf:type owl:Class ;
                   rdfs:subClassOf foaf:Agent ;
                   rdfs:comment "An organization."@en ;
-                  rdfs:label "Organisation"@en-GB ,
+                  rdfs:label "Organisation"@en-gb ,
                              "Organization"@en .
 
 
@@ -2241,8 +2247,9 @@ foaf:Person rdf:type owl:Class ;
 
 
 ###  https://w3id.org/dpv#TechnicalOrganisationalMeasure
-dpv:TechnicalOrganisationalMeasure rdf:type owl:Class .
-
+dpv:TechnicalOrganisationalMeasure rdf:type owl:Class ;
+            rdfs:comment "Technical and Organisational measures used to safeguard and ensure good practices in connection with data and technologies"@en ;
+            rdfs:label "Technical and Organisational Measure"@en .
 
 #################################################################
 #    Individuals
@@ -2266,11 +2273,6 @@ dcatlds:PurposeOfUseTaxonomy rdf:type owl:NamedIndividual ,
                                                 dcatlds:freeLLMs ,
                                                 dcatlds:research ;
                              skos:prefLabel "Purpose of Use Taxonomy"@en .
-
-
-###  http://w3id.org/lang-dcat-ap/ScopeOfUse
-dcatlds:ScopeOfUse rdf:type owl:NamedIndividual ,
-                            odrl:leftOperand .
 
 
 ###  http://w3id.org/lang-dcat-ap/ScopeOfUseTaxonomy
@@ -4055,7 +4057,7 @@ lexmeta:derivative rdf:type owl:NamedIndividual ,
                             lexmeta:MicrostructureFeature ,
                             skos:Concept ;
                    lexmeta:lexbibWikibaseEntity lexbib:Q14461 ;
-                   rdfs:comment "a word that is created by the addition of an affix to a base or stem, for example, lexical, lexically, lexicalise, lexicalisation. Derivatives are not always given headword status but may be run-on entries or sub-entries under the headword from which they were derived."@en-GB ,
+                   rdfs:comment "a word that is created by the addition of an affix to a base or stem, for example, lexical, lexically, lexicalise, lexicalisation. Derivatives are not always given headword status but may be run-on entries or sub-entries under the headword from which they were derived."@en-gb ,
                                 "a word that is created by the addition of an affix to a base or stem, for example, lexical, lexically, lexicalize, lexicalization. Derivatives are not always given headword status but may be run-on entries or sub-entries under the headword from which they were derived."@en ;
                    rdfs:label "Ableitung"@de ,
                               "afleitt orð"@is ,
@@ -4384,7 +4386,7 @@ lexmeta:differentia rdf:type owl:NamedIndividual ,
                              lexmeta:MicrostructureFeature ,
                              skos:Concept ;
                     lexmeta:lexbibWikibaseEntity lexbib:Q14462 ;
-                    rdfs:comment "the specifying term or terms in an analytic, classical or logical definition, the term which qualifies or characterises the genus, one or more of the characteristic features which distinguish the word explained from the generic term (genus) of which it is considered a specific instance; also called differentia specifica (e.g. autumn/fall: the third season of the year, when crops and fruits are gathered and leaves fall)."@en-GB ,
+                    rdfs:comment "the specifying term or terms in an analytic, classical or logical definition, the term which qualifies or characterises the genus, one or more of the characteristic features which distinguish the word explained from the generic term (genus) of which it is considered a specific instance; also called differentia specifica (e.g. autumn/fall: the third season of the year, when crops and fruits are gathered and leaves fall)."@en-gb ,
                                  "the specifying term or terms in an analytic, classical or logical definition, the term which qualifies or characterizes the genus, one or more of the characteristic features which distinguish the word explained from the generic term (genus) of which it is considered a specific instance; also called differentia specifica (e.g. autumn/fall: the third season of the year, when crops and fruits are gathered and leaves fall)."@en ;
                     rdfs:label "aðgreinir"@is ,
                                "cecha odróżniająca"@pl ,
@@ -6177,7 +6179,7 @@ lexmeta:loanword rdf:type owl:NamedIndividual ,
                  lexmeta:lexbibWikibaseEntity lexbib:Q14638 ;
                  lexmeta:wikidataEntity wikidata:Q103808 ;
                  rdfs:comment "a word or phrase that has been borrowed into a language and has not been fully assimilated into the vocabulary; also called borrowing."@en ,
-                              "a word-formation process in which a word or phrase is transferred from one language to another; a word or phrase from one language taken into another language and naturalised; also called loanword (e.g. goulash, into English from Hungarian ‘gulyás-hús’); see also calque."@en-GB ,
+                              "a word-formation process in which a word or phrase is transferred from one language to another; a word or phrase from one language taken into another language and naturalised; also called loanword (e.g. goulash, into English from Hungarian ‘gulyás-hús’); see also calque."@en-gb ,
                               "a word-formation process in which a word or phrase is transferred from one language to another; a word or phrase from one language taken into another language and naturalized; also called loanword (e.g. goulash, into English from Hungarian ‘gulyás-hús’); see also calque."@en ,
                               "word borrowed from a donor language and incorporated into a recipient language"@en ;
                  rdfs:label "Fjala e huazuar"@sq ,
@@ -7260,7 +7262,7 @@ lexmeta:polysemyIndication rdf:type owl:NamedIndividual ,
                                     lexmeta:MicrostructureFeature ,
                                     skos:Concept ;
                            lexmeta:lexbibWikibaseEntity lexbib:Q14428 ;
-                           rdfs:comment "the division of meanings within a dictionary entry, the treatment of polysemy (multiple meanings) through rationalisation, discrimination and display in dictionary entries; also called meaning discrimination."@en-GB ,
+                           rdfs:comment "the division of meanings within a dictionary entry, the treatment of polysemy (multiple meanings) through rationalisation, discrimination and display in dictionary entries; also called meaning discrimination."@en-gb ,
                                         "the division of meanings within a dictionary entry, the treatment of polysemy (multiple meanings) through rationalization, discrimination and display in dictionary entries; also called meaning discrimination."@en ;
                            rdfs:label "betydningsadskillelse"@da ,
                                       "indicazione polisemantica"@it ,
@@ -8218,7 +8220,7 @@ lexmeta:specializedSense rdf:type owl:NamedIndividual ,
                                     "sentido especializado"@es ,
                                     "significat terminològic"@ca ,
                                     "specialioji reikšmė"@lt ,
-                                    "specialised sense"@en-GB ,
+                                    "specialised sense"@en-gb ,
                                     "specialized sense"@en ,
                                     "særbetydning"@da ,
                                     "tähendusvarjund"@et ,
@@ -8236,7 +8238,7 @@ lexmeta:specializedSense rdf:type owl:NamedIndividual ,
                                         "sentido especializado"@es ,
                                         "significat terminològic"@ca ,
                                         "specialioji reikšmė"@lt ,
-                                        "specialised sense"@en-GB ,
+                                        "specialised sense"@en-gb ,
                                         "specialized sense"@en ,
                                         "særbetydning"@da ,
                                         "tähendusvarjund"@et ,
@@ -8546,13 +8548,13 @@ lexmeta:subcategorizationFrame rdf:type owl:NamedIndividual ,
                                         skos:Concept ;
                                lexmeta:lexbibWikibaseEntity lexbib:Q24070 ;
                                rdfs:label "marco de subcategorización"@es ,
-                                          "subcategorisation frame"@en-GB ,
+                                          "subcategorisation frame"@en-gb ,
                                           "subcategorization frame"@en ;
                                skos:broader lexmeta:syntacticInformation ;
                                skos:exactMatch ms:subcatFrame ;
                                skos:inScheme lexmeta:MicrostructureFeatureScheme ;
                                skos:prefLabel "marco de subcategorización"@es ,
-                                              "subcategorisation frame"@en-GB ,
+                                              "subcategorisation frame"@en-gb ,
                                               "subcategorization frame"@en .
 
 
@@ -9784,13 +9786,13 @@ ms:AgricultureAndFisheries rdf:type owl:NamedIndividual ,
 ###  http://w3id.org/meta-share/meta-share/AnonymizedTaxonomy
 ms:AnonymizedTaxonomy rdf:type owl:NamedIndividual ,
                                skos:ConceptScheme ;
-                      rdfs:label "Anonymised Taxonomy"@en-GB ,
+                      rdfs:label "Anonymised Taxonomy"@en-gb ,
                                  "Anonymized Taxonomy"@en ;
                       rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_AnonymizedTaxonomy/en/" ;
                       skos:hasTopConcept ms:noA ,
                                          ms:unknownA ,
                                          ms:yesA ;
-                      skos:prefLabel "Anonymised Taxonomy"@en-GB ,
+                      skos:prefLabel "Anonymised Taxonomy"@en-gb ,
                                      "Anonymized Taxonomy"@en .
 
 ###  http://w3id.org/lang-dcat-ap/0.9.2
@@ -9812,7 +9814,7 @@ ms:BML rdf:type owl:NamedIndividual ,
        rdfs:label "BML"@en ;
        rdfs:seeAlso "http://www.mindmakers.org/projects/bml-1-0/wiki#Introduction" ;
        skos:altLabel "Behavior Markup Language"@en ,
-                     "Behaviour Markup Language"@en-GB ;
+                     "Behaviour Markup Language"@en-gb ;
        skos:inScheme ms:StandardBestPracticeTaxonomy ;
        skos:prefLabel "BML"@en ;
        skos:topConceptOf ms:StandardBestPracticeTaxonomy .
@@ -10477,7 +10479,7 @@ ms:SemAF-DA rdf:type owl:NamedIndividual ,
             rdfs:label "SemAF-DA"@en ;
             rdfs:seeAlso "https://www.iso.org/standard/76443.html" ;
             skos:altLabel "Semantic Annotation Framework - Dialog Acts"@en-us ,
-                          "Semantic Annotation Framework - Dialogue Acts"@en-GB ;
+                          "Semantic Annotation Framework - Dialogue Acts"@en-gb ;
             skos:inScheme ms:StandardBestPracticeTaxonomy ;
             skos:prefLabel "SemAF-DA"@en ;
             skos:topConceptOf ms:StandardBestPracticeTaxonomy .
@@ -10949,12 +10951,12 @@ ms:bilingual rdf:type owl:NamedIndividual ,
 ms:bilingualized rdf:type owl:NamedIndividual ,
                           ms:LingualityType ,
                           skos:Concept ;
-                 rdfs:label "bilingualised"@en-GB ,
+                 rdfs:label "bilingualised"@en-gb ,
                             "bilingualized"@en ;
                  skos:broader ms:LingualityTypeConcept ;
                  skos:definition "A monolingual dictionary whose entries (mainly definitions and examples) are translated in full or in part into another language" ;
                  skos:inScheme ms:LingualityTypeTaxonomy ;
-                 skos:prefLabel "bilingualised"@en-GB ,
+                 skos:prefLabel "bilingualised"@en-gb ,
                                 "bilingualized"@en ;
                  skos:topConceptOf ms:LingualityTypeTaxonomy .
 
@@ -10972,7 +10974,7 @@ ms:byte rdf:type owl:NamedIndividual ,
 ###  http://w3id.org/meta-share/meta-share/chart
 ms:chart rdf:type owl:NamedIndividual ,
                   ms:ProcessingResourceType ,
-                  skos:Conept ;
+                  skos:Concept ;
          rdfs:label "chart"@en ;
          skos:inScheme ms:ProcessingResourceTypeTaxonomy ;
          skos:prefLabel "chart"@en .
@@ -11101,11 +11103,11 @@ ms:dataBreachNotificationMechanisms rdf:type owl:NamedIndividual ,
 ms:dataMinimisation rdf:type owl:NamedIndividual ,
                              ms:DataProtectionPrinciple ,
                              skos:Concept ;
-                    rdfs:label "data minimisation"@en-GB ,
+                    rdfs:label "data minimisation"@en-gb ,
                                "data minimization"@en ;
                     skos:definition "The personal data is adequate, relevant and limited"@en ;
                     skos:inScheme ms:DataProtectionPrincipleTaxonomy ;
-                    skos:prefLabel "data minimisation"@en-GB ,
+                    skos:prefLabel "data minimisation"@en-gb ,
                                    "data minimization"@en ;
                     skos:topConceptOf ms:DataProtectionPrincipleTaxonomy .
 
@@ -11188,7 +11190,7 @@ ms:encryptionOfPersonalData rdf:type owl:NamedIndividual ,
                                      dpv:TechnicalOrganisationalMeasure ;
                             rdfs:label "encryption of personal data"@en ;
                             skos:closeMatch dpv:Encryption ;
-                            skos:definition "The process of converting the personal data into a secret code that cannot be understood unless using some special equipment or algorithm, as a means for protecting it against unauthorised access"@en-GB ,
+                            skos:definition "The process of converting the personal data into a secret code that cannot be understood unless using some special equipment or algorithm, as a means for protecting it against unauthorised access"@en-gb ,
                                             "The process of converting the personal data into a secret code that cannot be understood unless using some special equipment or algorithm, as a means for protecting it against unauthorized access"@en ;
                             skos:inScheme ms:TechnicalOrganisationalMeasureTaxonomy ;
                             skos:prefLabel "encryption of personal data"@en ;
@@ -11625,7 +11627,12 @@ ms:minute rdf:type owl:NamedIndividual ,
 ###  http://w3id.org/meta-share/meta-share/mlModel
 ms:mlModel rdf:type owl:NamedIndividual ,
                     ms:LRType ,
-                    skos:Concept .
+                    skos:Concept ;
+           rdfs:label "model"@en ;
+           skos:definition "Value for 'LR type' for machine learning models (e.g., language models, LLMs)"@en ;
+           skos:inScheme ms:LRTypeTaxonomy ;
+           skos:prefLabel "model"@en ;
+           skos:topConceptOf ms:LRTypeTaxonomy .
 
 
 ###  http://w3id.org/meta-share/meta-share/monolingual
@@ -11952,12 +11959,12 @@ ms:privateUse rdf:type owl:NamedIndividual ,
 ms:pseudonymisationOfPersonalData rdf:type owl:NamedIndividual ,
                                            skos:Concept ,
                                            dpv:TechnicalOrganisationalMeasure ;
-                                  rdfs:label "pseudonymisation of personal data"@en-GB ,
+                                  rdfs:label "pseudonymisation of personal data"@en-gb ,
                                              "pseudonymization of personal data"@en ;
                                   skos:closeMatch dpv:Pseudonymisation ;
                                   skos:definition "Pseudonymisation means the processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person"@en ;
                                   skos:inScheme ms:TechnicalOrganisationalMeasureTaxonomy ;
-                                  skos:prefLabel "pseudonymisation of personal data"@en-GB ,
+                                  skos:prefLabel "pseudonymisation of personal data"@en-gb ,
                                                  "pseudonymization of personal data"@en ;
                                   skos:topConceptOf ms:TechnicalOrganisationalMeasureTaxonomy .
 
@@ -12296,9 +12303,39 @@ ms:transformer1 rdf:type owl:NamedIndividual ,
                          skos:Concept ;
                 rdfs:label "transformer"@en ;
                 skos:broader ms:DeepLearningModel ;
+                skos:narrower ms:decoder_only ,
+                          ms:encoder_only ,
+                          ms:encoder_decoder ;
                 skos:inScheme ms:ModelTypeTaxonomy ;
                 skos:prefLabel "transformer"@en .
 
+
+###  http://w3id.org/meta-share/meta-share/encoder_only
+ms:encoder_only rdf:type owl:NamedIndividual ,
+                         ms:ModelType ,
+                         skos:Concept ;
+                rdfs:label "encoder only"@en ;
+                skos:broader ms:transformer1 ;
+                skos:inScheme ms:ModelTypeTaxonomy ;
+                skos:prefLabel "encoder only"@en .
+
+###  http://w3id.org/meta-share/meta-share/decoder_only
+ms:decoder_only rdf:type owl:NamedIndividual ,
+                         ms:ModelType ,
+                         skos:Concept ;
+                rdfs:label "decoder only"@en ;
+                skos:broader ms:transformer1 ;
+                skos:inScheme ms:ModelTypeTaxonomy ;
+                skos:prefLabel "decoder only"@en .
+
+###  http://w3id.org/meta-share/meta-share/encoder_decoder
+ms:encoder_decoder rdf:type owl:NamedIndividual ,
+                         ms:ModelType ,
+                         skos:Concept ;
+                rdfs:label "encoder decoder"@en ;
+                skos:broader ms:transformer1 ;
+                skos:inScheme ms:ModelTypeTaxonomy ;
+                skos:prefLabel "encoder decoder"@en .
 
 ###  http://w3id.org/meta-share/meta-share/translationUnit
 ms:translationUnit rdf:type owl:NamedIndividual ,
@@ -12346,7 +12383,7 @@ ms:typesystem1 rdf:type owl:NamedIndividual ,
                         ms:LCRSubclass ,
                         skos:Concept ;
                rdfs:label "typesystem"@en ;
-               skos:definition "A set of elements designed to annotate data; it typically contains only a list of annotation types, i.e. specific labels that are used for the annotation (e.g., part-of-speech, person, organisation, etc.), and is usually inbuilt in the annotation software"@en-GB ,
+               skos:definition "A set of elements designed to annotate data; it typically contains only a list of annotation types, i.e. specific labels that are used for the annotation (e.g., part-of-speech, person, organisation, etc.), and is usually inbuilt in the annotation software"@en-gb ,
                                "A set of elements designed to annotate data; it typically contains only a list of annotation types, i.e. specific labels that are used for the annotation (e.g., part-of-speech, person, organization, etc.), and is usually inbuilt in the annotation software"@en ;
                skos:inScheme ms:LCRSubclassTaxonomy ;
                skos:prefLabel "typesystem"@en ;
@@ -12473,9 +12510,9 @@ ms:visualizationOutput rdf:type owl:NamedIndividual ,
                                 ms:ProcessingResourceType ,
                                 skos:Concept ;
                        rdfs:label "visualization output"@en ,
-                                  "visualization output"@en-GB ;
+                                  "visualization output"@en-gb ;
                        skos:inScheme ms:ProcessingResourceTypeTaxonomy ;
-                       skos:prefLabel "visualisation output"@en-GB ,
+                       skos:prefLabel "visualisation output"@en-gb ,
                                       "visualization output"@en .
 
 
@@ -12833,7 +12870,7 @@ omtd:AnnotationOfDates rdf:type owl:NamedIndividual ,
 omtd:AnnotationOfDerivationalFeatures rdf:type owl:NamedIndividual ,
                                                omtd:Operation ,
                                                skos:Concept ;
-                                      rdfs:comment "The task/process of adding annotations relevant to the derivational level of analysis (e.g. recognising derivational affixes, tagging their meaning etc.)"@en-GB ,
+                                      rdfs:comment "The task/process of adding annotations relevant to the derivational level of analysis (e.g. recognising derivational affixes, tagging their meaning etc.)"@en-gb ,
                                                    "The task/process of adding annotations relevant to the derivational level of analysis (e.g. recognizing derivational affixes, tagging their meaning etc.)"@en ;
                                       rdfs:label "Annotation of derivational features"@en ;
                                       skos:broader omtd:MorphologicalAnnotation ;
@@ -12952,14 +12989,14 @@ omtd:Anonymization rdf:type owl:NamedIndividual ,
                             omtd:Operation ,
                             skos:Concept ;
                    rdfs:comment "The task/process through which particular text segments or data units that allow the identification of a person are removed or replaced"@en ;
-                   rdfs:label "Anonymisation"@en-GB ,
+                   rdfs:label "Anonymisation"@en-gb ,
                               "Anonymization"@en ;
                    skos:broader omtd:Annotation ,
                                 omtd:SupportOperation ;
                    skos:inScheme omtd:OperationScheme ;
                    skos:narrower omtd:DataMasking ,
                                  omtd:TextEncryption ;
-                   skos:prefLabel "Anonymisation"@en-GB ,
+                   skos:prefLabel "Anonymisation"@en-gb ,
                                   "Anonymization"@en .
 
 
@@ -13061,7 +13098,7 @@ omtd:AudioToTextGeneration rdf:type owl:NamedIndividual ,
 omtd:AuthorClassification rdf:type owl:NamedIndividual ,
                                    omtd:Operation ,
                                    skos:Concept ;
-                          rdfs:comment "The task/process of organising documents into groups/classes on the basis of their author"@en-GB ,
+                          rdfs:comment "The task/process of organising documents into groups/classes on the basis of their author"@en-gb ,
                                        "The task/process of organizing documents into groups/classes on the basis of their author"@en ;
                           rdfs:label "Author classification"@en ;
                           skos:broader omtd:InformationExtraction ;
@@ -13195,7 +13232,7 @@ omtd:BinaryFormat rdf:type owl:NamedIndividual ,
                            skos:Concept ;
                   rdfs:label "Binary format"@en ;
                   skos:definition "Any format of a computer file in which information is stored in the form of ones and zeros, or in some other binary (two-state) sequence ; used mainly for executable files or files that need to be interpreted by a computer program"@en ,
-                                  "Any format of a computer file in which information is stored in the form of ones and zeros, or in some other binary (two-state) sequence ; used mainly for executable files or files that need to be interpreted by a computer programme"@en-GB ;
+                                  "Any format of a computer file in which information is stored in the form of ones and zeros, or in some other binary (two-state) sequence ; used mainly for executable files or files that need to be interpreted by a computer programme"@en-gb ;
                   skos:inScheme omtd:DataFormatScheme ;
                   skos:narrower omtd:CBOR ,
                                 omtd:FastInfoset ,
@@ -13244,11 +13281,11 @@ omtd:BiomedicalConceptNormalization rdf:type owl:NamedIndividual ,
                                              omtd:Operation ,
                                              skos:Concept ;
                                     rdfs:comment "The task of mapping free-form expressions to medical terms [source: Medical concept normalization in social media posts with recurrent neural networks]"@en ;
-                                    rdfs:label "Biomedical concept normalisation"@en-GB ,
+                                    rdfs:label "Biomedical concept normalisation"@en-gb ,
                                                "Biomedical concept normalization"@en ;
                                     skos:broader omtd:ConceptNormalization ;
                                     skos:inScheme omtd:OperationScheme ;
-                                    skos:prefLabel "Biomedical concept normalisation"@en-GB ,
+                                    skos:prefLabel "Biomedical concept normalisation"@en-gb ,
                                                    "Biomedical concept normalization"@en .
 
 
@@ -13426,11 +13463,11 @@ omtd:CertaintyLevelLabelling rdf:type owl:NamedIndividual ,
                                       skos:Concept ;
                              rdfs:comment "The task/process of adding to statements in a text annotations that indicate the level of certainty of the author vis-a-vis the statement"@en ;
                              rdfs:label "Certainty level labeling"@en-us ,
-                                        "Certainty level labelling"@en-GB ;
+                                        "Certainty level labelling"@en-gb ;
                              skos:broader omtd:SemanticAnnotation ;
                              skos:inScheme omtd:OperationScheme ;
                              skos:prefLabel "Certainty level labeling"@en-us ,
-                                            "Certainty level labelling"@en-GB .
+                                            "Certainty level labelling"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/Chat
@@ -13609,12 +13646,12 @@ omtd:ConceptNormalization rdf:type owl:NamedIndividual ,
                                    omtd:Operation ,
                                    skos:Concept ;
                           rdfs:comment "The task of mapping free-form expressions to the concepts of a specific domain"@en ;
-                          rdfs:label "Concept normalisation"@en-GB ,
+                          rdfs:label "Concept normalisation"@en-gb ,
                                      "Concept normalization"@en ;
                           skos:broader omtd:Normalization ;
                           skos:inScheme omtd:OperationScheme ;
                           skos:narrower omtd:BiomedicalConceptNormalization ;
-                          skos:prefLabel "Concept normalisation"@en-GB ,
+                          skos:prefLabel "Concept normalisation"@en-gb ,
                                          "Concept normalization"@en .
 
 
@@ -13721,7 +13758,7 @@ omtd:Conll2009 rdf:type owl:NamedIndividual ,
                rdfs:label "CoNLL-2009"@en ;
                rdfs:seeAlso "https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/format-reference.html#format-Conll2009" ;
                skos:broader omtd:ConllFormat ;
-               skos:definition "The CoNLL 2009 format targets semantic role labelLing. Columns are tab-separated. Sentences are separated by a blank new line."@en-GB ,
+               skos:definition "The CoNLL 2009 format targets semantic role labelLing. Columns are tab-separated. Sentences are separated by a blank new line."@en-gb ,
                                "The CoNLL 2009 format targets semantic role labeling. Columns are tab-separated. Sentences are separated by a blank new line."@en-us ;
                skos:inScheme omtd:DataFormatScheme ;
                skos:prefLabel "CoNLL-2009"@en .
@@ -13737,7 +13774,7 @@ omtd:Conll2012 rdf:type owl:NamedIndividual ,
                rdfs:seeAlso "https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/format-reference.html#format-Conll2012" ;
                skos:broader omtd:ConllFormat ;
                skos:definition "The CoNLL 2012 format targets semantic role labeling and coreference. Columns are tab-separated. Sentences are separated by a blank new line."@en-us ,
-                               "The CoNLL 2012 format targets semantic role labelling and coreference. Columns are tab-separated. Sentences are separated by a blank new line."@en-GB ;
+                               "The CoNLL 2012 format targets semantic role labelling and coreference. Columns are tab-separated. Sentences are separated by a blank new line."@en-gb ;
                skos:inScheme omtd:DataFormatScheme ;
                skos:prefLabel "CoNLL-2012"@en .
 
@@ -13797,7 +13834,7 @@ omtd:ConstituencyTree rdf:type owl:NamedIndividual ,
                                skos:Concept ;
                       rdfs:label "Constituency tree"@en ;
                       skos:broader omtd:SyntacticAnnotationType ;
-                      skos:definition "An ordered, rooted tree that represents the syntactic structure of a string according to a constituency grammar (= phrase structure grammars). It distinguishes between terminal and non-terminal nodes. The interior nodes are labelLed by non-terminal categories of the grammar (phrases), while the leaf nodes are labelLed by terminal categories (parts of speech). [adapted from https://en.wikipedia.org/wiki/Parse_tree]"@en-GB ,
+                      skos:definition "An ordered, rooted tree that represents the syntactic structure of a string according to a constituency grammar (= phrase structure grammars). It distinguishes between terminal and non-terminal nodes. The interior nodes are labelLed by non-terminal categories of the grammar (phrases), while the leaf nodes are labelLed by terminal categories (parts of speech). [adapted from https://en.wikipedia.org/wiki/Parse_tree]"@en-gb ,
                                       "An ordered, rooted tree that represents the syntactic structure of a string according to a constituency grammar (= phrase structure grammars). It distinguishes between terminal and non-terminal nodes. The interior nodes are labeled by non-terminal categories of the grammar (phrases), while the leaf nodes are labeled by terminal categories (parts of speech). [adapted from https://en.wikipedia.org/wiki/Parse_tree]"@en-us ;
                       skos:inScheme omtd:AnnotationTypeScheme ;
                       skos:prefLabel "Constituency tree"@en .
@@ -13993,7 +14030,7 @@ omtd:Csv rdf:type owl:NamedIndividual ,
 omtd:DataCollection rdf:type owl:NamedIndividual ,
                              omtd:Operation ,
                              skos:Concept ;
-                    dc:source <https://en.wikipedia.org/wiki/Data_collection> ;
+                    dct:source <https://en.wikipedia.org/wiki/Data_collection> ;
                     rdfs:comment "The process of gathering and measuring information on targeted variables in an established systematic fashion, which then enables one to answer relevant questions and evaluate outcomes"@en ;
                     rdfs:label "Data collection"@en ;
                     skos:broader omtd:SupportOperation ;
@@ -14181,7 +14218,7 @@ omtd:DependencyConversion rdf:type owl:NamedIndividual ,
 omtd:DependencyParsing rdf:type owl:NamedIndividual ,
                                 omtd:Operation ,
                                 skos:Concept ;
-                       dc:source "adapted from https://nlp.stanford.edu/software/nndep.shtml"@en ;
+                       dct:source "adapted from https://nlp.stanford.edu/software/nndep.shtml"@en ;
                        rdfs:comment "The task/process of identifying and marking the grammatical structure of a sentence, establishing relationships between \"\"head\"\" words and words that modify those heads"@en ;
                        rdfs:label "Dependency parsing"@en ;
                        skos:broader omtd:Parsing ;
@@ -14227,12 +14264,12 @@ omtd:DialogueAct rdf:type owl:NamedIndividual ,
                           omtd:AnnotationType ,
                           skos:Concept ;
                  rdfs:label "Dialog act"@en-us ,
-                            "Dialogue act"@en-GB ;
+                            "Dialogue act"@en-gb ;
                  skos:broader omtd:SpeechAct ;
                  skos:definition "A dialogue act has two main components:  a communicative function and a semantic content. The semantic content specifies the objects, relations, actions, events, etc. that the dialogue act is about; the communicative function can be viewed as a specification of the way an addressee uses the semantic content to update his or her information state when  he  or  she  understands  the  corresponding  stretch  of dialogue. [http://www.lrec-conf.org/proceedings/lrec2010/pdf/560_Paper.pdf]"@en ;
                  skos:inScheme omtd:AnnotationTypeScheme ;
                  skos:prefLabel "Dialog act"@en-us ,
-                                "Dialogue act"@en-GB .
+                                "Dialogue act"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/DialogueModelling
@@ -14257,7 +14294,7 @@ omtd:Diaml rdf:type owl:NamedIndividual ,
            rdfs:seeAlso "https://www.iso.org/standard/51967.html" ;
            skos:broader omtd:AnnotationFormat ;
            skos:definition "Format following Dialog Act Markup Language (DiAML) which is defined within the ISO standard 24617-2"@en-us ,
-                           "Format following Dialogue Act Markup Language (DiAML) which is defined within the ISO standard 24617-2"@en-GB ;
+                           "Format following Dialogue Act Markup Language (DiAML) which is defined within the ISO standard 24617-2"@en-gb ;
            skos:inScheme omtd:DataFormatScheme ;
            skos:prefLabel "DIAML"@en .
 
@@ -14333,7 +14370,7 @@ omtd:DkproTokenized rdf:type owl:NamedIndividual ,
                              dct:MediaType ,
                              omtd:DataFormat ,
                              skos:Concept ;
-                    rdfs:label "DKPro tokenised"@en-GB ,
+                    rdfs:label "DKPro tokenised"@en-gb ,
                                "DKPro tokenized"@en ;
                     rdfs:seeAlso "https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/format-reference.html#format-TokenizedText" ,
                                  "https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/format-reference.html#format-de.tudarmstadt.ukp.dkpro.core.io.text-asl" ;
@@ -14341,7 +14378,7 @@ omtd:DkproTokenized rdf:type owl:NamedIndividual ,
                     skos:definition "DkPro format for tokenised files containing one sentence per line and tokens split by whitespaces."@en ,
                                     "DkPro format for tokenized files containing one sentence per line and tokens split by whitespaces."@en ;
                     skos:inScheme omtd:DataFormatScheme ;
-                    skos:prefLabel "DKPro tokenised"@en-GB ,
+                    skos:prefLabel "DKPro tokenised"@en-gb ,
                                    "DKPro tokenized"@en .
 
 
@@ -14549,11 +14586,11 @@ omtd:EmotionLabelling rdf:type owl:NamedIndividual ,
                                skos:Concept ;
                       rdfs:comment "The process/task of identifying types of feelings (e.g. anger, fear, happiness, sadness, etc.) in the linguistic expression of texts or facial expressions"@en ;
                       rdfs:label "Emotion labeling"@en-us ,
-                                 "Emotion labelling"@en-GB ;
+                                 "Emotion labelling"@en-gb ;
                       skos:broader omtd:InformationExtraction ;
                       skos:inScheme omtd:OperationScheme ;
                       skos:prefLabel "Emotion labeling"@en-us ,
-                                     "Emotion labelling"@en-GB .
+                                     "Emotion labelling"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/EntityLinking
@@ -14572,11 +14609,11 @@ omtd:EntityMentionLabelling rdf:type owl:NamedIndividual ,
                                      omtd:Operation ,
                                      skos:Concept ;
                             rdfs:label "Entity mention labeling"@en-us ,
-                                       "Entity mention labelling"@en-GB ;
+                                       "Entity mention labelling"@en-gb ;
                             skos:broader omtd:InformationExtraction ;
                             skos:inScheme omtd:OperationScheme ;
                             skos:prefLabel "Entity mention labeling"@en-us ,
-                                           "Entity mention labelling"@en-GB .
+                                           "Entity mention labelling"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/EntityMentionPair
@@ -14642,7 +14679,7 @@ omtd:EvaluationOfMachineTranslationAndTranslationTools rdf:type owl:NamedIndivid
                                                                      "Evaluation of MT Systems"@en ,
                                                                      "MT Evaluation"@en ;
                                                        skos:broader omtd:Evaluation ;
-                                                       skos:definition "The growing number of MT systems on the market that span a wide range of quality levels has motivated activities towards evaluation standards from national and international organisations. Evaluation of MT systems depends strongly on whether such a system is used for information dissemination, assimilation, or in a conversational context, the types of texts to be translated, whether there is a well-defined and limited application domain and many more factors."@en-GB ,
+                                                       skos:definition "The growing number of MT systems on the market that span a wide range of quality levels has motivated activities towards evaluation standards from national and international organisations. Evaluation of MT systems depends strongly on whether such a system is used for information dissemination, assimilation, or in a conversational context, the types of texts to be translated, whether there is a well-defined and limited application domain and many more factors."@en-gb ,
                                                                        "The growing number of MT systems on the market that span a wide range of quality levels has motivated activities towards evaluation standards from national and international organizations. Evaluation of MT systems depends strongly on whether such a system is used for information dissemination, assimilation, or in a conversational context, the types of texts to be translated, whether there is a well-defined and limited application domain and many more factors."@en ;
                                                        skos:inScheme omtd:OperationScheme ;
                                                        skos:prefLabel "Evaluation of Machine Translation and translation tools"@en .
@@ -14678,19 +14715,19 @@ omtd:EventLabelling rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:comment "The process/act of marking events and classifying them into types of events in a text"@en ;
                     rdfs:label "Event labeling"@en-us ,
-                               "Event labelling"@en-GB ;
+                               "Event labelling"@en-gb ;
                     skos:altLabel "Annotation of events"@en ;
                     skos:broader omtd:SemanticAnnotation ;
                     skos:inScheme omtd:OperationScheme ;
                     skos:prefLabel "Event labeling"@en-us ,
-                                   "Event labelling"@en-GB .
+                                   "Event labelling"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/ExploratorySearch
 omtd:ExploratorySearch rdf:type owl:NamedIndividual ,
                                 omtd:Operation ,
                                 skos:Concept ;
-                       rdfs:comment "A type of search which, in contrast to traditional lookup search, covers a broad class of activities, such as investigating, evaluating, comparing, and synthesising"@en-GB ,
+                       rdfs:comment "A type of search which, in contrast to traditional lookup search, covers a broad class of activities, such as investigating, evaluating, comparing, and synthesising"@en-gb ,
                                     "A type of search which, in contrast to traditional lookup search, covers a broad class of activities, such as investigating, evaluating, comparing, and synthesizing"@en ;
                        rdfs:label "Exploratory search"@en ;
                        skos:broader omtd:InformationRetrieval ;
@@ -14738,7 +14775,7 @@ omtd:ExtractionOfQuantitativeInformation rdf:type owl:NamedIndividual ,
 omtd:FaceDetection rdf:type owl:NamedIndividual ,
                             omtd:Operation ,
                             skos:Concept ;
-                   rdfs:comment "The task/process of recognising that a person appears on a digital image or a video frame from a video source and possibly marking the contours around it"@en-GB ,
+                   rdfs:comment "The task/process of recognising that a person appears on a digital image or a video frame from a video source and possibly marking the contours around it"@en-gb ,
                                 "The task/process of recognizing that a person appears on a digital image or a video frame from a video source and possibly marking the contours around it"@en ;
                    rdfs:label "Face detection"@en ;
                    skos:broader omtd:OperationWithMultimediaInputOrOutput ;
@@ -14865,7 +14902,7 @@ omtd:FastInfoset rdf:type owl:NamedIndividual ,
 omtd:FeatureExtraction rdf:type owl:NamedIndividual ,
                                 omtd:Operation ,
                                 skos:Concept ;
-                       dc:source <http://scikit-learn.org/stable/modules/feature_extraction.html> ;
+                       dct:source <http://scikit-learn.org/stable/modules/feature_extraction.html> ;
                        rdfs:comment "Feature extraction consists in transforming arbitrary data, such as text or images, into numerical features usable for machine learning"@en ;
                        rdfs:label "Feature extraction"@en ;
                        skos:broader omtd:SupportOperation ;
@@ -14889,7 +14926,7 @@ omtd:FillMask rdf:type owl:NamedIndividual ,
 omtd:FlowControl rdf:type owl:NamedIndividual ,
                           omtd:Operation ,
                           skos:Concept ;
-                 dc:source <https://en.wikipedia.org/wiki/Flow_control_(data)> ;
+                 dct:source <https://en.wikipedia.org/wiki/Flow_control_(data)> ;
                  rdfs:label "Flow control"@en ;
                  skos:broader omtd:SupportOperation ;
                  skos:inScheme omtd:OperationScheme ;
@@ -14930,7 +14967,7 @@ omtd:FormatConversion rdf:type owl:NamedIndividual ,
 omtd:FrameExtraction rdf:type owl:NamedIndividual ,
                               omtd:Operation ,
                               skos:Concept ;
-                     rdfs:comment "The task of recognising words and phrases that evoke semantic frames as defined in the FrameNet project, and their semantic dependents"@en-GB ,
+                     rdfs:comment "The task of recognising words and phrases that evoke semantic frames as defined in the FrameNet project, and their semantic dependents"@en-gb ,
                                   "The task of recognizing words and phrases that evoke semantic frames as defined in the FrameNet project, and their semantic dependents"@en ;
                      rdfs:label "Frame extraction"@en ;
                      skos:broader omtd:InformationExtraction ;
@@ -14943,7 +14980,7 @@ omtd:FrameSemanticParsing rdf:type owl:NamedIndividual ,
                                    omtd:Operation ,
                                    skos:Concept ;
                           rdfs:comment "The task/process of recognising and labeling in a text predicate argument structures and the semantic roles of the constituents, in accordance to the frame semantics theory"@en-us ,
-                                       "The task/process of recognising and labelling in a text predicate argument structures and the semantic roles of the constituents, in accordance to the frame semantics theory"@en-GB ;
+                                       "The task/process of recognising and labelling in a text predicate argument structures and the semantic roles of the constituents, in accordance to the frame semantics theory"@en-gb ;
                           rdfs:label "Frame-semantic parsing"@en ;
                           skos:broader omtd:Parsing ,
                                        omtd:SemanticAnnotation ;
@@ -15176,7 +15213,7 @@ omtd:HandwritingRecognition rdf:type owl:NamedIndividual ,
 omtd:HateSpeechRecognition rdf:type owl:NamedIndividual ,
                                     omtd:Operation ,
                                     skos:Concept ;
-                           rdfs:comment "The task of automatically identifying hate speech, i.e. statements intended to demean and brutalise another, or the use of cruel and derogatory language on the basis of real or alleged membership in a social group [adapted from wikipedia]"@en-GB ,
+                           rdfs:comment "The task of automatically identifying hate speech, i.e. statements intended to demean and brutalise another, or the use of cruel and derogatory language on the basis of real or alleged membership in a social group [adapted from wikipedia]"@en-gb ,
                                         "The task of automatically identifying hate speech, i.e. statements intended to demean and brutalize another, or the use of cruel and derogatory language on the basis of real or alleged membership in a social group [adapted from wikipedia]"@en ;
                            rdfs:label "Hate speech recognition"@en ;
                            skos:altLabel "Hate speech detection"@en ;
@@ -15397,7 +15434,7 @@ omtd:ImageTranslation rdf:type owl:NamedIndividual ,
 omtd:ImageUnderstanding rdf:type owl:NamedIndividual ,
                                  omtd:Operation ,
                                  skos:Concept ;
-                        rdfs:comment "Advanced image processing in which artificial-intelligence techniques are used to interpret images by locating, characterising, and recognising objects and other features in the scene. [from https://www.encyclopedia.com/computing/dictionaries-thesauruses-pictures-and-press-releases/image-understanding]"@en-GB ,
+                        rdfs:comment "Advanced image processing in which artificial-intelligence techniques are used to interpret images by locating, characterising, and recognising objects and other features in the scene. [from https://www.encyclopedia.com/computing/dictionaries-thesauruses-pictures-and-press-releases/image-understanding]"@en-gb ,
                                      "Advanced image processing in which artificial-intelligence techniques are used to interpret images by locating, characterizing, and recognizing objects and other features in the scene. [from https://www.encyclopedia.com/computing/dictionaries-thesauruses-pictures-and-press-releases/image-understanding]"@en ;
                         rdfs:label "Image Understanding"@en ;
                         skos:broader omtd:OperationWithMultimediaInputOrOutput ,
@@ -15593,7 +15630,7 @@ omtd:InformationExtractionAndInformationRetrievalCollection rdf:type owl:NamedIn
 omtd:InformationFiltering rdf:type owl:NamedIndividual ,
                                    omtd:Operation ,
                                    skos:Concept ;
-                          rdfs:comment "The process/task of removing (filtering out) redundant or unwanted information from an information stream using (semi)automated or computerised methods prior to presentation to a human user; the selection of the items is based on the correlation between the content of the items and the user's preferences (content-based filtering) or the correlation between people with similar preferences (collaborative filtering)"@en-GB ,
+                          rdfs:comment "The process/task of removing (filtering out) redundant or unwanted information from an information stream using (semi)automated or computerised methods prior to presentation to a human user; the selection of the items is based on the correlation between the content of the items and the user's preferences (content-based filtering) or the correlation between people with similar preferences (collaborative filtering)"@en-gb ,
                                        "The process/task of removing (filtering out) redundant or unwanted information from an information stream using (semi)automated or computerized methods prior to presentation to a human user; the selection of the items is based on the correlation between the content of the items and the user's preferences (content-based filtering) or the correlation between people with similar preferences (collaborative filtering)"@en ;
                           rdfs:label "Information filtering"@en ;
                           skos:broader omtd:InformationRetrieval ;
@@ -15867,7 +15904,7 @@ omtd:KnowledgeDiscovery rdf:type owl:NamedIndividual ,
                                       "KDD"@en ,
                                       "Knowledge Discovery in Databases"@en ;
                         skos:broader omtd:TextAndDataMining ;
-                        skos:definition "Generally, knowledge discovery / data mining is the process of analyzing data from different perspectives and summarising it into useful information - information that can be used to increase revenue, cuts costs, or both. Data mining software is one of a number of analytical tools for analysing data. It allows users to analyse data from many different dimensions or angles, categorise it, and summarise the relationships identified. Technically, data mining is the process of finding correlations or patterns among dozens of fields in large relational databases."@en-GB ,
+                        skos:definition "Generally, knowledge discovery / data mining is the process of analyzing data from different perspectives and summarising it into useful information - information that can be used to increase revenue, cuts costs, or both. Data mining software is one of a number of analytical tools for analysing data. It allows users to analyse data from many different dimensions or angles, categorise it, and summarise the relationships identified. Technically, data mining is the process of finding correlations or patterns among dozens of fields in large relational databases."@en-gb ,
                                         "Generally, knowledge discovery / data mining is the process of analyzing data from different perspectives and summarizing it into useful information - information that can be used to increase revenue, cuts costs, or both. Data mining software is one of a number of analytical tools for analyzing data. It allows users to analyze data from many different dimensions or angles, categorize it, and summarize the relationships identified. Technically, data mining is the process of finding correlations or patterns among dozens of fields in large relational databases."@en ;
                         skos:inScheme omtd:OperationScheme ;
                         skos:narrower omtd:QuestionAnswering ,
@@ -16038,11 +16075,11 @@ omtd:Lemmatization rdf:type owl:NamedIndividual ,
                             omtd:Operation ,
                             skos:Concept ;
                    rdfs:comment "Lemmatisation  (or lemmatization) in linguistics is the process of grouping together the inflected forms of a word so they can be analysed as a single item, identified by the word's lemma, or dictionary form. [Wikipedia]"@en ;
-                   rdfs:label "Lemmatisation"@en-GB ,
+                   rdfs:label "Lemmatisation"@en-gb ,
                               "Lemmatization"@en ;
                    skos:broader omtd:TextAnnotation ;
                    skos:inScheme omtd:OperationScheme ;
-                   skos:prefLabel "Lemmatisation"@en-GB ,
+                   skos:prefLabel "Lemmatisation"@en-gb ,
                                   "Lemmatization"@en .
 
 
@@ -16180,14 +16217,14 @@ omtd:LexiconViewing rdf:type owl:NamedIndividual ,
 omtd:LexiconVisualization rdf:type owl:NamedIndividual ,
                                    omtd:Operation ,
                                    skos:Concept ;
-                          rdfs:comment "The task/process of visualising information (e.g. using diagrams, 3-d images, word clouds etc.) contained in lexical/conceptual resources"@en-GB ,
+                          rdfs:comment "The task/process of visualising information (e.g. using diagrams, 3-d images, word clouds etc.) contained in lexical/conceptual resources"@en-gb ,
                                        "The task/process of visualizing information (e.g. using diagrams, 3-d images, word clouds etc.) contained in lexical/conceptual resources"@en ;
-                          rdfs:label "Lexicon visualisation"@en-GB ,
+                          rdfs:label "Lexicon visualisation"@en-gb ,
                                      "Lexicon visualization"@en ;
                           skos:broader omtd:SupportOperationForKnowledgeResources ,
                                        omtd:Visualization ;
                           skos:inScheme omtd:OperationScheme ;
-                          skos:prefLabel "Lexicon visualisation"@en-GB ,
+                          skos:prefLabel "Lexicon visualisation"@en-gb ,
                                          "Lexicon visualization"@en .
 
 
@@ -16274,11 +16311,11 @@ omtd:Localization rdf:type owl:NamedIndividual ,
                            omtd:Operation ,
                            skos:Concept ;
                   rdfs:comment "The process of adapting a product or content to a specific locale or market, including translation of relevant language material but also converting to local measures and currency units, modifications necessary to adapt to cultural differences of the target audience, etc. [adapted from https://www.gala-global.org/industry/intro-language-industry/what-localization]"@en ;
-                  rdfs:label "Localisation"@en-GB ,
+                  rdfs:label "Localisation"@en-gb ,
                              "Localization"@en ;
                   skos:broader omtd:Translation ;
                   skos:inScheme omtd:OperationScheme ;
-                  skos:prefLabel "Localisation"@en-GB ,
+                  skos:prefLabel "Localisation"@en-gb ,
                                  "Localization"@en .
 
 
@@ -16485,7 +16522,7 @@ omtd:Miscellaneous rdf:type owl:NamedIndividual ,
                    rdfs:label "Miscellaneous"@en ;
                    skos:altLabel "MISC"@en ;
                    skos:broader omtd:NamedEntity ;
-                   skos:definition "A general label for named entities other than the usual ones recognised by a system"@en-GB ,
+                   skos:definition "A general label for named entities other than the usual ones recognised by a system"@en-gb ,
                                    "A general label for named entities other than the usual ones recognized by a system"@en ;
                    skos:inScheme omtd:AnnotationTypeScheme ;
                    skos:prefLabel "Miscellaneous"@en .
@@ -16696,7 +16733,7 @@ omtd:MultilingualGeneration rdf:type owl:NamedIndividual ,
                             rdfs:comment "The task/process of generating content in multiple languages"@en ;
                             rdfs:label "Multilingual generation"@en ;
                             skos:broader omtd:NaturalLanguageGeneration ;
-                            skos:definition "Multilingual generation is the verbalisation of a non-linguistic semantic representation in different human languages. The language of choice is usually a parameter to a multilingual generation system. A typical instance of multilingual generation is found in interlingual machine translation, when multiple target languages are involved. Other instances include report generation systems for multiple languages (such as Temsis-Gen) and grammar-based realisers (such as FUF/SURGE)."@en-GB ,
+                            skos:definition "Multilingual generation is the verbalisation of a non-linguistic semantic representation in different human languages. The language of choice is usually a parameter to a multilingual generation system. A typical instance of multilingual generation is found in interlingual machine translation, when multiple target languages are involved. Other instances include report generation systems for multiple languages (such as Temsis-Gen) and grammar-based realisers (such as FUF/SURGE)."@en-gb ,
                                             "Multilingual generation is the verbalization of a non-linguistic semantic representation in different human languages. The language of choice is usually a parameter to a multilingual generation system. A typical instance of multilingual generation is found in interlingual machine translation, when multiple target languages are involved. Other instances include report generation systems for multiple languages (such as Temsis-Gen) and grammar-based realizers (such as FUF/SURGE)."@en ;
                             skos:inScheme omtd:OperationScheme ;
                             skos:prefLabel "Multilingual generation"@en .
@@ -16821,7 +16858,7 @@ omtd:NamedEntity rdf:type owl:NamedIndividual ,
                           skos:Concept ;
                  rdfs:label "Named entity"@en ;
                  skos:broader omtd:SemanticAnnotationType ;
-                 skos:definition "A word or phrase referring to an entity, identified and annotated as such with a name (label); examples include organisations, persons, places etc."@en-GB ,
+                 skos:definition "A word or phrase referring to an entity, identified and annotated as such with a name (label); examples include organisations, persons, places etc."@en-gb ,
                                  "A word or phrase referring to an entity, identified and annotated as such with a name (label); examples include organizations, persons, places etc."@en ;
                  skos:inScheme omtd:AnnotationTypeScheme ;
                  skos:narrower omtd:BiologicalActivity ,
@@ -16870,7 +16907,7 @@ omtd:NamedEntityDisambiguation rdf:type owl:NamedIndividual ,
 omtd:NamedEntityRecognition rdf:type owl:NamedIndividual ,
                                      omtd:Operation ,
                                      skos:Concept ;
-                            rdfs:comment "A subtask of information extraction that seeks to locate and classify named entities in text into pre-defined categories such as the names of persons, organisations, locations, expressions of times, quantities, monetary values, percentages, etc."@en-GB ,
+                            rdfs:comment "A subtask of information extraction that seeks to locate and classify named entities in text into pre-defined categories such as the names of persons, organisations, locations, expressions of times, quantities, monetary values, percentages, etc."@en-gb ,
                                          "A subtask of information extraction that seeks to locate and classify named entities in text into pre-defined categories such as the names of persons, organizations, locations, expressions of times, quantities, monetary values, percentages, etc."@en ;
                             rdfs:label "Named Entity Recognition"@en ;
                             skos:altLabel "Entity Identification"@en ,
@@ -16879,7 +16916,7 @@ omtd:NamedEntityRecognition rdf:type owl:NamedIndividual ,
                                           "NER"@en ,
                                           "NERC"@en ;
                             skos:broader omtd:InformationExtraction ;
-                            skos:definition "Named entity (NE) recognition is a form of information extraction in which the major task is to identify and classify from NL text every word or sequence of words as being a person-name, organisation, location, date, time, monetary value, percentage expression. NE recognition has a high impact for a number of applications, like e.g., InterNet search engines, text data mining or answer extraction."@en-GB ,
+                            skos:definition "Named entity (NE) recognition is a form of information extraction in which the major task is to identify and classify from NL text every word or sequence of words as being a person-name, organisation, location, date, time, monetary value, percentage expression. NE recognition has a high impact for a number of applications, like e.g., InterNet search engines, text data mining or answer extraction."@en-gb ,
                                             "Named entity (NE) recognition is a form of information extraction in which the major task is to identify and classify from NL text every word or sequence of words as being a person-name, organization, location, date, time, monetary value, percentage expression. NE recognition has a high impact for a number of applications, like e.g., InterNet search engines, text data mining or answer extraction."@en ;
                             skos:editorialNote "can also be annotation"@en ;
                             skos:inScheme omtd:OperationScheme ;
@@ -16897,7 +16934,7 @@ omtd:NaturalLanguageGeneration rdf:type owl:NamedIndividual ,
                                              "NLG"@en ,
                                              "Synthesis"@en ;
                                skos:broader omtd:Operation ;
-                               skos:definition "Natural Language Generation (NLG) is concerned with turning some usually non-linguistic representation of information and intended effect into fluent text preserving both meaning and intention. NLG systems often identify the content to be verbalised. They structure the document into interrelated sentence-sized chunks, choose appropriate words, aggregate and elide information to ensure fluency, create contextually appropriate referring expressions, such as pronouns, and follow grammatical constraints of the chosen language. All this is achieved using knowledge about the world and the domain of dicsourse, about communication and about languages. NLG components are used for e.g. automatic report generation, document authoring, dialogue, concept-to-speech, multi-modal and machine translation systems. Evaluating the correctness and the appropriateness of generated text is a research theme on its own since there is usually no single correct solution. One important way to tackle the problem consists in creating reference corpora and performing shared evaluation tasks, e.g. on generating referring expressions. However, this is not intended to replace less formal evaluation strategies such as human assessments."@en-GB ,
+                               skos:definition "Natural Language Generation (NLG) is concerned with turning some usually non-linguistic representation of information and intended effect into fluent text preserving both meaning and intention. NLG systems often identify the content to be verbalised. They structure the document into interrelated sentence-sized chunks, choose appropriate words, aggregate and elide information to ensure fluency, create contextually appropriate referring expressions, such as pronouns, and follow grammatical constraints of the chosen language. All this is achieved using knowledge about the world and the domain of dicsourse, about communication and about languages. NLG components are used for e.g. automatic report generation, document authoring, dialogue, concept-to-speech, multi-modal and machine translation systems. Evaluating the correctness and the appropriateness of generated text is a research theme on its own since there is usually no single correct solution. One important way to tackle the problem consists in creating reference corpora and performing shared evaluation tasks, e.g. on generating referring expressions. However, this is not intended to replace less formal evaluation strategies such as human assessments."@en-gb ,
                                                "Natural Language Generation (NLG) is concerned with turning some usually non-linguistic representation of information and intended effect into fluent text preserving both meaning and intention. NLG systems often identify the content to be verbalized. They structure the document into interrelated sentence-sized chunks, choose appropriate words, aggregate and elide information to ensure fluency, create contextually appropriate referring expressions, such as pronouns, and follow grammatical constraints of the chosen language. All this is achieved using knowledge about the world and the domain of dicsourse, about communication and about languages. NLG components are used for e.g. automatic report generation, document authoring, dialogue, concept-to-speech, multi-modal and machine translation systems. Evaluating the correctness and the appropriateness of generated text is a research theme on its own since there is usually no single correct solution. One important way to tackle the problem consists in creating reference corpora and performing shared evaluation tasks, e.g. on generating referring expressions. However, this is not intended to replace less formal evaluation strategies such as human assessments."@en ;
                                skos:inScheme omtd:OperationScheme ;
                                skos:narrower omtd:AutomaticSubtitling ,
@@ -17054,16 +17091,16 @@ omtd:NlpDevelopmentSupport rdf:type owl:NamedIndividual ,
 omtd:Normalization rdf:type owl:NamedIndividual ,
                             omtd:Operation ,
                             skos:Concept ;
-                   rdfs:comment "The task/process of editing a text in order to remove unwanted material (e.g. quotation marks, hyphenations etc.) or to substitute/represent specific items (tokens, dates,  etc.) with normalised values"@en-GB ,
+                   rdfs:comment "The task/process of editing a text in order to remove unwanted material (e.g. quotation marks, hyphenations etc.) or to substitute/represent specific items (tokens, dates,  etc.) with normalised values"@en-gb ,
                                 "The task/process of editing a text in order to remove unwanted material (e.g. quotation marks, hyphenations etc.) or to substitute/represent specific items (tokens, dates,  etc.) with normalized values"@en ;
-                   rdfs:label "Normalisation"@en-GB ,
+                   rdfs:label "Normalisation"@en-gb ,
                               "Normalization"@en ;
                    skos:broader omtd:SupportOperation ;
                    skos:inScheme omtd:OperationScheme ;
                    skos:narrower omtd:ConceptNormalization ,
                                  omtd:NormalizationOfMeasurements ,
                                  omtd:NormalizationOfNumbers ;
-                   skos:prefLabel "Normalisation"@en-GB ,
+                   skos:prefLabel "Normalisation"@en-gb ,
                                   "Normalization"@en .
 
 
@@ -17071,13 +17108,13 @@ omtd:Normalization rdf:type owl:NamedIndividual ,
 omtd:NormalizationOfMeasurements rdf:type owl:NamedIndividual ,
                                           omtd:Operation ,
                                           skos:Concept ;
-                                 rdfs:comment "The task/process of substituting measurements with normalised values"@en-GB ,
+                                 rdfs:comment "The task/process of substituting measurements with normalised values"@en-gb ,
                                               "The task/process of substituting measurements with normalized values"@en ;
-                                 rdfs:label "Normalisation of measurements"@en-GB ,
+                                 rdfs:label "Normalisation of measurements"@en-gb ,
                                             "Normalization of measurements"@en ;
                                  skos:broader omtd:Normalization ;
                                  skos:inScheme omtd:OperationScheme ;
-                                 skos:prefLabel "Normalisation of measurements"@en-GB ,
+                                 skos:prefLabel "Normalisation of measurements"@en-gb ,
                                                 "Normalization of measurements"@en .
 
 
@@ -17085,13 +17122,13 @@ omtd:NormalizationOfMeasurements rdf:type owl:NamedIndividual ,
 omtd:NormalizationOfNumbers rdf:type owl:NamedIndividual ,
                                      omtd:Operation ,
                                      skos:Concept ;
-                            rdfs:comment "The task/process of substituting numbers with normalised values"@en-GB ,
+                            rdfs:comment "The task/process of substituting numbers with normalised values"@en-gb ,
                                          "The task/process of substituting numbers with normalized values"@en ;
-                            rdfs:label "Normalisation of numbers"@en-GB ,
+                            rdfs:label "Normalisation of numbers"@en-gb ,
                                        "Normalization of numbers"@en ;
                             skos:broader omtd:Normalization ;
                             skos:inScheme omtd:OperationScheme ;
-                            skos:prefLabel "Normalisation of numbers"@en-GB ,
+                            skos:prefLabel "Normalisation of numbers"@en-gb ,
                                            "Normalization of numbers"@en .
 
 
@@ -17178,7 +17215,7 @@ omtd:Obo rdf:type owl:NamedIndividual ,
          rdfs:label "OBO"@en ;
          rdfs:seeAlso "http://owlcollab.github.io/oboformat/doc/obo-syntax.html" ;
          skos:broader omtd:RdfFormat ;
-         skos:definition "Serialisation format for ontologies according to the Open Biomedical Ontologies model."@en-GB ,
+         skos:definition "Serialisation format for ontologies according to the Open Biomedical Ontologies model."@en-gb ,
                          "Serialization format for ontologies according to the Open Biomedical Ontologies model."@en ;
          skos:inScheme omtd:DataFormatScheme ;
          skos:prefLabel "OBO"@en .
@@ -17361,14 +17398,14 @@ omtd:Organism rdf:type owl:NamedIndividual ,
 omtd:Organization rdf:type owl:NamedIndividual ,
                            omtd:AnnotationType ,
                            skos:Concept ;
-                  rdfs:label "Organisation"@en-GB ,
+                  rdfs:label "Organisation"@en-gb ,
                              "Organization"@en ;
                   rdfs:seeAlso "http://dkpro.github.io/dkpro-core/releases/1.8.0/docs/typesystem-reference.html#de.tudarmstadt.ukp.dkpro.core.api.ner.type.Organization" ;
                   skos:broader omtd:NamedEntity ;
-                  skos:definition "A word or group of words that denotes an organisation, such as company, association, institution etc."@en-GB ,
+                  skos:definition "A word or group of words that denotes an organisation, such as company, association, institution etc."@en-gb ,
                                   "A word or group of words that denotes an organization, such as company, association, institution etc."@en ;
                   skos:inScheme omtd:AnnotationTypeScheme ;
-                  skos:prefLabel "Organisation"@en-GB ,
+                  skos:prefLabel "Organisation"@en-gb ,
                                  "Organization"@en .
 
 
@@ -17510,7 +17547,7 @@ omtd:Paraphrasing rdf:type owl:NamedIndividual ,
 omtd:Parsing rdf:type owl:NamedIndividual ,
                       omtd:Operation ,
                       skos:Concept ;
-             rdfs:comment "The task/process of recognising and marking the syntactic structure of a text or text segment"@en-GB ,
+             rdfs:comment "The task/process of recognising and marking the syntactic structure of a text or text segment"@en-gb ,
                           "The task/process of recognizing and marking the syntactic structure of a text or text segment"@en ;
              rdfs:label "Parsing"@en ;
              skos:altLabel "Syntactic analysis"@en ,
@@ -17642,7 +17679,7 @@ omtd:Phrase rdf:type owl:NamedIndividual ,
                      skos:Concept ;
             rdfs:label "Phrase"@en ;
             skos:broader omtd:StructuralAnnotationType ;
-            skos:definition "A phrase is a syntactic structure that consists of more than one word but lacks the subject-predicate organisation of a clause. [http://www.glossary.sil.org/term/phrase]"@en-GB ,
+            skos:definition "A phrase is a syntactic structure that consists of more than one word but lacks the subject-predicate organisation of a clause. [http://www.glossary.sil.org/term/phrase]"@en-gb ,
                             "A phrase is a syntactic structure that consists of more than one word but lacks the subject-predicate organization of a clause. [http://www.glossary.sil.org/term/phrase]"@en ;
             skos:inScheme omtd:AnnotationTypeScheme ;
             skos:prefLabel "Phrase"@en .
@@ -17730,11 +17767,11 @@ omtd:PolarityLabelling rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
                        rdfs:comment "The task/process of adding to units of a text (especially in sentiment-intensive texts) tags that indicate polarity (negative, positive, neutral, mixed)"@en ;
                        rdfs:label "Polarity labeling"@en-us ,
-                                  "Polarity labelling"@en-GB ;
+                                  "Polarity labelling"@en-gb ;
                        skos:broader omtd:SemanticAnnotation ;
                        skos:inScheme omtd:OperationScheme ;
                        skos:prefLabel "Polarity labeling"@en-us ,
-                                      "Polarity labelling"@en-GB .
+                                      "Polarity labelling"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/PosTagging
@@ -17850,11 +17887,11 @@ omtd:Pseudonymization rdf:type owl:NamedIndividual ,
                                omtd:Operation ,
                                skos:Concept ;
                       rdfs:comment "The processing of personal data in such a way that the data can no longer be attributed to a specific data subject without the use of additional information (from GDPR)"@en ;
-                      rdfs:label "Pseudonymisation"@en-GB ,
+                      rdfs:label "Pseudonymisation"@en-gb ,
                                  "Pseudonymization"@en ;
                       skos:broader omtd:SupportOperation ;
                       skos:inScheme omtd:OperationScheme ;
-                      skos:prefLabel "Pseudonymisation"@en-GB ,
+                      skos:prefLabel "Pseudonymisation"@en-gb ,
                                      "Pseudonymization"@en .
 
 
@@ -18043,14 +18080,14 @@ omtd:Reading rdf:type owl:NamedIndividual ,
 omtd:RecognizingTextualEntailment rdf:type owl:NamedIndividual ,
                                            omtd:Operation ,
                                            skos:Concept ;
-                                  rdfs:comment "A task/process that intends to recognise for two text fragments whether the meaning of one text is entailed in that of the other, i.e. whether the truth of one text fragment follows from that of the other fragment"@en-GB ,
+                                  rdfs:comment "A task/process that intends to recognise for two text fragments whether the meaning of one text is entailed in that of the other, i.e. whether the truth of one text fragment follows from that of the other fragment"@en-gb ,
                                                "A task/process that intends to recognize for two text fragments whether the meaning of one text is entailed in that of the other, i.e. whether the truth of one text fragment follows from that of the other fragment"@en ;
-                                  rdfs:label "Recognising Textual Entailment"@en-GB ,
+                                  rdfs:label "Recognising Textual Entailment"@en-gb ,
                                              "Recognizing Textual Entailment"@en ;
                                   skos:broader omtd:InformationExtraction ,
                                                omtd:KnowledgeDiscovery ;
                                   skos:inScheme omtd:OperationScheme ;
-                                  skos:prefLabel "Recognising Textual Entailment"@en-GB ,
+                                  skos:prefLabel "Recognising Textual Entailment"@en-gb ,
                                                  "Recognizing Textual Entailment"@en .
 
 
@@ -18348,18 +18385,18 @@ omtd:SemanticClassLabelling rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
                             rdfs:comment "The task/process of classifying words in a text according to a set of semantic classes (types)"@en ;
                             rdfs:label "Semantic class labeling"@en-us ,
-                                       "Semantic class labelling"@en-GB ;
+                                       "Semantic class labelling"@en-gb ;
                             skos:broader omtd:SemanticAnnotation ;
                             skos:inScheme omtd:OperationScheme ;
                             skos:prefLabel "Semantic class labeling"@en-us ,
-                                           "Semantic class labelling"@en-GB .
+                                           "Semantic class labelling"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/SemanticFrame
 omtd:SemanticFrame rdf:type owl:NamedIndividual ,
                             omtd:AnnotationType ,
                             skos:Concept ;
-                   dc:source <https://framenet.icsi.berkeley.edu/fndrupal/glossary> ;
+                   dct:source <https://framenet.icsi.berkeley.edu/fndrupal/glossary> ;
                    rdfs:label "Semantic frame"@en ;
                    rdfs:seeAlso "http://dkpro.github.io/dkpro-core/releases/1.8.0/docs/typesystem-reference.html#de.tudarmstadt.ukp.dkpro.core.api.semantics.type.SemanticPredicate" ;
                    skos:altLabel "Frame"@en ;
@@ -18386,11 +18423,11 @@ omtd:SemanticRelationLabelling rdf:type owl:NamedIndividual ,
                                         skos:Concept ;
                                rdfs:comment "The task/process of attaching tags indicating the semantic relation that holds between units of a text"@en ;
                                rdfs:label "Semantic relation labeling"@en-us ,
-                                          "Semantic relation labelling"@en-GB ;
+                                          "Semantic relation labelling"@en-gb ;
                                skos:broader omtd:SemanticAnnotation ;
                                skos:inScheme omtd:OperationScheme ;
                                skos:prefLabel "Semantic relation labeling"@en-us ,
-                                              "Semantic relation labelling"@en-GB .
+                                              "Semantic relation labelling"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/SemanticRole
@@ -18411,11 +18448,11 @@ omtd:SemanticRoleLabelling rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
                            rdfs:comment "The task/process of attaching labels that correspond to the roles that the arguments of a predicate take in an event"@en ;
                            rdfs:label "Semantic role labeling"@en-us ,
-                                      "Semantic role labelling"@en-GB ;
+                                      "Semantic role labelling"@en-gb ;
                            skos:broader omtd:SemanticAnnotation ;
                            skos:inScheme omtd:OperationScheme ;
                            skos:prefLabel "Semantic role labeling"@en-us ,
-                                          "Semantic role labelling"@en-GB .
+                                          "Semantic role labelling"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/SemanticSearch
@@ -18466,7 +18503,7 @@ omtd:SentenceSimilarityAssessment rdf:type owl:NamedIndividual ,
 omtd:SentenceSplitting rdf:type owl:NamedIndividual ,
                                 omtd:Operation ,
                                 skos:Concept ;
-                       rdfs:comment "The task/process of recognising and tagging sentence boundaries in a text"@en-GB ,
+                       rdfs:comment "The task/process of recognising and tagging sentence boundaries in a text"@en-gb ,
                                     "The task/process of recognizing and tagging sentence boundaries in a text"@en ;
                        rdfs:label "Sentence splitting"@en ;
                        skos:altLabel "Segmentation into sentences"@en ,
@@ -18493,7 +18530,7 @@ omtd:Sentiment rdf:type owl:NamedIndividual ,
 omtd:SentimentAnalysis rdf:type owl:NamedIndividual ,
                                 omtd:Operation ,
                                 skos:Concept ;
-                       rdfs:comment "The process/task of computationally identifying and categorising opinions expressed in a piece of text, especially in order to determine whether the writer's attitude towards a particular topic, product, etc. is positive, negative, or neutral"@en-GB ,
+                       rdfs:comment "The process/task of computationally identifying and categorising opinions expressed in a piece of text, especially in order to determine whether the writer's attitude towards a particular topic, product, etc. is positive, negative, or neutral"@en-gb ,
                                     "The process/task of computationally identifying and categorizing opinions expressed in a piece of text, especially in order to determine whether the writer's attitude towards a particular topic, product, etc. is positive, negative, or neutral"@en ;
                        rdfs:label "Sentiment analysis"@en ;
                        skos:altLabel "Opinion extraction"@en ,
@@ -18510,14 +18547,14 @@ omtd:SerializedCas rdf:type owl:NamedIndividual ,
                             dct:MediaType ,
                             omtd:DataFormat ,
                             skos:Concept ;
-                   rdfs:label "Serialised CAS"@en-GB ,
+                   rdfs:label "Serialised CAS"@en-gb ,
                               "Serialized CAS"@en ;
                    rdfs:seeAlso "http://dkpro.github.io/dkpro-core/releases/1.8.0/docs/format-reference.html#format-SerializedCas" ;
                    skos:broader omtd:UimaCasFormat ;
-                   skos:definition "The CAS is the native data model used by UIMA ; there are various ways of saving CAS data, using XMI, XCAS, or binary formats ; this is for the serialised format"@en-GB ,
+                   skos:definition "The CAS is the native data model used by UIMA ; there are various ways of saving CAS data, using XMI, XCAS, or binary formats ; this is for the serialised format"@en-gb ,
                                    "The CAS is the native data model used by UIMA ; there are various ways of saving CAS data, using XMI, XCAS, or binary formats ; this is for the serialized format"@en ;
                    skos:inScheme omtd:DataFormatScheme ;
-                   skos:prefLabel "Serialised CAS"@en-GB ,
+                   skos:prefLabel "Serialised CAS"@en-gb ,
                                   "Serialized CAS"@en .
 
 
@@ -18550,7 +18587,7 @@ omtd:SignLanguageGeneration rdf:type owl:NamedIndividual ,
 omtd:SignLanguageRecognition rdf:type owl:NamedIndividual ,
                                       omtd:Operation ,
                                       skos:Concept ;
-                             rdfs:comment "The task/process of recognising from images and videos hand gestures performed in sign language"@en-GB ,
+                             rdfs:comment "The task/process of recognising from images and videos hand gestures performed in sign language"@en-gb ,
                                           "The task/process of recognizing from images and videos hand gestures performed in sign language"@en ;
                              rdfs:label "Sign language recognition"@en ;
                              skos:broader omtd:OperationWithMultimediaInputOrOutput ;
@@ -18614,11 +18651,11 @@ omtd:SpatialRoleLabelling rdf:type owl:NamedIndividual ,
                                    skos:Concept ;
                           rdfs:comment "Τhe task of identifying and classifying the spatial arguments of the spatial expressions mentioned in a sentence"@en ;
                           rdfs:label "Spatial role labeling"@en-us ,
-                                     "Spatial role labelling"@en-GB ;
+                                     "Spatial role labelling"@en-gb ;
                           skos:broader omtd:SemanticAnnotation ;
                           skos:inScheme omtd:OperationScheme ;
                           skos:prefLabel "Spatial role labeling"@en-us ,
-                                         "Spatial role labelling"@en-GB .
+                                         "Spatial role labelling"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/SpeakerDiarization
@@ -18626,11 +18663,11 @@ omtd:SpeakerDiarization rdf:type owl:NamedIndividual ,
                                  omtd:Operation ,
                                  skos:Concept ;
                         rdfs:comment "Partitioning of audio stream into homogeneous segments according to speaker properties and acoustic conditions"@en ;
-                        rdfs:label "Speaker diarisation"@en-GB ,
+                        rdfs:label "Speaker diarisation"@en-gb ,
                                    "Speaker diarization"@en ;
                         skos:broader omtd:SpeechAnnotation ;
                         skos:inScheme omtd:OperationScheme ;
-                        skos:prefLabel "Speaker diarisation"@en-GB ,
+                        skos:prefLabel "Speaker diarisation"@en-gb ,
                                        "Speaker diarization"@en .
 
 
@@ -18638,7 +18675,7 @@ omtd:SpeakerDiarization rdf:type owl:NamedIndividual ,
 omtd:SpeakerIdentification rdf:type owl:NamedIndividual ,
                                     omtd:Operation ,
                                     skos:Concept ;
-                           rdfs:comment "The task/process of identifying/recognising who the person speaking is"@en-GB ,
+                           rdfs:comment "The task/process of identifying/recognising who the person speaking is"@en-gb ,
                                         "The task/process of identifying/recognizing who the person speaking is"@en ;
                            rdfs:label "Speaker identification"@en ;
                            skos:altLabel "SR"@en ,
@@ -18646,7 +18683,7 @@ omtd:SpeakerIdentification rdf:type owl:NamedIndividual ,
                                          "VR"@en ,
                                          "Voice Recognition"@en ;
                            skos:broader omtd:SpeechRecognition ;
-                           skos:definition "Speaker recognition, which can be classified into identification and verification, is the process of automatically recognising who is speaking on the basis of individual information included in speech waves. This technique makes it possible to use the speaker's voice to verify their identity and control access to services such as voice dialing, banking by telephone, telephone shopping, database access services, information services, voice mail, security control for confidential information areas, and remote access to computers."@en-GB ,
+                           skos:definition "Speaker recognition, which can be classified into identification and verification, is the process of automatically recognising who is speaking on the basis of individual information included in speech waves. This technique makes it possible to use the speaker's voice to verify their identity and control access to services such as voice dialing, banking by telephone, telephone shopping, database access services, information services, voice mail, security control for confidential information areas, and remote access to computers."@en-gb ,
                                            "Speaker recognition, which can be classified into identification and verification, is the process of automatically recognizing who is speaking on the basis of individual information included in speech waves. This technique makes it possible to use the speaker's voice to verify their identity and control access to services such as voice dialing, banking by telephone, telephone shopping, database access services, information services, voice mail, security control for confidential information areas, and remote access to computers."@en ;
                            skos:inScheme omtd:OperationScheme ;
                            skos:prefLabel "Speaker identification"@en .
@@ -18932,7 +18969,7 @@ omtd:SpokenLanguageGeneration rdf:type owl:NamedIndividual ,
                                             "Concept-to-Speech generation"@en ,
                                             "SLG"@en ;
                               skos:broader omtd:NaturalLanguageGeneration ;
-                              skos:definition "Whereas the generation of spoken language from semantic representations can be sequentialised into generation of text followed by text-to-speech, using text as an intermediate representation may lose information that was available in the original input, in particular related to information structure relevant for speech output. An integrated solution can avoid this problem and thereby lead to improved quality and/or simpler system architecture."@en-GB ,
+                              skos:definition "Whereas the generation of spoken language from semantic representations can be sequentialised into generation of text followed by text-to-speech, using text as an intermediate representation may lose information that was available in the original input, in particular related to information structure relevant for speech output. An integrated solution can avoid this problem and thereby lead to improved quality and/or simpler system architecture."@en-gb ,
                                               "Whereas the generation of spoken language from semantic representations can be sequentialized into generation of text followed by text-to-speech, using text as an intermediate representation may lose information that was available in the original input, in particular related to information structure relevant for speech output. An integrated solution can avoid this problem and thereby lead to improved quality and/or simpler system architecture."@en ;
                               skos:inScheme omtd:OperationScheme ;
                               skos:prefLabel "Spoken Language Generation"@en .
@@ -19002,7 +19039,7 @@ omtd:Stemming rdf:type owl:NamedIndividual ,
 omtd:StructuralAnnotation rdf:type owl:NamedIndividual ,
                                    omtd:Operation ,
                                    skos:Concept ;
-                          rdfs:comment "The task/process of segmenting a text and recognising textual structural units (paragraphs, sentences, words etc.)"@en-GB ,
+                          rdfs:comment "The task/process of segmenting a text and recognising textual structural units (paragraphs, sentences, words etc.)"@en-gb ,
                                        "The task/process of segmenting a text and recognizing textual structural units (paragraphs, sentences, words etc.)"@en ;
                           rdfs:label "Structural annotation"@en ;
                           skos:altLabel "Segmentation"@en ;
@@ -19038,13 +19075,13 @@ omtd:StructuralAnnotationType rdf:type owl:NamedIndividual ,
 omtd:SubcategorizationFrame rdf:type owl:NamedIndividual ,
                                      omtd:AnnotationType ,
                                      skos:Concept ;
-                            rdfs:label "Subcategorisation frame"@en-GB ,
+                            rdfs:label "Subcategorisation frame"@en-gb ,
                                        "Subcategorization frame"@en ;
                             skos:altLabel "Argument structure"@en ;
                             skos:broader omtd:SyntacticAnnotationType ;
                             skos:definition "The number and types of syntactic arguments required by a certain lexical item (mainly verbs, but also nouns and adjectives)"@en ;
                             skos:inScheme omtd:AnnotationTypeScheme ;
-                            skos:prefLabel "Subcategorisation frame"@en-GB ,
+                            skos:prefLabel "Subcategorisation frame"@en-gb ,
                                            "Subcategorization frame"@en .
 
 
@@ -19064,20 +19101,20 @@ omtd:Summarization rdf:type owl:NamedIndividual ,
                             omtd:Operation ,
                             skos:Concept ;
                    rdfs:comment "The process/task of reducing one or more textual documents with a computer program in order to create a summary that retains the most important points of the original document(s)"@en ;
-                   rdfs:label "Summarisation"@en-GB ,
+                   rdfs:label "Summarisation"@en-gb ,
                               "Summarization"@en ;
                    skos:altLabel "ATS"@en ,
-                                 "Automatic Summarisation"@en-GB ,
+                                 "Automatic Summarisation"@en-gb ,
                                  "Automatic Summarization"@en ,
-                                 "Automatic Text Summarisation"@en-GB ,
+                                 "Automatic Text Summarisation"@en-gb ,
                                  "Automatic Text Summarization"@en ,
                                  "TS"@en ,
-                                 "Text Summarisation"@en-GB ,
+                                 "Text Summarisation"@en-gb ,
                                  "Text Summarization"@en ;
                    skos:broader omtd:NaturalLanguageGeneration ;
                    skos:definition "Text summarization is the process of distilling the most important information from a source (or sources) to produce an abridged version for a particular user (or users) and task (or tasks). Source: Mani, I. and Maybury, M. T., editors (1999), Advances in Automatic Text Summarization. MIT Press, Cambridge, Massachusetts."@en ;
                    skos:inScheme omtd:OperationScheme ;
-                   skos:prefLabel "Summarisation"@en-GB ,
+                   skos:prefLabel "Summarisation"@en-gb ,
                                   "Summarization"@en .
 
 
@@ -19088,7 +19125,7 @@ omtd:SupportOfCrowdsourcingTasks rdf:type owl:NamedIndividual ,
                                  rdfs:comment "Any operation that can support tasks that are accomplished through crowdsourcing"@en ;
                                  rdfs:label "Support of crowdsourcing tasks"@en ;
                                  skos:broader omtd:SupportOperation ;
-                                 skos:example "Collection of data, their transformation and organisation into crowdsourcing units; automatic generation of reusable crowdsourcing interfaces for specific tasks (e.g. annotation)"@en-GB ,
+                                 skos:example "Collection of data, their transformation and organisation into crowdsourcing units; automatic generation of reusable crowdsourcing interfaces for specific tasks (e.g. annotation)"@en-gb ,
                                               "Collection of data, their transformation and organization into crowdsourcing units; automatic generation of reusable crowdsourcing interfaces for specific tasks (e.g. annotation)"@en ;
                                  skos:inScheme omtd:OperationScheme ;
                                  skos:prefLabel "Support of crowdsourcing tasks"@en .
@@ -19251,7 +19288,7 @@ omtd:Synapse rdf:type owl:NamedIndividual ,
              rdfs:label "Synapse"@en ;
              skos:broader omtd:BiologicalEnity ,
                           omtd:NamedEntity ;
-             skos:definition "A specialised structure or junction that allows cell to cell communication [http://www.biology-online.org/dictionary/Synapse]"@en-GB ,
+             skos:definition "A specialised structure or junction that allows cell to cell communication [http://www.biology-online.org/dictionary/Synapse]"@en-gb ,
                              "A specialized structure or junction that allows cell to cell communication [http://www.biology-online.org/dictionary/Synapse]"@en ;
              skos:inScheme omtd:AnnotationTypeScheme ;
              skos:prefLabel "Synapse"@en .
@@ -19445,13 +19482,13 @@ omtd:TemporalExpressionsLabelling rdf:type owl:NamedIndividual ,
                                            skos:Concept ;
                                   rdfs:comment "The task/process of determining the boundaries of units of text that denote time-related concepts and attaching to them tags that name these concepts (e.g. date, time, duration etc.)"@en ;
                                   rdfs:label "Temporal expressions labeling"@en-us ,
-                                             "Temporal expressions labelling"@en-GB ;
+                                             "Temporal expressions labelling"@en-gb ;
                                   skos:altLabel "Annotation of time"@en ;
                                   skos:broader omtd:SemanticAnnotation ;
                                   skos:inScheme omtd:OperationScheme ;
                                   skos:narrower omtd:AnnotationOfDates ;
                                   skos:prefLabel "Temporal expressions labeling"@en-us ,
-                                                 "Temporal expressions labelling"@en-GB .
+                                                 "Temporal expressions labelling"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/Term
@@ -19497,7 +19534,7 @@ omtd:TerminologyMarkup rdf:type owl:NamedIndividual ,
                        rdfs:label "Terminology markup"@en ;
                        skos:altLabel "Annotation of terms"@en ,
                                      "Term labeling"@en-us ,
-                                     "Term labelling"@en-GB ;
+                                     "Term labelling"@en-gb ;
                        skos:broader omtd:SemanticAnnotation ;
                        skos:inScheme omtd:OperationScheme ;
                        skos:prefLabel "Terminology markup"@en .
@@ -19614,17 +19651,17 @@ omtd:TextCategorization rdf:type owl:NamedIndividual ,
                                  omtd:Operation ,
                                  skos:Concept ;
                         rdfs:comment "The task/process of assigning documents into classes or categories"@en ;
-                        rdfs:label "Text categorisation"@en-GB ,
+                        rdfs:label "Text categorisation"@en-gb ,
                                    "Text categorization"@en ;
                         skos:altLabel "Document categorisation"@en ,
-                                      "Document categorisation"@en-GB ,
+                                      "Document categorisation"@en-gb ,
                                       "Document categorization"@en ,
                                       "Document classification"@en ,
                                       "Text classification"@en ;
                         skos:broader omtd:InformationExtraction ,
                                      omtd:KnowledgeDiscovery ;
                         skos:inScheme omtd:OperationScheme ;
-                        skos:prefLabel "Text categorisation"@en-GB ,
+                        skos:prefLabel "Text categorisation"@en-gb ,
                                        "Text categorization"@en .
 
 
@@ -19997,18 +20034,18 @@ omtd:Token rdf:type owl:NamedIndividual ,
 omtd:Tokenization rdf:type owl:NamedIndividual ,
                            omtd:Operation ,
                            skos:Concept ;
-                  rdfs:comment "The task/process of recognising and tagging tokens (words, punctuation marks, digits etc.) in a text"@en-GB ,
+                  rdfs:comment "The task/process of recognising and tagging tokens (words, punctuation marks, digits etc.) in a text"@en-gb ,
                                "The task/process of recognizing and tagging tokens (words, punctuation marks, digits etc.) in a text"@en ;
-                  rdfs:label "Tokenisation"@en-GB ,
+                  rdfs:label "Tokenisation"@en-gb ,
                              "Tokenization"@en ;
                   skos:altLabel "Segmentation"@en ,
-                                "Segmentation and Tokenisation"@en-GB ,
+                                "Segmentation and Tokenisation"@en-gb ,
                                 "Segmentation and Tokenization"@en ;
                   skos:broader omtd:StructuralAnnotation ;
-                  skos:definition "Tokenisation is commonly seen as an independent process of linguistic analysis, in which the input stream of characters is segmented into an ordered sequence of word-like units, usually called tokens, which function as input items for subsequent steps of linguistic processing. Tokens may correspond to words, numbers, punctuation marks or even proper names.The recognised tokens are usually classified according to their syntax. Since the notion of tokenisation seems to have different meanings to different people, some tokenisation tools fulfil additional tasks like for instance sentence boundary detection, handling of end-line hyphenations or conjoined clitics and contractions."@en-GB ,
+                  skos:definition "Tokenisation is commonly seen as an independent process of linguistic analysis, in which the input stream of characters is segmented into an ordered sequence of word-like units, usually called tokens, which function as input items for subsequent steps of linguistic processing. Tokens may correspond to words, numbers, punctuation marks or even proper names.The recognised tokens are usually classified according to their syntax. Since the notion of tokenisation seems to have different meanings to different people, some tokenisation tools fulfil additional tasks like for instance sentence boundary detection, handling of end-line hyphenations or conjoined clitics and contractions."@en-gb ,
                                   "Tokenization is commonly seen as an independent process of linguistic analysis, in which the input stream of characters is segmented into an ordered sequence of word-like units, usually called tokens, which function as input items for subsequent steps of linguistic processing. Tokens may correspond to words, numbers, punctuation marks or even proper names.The recognized tokens are usually classified according to their syntax. Since the notion of tokenization seems to have different meanings to different people, some tokenization tools fulfil additional tasks like for instance sentence boundary detection, handling of end-line hyphenations or conjoined clitics and contractions."@en ;
                   skos:inScheme omtd:OperationScheme ;
-                  skos:prefLabel "Tokenisation"@en-GB ,
+                  skos:prefLabel "Tokenisation"@en-gb ,
                                  "Tokenization"@en .
 
 
@@ -20049,7 +20086,7 @@ omtd:TopicDetection rdf:type owl:NamedIndividual ,
 omtd:TrainingOfLanguageModels rdf:type owl:NamedIndividual ,
                                        omtd:Operation ,
                                        skos:Concept ;
-                              dc:source "Adapted from http://homepages.inf.ed.ac.uk/lzhang10/slm.html" ;
+                              dct:source "Adapted from http://homepages.inf.ed.ac.uk/lzhang10/slm.html" ;
                               rdfs:comment "The task/process of training (statistical) language models that  that can estimate the distribution of natural language as accurately as possible"@en ;
                               rdfs:label "Training of language models"@en ;
                               skos:broader omtd:LanguageModelling ;
@@ -20061,7 +20098,7 @@ omtd:TrainingOfLanguageModels rdf:type owl:NamedIndividual ,
 omtd:TrainingOfMachineLearningModels rdf:type owl:NamedIndividual ,
                                               omtd:Operation ,
                                               skos:Concept ;
-                                     dc:source "adapted from http://docs.aws.amazon.com/machine-learning/latest/dg/training-ml-models.html" ;
+                                     dct:source "adapted from http://docs.aws.amazon.com/machine-learning/latest/dg/training-ml-models.html" ;
                                      rdfs:comment "The task/process of creating Machine Learning (ML) models by providing a ML algorithm with training data that help the algorithm discover patterns in data, and construct the appropriate models using these discoveries"@en ;
                                      rdfs:label "Training of Machine Learning models"@en ;
                                      skos:broader omtd:LanguageModelling ;
@@ -20186,12 +20223,12 @@ omtd:TruthLabelling rdf:type owl:NamedIndividual ,
                              skos:Concept ;
                     rdfs:comment "The task of assigning a true/false tag to a news item, headline, claim, etc."@en ;
                     rdfs:label "Truth labeling"@en-us ,
-                               "Truth labelling"@en-GB ;
+                               "Truth labelling"@en-gb ;
                     skos:altLabel "Truth detection"@en ;
                     skos:broader omtd:InformationExtraction ;
                     skos:inScheme omtd:OperationScheme ;
                     skos:prefLabel "Truth labeling"@en-us ,
-                                   "Truth labelling"@en-GB .
+                                   "Truth labelling"@en-gb .
 
 
 ###  http://w3id.org/meta-share/omtd-share/Tsv
@@ -20273,11 +20310,11 @@ omtd:Uima_json rdf:type owl:NamedIndividual ,
 omtd:UnicodeConformTokenizing rdf:type owl:NamedIndividual ,
                                        omtd:Operation ,
                                        skos:Concept ;
-                              rdfs:label "Unicode-conform tokenising"@en-GB ,
+                              rdfs:label "Unicode-conform tokenising"@en-gb ,
                                          "Unicode-conform tokenizing"@en ;
                               skos:broader omtd:SupportOperation ;
                               skos:inScheme omtd:OperationScheme ;
-                              skos:prefLabel "Unicode-conform tokenising"@en-GB ,
+                              skos:prefLabel "Unicode-conform tokenising"@en-gb ,
                                              "Unicode-conform tokenizing"@en .
 
 
@@ -20307,7 +20344,7 @@ omtd:Validation rdf:type owl:NamedIndividual ,
 omtd:VerbalAggressionAnalysis rdf:type owl:NamedIndividual ,
                                        omtd:Operation ,
                                        skos:Concept ;
-                              rdfs:comment "The task/process of recognising evidence and the target(s) of verbal aggression usually in social media texts"@en-GB ,
+                              rdfs:comment "The task/process of recognising evidence and the target(s) of verbal aggression usually in social media texts"@en-gb ,
                                            "The task/process of recognizing evidence and the target(s) of verbal aggression usually in social media texts"@en ;
                               rdfs:label "Verbal aggression analysis"@en ;
                               skos:altLabel "Verbal aggression classification"@en ,
@@ -20393,15 +20430,15 @@ omtd:Visualization rdf:type owl:NamedIndividual ,
                             omtd:Operation ,
                             skos:Concept ;
                    rdfs:comment "The representation of an object, situation, or set of information as a chart, diagram or any other image that helps end users understand the contents or message"@en ;
-                   rdfs:label "Visualisation"@en-GB ,
+                   rdfs:label "Visualisation"@en-gb ,
                               "Visualization"@en ;
-                   skos:altLabel "Presentation and Visualisation"@en-GB ,
+                   skos:altLabel "Presentation and Visualisation"@en-gb ,
                                  "Presentation and Visualization"@en ;
                    skos:broader omtd:Operation ,
                                 omtd:SupportOperation ;
                    skos:inScheme omtd:OperationScheme ;
                    skos:narrower omtd:LexiconVisualization ;
-                   skos:prefLabel "Visualisation"@en-GB ,
+                   skos:prefLabel "Visualisation"@en-gb ,
                                   "Visualization"@en .
 
 
@@ -20965,7 +21002,7 @@ omtd:mleap rdf:type owl:NamedIndividual ,
                     dct:MediaType ,
                     omtd:DataFormat ,
                     skos:Concept ;
-           rdfs:comment "Serialisation format for machine learning pipelines, supporting Spark, Scikit-learn and Tensorflow for training pipelines and exporting them to an MLeap Bundle"@en-GB ,
+           rdfs:comment "Serialisation format for machine learning pipelines, supporting Spark, Scikit-learn and Tensorflow for training pipelines and exporting them to an MLeap Bundle"@en-gb ,
                         "Serialization format for machine learning pipelines, supporting Spark, Scikit-learn and Tensorflow for training pipelines and exporting them to an MLeap Bundle"@en ;
            rdfs:label "MLeap"@en ;
            rdfs:seeAlso "https://combust.github.io/mleap-docs/" ;
@@ -21055,7 +21092,7 @@ omtd:pkl rdf:type owl:NamedIndividual ,
                   dct:MediaType ,
                   omtd:DataFormat ,
                   skos:Concept ;
-         rdfs:comment "Python-specific serialisation format that allows you to convert Python objects (like lists, dictionaries, classes, etc.) into a byte stream, which can then be stored in a file or transmitted over a network"@en-GB ,
+         rdfs:comment "Python-specific serialisation format that allows you to convert Python objects (like lists, dictionaries, classes, etc.) into a byte stream, which can then be stored in a file or transmitted over a network"@en-gb ,
                       "Python-specific serialization format that allows you to convert Python objects (like lists, dictionaries, classes, etc.) into a byte stream, which can then be stored in a file or transmitted over a network"@en ;
          rdfs:label "Pickle"@en ;
          rdfs:seeAlso "https://docs.python.org/3/library/pickle.html" ;
@@ -21099,7 +21136,7 @@ omtd:protoBuf rdf:type owl:NamedIndividual ,
                        omtd:DataFormat ,
                        skos:Concept ;
               omtd:hasMimetype "application/protobuf" ;
-              rdfs:comment "Language-neutral, platform-neutral, extensible mechanism for serialising structured data"@en-GB ,
+              rdfs:comment "Language-neutral, platform-neutral, extensible mechanism for serialising structured data"@en-gb ,
                            "Language-neutral, platform-neutral, extensible mechanism for serializing structured data"@en ;
               rdfs:label "ProtoBuf"@en ;
               rdfs:seeAlso "https://protobuf.dev/" ;
@@ -21210,7 +21247,7 @@ omtd:yaml rdf:type owl:NamedIndividual ,
                    skos:Concept ;
           omtd:hasMimetype "application/x-yaml" ;
           rdfs:comment "Human-readable data serialization language commonly used for configuration files, data exchange, and storing structured data"@en ,
-                       "Human-readable data serialization language commonly used for configuration files, data exchange, and storing structured data"@en-GB ;
+                       "Human-readable data serialization language commonly used for configuration files, data exchange, and storing structured data"@en-gb ;
           rdfs:label "YAML"@en ;
           rdfs:seeAlso "hhttps://yaml.org/" ;
           skos:altLabel "YAML Ain't Markup Language"@en ;
@@ -21221,12 +21258,11 @@ omtd:yaml rdf:type owl:NamedIndividual ,
 
 ###  http://www.w3.org/ns/odrl/2/Constraint
 odrl:Constraint rdf:type owl:NamedIndividual ,
-                         skos:Concept .
+                         skos:Concept ;
+                rdfs:isDefinedBy odrl: ;
+                rdfs:label "Constraint"@en ;
+                skos:definition "A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule."@en .
 
-
-###  http://www.w3.org/ns/odrl/2/Operator
-odrl:Operator rdf:type owl:NamedIndividual ,
-                       skos:Concept .
 
 
 ###  http://www.w3.org/ns/odrl/2/elapsedTime
@@ -21239,11 +21275,6 @@ odrl:elapsedTime rdf:type owl:NamedIndividual ,
                  skos:definition "A continuous elapsed time period which may be used for exercising of the action of the Rule. Right operand value MUST be an xsd:duration as defined by [[xmlschema11-2]]."@en ;
                  skos:note "Only the eq, lt, lteq operators SHOULD be used. See also Metered Time. <br />Example: <code>elpasedTime eq P60M</code> indicates a total elapsed time of 60 Minutes." ;
                  skos:scopeNote "Non-Normative"@en .
-
-
-###  http://www.w3.org/ns/odrl/2/operator
-odrl:operator rdf:type owl:NamedIndividual ,
-                       skos:Concept .
 
 
 ###  http://www.w3.org/ns/odrl/2/payAmount
@@ -21270,23 +21301,19 @@ odrl:purpose rdf:type owl:NamedIndividual ,
              skos:scopeNote "Non-Normative"@en .
 
 
-###  https://w3id.org/dpv#TechnicalOrganisationalMeasure
-dpv:TechnicalOrganisationalMeasure rdf:type owl:NamedIndividual ,
-                                            skos:Concept .
+###  http://www.w3.org/ns/odrl/2/systemDevice
+odrl:systemDevice rdf:type odrl:LeftOperand , owl:NamedIndividual , skos:Concept ;
+  rdfs:isDefinedBy odrl: ;
+  rdfs:label "Connector"@en ;
+  skos:definition "An identified computing system or computing device used for exercising the action of the Rule."@en ;
+  skos:note "Example: The system device can be identified by a unique code created from the used hardware."@en ,
+            "PL: changed label"@en ;
+    skos:scopeNote "Non-Normative"@en .
 
 
 #################################################################
 #    Annotations
 #################################################################
-
-dct:language rdfs:comment "A language of the resource."@en ;
-             rdfs:label "Language"@en ;
-             skos:note "DCMI note: Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [IETF-BCP47] language tag."@en .
-
-
-dcatlds:ScopeOfUse rdfs:comment "The scope of use (internal, external) of a resource"@en ;
-                   rdfs:label "Scope of use"@en .
-
 
 ms:AudioType skos:exactMatch lexmeta:audioContent .
 
@@ -21373,13 +21400,6 @@ ms:irregularForm skos:exactMatch lexmeta:irregularForm .
 ms:meronym skos:exactMatch lexmeta:meronym .
 
 
-ms:mlModel rdfs:label "model"@en ;
-           skos:definition "Value for 'LR type' for machine learning models (e.g., language models, LLMs)"@en ;
-           skos:inScheme ms:LRTypeTaxonomy ;
-           skos:prefLabel "model"@en ;
-           skos:topConceptOf ms:LRTypeTaxonomy .
-
-
 ms:mood skos:exactMatch lexmeta:mood .
 
 
@@ -21441,39 +21461,6 @@ ms:variant1 skos:exactMatch lexmeta:variant .
 
 
 ms:voice1 skos:exactMatch lexmeta:voice .
-
-
-odrl:Constraint rdfs:isDefinedBy odrl: ;
-                rdfs:label "Constraint"@en ;
-                skos:definition "A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule."@en .
-
-
-odrl:Operator rdfs:isDefinedBy odrl: ;
-              rdfs:label "Operator"@en ;
-              skos:definition "Operator for constraint expression."@en ;
-              skos:note "Instances of the Operator class representing relational operators."@en .
-
-
-odrl:operator rdfs:comment "The operator function applied to operands of a Constraint"@en ;
-              rdfs:isDefinedBy odrl: ;
-              rdfs:label "Has Operator"@en ;
-              skos:definition "The operator function applied to operands of a Constraint"@en .
-
-
-odrl:systemDevice rdfs:comment "An identified computing system or computing device used for exercising the action of the Rule."@en ;
-                  rdfs:isDefinedBy odrl: ;
-                  rdfs:label "Connector"@en ;
-                  skos:note "Example: The system device can be identified by a unique code created from the used hardware."@en ,
-                            "PL: changed label"@en ;
-                  skos:scopeNote "Non-Normative"@en .
-
-
-foaf:name rdfs:comment "A name for some thing."@en ;
-          rdfs:label "name"@en .
-
-
-dpv:TechnicalOrganisationalMeasure rdfs:comment "Technical and Organisational measures used to safeguard and ensure good practices in connection with data and technologies"@en ;
-                                   rdfs:label "Technical and Organisational Measure"@en .
 
 
 <https://www.iana.org/assignments/media-types/application_vnd_openxmlformats_officedocument_spreadsheetml_sheet> skos:exactMatch omtd:MsExcel_xlsx .
