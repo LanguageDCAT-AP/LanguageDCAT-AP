@@ -1075,7 +1075,7 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt>Reference</dt>
 <dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#LicenceDocument">DCAT-AP [A]</a></dd>
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Licence.alternative">alternative</a>, <a href="#Licence.description">description</a>, <a href="#Licence.identifier">identifier</a>, <a href="#Licence.legalCode">legal code</a>, <a href="#Licence.seeAlso">see also</a>, <a href="#Licence.title">title</a>.</dd>
+<dd>For this entity the following properties are defined: <a href="#Licence.alternative">alternative</a>, <a href="#Licence.description">description</a>, <a href="#Licence.legalCode">legal code</a>, <a href="#Licence.seeAlso">see also</a>, <a href="#Licence.otherIdentifier">other identifier</a>, <a href="#Licence.title">title</a>.</dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -1112,21 +1112,21 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <td></td>
 <td>P</td>
 </tr>
-<tr id="Licence.identifier">
-<td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td>
-<td><a href="#Identifier" target="_blank">Identifier</a></td>
-<td>0..n</td>
-<td>Links a resource to an adms:Identifier class.</td>
-<td>When a standard licence is used, this MUST be the identifier from the SPDX list of licences.</td>
-<td></td>
-<td>P</td>
-</tr>
 <tr id="Licence.legalCode">
 <td><a href="http://creativecommons.org/ns#legalCode" target="_blank">legal code</a></td>
 <td><a href="#Resource" target="_blank">Resource</a></td>
 <td>1..1</td>
 <td>The URL of the legal text of a Licence.</td>
 <td></td>
+<td></td>
+<td>P</td>
+</tr>
+<tr id="Licence.otherIdentifier">
+<td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">other identifier</a></td>
+<td><a href="#Identifier" target="_blank">Identifier</a></td>
+<td>0..n</td>
+<td>Links a resource to an adms:Identifier class.</td>
+<td>When a standard licence is used, this MUST be the identifier from the SPDX list of licences.</td>
 <td></td>
 <td>P</td>
 </tr>
@@ -1956,6 +1956,7 @@ This property can be repeated for parallel language versions. The language tag i
 <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
 </dl>
 </section>
+
 <!-- Section ModelType -->
 <section id="ModelType">
 <h3><a data-content="http://w3id.org/meta-share/meta-share/ModelType" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/ModelType">Model Type</a></h3>
@@ -2053,20 +2054,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </dl>
 </section>
 
-<!-- Section SpecialCategoryDataIncluded -->
-<section id="SpecialCategoryDataIncluded">
-<h3><a data-content="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded">Special Category Data Included</a></h3>
-<dl>
-<dt>Definition</dt>
-<dd>Specification of whether the language resource contains special category data covered in Article 9(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)</dd>
-<dt>Reference</dt>
-<dd>No reference</dd>
-<dt>Properties</dt>
-<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
-</dl>
-</section>
-
-
 <!-- Section Resource -->
 <section id="Resource">
 <h3><a data-content="http://www.w3.org/2000/01/rdf-schema#Resource" data-placement="right" data-toggle="tooltip" href="http://www.w3.org/2000/01/rdf-schema#Resource">Resource</a></h3>
@@ -2079,6 +2066,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
 </dl>
 </section>
+
 <!-- Section Script -->
 <section id="Script">
 <h3><a data-content="http://w3id.org/meta-share/meta-share/Script" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/Script">Script</a></h3>
@@ -2125,6 +2113,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </table>
 </div>
 </section>
+
 <!-- Section SizeUnit -->
 <section id="SizeUnit">
 <h3><a data-content="http://w3id.org/meta-share/meta-share/SizeUnit" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/SizeUnit">Size Unit</a></h3>
@@ -2150,6 +2139,20 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
 </dl>
 </section>
+
+<!-- Section SpecialCategoryDataIncluded -->
+<section id="SpecialCategoryDataIncluded">
+<h3><a data-content="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/meta-share/SensitiveDataIncluded">Special Category Data Included</a></h3>
+<dl>
+<dt>Definition</dt>
+<dd>Specification of whether the language resource contains special category data covered in Article 9(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)</dd>
+<dt>Reference</dt>
+<dd>No reference</dd>
+<dt>Properties</dt>
+<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
+</dl>
+</section>
+
 <!-- Section Standard -->
 <section id="Standard">
 <h3><a data-content="http://purl.org/dc/terms/Standard" data-placement="right" data-toggle="tooltip" href="http://purl.org/dc/terms/Standard">Standard</a></h3>
