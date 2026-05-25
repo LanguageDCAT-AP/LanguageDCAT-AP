@@ -298,6 +298,16 @@ sh:SoftwareDistributionFormRestriction
 		             sh:path     skos:inScheme ;
 	             ] .
 
+sh:ProcessingResourceTypeRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Processing Resource Type Restriction" ;
+	rdfs:label   "Processing Resource Type Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:ProcessingResourceTypeTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
 # Rules upon condition
 sh:LanguageOnLingualityTypelRestriction
 	sh:targetClass edc:Asset ;

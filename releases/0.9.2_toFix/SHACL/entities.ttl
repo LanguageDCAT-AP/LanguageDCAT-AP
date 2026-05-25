@@ -14,8 +14,6 @@
 @prefix cc:      <http://creativecommons.org/ns#> .
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
 
-
-# Specific to LDS
 sh:PolicyRoot
 	a                    sh:NodeShape ;
 	sh:applicableIn      "LanguageDCAT-AP:*:POLICY" ;
@@ -30,8 +28,7 @@ sh:PolicyRoot
 		                     sh:node     sh:PolicyNodeShape
 	                     ] .
 
-
-# Specific to LDS
+# Only additional properties are checked; properties for prohibitions, permissions & constraints are checked by the EDC 
 sh:PolicyNodeShape
 	a               sh:NodeShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:POLICY" ;
@@ -40,7 +37,7 @@ sh:PolicyNodeShape
 	                sh:AlternativeProp ,
 	                sh:DescriptionProp,
 	                sh:AdmsIdentifierProp,
-					sh:ConformsProp,
+	                sh:ConformsProp,
 	                [
 		                sh:path     cc:legalcode ;
 		                sh:maxCount 1 ;
@@ -48,7 +45,6 @@ sh:PolicyNodeShape
 		                sh:pattern  "^https?://.+$"
 	                ] .
 
-# Specific to LDS
 sh:AssetRoot
 	a                    sh:NodeShape ;
 	sh:applicableIn      "LanguageDCAT-AP:*:CORPUS",
@@ -65,14 +61,12 @@ sh:AssetRoot
 		                     sh:message "edc:dataAddress must match either HttpData or AmazonS3 shape"
 	                     ] .
 
-# Specific to LDS
 sh:DataAddressDispatcher
 	a          sh:NodeShape ;
 	sh:or      ( sh:HttpData
 	             sh:AmazonS3 ) ;
 	sh:message "dataAddress must match either HttpData or AmazonS3 shape" .
 
-# Specific to LDS
 sh:AssetPropertyShape
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:CORPUS",
@@ -84,7 +78,6 @@ sh:AssetPropertyShape
 	sh:minCount     1 ;
 	sh:maxCount     1 .
 
-# Specific to LDS
 sh:AssetNodeShape
 	a                    sh:NodeShape ;
 	sh:applicableIn      "LanguageDCAT-AP:*:CORPUS",
@@ -99,7 +92,6 @@ sh:AssetNodeShape
 # Instead, we will rely on the sh:applicableIn property of individual property shapes to ensure that the correct
 # properties are present for each asset type and version.
 
-# Specific to LDS
 sh:HttpData
 	a                    sh:NodeShape ;
 	sh:applicableIn      "LanguageDCAT-AP:*:CORPUS",
@@ -139,7 +131,6 @@ sh:HttpData
 	                     ] .
 
 
-# Specific to LDS
 sh:AmazonS3
 	a                    sh:NodeShape ;
 	sh:applicableIn      "LanguageDCAT-AP:*:CORPUS",

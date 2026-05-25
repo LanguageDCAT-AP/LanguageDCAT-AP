@@ -2470,7 +2470,21 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     <td>No specs; only data access services are in the scope of DSP and this is reserved for the connector.</td>
     <td>To support various distribution types for tools/services (e.g., downloadable source code, remotely running services, etc.), executionLocation is recommended for the endopoint that triggers the execution of the service with cardinality 0..1</td>
 </tr>
-
+<tr>
+    <td><a href="#Dataset">Dataset</a> (<a href="#Corpus">Corpus</a>, <a href="#LCR">Lexical/Conceptual Resource)</a></td>
+    <td><a href="#Corpus.distribution">distribution</a></td>
+    <td>Cardinality 0..n</td>
+    <td>Cardinality 1..n</td>
+    <td>Although the DSP allows for multiple Distributions, these Distributions are used for the different transfer protocols supported for the dataset (e.g., documenting that the same dataset can be transferred via HTTP or S3). Due to the EDC implementation issues, only one Distribution is required, but the importer supports both the representation of the relation as a list and as a single object. <i>LDS users are recommended to ??? for datasets with multiple distributions??? And what do we do at export???</i> NOTE for me to add also in 0.9.5 for model distribution
+    </td>
+<tr>
+<tr>
+    <td><a href="#ToolService">Tool/Service</a></a></td>
+    <td><a href="#ToolService.softwareDistribution">software distribution</a></td>
+    <td>n/a</td>
+    <td>n/a</td>
+    <td>Due to the fact that tools/services are treated as datasets for now (cf. above), they must comply with the DSP requirements for dataset distributions. Thus, multiple software distributions are in principle allowed, yet due to EDC implementation issues (see above), only one Software Distribution is required, but the importer supports both the representation of the relation as a list and as a single object. <i>LDS users are recommended to ??? for datasets with multiple distributions??? And what do we do at export???</i></td>
+<tr>
 </tbody>
 </table>
 </section>
