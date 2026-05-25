@@ -1,0 +1,550 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix ms:      <http://w3id.org/meta-share/meta-share/> .
+@prefix omtd:    <http://w3id.org/meta-share/omtd-share/> .
+@prefix edc:     <https://w3id.org/edc/v0.0.1/ns/> .
+@prefix lexmeta: <http://w3id.org/meta-share/lexmeta#> .
+
+sh:LRTypeRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Language Resource Type Restriction" ;
+	rdfs:label   "Language Resource Type Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:LRTypeTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:DomainRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Domain Restriction" ;
+	rdfs:label   "Domain Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:DomainTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme
+	             ] .
+
+sh:PDIsRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Personal Data Included Restriction" ;
+	rdfs:label   "Personal Data Included Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:PersonalDataIncludedTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+
+sh:DataFormatRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Data Format Restriction" ;
+	rdfs:label   "Data Format Restriction" ;
+	sh:property  [
+		             sh:hasValue omtd:DataFormatScheme ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme
+	             ] .
+
+sh:SizeUnitRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Size Unit Restriction" ;
+	rdfs:label   "Size Unit Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:SizeUnitTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme
+	             ] .
+
+sh:PackageFormatRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Package Format Restriction" ;
+	rdfs:label   "Package Format Restriction" ;
+	sh:property  [
+		             sh:hasValue omtd:PackageFormatScheme ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme
+	             ] .
+
+sh:ConformsToRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Conforms Restriction" ;
+	rdfs:label   "Conforms Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:StandardBestPracticeTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:SpatialRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Spatial Restriction" ;
+	rdfs:label   "Spatial Restriction" ;
+	sh:nodeKind  sh:IRI ;
+	sh:or        ( [
+		               sh:path     skos:inScheme ;
+		               sh:hasValue <http://publications.europa.eu/resource/authority/continent>
+	               ]
+	               [
+		               sh:path     skos:inScheme ;
+		               sh:hasValue <http://publications.europa.eu/resource/authority/country>
+	               ]
+	               [
+		               sh:path     skos:inScheme ;
+		               sh:hasValue <http://publications.europa.eu/resource/authority/place>
+	               ]
+	               [ sh:pattern "^https://sws.geonames.org/[1-9]{1,7}\\/?$" ] )
+.
+
+sh:SDIsRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Sensitive Data Included Restriction" ;
+	rdfs:label   "Sensitive Data Included Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:SensitiveDataIncludedTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:AnonymizedRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Anonymized Data Included Restriction" ;
+	rdfs:label   "Anonymized Data Included Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:AnonymizedTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:TechnicalOrganisationalMeasureRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Technical Organisational Measure Restriction" ;
+	rdfs:label   "Technical Organisational Measure Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:TechnicalOrganisationalMeasureTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:DataProtectionPrincipleRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Data Protection Principle Restriction" ;
+	rdfs:label   "Data Protection Principle Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:DataProtectionPrincipleTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:MediaTypeRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Media Type Restriction" ;
+	rdfs:label   "Media Type Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:MediaTypeTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:LingualityTypeRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Linguality Type Restriction" ;
+	rdfs:label   "Linguality Type Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:LingualityTypeTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:LanguageRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "BCP47 Language Restriction" ;
+	rdfs:label   "BCP47 Language Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:LanguageTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme
+	             ] .
+
+sh:LocationRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "BCP47 Region Restriction" ;
+	rdfs:label   "BCP47 Region Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:LocationTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme
+	             ] .
+
+sh:ScriptRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "BCP47 Script Restriction" ;
+	rdfs:label   "BCP47 Script Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:ScriptTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme
+	             ] .
+
+sh:VariantRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "BCP47 Variant Restriction" ;
+	rdfs:label   "BCP47 Variant Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:VariantTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme
+	             ] .
+
+sh:DCTLanguageRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "DCT Language Restriction" ;
+	rdfs:label   "DCT Language Restriction" ;
+	sh:property  [
+		             sh:hasValue <http://publications.europa.eu/resource/authority/language> ;
+		             sh:minCount 1 ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme
+	             ] .
+
+sh:CorpusSubclassRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Corpus Subclass Restriction" ;
+	rdfs:label   "Corpus Subclass Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:CorpusSubclassTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:AnnotationTypeRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Annotation Type Restriction" ;
+	rdfs:label   "Annotation Type Restriction" ;
+	sh:property  [
+		             sh:hasValue omtd:AnnotationTypeScheme ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:MultilingualityTypeRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Multilinguality Type Restriction" ;
+	rdfs:label   "Multilinguality Type Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:MultilingualityTypeTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:LCRSubclassRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "LCR Subclass Restriction" ;
+	rdfs:label   "LCR Subclass Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:LCRSubclassTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:LingInfoSubclassRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Linguistic Information Restriction" ;
+	rdfs:label   "Linguistic Information Restriction" ;
+	sh:property  [
+		             sh:hasValue lexmeta:MicrostructureFeatureScheme ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:ModelTypeRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "MetadataModel Type Restriction" ;
+	rdfs:label   "MetadataModel Type Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:ModelTypeTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:TSFunctionRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Tool/Service Function Restriction" ;
+	rdfs:label   "Tool/Service Function Restriction" ;
+	sh:property  [
+		             sh:hasValue omtd:OperationScheme ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:ModelFunctionRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "MetadataModel Function Restriction" ;
+	rdfs:label   "MetadataModel Function Restriction" ;
+	sh:property  [
+		             sh:hasValue omtd:OperationScheme ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+sh:SoftwareDistributionFormRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Software Distribution Form Restriction" ;
+	rdfs:label   "Software Distribution Form Restriction" ;
+	sh:property  [
+		             sh:hasValue ms:SoftwareDistributionFormTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+	             ] .
+
+# Rules upon condition
+sh:LanguageOnLingualityTypelRestriction
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "Invalid cardinality of ms:language for monolingual linguality type: Only one ms:language allowed" ;
+		               sh:select  """
+        SELECT $this
+        WHERE {
+            $this <http://w3id.org/meta-share/meta-share/lingualityType>
+            <http://w3id.org/meta-share/meta-share/monolingual> .
+            FILTER EXISTS {
+                    SELECT ?this (COUNT(?c) AS ?count)
+                    WHERE { ?this <http://w3id.org/meta-share/meta-share/language> ?c }
+                    GROUP BY ?this
+                    HAVING (?count > 1)
+                }
+        }
+        """ ;
+	               ],
+	               [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "Invalid cardinality of ms:language for bilingual or bilingualized linguality type: Only two ms:language allowed" ;
+		               sh:select  """
+        SELECT $this
+        WHERE {
+            { $this <http://w3id.org/meta-share/meta-share/lingualityType>
+            <http://w3id.org/meta-share/meta-share/bilingual> } UNION { $this <http://w3id.org/meta-share/meta-share/lingualityType>
+            <http://w3id.org/meta-share/meta-share/bilingualized> } .
+            FILTER EXISTS {
+                    SELECT ?this (COUNT(?c) AS ?count)
+                    WHERE { ?this <http://w3id.org/meta-share/meta-share/language> ?c }
+                    GROUP BY ?this
+                    HAVING (?count != 2)
+                }
+        }
+        """ ;
+	               ],
+	               [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "Invalid cardinality of ms:language for multilingual linguality type: Only more than two ms:language allowed" ;
+		               sh:select  """
+        SELECT $this
+        WHERE {
+            $this <http://w3id.org/meta-share/meta-share/lingualityType>
+            <http://w3id.org/meta-share/meta-share/multilingual> .
+            FILTER EXISTS {
+                    SELECT ?this (COUNT(?c) AS ?count)
+                    WHERE { ?this <http://w3id.org/meta-share/meta-share/language> ?c }
+                    GROUP BY ?this
+                    HAVING (?count < 3)
+                }
+        }
+        """ ;
+	               ] .
+
+sh:SensitiveOnAnonymizedRestriction
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "Cannot set 'ms:sensitiveDataIncluded' attribute because 'ms:anonymized' is set to true" ;
+		               sh:select  """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/anonymized> <http://w3id.org/meta-share/meta-share/yesA> .
+                  FILTER EXISTS {
+                        SELECT ?this (COUNT(?c) AS ?count)
+                        WHERE { ?this <http://w3id.org/meta-share/meta-share/sensitiveDataIncluded> ?c }
+                        GROUP BY ?this
+                        HAVING (?count > 0)
+                    }
+                  }
+                  """
+	               ] .
+
+sh:SensitivePersonalMandatory
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "'ms:sensitiveDataIncluded' attribute is required because 'ms:personalDataIncluded' is set to true" ;
+		               sh:select  """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/yesP> .
+                  FILTER NOT EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/sensitiveDataIncluded> ?c
+                    }
+                  }
+                  """
+	               ] .
+
+sh:SensitivePersonalMandatoryNo
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "'ms:sensitiveDataIncluded' attribute cannot have the value 'yesS' because 'ms:personalDataIncluded' is set to no" ;
+		               sh:select  """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/noP> .
+                  FILTER EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/sensitiveDataIncluded> <http://w3id.org/meta-share/meta-share/yesS>
+                    }
+                  }
+                  """
+	               ] .
+
+
+sh:SensitivePersonalMandatoryUnknown
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "'ms:sensitiveDataIncluded' attribute cannot have the value 'yesS' because 'ms:personalDataIncluded' is set to unknown" ;
+		               sh:select  """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/unknownP> .
+                  FILTER EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/sensitiveDataIncluded> <http://w3id.org/meta-share/meta-share/yesS>
+                    }
+                  }
+                  """
+	               ] .
+
+sh:TechnicalOrganisationalMeasurePersonalMandatory
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "'dpv:hasTechnicalOrganisationalMeasure' attribute is required because 'ms:personalDataIncluded' is set to true" ;
+		               sh:select  """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/yesP> .
+                  FILTER NOT EXISTS {
+                        $this <https://w3id.org/dpv#hasTechnicalOrganisationalMeasure> ?c
+                    }
+                  }
+                  """
+	               ] .
+
+sh:TechnicalOrganisationalMeasurePersonalNo
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "'dpv:hasTechnicalOrganisationalMeasure' attribute is not applicable because 'ms:personalDataIncluded' is set to no" ;
+		               sh:select  """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/noP> .
+                  FILTER EXISTS {
+                        $this <https://w3id.org/dpv#hasTechnicalOrganisationalMeasure> ?c
+                    }
+                  }
+                  """
+	               ] .
+
+sh:TechnicalOrganisationalMeasurePersonalUnknown
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "'dpv:hasTechnicalOrganisationalMeasure' attribute is not applicable because 'ms:personalDataIncluded' is set to unknown" ;
+		               sh:select  """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/unknownP> .
+                  FILTER EXISTS {
+                        $this <https://w3id.org/dpv#hasTechnicalOrganisationalMeasure> ?c
+                    }
+                  }
+                  """
+	               ] .
+
+sh:DataProtectionPrincipleAppliedPersonalMandatory
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "'ms:dataProtectionPrincipleApplied' attribute is required because 'ms:personalDataIncluded' is set to true" ;
+		               sh:select  """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/yesP> .
+                  FILTER NOT EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied> ?c
+                    }
+                  }
+                  """
+	               ] .
+
+sh:DataProtectionPrincipleAppliedPersonalNO
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "'ms:dataProtectionPrincipleApplied' attribute is not applicable because 'ms:personalDataIncluded' is set to no " ;
+		               sh:select  """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/noP> .
+                  FILTER EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied> ?c
+                    }
+                  }
+                  """
+	               ] .
+
+sh:DataProtectionPrincipleAppliedPersonalUnknown
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "'ms:dataProtectionPrincipleApplied' attribute is not applicable because 'ms:personalDataIncluded' is set to unknown" ;
+		               sh:select  """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/personalDataIncluded> <http://w3id.org/meta-share/meta-share/unknownP> .
+                  FILTER EXISTS {
+                        $this <http://w3id.org/meta-share/meta-share/dataProtectionPrincipleApplied> ?c
+                    }
+                  }
+                  """
+	               ] .
+
+sh:PersonalOnAnonymizedRestriction
+	sh:targetClass edc:Asset ;
+	a              sh:NodeShape ;
+	sh:sparql      [
+		               a          sh:SPARQLConstraint ;
+		               sh:message "Cannot set 'ms:personalDataIncluded' attribute because 'ms:anonymized' is set to true" ;
+		               sh:select  """
+                  SELECT $this
+                  WHERE {
+                    $this <http://w3id.org/meta-share/meta-share/anonymized> <http://w3id.org/meta-share/meta-share/yesA> .
+                  FILTER EXISTS {
+                        SELECT ?this (COUNT(?c) AS ?count)
+                        WHERE { ?this <http://w3id.org/meta-share/meta-share/personalDataIncluded> ?c }
+                        GROUP BY ?this
+                        HAVING (?count > 0)
+                    }
+                  }
+                  """
+	               ] .

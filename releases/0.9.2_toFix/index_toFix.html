@@ -91,12 +91,17 @@ aside.example {
     line-height: 1.5;
 }
 
+/* Warning box */
         .box {
-            background-color: #ccc;
-            border: 1px #f9f9f9;
-            padding: 10px;
-            margin: 10px;
+            border-radius: 10px;
+            background-color: #ddd;
+            border: 1px #ddd;
+            width: 95% ;
+            padding: 5px 15px ;
+            color: #2E75B6 ;
+            font-size: 12px;
         }
+
 
 </style>
 <script class="remove" defer="" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
@@ -918,6 +923,10 @@ The following diagram gives an overview of LanguageDCAT-AP. For simplicity sake,
 <dt><strong>Properties</strong></dt>
 <dd>For this entity the following properties are defined: <a href="#Distribution.accessService">access service</a>, <a href="#Distribution.accessURL">access URL</a>, <a href="#Distribution.byteSize">byte size</a>, <a href="#Distribution.downloadURL">download URL</a>, <a href="#Distribution.format">format</a>, <a href="#Distribution.hasPolicy">has policy</a>, <a href="#Distribution.licence">licence</a>, <a href="#Distribution.mediaType">media type</a>, <a href="#Distribution.packageFormat">package format</a>, <a href="#Distribution.size">size</a>, <a href="#Distribution.title">title</a>.</dd>
 </dl>
+<div class="box">
+To comply with the Data Space Protocol, some of these properties are treated differently in the LDS implementation; check the <a href="LDSNotes">LDS Notes</a> section for further information.
+</div>
+<p></p>
 <div class="u-table-overflow">
 <table class="data-table simple">
 <colgroup>
@@ -935,13 +944,20 @@ The following diagram gives an overview of LanguageDCAT-AP. For simplicity sake,
 </tr>
 </thead>
 <tbody>
-<tr id="Distribution.accessService"><td><a href="http://www.w3.org/ns/dcat#accessService" target="_blank">access service</a></td><td><a href="#DataService" target="_blank">Data Service</a></td><td>1..1</td><td>A site or end-point that gives access to the distribution of the dataset</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.accessservice" target="_blank">DCAT-AP [E]</a></td></tr>
-<tr id="Distribution.accessURL"><td><a href="http://www.w3.org/ns/dcat#accessURL" target="_blank">access URL</a></td><td><a href="#Resource" target="_blank">Resource</a></td><td>0..n</td><td>A URL of a resource that gives access to a distribution of the dataset, e.g. landing page, feed, SPARQL endpoint.</td><td>dcat:accessURL SHOULD be used for the URL of a service or location that can provide access to this distribution, typically through a Web form, query or API call, while dcat:downloadURL is preferred for direct links to downloadable resources. If needed, the dcat:downloadURL can be duplicated as dcat:accessURL for validation purposes.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.accessURL" target="_blank">DCAT-AP [E]</a></td></tr>
-<tr id="Distribution.byteSize"><td><a href="http://www.w3.org/ns/dcat#byteSize" target="_blank">byte size</a></td><td><a href="#nonNegativeInteger" target="_blank">nonNegativeInteger</a></td><td>1..1</td><td>The size of a distribution in bytes.</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.bytesize" target="_blank">DCAT-AP [E]</a></td></tr>
-<tr id="Distribution.downloadURL"><td><a href="http://www.w3.org/ns/dcat#downloadURL" target="_blank">download URL</a></td><td><a href="#Resource" target="_blank">Resource</a></td><td>1..1</td><td>The URL of the downloadable file in a given format. E.g. CSV file or RDF file. The format is indicated by the distribution's dct:format and/or dcat:mediaType.</td><td>dcat:downloadURL SHOULD be used for the URL at which this distribution is available directly, typically through a HTTP Get request.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.downloadURL" target="_blank">DCAT-AP [E]</a></td></tr>
-<tr id="Distribution.format"><td><a href="http://purl.org/dc/terms/format" target="_blank">format</a></td><td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td><td>1..n</td><td>The file format, physical medium, or dimensions of the resource</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" target="_blank">OMTD-SHARE Vocabulary of Data Formats</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.format" target="_blank">DCAT-AP [E]</a></td></tr>
-<tr id="Distribution.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">has policy</a></td><td><a href="#Policy" target="_blank">Policy</a></td><td>1..n</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representation of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.haspolicy" target="_blank">DCAT-AP [E]</a></td></tr>
-<tr id="Distribution.licence"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>1..1</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.licence" target="_blank">DCAT-AP [E]</a></td></tr>
+<tr id="Distribution.accessService"><td><a href="http://www.w3.org/ns/dcat#accessService" target="_blank">access service</a></td><td><a href="#DataService" target="_blank">Data Service</a></td><td>0..1</td><td>A site or end-point that gives access to the distribution of the dataset</td><td>See <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.accessservice" target="_blank">DCAT-AP [E]</a></td></tr>
+<tr id="Distribution.accessURL"><td><a href="http://www.w3.org/ns/dcat#accessURL" target="_blank">access URL</a></td><td><a href="#Resource" target="_blank">Resource</a></td><td>0..n</td><td>A URL of a resource that gives access to a distribution of the dataset, e.g. landing page, feed, SPARQL endpoint.</td><td>dcat:accessURL SHOULD be used for the URL of a service or location that can provide access to this distribution, typically through a Web form, query or API call, while dcat:downloadURL is preferred for direct links to downloadable resources. If needed, the dcat:downloadURL can be duplicated as dcat:accessURL for validation purposes.<p></p>See also <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.accessURL" target="_blank">DCAT-AP [E]</a></td></tr>
+<tr id="Distribution.byteSize"><td><a href="http://www.w3.org/ns/dcat#byteSize" target="_blank">byte size</a></td><td><a href="#nonNegativeInteger" target="_blank">nonNegativeInteger</a></td><td>0..1</td><td>The size of a distribution in bytes.</td><td></td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.bytesize" target="_blank">DCAT-AP [E]</a></td></tr>
+<tr id="Distribution.downloadURL"><td><a href="http://www.w3.org/ns/dcat#downloadURL" target="_blank">download URL</a></td><td><a href="#Resource" target="_blank">Resource</a></td><td>1..1</td><td>The URL of the downloadable file in a given format. E.g. CSV file or RDF file. The format is indicated by the distribution's dct:format and/or dcat:mediaType.</td><td>dcat:downloadURL SHOULD be used for the URL at which this distribution is available directly, typically through a HTTP Get request.<p></p>See also <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.downloadURL" target="_blank">DCAT-AP [E]</a></td></tr>
+<tr id="Distribution.format">
+    <td><a href="http://purl.org/dc/terms/format" target="_blank">format</a></td>
+    <td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td>
+    <td>1..n</td>
+    <td>The file format, physical medium, or dimensions of the resource</td>
+    <td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td>
+    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" target="_blank">OMTD-SHARE Vocabulary of Data Formats</a></td>
+    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.format" target="_blank">DCAT-AP [E]</a></td></tr>
+<tr id="Distribution.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">has policy</a></td><td><a href="#Policy" target="_blank">Policy</a></td><td>1..n</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representation of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.<p></p>See also <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.haspolicy" target="_blank">DCAT-AP [E]</a></td></tr>
+<tr id="Distribution.licence"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>0..n</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. See also <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td>See also <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.licence" target="_blank">DCAT-AP [E]</a></td></tr>
 <tr id="Distribution.mediaType"><td><a href="http://www.w3.org/ns/dcat#mediaType" target="_blank">media type</a></td><td><a href="#MediaType" target="_blank">Media Type</a></td><td>0..n</td><td>The media type of the distribution as defined by IANA [IANA-MEDIA-TYPES].</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">IANA-MEDIA-TYPES Vocabulary</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.mediatype" target="_blank">DCAT-AP [E]</a></td></tr>
 <tr id="Distribution.packageFormat"><td><a href="http://www.w3.org/ns/dcat#packageFormat" target="_blank">package format</a></td><td><a href="#MediaType" target="_blank">Media Type</a></td><td>0..1</td><td>The package format of the distribution in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together.</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Package_Format_Taxonomy/data" target="_blank">OMTD-SHARE Vocabulary of Package Formats</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.packagingformat" target="_blank">DCAT-AP [E]</a></td></tr>
 <tr id="Distribution.size"><td><a href="http://w3id.org/meta-share/meta-share/size" target="_blank">size</a></td><td><a href="#Size" target="_blank">Size</a></td><td>1..n</td><td>Specifies the size of a countable entity with regard to the SizeUnit measurement in form of a number</td><td></td><td></td><td>P</td></tr>
@@ -1321,8 +1337,12 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <dt><strong>Reference</strong></dt>
 <dd><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Policy">DCAT-AP [E]</a></dd>
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Policy.alternative">alternative</a>, <a href="#Policy.description">description</a>, <a href="#Policy.hadPrimarySource">had primary source</a>, <a href="#Policy.identifier">identifier</a>, <a href="#Policy.legalCode">legal code</a>, <a href="#Policy.title">title</a>, <a href="#Policy.wasAttributedTo">was attributed to</a>.</dd>
+<dd>For this entity the following properties are defined: <a href="#Policy.alternative">alternative</a>, <a href="#Policy.description">description</a>, <a href="#Policy.identifier">identifier</a>, <a href="#Policy.legalCode">legal code</a>, <a href="#Policy.title">title</a>.</dd>
 </dl>
+<p></p>
+<div class="box"> 
+N.B. The properties defined for the class "Policy" here are the additional ones recommended for LanguageDCAT-AP. Further to these, the "Policy" class must include a group of Permissions and/or Prohibitions, as stated in the above definition.</div>
+<p></p>
 <div class="u-table-overflow">
 <table class="data-table simple">
 <colgroup>
@@ -1342,11 +1362,10 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <tbody>
 <tr id="Policy.alternative"><td><a href="http://purl.org/dc/terms/alternative" target="_blank">alternative</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>An alternative name for the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="Policy.description"><td><a href="http://purl.org/dc/terms/description" target="_blank">description</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>An account of the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-<tr id="Policy.hadPrimarySource"><td><a href="http://www.w3.org/ns/prov#hadPrimarySource" target="_blank">had primary source</a></td><td><a href="#Entity" target="_blank">Entity</a></td><td>0..1</td><td>A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. A primary source relation is a particular case of derivation of secondary materials from their primary sources. It is recognised that the determination of primary sources can be up to interpretation, and should be done according to conventions accepted within the application's domain.</td><td></td><td></td><td>P</td></tr>
 <tr id="Policy.identifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">identifier</a></td><td><a href="#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td></td><td></td><td>P</td></tr>
 <tr id="Policy.legalCode"><td><a href="http://creativecommons.org/ns#legalCode" target="_blank">legal code</a></td><td><a href="#Resource" target="_blank">Resource</a></td><td>0..1</td><td>The URL of the legal text of a Licence.</td><td></td><td></td><td>P</td></tr>
 <tr id="Policy.title"><td><a href="http://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-<tr id="Policy.wasAttributedTo"><td><a href="http://www.w3.org/ns/prov#wasAttributedTo" target="_blank">was attributed to</a></td><td><a href="#Agent" target="_blank">Agent</a></td><td>0..1</td><td>Attribution is the ascribing of an entity to an agent.</td><td></td><td></td><td>P</td></tr></tbody>
+</tbody>
 </table>
 </div>
 </section>
@@ -2337,7 +2356,8 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </table>
 </div>
 </section>
-<section class="informative">
+<!-- Section Support -->
+<section id="Support" class="informative">
 <h2>Support for implementation</h2>
 <p>The following section provides support for implementing the LanguageDCAT-AP.</p>
 <h3>JSON-LD context file</h3>
@@ -2347,11 +2367,21 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <p>To verify if the data is (technically) conformant to the LanguageDCAT-AP, the exchanged data can be validated using the provided SHACL shapes. SHACL is a W3C Recommendation to express constraints on an RDF knowledge graph.</p>
 <p>To support the check whether or not a catalogue satisfies the expressed constraints in this Application Profile, the constraints in this specification are expressed using SHACL [[shacl]]. Each constraint in this specification that could be converted into a SHACL expression has been included. However, it should be noted that the SHACL shapes have been implemented and tested for the Language Data Space purposes, and may include constraints specific to the Data Spaces requirements (cf. Section <a href="#context">Context</a>). As such this collection of SHACL expressions can be used to build a validation check for data, yet with caution.</p>
 <p>It is up to the implementers to define the validation they expect. Each implementation happens within a context, and that context is beyond the SHACL expressions here.</p>
-<p>The shapes can be found <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.5/SHACL/languagedcat-ap-SHACL.jsonld">here</a>.</p>
+<p>The shapes can be found <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.5/SHACL">here</a> and they are structured in three files (in Turtle format) as follows:</p>
+<ul>
+    <li><b>Properties</b>: The file contains all properties with restrictions on datatype and cardinality for the top level classes of the model, i.e. <a href="#Corpus">Corpus</a>, <a href="LCR">Lexical/Conceptual Resource</a>, <a href="#Model">Model</a> and <a href="#ToolService">Tool/Service.</a></li>
+    <li><b>Entities</b>: The file contains all classes except for the those mentioned above, together with their data type, cardinality and other restrictions (e.g., pattern restrictions, value restrictions upon conditions); for properties that are shared with those of top classes (e.g., title),  reference to the SHACL rules in the Properties file is used.</li>
+    <li><b>Restrictions</b>: The file contains all restrictions related to the use of controlled vocabularies for the properties.</li>
+</ul>
+<div class="box">
+    N.B. The files contain also SHACL rules that are specific to the Language Data Space implementation (see Section <a href="#LDSNotes">Notes for the LDS implementation</a>); the comment "Specific to LDS" is used to distinguish them.
+</div>
 <h3>Profile in Turtle format</h3>
 <p>All classes, properties and individuals used in the LanguageDCAT-AP profile are available in a file in Turtle format <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.5/ttl/languageDCAT-AP.ttl">here</a>.</p> 
 </section>
-<section class="informative" id="LDS notes">
+
+<!-- Section LDSNotes -->
+<section class="informative" id="LDSNotes">
 <h2>Notes for implementation in the Language Data Space</h2>
 <p>For reasons of compatibility with the <a href="https://eclipse-dataspace-protocol-base.github.io/DataspaceProtocol/2025-1/">Dataspace Protocol (DSP)</a>, the recommended standard for exchange of datasets for all data spaces, and the implementation supported by the <a href="https://eclipse-edc.github.io/">EDC (Eclipse Dataspace Components) connector</a>, which lies at the heart of the LDS infrastructure, a set of deviations from the profile are deemed indispensable. These concern (a) properties used exclusively in the LDS context, hence not presented in this documentation, and realised through distinct SHACL rules, and (b) properties that appear in the profile with specific features that are bypassed or handled differently in LDS. These are documented here with the required explanations:
 <ul>
@@ -2360,6 +2390,67 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     <li>In order to use the EDC functionalities, all assets included in the catalogue must be of type dcat:Dataset. Thus, for import into LDS, we require the same for all resource types, including models and tools/services. The distinction is made with the lrtype property.</li>
 </ul>
 </p>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:20%;"/>
+<col style="width:20%;"/>
+<col style="width:20%;"/>
+<col style="width:20%;"/>
+<col style="width:20%;"/>
+</colgroup>
+<thead>
+<tr>
+<th>Class</th><th>Property</th><th>DCAT-AP specs</th><th>DSP specs</th><th>LDS implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#Distribution">Distribution</a></td>
+    <td><a href="#Distribution.accessService">access service</a></td>
+    <td>Cardinality 0..n</td>
+    <td>Property used for the DataService that specifies where the distribution is obtained, i.e. the Data Space Connector.</td>
+    <td>The LDS automatically adds the connector data at the export stage for metadata exchange between connectors; for external exchanges, this is not exported for security purposes</td>
+</tr>
+<tr>
+    <td><a href="#Distribution">Distribution</a></td>
+    <td><a href="#Distribution.accessURL">access URL</a></td>
+    <td>Cardinality 1..n</td>
+    <td>No specs for access URL but all metadata descriptions must be attached to existing data files that are accessible via direct links (cf. downloadURL)</td>
+    <td>All metadata descriptions must be attached to existing data files stored at the provider's storage location accessible with direct links, which makes the use of accessURL redundant. However, for interoperability purposes, accessURL can be copied from downloadURL.</td>
+</tr>
+<tr>
+    <td><a href="#Distribution">Distribution</a></td>
+    <td><a href="#Distribution.downloadURL">download URL</a></td>
+    <td>Cardinality 0..n</td>
+    <td>No specs for download URL, but the relevant information is represented in the "dataAddress" property which is attached at the Dataset and has cardinality 1..1</td>
+    <td>All metadata descriptions must be attached to existing data files stored at the provider's storage location. At import stage, this is represented in the downloadURL property (not at dataset, right???) and triggers a functionality that creates the dataAddress property. At export stage, the dataAddress property is exposed for metadata exchange between connectors; for external exchanges, this is not exported for security purposes</td>
+</tr>
+<tr>
+    <td><a href="#Distribution">Distribution</a></td>
+    <td><a href="#Distribution.hasPolicy">has policy</a></td>
+    <td>Cardinality 0..1</td>
+    <td>The property is only on dcat:Dataset with cardinality 1..n</td>
+    <td>The hasPolicy property must be on dcat:Dataset; thus:
+        <ul>
+<li>when converting metadata records from other metadata models, (1) policies attached to the class Distribution are copied to the Dataset node and (2) are represented in a list form to accommodate EDC requirements</li> 
+<li>at the export stage, for interoperability purposes, (1) policies attached to the dcat:Dataset are copied to the dcat:Distribution class as well, and (2) in the case of a dataset with multiple policies, a single dcat:Dataset is created with multiple dcat:Distribution classes, each with a single Policy</li>
+        </ul>
+    </td>
+</tr>
+<tr>
+    <td><a href="#Distribution">Distribution</a></td>
+    <td><a href="#Distribution.licence">licence</a></td>
+    <td>Cardinality 0..1</td>
+    <td>n/a</td>
+    <td>When a dataset is distributed with a licence (a proper legal document), this licence must be represented as an ODRL policy; thus, the 'licence' property is linked to the property 'hasPolicy'. Therefore:
+        <ul>
+<li>when converting metadata records from other metadata models, (1) licences attached to the class Distribution are copied, together with their respective policies, to the Dataset node and (2) are represented in a list form to accommodate EDC requirements</li> 
+<li>at the export stage, for interoperability purposes, (1) licences attached to the dcat:Dataset are copied to the dcat:Distribution class as well, and (2) in the case of a dataset with multiple licences, a single dcat:Dataset is created with multiple dcat:Distribution classes, each with a single licence and its equivalent policy; to ensure equivalence between licence and policy, the same title (in the dct:title property) is used.</li>
+        </ul>
+    </td>
+</tbody>
+</table>
 </section>
 
 <section class="informative" id="examples">
