@@ -2449,6 +2449,28 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <li>at the export stage, for interoperability purposes, (1) licences attached to the dcat:Dataset are copied to the dcat:Distribution class as well, and (2) in the case of a dataset with multiple licences, a single dcat:Dataset is created with multiple dcat:Distribution classes, each with a single licence and its equivalent policy; to ensure equivalence between licence and policy, the same title (in the dct:title property) is used.</li>
         </ul>
     </td>
+<tr>
+    <td><a href="#SoftwareDistribution">Software Distribution</a></td>
+    <td><a href="#SoftwareDistribution">access location</a></td>
+    <td>No specs; only data access services are in the scope of DCAT which use the dcat:endpointURL with cardinality 1..n</td>
+    <td>No specs; only data access services are in the scope of DSP and this is reserved for the connector.</td>
+    <td>To support various distribution types for tools/services (e.g., downloadable source code, remotely running services, etc.), accessLocation is recommended for remotely accessible tools/service with cardinality 0..1</td>
+</tr>
+<tr>
+    <td><a href="#SoftwareDistribution">Software Distribution</a></td>
+    <td><a href="#SoftwareDistribution">download location</a></td>
+    <td>No specs; only data access services are in the scope of DCAT which use the dcat:endpointURL with cardinality 1..n</td>
+    <td>No specs; only data access services are in the scope of DSP and this is reserved for the connector.</td>
+    <td>To support various distribution types for tools/services (e.g., downloadable source code, remotely running services, etc.), downloadLocation is recommended for downloadable files with cardinality 0..1</td>
+</tr>
+<tr>
+    <td><a href="#SoftwareDistribution">Software Distribution</a></td>
+    <td><a href="#SoftwareDistribution">download location</a></td>
+    <td>No specs; only data access services are in the scope of DCAT which use the dcat:endpointURL with cardinality 1..n</td>
+    <td>No specs; only data access services are in the scope of DSP and this is reserved for the connector.</td>
+    <td>To support various distribution types for tools/services (e.g., downloadable source code, remotely running services, etc.), executionLocation is recommended for the endopoint that triggers the execution of the service with cardinality 0..1</td>
+</tr>
+
 </tbody>
 </table>
 </section>
