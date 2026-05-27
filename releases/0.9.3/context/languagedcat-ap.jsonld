@@ -130,7 +130,6 @@
       "@type": "@id"
     },
     "Corpus.hasPolicy": {
-      "@container": "@set",
       "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
       "@type": "@id"
     },
@@ -166,7 +165,6 @@
       "@type": "@id"
     },
     "Corpus.licence": {
-      "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
       "@type": "@id"
     },
@@ -279,22 +277,20 @@
     },
     "Distribution.format": {
       "@container": "@set",
-      "@id": "http://purl.org/dc/terms/format",
+      "@id": "http://w3id.org/lang-dcat-ap/terms/format",
       "@type": "@id"
     },
     "Distribution.hasPolicy": {
-      "@container": "@set",
       "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
       "@type": "@id"
     },
     "Distribution.licence": {
-      "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
       "@type": "@id"
     },
     "Distribution.mediaType": {
       "@container": "@set",
-      "@id": "http://www.w3.org/ns/dcat#mediaType",
+      "@id": "http://w3id.org/lang-dcat-ap/mediaType",
       "@type": "@id"
     },
     "Distribution.packageFormat": {
@@ -404,7 +400,6 @@
       "@type": "@id"
     },
     "LCR.hasPolicy": {
-      "@container": "@set",
       "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
       "@type": "@id"
     },
@@ -444,7 +439,6 @@
       "@type": "@id"
     },
     "LCR.licence": {
-      "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
       "@type": "@id"
     },
@@ -635,7 +629,6 @@
       "@type": "@id"
     },
     "Model.hasPolicy": {
-      "@container": "@set",
       "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
       "@type": "@id"
     },
@@ -671,7 +664,6 @@
       "@type": "@id"
     },
     "Model.licence": {
-      "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
       "@type": "@id"
     },
@@ -830,7 +822,7 @@
     },
     "ProcessingResource.format": {
       "@container": "@set",
-      "@id": "http://purl.org/dc/terms/format",
+      "@id": "http://w3id.org/lang-dcat-ap/format",
       "@type": "@id"
     },
     "ProcessingResource.language": {
@@ -840,7 +832,7 @@
     },
     "ProcessingResource.mediaType": {
       "@container": "@set",
-      "@id": "http://www.w3.org/ns/dcat#mediaType",
+      "@id": "http://w3id.org/lang-dcat-ap/mediaType",
       "@type": "@id"
     },
     "ProcessingResource.modalityType": {
@@ -875,12 +867,10 @@
       "@id": "http://w3id.org/meta-share/meta-share/executionLocation"
     },
     "SoftwareDistribution.hasPolicy": {
-      "@container": "@set",
       "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
       "@type": "@id"
     },
     "SoftwareDistribution.licence": {
-      "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
       "@type": "@id"
     },
@@ -917,7 +907,6 @@
       "@type": "@id"
     },
     "ToolService.hasPolicy": {
-      "@container": "@set",
       "@id": "http://www.w3.org/ns/odrl/2/hasPolicy",
       "@type": "@id"
     },
@@ -951,7 +940,6 @@
       "@type": "@id"
     },
     "ToolService.licence": {
-      "@container": "@set",
       "@id": "http://purl.org/dc/terms/license",
       "@type": "@id"
     },

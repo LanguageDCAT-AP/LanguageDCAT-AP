@@ -113,10 +113,10 @@ aside.example {
                 { name: "Kanella Pouli", mailto: "kanella@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" }
             ],
 			edDraftURI: "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.5/",
-      		latestVersion: "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.2/",
+      		latestVersion: "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.3/",
             github: "https://github.com/LanguageDCAT-AP/LanguageDCAT-AP",
             shortName: "LanguageDCAT-AP",
-            publishDate: "2026-02-05",
+            publishDate: "2026-30-05",
             logos: [{
             src: "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.5/html/lds_logo_full_name.svg",
             url: "https://language-data-space.ec.europa.eu/",
@@ -146,12 +146,14 @@ LanguageDCAT-AP caters for the description of language data, language models and
 <section id="intro">
 <h2>Introduction</h2>
 <p>LanguageDCAT-AP is conceived and implemented as an extension of (a) the DCAT-AP application profile for Catalogues containing Datasets and Data Services in Europe [[DCAT-AP]] and (b) the <a href="https://semiceu.github.io/MLDCAT-AP/">MLDCAT-AP profile</a> for machine learning models and their datasets. It also builds upon the <a href="http://w3id.org/meta-share/">META-SHARE ontology</a>, and the vocabularies associated with it, such as the <a href="http://w3id.org/omtd-share/">OMTD-SHARE ontology</a>, especially for domain-specific concepts and properties. To cover language data specificities, it adopts classes and properties from these vocabularies, introduces new ones, where needed, and proposes domain-specific controlled vocabularies</p>
-<p>Τhe current version (v0.9.2) adds to the already supported resource types (datasets, and more specifically, corpora and lexical/conceptual resources (see Section on Terminology), and language models), the language technology (Natural Language Processing and Language-centric AI) services. All resource types are accompanied with a minimal set of attributes that help consumers discover them, while the full set of attributes are an ongoing work and will be added in future versions.</p>
+<p>Τhe current version (v0.9.3) is the same as v0.9.2 except for changes deemed necessary to ensure compatibility with DCAT-AP. For a quick overview of the differences, see the <a href="#ChangesOverview">overview of changes</a>.</p>
+<ul>
+</p>
 </section>
 <!-- Licence -->
 <section id="licence">
 <h2>Licence</h2>
-<p>All material in this repository is published under the license <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>, unless explicitly otherwise mentioned.
+<p>All material in this repository is published under the licence <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>, unless explicitly otherwise mentioned.
 </p>
 </section>
 <!-- Context -->
@@ -646,7 +648,7 @@ The following diagram gives an overview of LanguageDCAT-AP. For simplicity sake,
     <td>1..n</td>
     <td>A language of the resource.</td>
     <td>This property is used for the language of the contents of a dataset and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:languge" property is preferred, but the two values must be aligned.</td>
-    <td>The <a href="http://publications.europa.eu/resource/dataset/language" target="_blank">EU Authority languages vocabulary</a> and, if not covered, the <a href="http://lexvo.org/" target="_blank">lexvo vocabulary for languages</a></td>
+    <td>The <a href="http://publications.europa.eu/resource/dataset/language" target="_blank">EU Authority languages vocabulary</a></td>
     <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.language" target="_blank">DCAT-AP [A]</a></td>
   </tr>
 
@@ -665,7 +667,7 @@ The following diagram gives an overview of LanguageDCAT-AP. For simplicity sake,
 <tr id="Corpus.licence">
     <td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td>
     <td><a href="#Licence" target="_blank">Licence Document</a></td>
-    <td>1..1</td>
+    <td>0..n</td>
     <td>A legal document giving official permission to do something with the resource</td>
     <td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data.</td>
     <td></td>
@@ -1057,12 +1059,12 @@ The subproperty ms:iprHolder is preferred over dct:rightsHolder in order to diff
 <tr id="LCR.isDocumentedBy"><td><a href="http://w3id.org/meta-share/meta-share/isDocumentedBy" target="_blank">is documented by</a></td><td><a href="#Document" target="_blank">Document</a></td><td>0..n</td><td>Links a language resource to a document (e.g., research paper describing its contents or its use in a project, user manual, etc.) or any other form of documentation (e.g., a URL with support information) that is related to the resource</td><td></td><td></td><td>P</td></tr>
 <tr id="LCR.keyword"><td><a href="http://www.w3.org/ns/dcat#keyword" target="_blank">keyword</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A keyword or tag describing a resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.keyword" target="_blank">DCAT-AP [E]</a></td></tr>
 <tr id="LCR.language"><td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td><td><a href="#LinguisticSystem" target="_blank">Linguistic System</a></td><td>1..n</td><td>A language of the resource.</td><td>This property is used for the language of the contents of a dataset and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:language" property is preferred, but the two values must be aligned.</td>
-<td>The <a href="http://publications.europa.eu/resource/dataset/language" target="_blank">EU Authority languages vocabulary</a> and, if not covered, the <a href="http://lexvo.org/" target="_blank">lexvo vocabulary for languages</a></td>
+<td>The <a href="http://publications.europa.eu/resource/dataset/language" target="_blank">EU Authority languages vocabulary</a></td>
 <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Dataset.language" target="_blank">DCAT-AP [A]</a></td></tr>
 <tr id="LCR.languageResourceType"><td><a href="http://w3id.org/meta-share/meta-share/lrType" target="_blank">language resource type</a></td><td><a href="#LanguageResourceType" target="_blank">Language Resource Type</a></td><td>1..1</td><td>Specifies the type of a language resource</td><td>This element allows for a more fine-grained categorisation of datasets into 'corpora' (collections of data files in text, audio, video and/or image modality), 'lexical/conceptual resources' (e.g., lexica, vocabularies, gazetteers, terminological lexica, etc.) and 'grammars'. 
 Note: In the META-SHARE ontology, models and grammars are grouped as "language descriptions" and included as subclasses of datasets. Given the evolution of Machine Learning Models, this has been revisited and models are included as a separate subclass distinguished from datasets.</td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Resource_Type_Taxonomy/data" target="_blank">META-SHARE Language Resource Type Vocabulary</a></td><td>P</td></tr>
 <tr id="LCR.LCRsubclass"><td><a href="http://w3id.org/meta-share/meta-share/lcrSubclass" target="_blank">LCR subclass</a></td><td><a href="#LCRSubclass" target="_blank">LCR Subclass</a></td><td>0..1</td><td>Introduces a classification of lexical/conceptual resources into types (used for descriptive reasons)</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Taxonomy_of_Subclasses_of_Lexical_Conceptual_Resources/data" target="_blank">META-SHARE Lexical Subclasses Vocabulary</a></td><td>P</td></tr>
-<tr id="LCR.licence"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>1..1</td><td>A legal document giving official permission to do something with the resource.</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td>P</td></tr>
+<tr id="LCR.licence"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>0..n</td><td>A legal document giving official permission to do something with the resource.</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td>P</td></tr>
 <tr id="LCR.lingualityType"><td><a href="http://w3id.org/meta-share/meta-share/lingualityType" target="_blank">linguality type</a></td><td><a href="#LingualityType" target="_blank">Linguality Type</a></td><td>1..1</td><td>Indicates whether the resource includes one, two or more languages</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Linguality_Type_Taxonomy/data" target="_blank">META-SHARE Linguality Type Vocabulary</a></td><td>P</td></tr>
 <tr id="LCR.linguisticInformation"><td><a href="http://w3id.org/meta-share/meta-share/linguisticInformation" target="_blank">linguistic information</a></td><td><a href="#MicrostructureFeature" target="_blank">Microstructure Feature</a></td><td>0..n</td><td>Provides a detailed account of the linguistic information contained in the lexical/conceptual resource</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Microstructure_Feature_Taxonomy/data" target="_blank">LEXMETA Vocabulary for Microstructure Features</a></td><td>P</td></tr>
 <tr id="LCR.metalanguage"><td><a href="http://w3id.org/meta-share/meta-share/metalanguage" target="_blank">metalanguage</a></td><td><a href="#Language" target="_blank">Language</a></td><td>0..n</td><td>Specifies the language that is used as support for the resource (e.g., English for a grammar of French described in English or for a French dictionary with English definitions)</td><td></td><td></td><td>P</td></tr>
@@ -1221,9 +1223,9 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <tr id="Model.iprHolder"><td><a href="http://w3id.org/meta-share/meta-share/iprHolder" target="_blank">IPR holder</a></td><td><a href="#Agent" target="_blank">Agent</a></td><td>0..n</td><td>A person or an organisation who holds the full Intellectual Property Rights (Copyright, trademark, etc.) that subsist in the resource. The IPR holder could be different from the creator that may have assigned the rights to the IPR holder (e.g., an author as a creator assigns her rights to the publisher who is the IPR holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work via a specific distributor.</td><td>The IPR holder may be identical in many cases with the Publisher of the resource (see property dct:publisher). In this case, the contact data MAY be copied from the corresponding Publisher entries. There might be also cases with non-identical entities: e.g., when one or several IPR Holders assign another entity as the Publisher responsible for producing, hosting and publishing a resource; such entities may be, for instance, a data distribution agency, or a specific partner representing a project consortium. The subproperty ms:iprHolder is preferred over dct:rightsHolder in order to differentiate with other types of rights (e.g. distribution rights).</td><td></td><td>P</td></tr>
 <tr id="Model.isDocumentedBy"><td><a href="http://w3id.org/meta-share/meta-share/isDocumentedBy" target="_blank">is documented by</a></td><td><a href="#Document" target="_blank">Document</a></td><td>0..n</td><td>Links a language resource to a document (e.g., research paper describing its contents or its use in a project, user manual, etc.) or any other form of documentation (e.g., a URL with support information) that is related to the resource</td><td></td><td></td><td>P</td></tr>
 <tr id="Model.keyword"><td><a href="http://www.w3.org/ns/dcat#keyword" target="_blank">keyword</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A keyword or tag describing a resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#MachineLearningModel.keyword" target="_blank">MLDCAT-AP [E]</a></td></tr>
-<tr id="Model.language"><td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td><td><a href="#LinguisticSystem" target="_blank">Linguistic System</a></td><td>1..n</td><td>A language of the resource.</td><td>This property is used for the input language supported by a model and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:language" property is preferred, but the two values must be aligned.</td><td>The <a href="http://publications.europa.eu/resource/dataset/language" target="_blank">EU Authority languages vocabulary</a> and, if not covered, the <a href="http://lexvo.org/" target="_blank">lexvo vocabulary for languages</a></td><td>P</td></tr>
+<tr id="Model.language"><td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td><td><a href="#LinguisticSystem" target="_blank">Linguistic System</a></td><td>1..n</td><td>A language of the resource.</td><td>This property is used for the input language supported by a model and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:language" property is preferred, but the two values must be aligned.</td><td>The <a href="http://publications.europa.eu/resource/dataset/language" target="_blank">EU Authority languages vocabulary</a></td><td>P</td></tr>
 <tr id="Model.languageResourceType"><td><a href="http://w3id.org/meta-share/meta-share/lrType" target="_blank">language resource type</a></td><td><a href="#LanguageResourceType" target="_blank">Language Resource Type</a></td><td>1..1</td><td>Specifies the type of a language resource</td><td>This element allows for a more fine-grained categorisation of datasets into 'corpora' (collections of data files in text, audio, video and/or image modality), 'lexical/conceptual resources' (e.g., lexica, vocabularies, gazetteers, terminological lexica, etc.) and 'grammars'. Note: In the META-SHARE ontology, models and grammars are grouped as "language descriptions" and included as subclasses of datasets. Given the evolution of Machine Learning Models, this is revisited and models are included as a separate subclass distinguished from datasets.</td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Resource_Type_Taxonomy/data" target="_blank">META-SHARE Language Resource Type Vocabulary</a></td><td>P</td></tr>
-<tr id="Model.licence"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>1..1</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data.</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#MachineLearningModel.licence" target="_blank">MLDCAT-AP [E]</a></td></tr>
+<tr id="Model.licence"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>0..n</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data.</td><td></td><td><a href="https://semiceu.github.io/MLDCAT-AP/releases/3.0.1/#MachineLearningModel.licence" target="_blank">MLDCAT-AP [E]</a></td></tr>
 <tr id="Model.limitations"><td><a href="http://data.europa.eu/it6/limitations" target="_blank">limitations</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>The limited capabilities of the model</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="http://data.europa.eu/it6/limitations" target="_blank">MLDCAT-AP [A]</a></td></tr>
 <tr id="Model.lingualityType">
     <td><a href="http://w3id.org/meta-share/meta-share/lingualityType" target="_blank">linguality type</a></td>
@@ -1398,7 +1400,7 @@ N.B. The properties defined for the class "Policy" here are the additional ones 
 <tbody>
 <tr id="ProcessingResource.detailedLanguage"><td><a href="http://w3id.org/meta-share/meta-share/language" target="_blank">detailed language</a></td><td><a href="#Language" target="_blank">Language</a></td><td>0..n</td><td>Specifies the language that is used in the resource or supported by the tool/service expressed according to the BCP47 standard [[rfc5646]]</td><td>This property takes a value in compliance with the BCP47 standard [[rfc5646]] and, thus, allows for the detailed description of the language (e.g., British English, Brazilian Portuguese, Greek written with the Latin script, etc.). It must be conformant with the value of "dct:language".</td><td></td><td>P</td></tr>
 <tr id="ProcessingResource.format"><td><a href="http://purl.org/dc/terms/format" target="_blank">format</a></td><td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td><td>0..n</td><td>The file format, physical medium, or dimensions of the resource</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" target="_blank">OMTD-SHARE Vocabulary of Data Formats</a></td><td>P</td></tr>
-<tr id="ProcessingResource.language"><td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td><td><a href="#LinguisticSystem" target="_blank">Linguistic System</a></td><td>0..n</td><td>A language of the resource.</td><td>This property is used for the language of the contents of a dataset and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:language" property is preferred, but the two values must be aligned.</td><td>The <a href="http://publications.europa.eu/resource/dataset/language" target="_blank">EU Authority languages vocabulary</a> and, if not covered, the <a href="http://lexvo.org/" target="_blank">lexvo vocabulary for languages</a></td><td>P</td></tr>
+<tr id="ProcessingResource.language"><td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td><td><a href="#LinguisticSystem" target="_blank">Linguistic System</a></td><td>0..n</td><td>A language of the resource.</td><td>This property is used for the language of the contents of a dataset and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:language" property is preferred, but the two values must be aligned.</td><td>The <a href="http://publications.europa.eu/resource/dataset/language" target="_blank">EU Authority languages vocabulary</a></td><td>P</td></tr>
 <tr id="ProcessingResource.mediaType"><td><a href="http://www.w3.org/ns/dcat#mediaType" target="_blank">media type</a></td><td><a href="#MediaType" target="_blank">Media Type</a></td><td>0..n</td><td>The media type of the distribution as defined by IANA [IANA-MEDIA-TYPES].</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">IANA-MEDIA-TYPES Vocabulary</a></td><td>P</td></tr>
 <tr id="ProcessingResource.modalityType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">modality type</a></td><td><a href="#ModalityType" target="_blank">Modality Type</a></td><td>0  ..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data" target="_blank">META-SHARE Modality Type Vocabulary</a></td><td>P</td></tr>
 <tr id="ProcessingResource.processingResourceType"><td><a href="http://w3id.org/meta-share/meta-share/processingResourceType" target="_blank">processing resource type</a></td><td><a href="http://w3id.org/meta-share/meta-share/ProcessingResourceType" target="_blank">Processing Resource Type</a></td><td>1..1</td><td>The type of the resource that a tool/service takes as input or produces as output</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Processing_Resource_Types_Taxonomy/data" target="_blank">META-SHARE Processing Resource Types Vocabulary</a></td><td>P</td></tr></tbody>
@@ -1414,7 +1416,7 @@ N.B. The properties defined for the class "Policy" here are the additional ones 
 <dt><strong>Reference</strong></dt>
 No reference
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#SoftwareDistribution.accessLocation">access location</a>, <a href="#SoftwareDistribution.downloadLocation">download location</a>, <a href="#SoftwareDistribution.executionLocation">execution location</a>, <a href="#SoftwareDistribution.softwareDistributionForm">software distribution form</a>.</dd>
+<dd>For this entity the following properties are defined: <a href="#SoftwareDistribution.accessLocation">access location</a>, <a href="#SoftwareDistribution.downloadLocation">download location</a>, <a href="#SoftwareDistribution.executionLocation">execution location</a>, <a href="#SoftwareDistribution.hasPolicy">has policy</a>, <a href="#SoftwareDistribution.licence">licence</a>, <a href="#SoftwareDistribution.softwareDistributionForm">software distribution form</a>.</dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -1436,6 +1438,8 @@ No reference
 <tr id="SoftwareDistribution.accessLocation"><td><a href="http://w3id.org/meta-share/meta-share/accessLocation" target="_blank">access location</a></td><td><a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the resource can be accessed from; it can be used for landing pages or for cases where the resource is accessible via an interface, i.e. cases where the resource itself is not provided with a direct link for downloading</td><td></td><td></td><td>P</td></tr>
 <tr id="SoftwareDistribution.downloadLocation"><td><a href="http://w3id.org/meta-share/meta-share/downloadLocation" target="_blank">download location</a></td><td><a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the language resource (mainly data but also downloadable software programmes or forms) can be downloaded from</td><td></td><td></td><td>P</td></tr>
 <tr id="SoftwareDistribution.executionLocation"><td><a href="http://w3id.org/meta-share/meta-share/executionLocation" target="_blank">execution location</a></td><td><a href="http://www.w3.org/2001/XMLSchema#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the resource (mainly software) can be directly executed</td><td></td><td></td><td>P</td></tr>
+<tr id="SoftwareDistribution.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">has policy</a></td><td><a href="#Policy" target="_blank">Policy</a></td><td>1..n</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representation of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.<p></p>See also <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td></td><td>P</td></tr>
+<tr id="SoftwareDistribution.licence"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>0..n</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. See also <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td>See also <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td>P</td></tr>
 <tr id="SoftwareDistribution.softwareDistributionForm"><td><a href="http://w3id.org/meta-share/meta-share/softwareDistributionForm" target="_blank">software distribution form</a></td><td><a href="SoftwareDistribution.SoftwareDistributionForm" target="_blank">Software Distribution Form</a></td><td>1..1</td><td>A form of software</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Software_Distribution_Form_Taxonomy/data" target="_blank">META-SHARE Vocabulary of Software Distribution Forms</td><td>P</td></tr>
 </tbody>
 </table>
@@ -1483,7 +1487,7 @@ No reference
 <tr id="ToolService.keyword"><td><a href="http://www.w3.org/ns/dcat#keyword" target="_blank">keyword</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A keyword or tag describing a resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="ToolService.languageDependent"><td><a href="http://w3id.org/meta-share/meta-share/languageDependent" target="_blank">language dependent</a></td><td><a href="#boolean" target="_blank">boolean</a></td><td>1..1</td><td>Indicates whether the operation of the tool or service is language dependent or not</td><td></td><td></td><td>P</td></tr>
 <tr id="ToolService.languageResourceType"><td><a href="http://w3id.org/meta-share/meta-share/lrType" target="_blank">language resource type</a></td><td><a href="#LanguageResourceType" target="_blank">Language Resource Type</a></td><td>1..1</td><td>Specifies the type of a language resource</td><td>This element allows for a more fine-grained categorisation of datasets into 'corpora' (collections of data files in text, audio, video and/or image modality), 'lexical/conceptual resources' (e.g., lexica, vocabularies, gazetteers, terminological lexica, etc.) and 'grammars'. Note: In the META-SHARE ontology, models and grammars are grouped as "language descriptions" and included as subclasses of datasets. Given the evolution of Machine Learning Models, this has been revisited and models are included as a separate subclass distinguished from datasets.</td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Resource_Type_Taxonomy/data" target="_blank">META-SHARE Language Resource Type Vocabulary</a></td><td>P</td></tr>
-<tr id="ToolService.licence"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>1..1</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td>P</td></tr>
+<tr id="ToolService.licence"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>0..n</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td>P</td></tr>
 <tr id="ToolService.otherIdentifier"><td><a href="http://www.w3.org/ns/adms#identifier" target="_blank">other identifier</a></td><td><a href="#Identifier" target="_blank">Identifier</a></td><td>0..n</td><td>Links a resource to an adms:Identifier class.</td><td>This property MAY be used as an additional identifier for existing identifiers used for the same resource in other Catalogues (e.g. DOI, ISLRN, DataCite, Handle PIDs)</td><td></td><td>P</tr>
 <tr id="ToolService.outputResource"><td><a href="http://w3id.org/meta-share/meta-share/outputResource" target="_blank">output resource</a></td><td><a href="#ProcessingResource" target="_blank">Processing Resource</a></td><td>0..n</td><td>Specifies the output results of a tool/service, i.e. the features of the processed (content) resource</td><td></td><td></td><td>P</td></tr>
 <tr id="ToolService.publisher"><td><a href="http://purl.org/dc/terms/publisher" target="_blank">publisher</a></td><td><a href="#Agent" target="_blank">Agent</a></td><td>1..1</td><td>An entity responsible for making the resource available</td><td>This property refers to the entity that "publishes", i.e. makes available to the specific platform, the corresponding resource. The information may be identical to the property ms:iprHolder of the resource.</td><td></td><td>P</tr>
@@ -1655,19 +1659,6 @@ No reference
 <dl>
 <dt>Definition</dt>
 <dd>A particular field of thought, activity, or interest related to a language resource, organisation or person activities, etc.</dd>
-<dt>Reference</dt>
-<dd>No reference</dd>
-<dt>Properties</dt>
-<dd>This specification does not impose any additional requirements to properties for this entity.</dd>
-</dl>
-</section>
-
-<!-- Section Entity -->
-<section id="Entity">
-<h3><a data-content="http://www.w3.org/ns/prov#Entity" data-placement="right" data-toggle="tooltip" href="http://www.w3.org/ns/prov#Entity">Entity</a></h3>
-<dl>
-<dt>Definition</dt>
-<dd>An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary.</dd>
 <dt>Reference</dt>
 <dd>No reference</dd>
 <dt>Properties</dt>
@@ -2390,103 +2381,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     <li>In order to use the EDC functionalities, all assets included in the catalogue must be of type dcat:Dataset. Thus, for import into LDS, we require the same for all resource types, including models and tools/services. The distinction is made with the lrtype property.</li>
 </ul>
 </p>
-<div class="u-table-overflow">
-<table class="data-table simple">
-<colgroup>
-<col style="width:20%;"/>
-<col style="width:20%;"/>
-<col style="width:20%;"/>
-<col style="width:20%;"/>
-<col style="width:20%;"/>
-</colgroup>
-<thead>
-<tr>
-<th>Class</th><th>Property</th><th>DCAT-AP specs</th><th>DSP specs</th><th>LDS implementation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-    <td><a href="#Distribution">Distribution</a></td>
-    <td><a href="#Distribution.accessService">access service</a></td>
-    <td>Cardinality 0..n</td>
-    <td>Property used for the DataService that specifies where the distribution is obtained, i.e. the Data Space Connector.</td>
-    <td>The LDS automatically adds the connector data at the export stage for metadata exchange between connectors; for external exchanges, this is not exported for security purposes</td>
-</tr>
-<tr>
-    <td><a href="#Distribution">Distribution</a></td>
-    <td><a href="#Distribution.accessURL">access URL</a></td>
-    <td>Cardinality 1..n</td>
-    <td>No specs for access URL but all metadata descriptions must be attached to existing data files that are accessible via direct links (cf. downloadURL)</td>
-    <td>All metadata descriptions must be attached to existing data files stored at the provider's storage location accessible with direct links, which makes the use of accessURL redundant. However, for interoperability purposes, accessURL can be copied from downloadURL.</td>
-</tr>
-<tr>
-    <td><a href="#Distribution">Distribution</a></td>
-    <td><a href="#Distribution.downloadURL">download URL</a></td>
-    <td>Cardinality 0..n</td>
-    <td>No specs for download URL, but the relevant information is represented in the "dataAddress" property which is attached at the Dataset and has cardinality 1..1</td>
-    <td>All metadata descriptions must be attached to existing data files stored at the provider's storage location. At import stage, this is represented in the downloadURL property (not at dataset, right???) and triggers a functionality that creates the dataAddress property. At export stage, the dataAddress property is exposed for metadata exchange between connectors; for external exchanges, this is not exported for security purposes</td>
-</tr>
-<tr>
-    <td><a href="#Distribution">Distribution</a></td>
-    <td><a href="#Distribution.hasPolicy">has policy</a></td>
-    <td>Cardinality 0..1</td>
-    <td>The property is only on dcat:Dataset with cardinality 1..n</td>
-    <td>The hasPolicy property must be on dcat:Dataset; thus:
-        <ul>
-<li>when converting metadata records from other metadata models, (1) policies attached to the class Distribution are copied to the Dataset node and (2) are represented in a list form to accommodate EDC requirements</li> 
-<li>at the export stage, for interoperability purposes, (1) policies attached to the dcat:Dataset are copied to the dcat:Distribution class as well, and (2) in the case of a dataset with multiple policies, a single dcat:Dataset is created with multiple dcat:Distribution classes, each with a single Policy</li>
-        </ul>
-    </td>
-</tr>
-<tr>
-    <td><a href="#Distribution">Distribution</a></td>
-    <td><a href="#Distribution.licence">licence</a></td>
-    <td>Cardinality 0..1</td>
-    <td>n/a</td>
-    <td>When a dataset is distributed with a licence (a proper legal document), this licence must be represented as an ODRL policy; thus, the 'licence' property is linked to the property 'hasPolicy'. Therefore:
-        <ul>
-<li>when converting metadata records from other metadata models, (1) licences attached to the class Distribution are copied, together with their respective policies, to the Dataset node and (2) are represented in a list form to accommodate EDC requirements</li> 
-<li>at the export stage, for interoperability purposes, (1) licences attached to the dcat:Dataset are copied to the dcat:Distribution class as well, and (2) in the case of a dataset with multiple licences, a single dcat:Dataset is created with multiple dcat:Distribution classes, each with a single licence and its equivalent policy; to ensure equivalence between licence and policy, the same title (in the dct:title property) is used.</li>
-        </ul>
-    </td>
-<tr>
-    <td><a href="#SoftwareDistribution">Software Distribution</a></td>
-    <td><a href="#SoftwareDistribution">access location</a></td>
-    <td>No specs; only data access services are in the scope of DCAT which use the dcat:endpointURL with cardinality 1..n</td>
-    <td>No specs; only data access services are in the scope of DSP and this is reserved for the connector.</td>
-    <td>To support various distribution types for tools/services (e.g., downloadable source code, remotely running services, etc.), accessLocation is recommended for remotely accessible tools/service with cardinality 0..1</td>
-</tr>
-<tr>
-    <td><a href="#SoftwareDistribution">Software Distribution</a></td>
-    <td><a href="#SoftwareDistribution">download location</a></td>
-    <td>No specs; only data access services are in the scope of DCAT which use the dcat:endpointURL with cardinality 1..n</td>
-    <td>No specs; only data access services are in the scope of DSP and this is reserved for the connector.</td>
-    <td>To support various distribution types for tools/services (e.g., downloadable source code, remotely running services, etc.), downloadLocation is recommended for downloadable files with cardinality 0..1</td>
-</tr>
-<tr>
-    <td><a href="#SoftwareDistribution">Software Distribution</a></td>
-    <td><a href="#SoftwareDistribution">download location</a></td>
-    <td>No specs; only data access services are in the scope of DCAT which use the dcat:endpointURL with cardinality 1..n</td>
-    <td>No specs; only data access services are in the scope of DSP and this is reserved for the connector.</td>
-    <td>To support various distribution types for tools/services (e.g., downloadable source code, remotely running services, etc.), executionLocation is recommended for the endopoint that triggers the execution of the service with cardinality 0..1</td>
-</tr>
-<tr>
-    <td><a href="#Dataset">Dataset</a> (<a href="#Corpus">Corpus</a>, <a href="#LCR">Lexical/Conceptual Resource)</a></td>
-    <td><a href="#Corpus.distribution">distribution</a></td>
-    <td>Cardinality 0..n</td>
-    <td>Cardinality 1..n</td>
-    <td>Although the DSP allows for multiple Distributions, these Distributions are used for the different transfer protocols supported for the dataset (e.g., documenting that the same dataset can be transferred via HTTP or S3). Due to the EDC implementation issues, only one Distribution is required, but the importer supports both the representation of the relation as a list and as a single object. <i>LDS users are recommended to ??? for datasets with multiple distributions??? And what do we do at export???</i> NOTE for me to add also in 0.9.5 for model distribution
-    </td>
-<tr>
-<tr>
-    <td><a href="#ToolService">Tool/Service</a></a></td>
-    <td><a href="#ToolService.softwareDistribution">software distribution</a></td>
-    <td>n/a</td>
-    <td>n/a</td>
-    <td>Due to the fact that tools/services are treated as datasets for now (cf. above), they must comply with the DSP requirements for dataset distributions. Thus, multiple software distributions are in principle allowed, yet due to EDC implementation issues (see above), only one Software Distribution is required, but the importer supports both the representation of the relation as a list and as a single object. <i>LDS users are recommended to ??? for datasets with multiple distributions??? And what do we do at export???</i></td>
-<tr>
-</tbody>
-</table>
+
 </section>
 
 <section class="informative" id="examples">
@@ -4869,5 +4764,17 @@ function switchTab(event, tabId) {
 </section>
 </p>
 </section>
+<!-- Changes overview -->
+<section class="appendix" id="ChangesOverview">
+<h2>Overview of changes</h2>
+<p>Changes from the previous version are:
+<ul>
+    <li>replacement of dct:format with dcatlds:format to support cardinality 1..n (DCAT-AP cardinality is set to 0..1; see also <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.format">GitHub</a>)</li>
+    <li>replacement of the controlled vocabulary OMTD data types for dct:format with the EU vocabulary of file types</li>
+    <li>replacement of dcat:mediaType with dcatlds:mediaType to support cardinality 1..n (DCAT-AP cardinality is set to 0..1; see also <a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.format">GitHub</a>)</li>
+</ul>
+</p>
+</section>
+
 </body>
 </html>
