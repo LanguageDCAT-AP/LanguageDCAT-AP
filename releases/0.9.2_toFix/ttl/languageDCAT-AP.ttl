@@ -11,7 +11,7 @@
 @prefix lexmeta: <http://w3id.org/meta-share/lexmeta#> .
 @prefix ms: <http://w3id.org/meta-share/meta-share/> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix omtd: <http://w3id.org/meta-share/omtd-share/> .
+@prefix omtd: <http://id.org/meta-share/omtd-share/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -23,15 +23,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @base <http://w3id.org/lang-dcat-ap/> .
 
-<http://w3id.org/lang-dcat-ap/0.9.3> rdf:type owl:Ontology ;
+<http://w3id.org/lang-dcat-ap/0.9.2> rdf:type owl:Ontology ;
                                  dct:created "2023-06-01" ;
-                                 dct:issued "2026-27-05" ;
+                                 dct:issued "2026-02-05" ;
                                  dct:language "English"@en ;
                                  rdfs:comment "Based on DCAT-v3, DCAT-AP v3, MLDCAT-AP and MS-OWL v2"@en ;
-                                 dct:title "LanguageDCAT-AP model v0.9.3"@en ;
-                                 rdfs:label "LanguageDCAT-AP model v0.9.3"@en ;
-                                 owl:versionInfo "0.9.3" .
-
+                                 dct:title "LanguageDCAT-AP model v0.9.2"@en ;
+                                 rdfs:label "LanguageDCAT-AP model v0.9.2"@en ;
+                                 owl:versionInfo "0.9.2" ;
+                                dct:description "LanguageDCAT-AP is conceived and implemented as an extension of DCAT-AP (https://semiceu.github.io/DCAT-AP/releases/3.0.0/), an application profile for sharing information about Catalogues containing Datasets and Data Services descriptions in Europe, under maintenance by the SEMIC action, Interoperable Europe. LanguageDCAT-AP builds upon DCAT-AP and DCAT (https://www.w3.org/TR/vocab-dcat-3/) for generic classes and properties, combined with domain-specific vocabularies already used in the broader language data and services community, and more specifically, the META-SHARE ontology (http://w3id.org/meta-share/meta-share)."@en .
 
 #################################################################
 #    Annotation properties
@@ -226,13 +226,6 @@ dct:format rdf:type owl:ObjectProperty ;
            rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
            rdfs:label "Format"@en .
 
-
-###  http://w3id.org/lang-dcat-ap/format
-dcatlds:format rdf:type owl:ObjectProperty ;
-           rdfs:range dct:MediaTypeOrExtent ;
-           rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
-           rdfs:label "Format"@en ;
-           skos:note "Property equivalent to dct:format; introduced to maintain compatibility with DCAT-AP due to cardinality issues (DCAT-AP allows 0..1)".
 
 ###  http://purl.org/dc/terms/language
 dct:language rdf:type owl:ObjectProperty ;
@@ -894,24 +887,6 @@ dcat:mediaType rdf:type owl:ObjectProperty ;
                               "Questa proprietà DEVE essere usata quando il tipo di media della distribuzione è definito nel registro dei tipi di media IANA https://www.iana.org/assignments/media-types/, altrimenti dct:format PUO 'essere usato con differenti valori."@it ,
                               "Tato vlastnost BY MĚLA být použita, je-li typ média distribuce definován v registru IANA https://www.iana.org/assignments/media-types/. V ostatních případech MŮŽE být použita vlastnost dct:format s jinými hodnotami."@cs ,
                               "This property SHOULD be used when the media type of the distribution is defined in the IANA media types registry https://www.iana.org/assignments/media-types/, otherwise dct:format MAY be used with different values."@en .
-
-###  http://w3id.org/lang-dcat-ap/mediaType
-dcatlds:mediaType rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf dct:format ;
-               rdfs:domain dcat:Distribution ;
-               rdfs:range dct:MediaType ;
-               rdfs:comment "The media type of the distribution as defined by IANA."@en ;
-               rdfs:label "media type"@en ,
-                          "medietype"@da ,
-                          "tipo de media"@es ,
-                          "tipo di media"@it ,
-                          "typ média"@cs ,
-                          "type de média"@fr ,
-                          "τύπος μέσου"@el ,
-                          "نوع الميديا"@ar ,
-                          "メディア・タイプ"@ja ;
-               skos:definition "The media type of the distribution as defined by IANA."@en ;
-               skos:note "Property equivalent to dcat:mediaType; introduced to maintain compatibility with DCAT-AP due to cardinality differences (DCAT-AP allows only 0..1)"@en .
 
 
 ###  http://www.w3.org/ns/dcat#packageFormat
@@ -2280,10 +2255,6 @@ dpv:TechnicalOrganisationalMeasure rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  http://w3id.org/lang-dcat-ap/
-<http://w3id.org/lang-dcat-ap/> rdf:type owl:NamedIndividual ;
-                                dct:description "LanguageDCAT-AP is conceived and implemented as an extension of DCAT-AP (https://semiceu.github.io/DCAT-AP/releases/3.0.0/), an application profile for sharing information about Catalogues containing Datasets and Data Services descriptions in Europe, under maintenance by the SEMIC action, Interoperable Europe. LanguageDCAT-AP builds upon DCAT-AP and DCAT (https://www.w3.org/TR/vocab-dcat-3/) for generic classes and properties, combined with domain-specific vocabularies already used in the broader language data and services community, and more specifically, the META-SHARE ontology (http://w3id.org/meta-share/meta-share)."@en ;
-                                dct:title "LanguageDCAT-AP model"@en .
 
 
 ###  http://w3id.org/lang-dcat-ap/PurposeOfUseTaxonomy

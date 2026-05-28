@@ -30,7 +30,8 @@
                                  rdfs:comment "Based on DCAT-v3, DCAT-AP v3, MLDCAT-AP and MS-OWL v2"@en ;
                                  dct:title "LanguageDCAT-AP model v0.9.3"@en ;
                                  rdfs:label "LanguageDCAT-AP model v0.9.3"@en ;
-                                 owl:versionInfo "0.9.3" .
+                                 owl:versionInfo "0.9.3" ;
+                                dct:description "LanguageDCAT-AP is conceived and implemented as an extension of DCAT-AP (https://semiceu.github.io/DCAT-AP/releases/3.0.0/), an application profile for sharing information about Catalogues containing Datasets and Data Services descriptions in Europe, under maintenance by the SEMIC action, Interoperable Europe. LanguageDCAT-AP builds upon DCAT-AP and DCAT (https://www.w3.org/TR/vocab-dcat-3/) for generic classes and properties, combined with domain-specific vocabularies already used in the broader language data and services community, and more specifically, the META-SHARE ontology (http://w3id.org/meta-share/meta-share)."@en .
 
 
 #################################################################
@@ -2279,11 +2280,6 @@ dpv:TechnicalOrganisationalMeasure rdf:type owl:Class ;
 #################################################################
 #    Individuals
 #################################################################
-
-###  http://w3id.org/lang-dcat-ap/
-<http://w3id.org/lang-dcat-ap/> rdf:type owl:NamedIndividual ;
-                                dct:description "LanguageDCAT-AP is conceived and implemented as an extension of DCAT-AP (https://semiceu.github.io/DCAT-AP/releases/3.0.0/), an application profile for sharing information about Catalogues containing Datasets and Data Services descriptions in Europe, under maintenance by the SEMIC action, Interoperable Europe. LanguageDCAT-AP builds upon DCAT-AP and DCAT (https://www.w3.org/TR/vocab-dcat-3/) for generic classes and properties, combined with domain-specific vocabularies already used in the broader language data and services community, and more specifically, the META-SHARE ontology (http://w3id.org/meta-share/meta-share)."@en ;
-                                dct:title "LanguageDCAT-AP model"@en .
 
 
 ###  http://w3id.org/lang-dcat-ap/PurposeOfUseTaxonomy
@@ -9819,6 +9815,17 @@ ms:AnonymizedTaxonomy rdf:type owl:NamedIndividual ,
                                          ms:yesA ;
                       skos:prefLabel "Anonymised Taxonomy"@en-gb ,
                                      "Anonymized Taxonomy"@en .
+
+###  http://w3id.org/lang-dcat-ap/0.9.3
+dcatlds:0.9.3 rdf:type owl:NamedIndividual ,
+                   ms:StandardBestPractice ,
+                   skos:Concept ;
+          rdfs:label "LanguageDCAT-AP v0.9.3"@en ;
+          rdfs:seeAlso "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.3/" ;
+
+          skos:inScheme ms:StandardBestPracticeTaxonomy ;
+       skos:topConceptOf ms:StandardBestPracticeTaxonomy ;
+          skos:prefLabel "LanguageDCAT-AP v0.9.3"@en .
 
 ###  http://w3id.org/lang-dcat-ap/0.9.2
 dcatlds:0.9.2 rdf:type owl:NamedIndividual ,
