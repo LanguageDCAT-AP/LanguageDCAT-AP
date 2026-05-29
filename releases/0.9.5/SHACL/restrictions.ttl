@@ -42,7 +42,7 @@ sh:DataFormatRestriction
 	rdfs:comment "Data Format Restriction" ;
 	rdfs:label   "Data Format Restriction" ;
 	sh:property  [
-		             sh:hasValue omtd:DataFormatScheme ;
+		             sh:hasValue <http://publications.europa.eu/resource/authority/file-type> ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme
 	             ] .

@@ -1,27 +1,31 @@
-@prefix :           <https://language-data-space.eu/entity/> .
-@prefix sh:         <http://www.w3.org/ns/shacl#> .
-@prefix edc:        <https://w3id.org/edc/v0.0.1/ns/> .
-@prefix loc:        <http://id.loc.gov/vocabulary/iso639-1/> . # TODO
-@prefix iana:       <http://www.iana.org/assignments/media-types/application/> . # TODO
-@prefix lds:        <https://language-data-space.eu/entity/> .
-@prefix adms:       <http://www.w3.org/ns/adms#> .
-@prefix euvoc_auth: <http://publications.europa.eu/resource/authority/>  .
-@prefix dcat:       <http://www.w3.org/ns/dcat#> .
-@prefix dcmitype:   <http://purl.org/dc/dcmitype/> .
-@prefix dct:        <http://purl.org/dc/terms/> .
-@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
-@prefix ms:         <http://w3id.org/meta-share/meta-share/> .
-@prefix odrl:       <http://www.w3.org/ns/odrl/2/> .
-@prefix omtd:       <http://w3id.org/meta-share/omtd-share/> .
-@prefix owl:        <http://www.w3.org/2002/07/owl#> .
-@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema:     <https://schema.org/> .
-@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
-@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
-@prefix dpv:        <https://w3id.org/dpv#> .
-@prefix dcatlds:    <http://w3id.org/lang-dcat-ap/> . # OK
-@prefix it6:        <http://data.europa.eu/it6/> .
+@prefix :                            <https://language-data-space.eu/entity/> .
+@prefix sh:                          <http://www.w3.org/ns/shacl#> .
+@prefix edc:                         <https://w3id.org/edc/v0.0.1/ns/> .
+@prefix loc:                         <http://id.loc.gov/vocabulary/iso639-1/> . # TODO
+@prefix iana:                        <http://www.iana.org/assignments/media-types/application/> . # TODO
+@prefix lds:                         <https://language-data-space.eu/entity/> .
+@prefix adms:                        <http://www.w3.org/ns/adms#> .
+@prefix eu-country:                  <http://publications.europa.eu/resource/authority/country/> .
+@prefix eu-continent:                <http://publications.europa.eu/resource/authority/continent/> .
+@prefix eu-place:                    <http://publications.europa.eu/resource/authority/place/> .
+@prefix eu-filetype:                 <http://publications.europa.eu/resource/authority/file-type/> .
+@prefix eu-membershipClassification: <http://publications.europa.eu/resource/authority/membership-classification/> .
+@prefix dcat:                        <http://www.w3.org/ns/dcat#> .
+@prefix dcmitype:                    <http://purl.org/dc/dcmitype/> .
+@prefix dct:                         <http://purl.org/dc/terms/> .
+@prefix foaf:                        <http://xmlns.com/foaf/0.1/> .
+@prefix ms:                          <http://w3id.org/meta-share/meta-share/> .
+@prefix odrl:                        <http://www.w3.org/ns/odrl/2/> .
+@prefix omtd:                        <http://w3id.org/meta-share/omtd-share/> .
+@prefix owl:                         <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:                         <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                        <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema:                      <https://schema.org/> .
+@prefix skos:                        <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                         <http://www.w3.org/2001/XMLSchema#> .
+@prefix dpv:                         <https://w3id.org/dpv#> .
+@prefix dcatlds:                     <http://w3id.org/lang-dcat-ap/> . # OK
+@prefix it6:                         <http://data.europa.eu/it6/> .
 
 # Global property shapes
 # Introduce ad hoc property "sh:applicableIn" to specify the class (or classes) for which the property shape
@@ -237,7 +241,7 @@ sh:MediaTypeProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:CORPUS",
 	                "LanguageDCAT-AP:*:LCR",
-	                "LanguageDCAT-AP:0.9.2:MLMODEL" ;
+	                "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:path         ms:mediaType ;
 	sh:node         sh:MediaTypeRestriction ;
 	sh:nodeKind     sh:IRI ;
@@ -248,7 +252,7 @@ sh:LingualityTypeProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:CORPUS",
 	                "LanguageDCAT-AP:*:LCR",
-	                "LanguageDCAT-AP:0.9.2:MLMODEL" ;
+	                "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:path         ms:lingualityType ;
 	sh:node         sh:LingualityTypeRestriction ;
 	sh:nodeKind     sh:IRI ;
@@ -259,7 +263,7 @@ sh:LanguageProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:CORPUS",
 	                "LanguageDCAT-AP:*:LCR",
-	                "LanguageDCAT-AP:0.9.2:MLMODEL" ;
+	                "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:path         ms:language ;
 	sh:node         sh:MsLanguageNodeShape ;
 	sh:minCount     1 .
@@ -268,7 +272,7 @@ sh:SourceLanguageProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:CORPUS",
 	                "LanguageDCAT-AP:*:LCR",
-	                "LanguageDCAT-AP:0.9.2:MLMODEL" ;
+	                "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:path         ms:sourceLanguage ;
 	sh:node         sh:MsLanguageNodeShape .
 
@@ -276,7 +280,7 @@ sh:TargetLanguageProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:CORPUS",
 	                "LanguageDCAT-AP:*:LCR",
-	                "LanguageDCAT-AP:0.9.2:MLMODEL" ;
+	                "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:path         ms:targetLanguage ;
 	sh:node         sh:MsLanguageNodeShape .
 
@@ -284,7 +288,7 @@ sh:DistributionProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:CORPUS",
 	                "LanguageDCAT-AP:*:LCR",
-	                "LanguageDCAT-AP:0.9.2:MLMODEL" ;
+	                "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:path         dcat:distribution ;
 	sh:node         sh:DistributionNodeShape ;
 	sh:minCount     1 ;
@@ -432,7 +436,7 @@ sh:ModelTypePropReq
 
 sh:ModelTypeProp
 	a               sh:PropertyShape ;
-	sh:applicableIn "LanguageDCAT-AP:0.9.2:MLMODEL" ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:path         ms:modelType ;
 	sh:node         sh:ModelTypeRestriction ;
 	sh:nodeKind     sh:IRI ;
@@ -524,7 +528,8 @@ sh:TrainedOnProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         it6:trainedOn ;
-	sh:node         sh:MsLanguageNodeShape .
+	sh:node         sh:MsLanguageNodeShape ;
+	sh:minCount     1 .
 
 sh:EvaluationDatasetProp
 	a               sh:PropertyShape ;
@@ -590,7 +595,7 @@ sh:ContextLengthProp
 
 sh:CreationDetailsProp
 	a               sh:PropertyShape ;
-	sh:applicableIn "LanguageDCAT-AP:0.9.2:MLMODEL" ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:path         ms:creationDetails ;
 	sh:uniqueLang   true ;
 	sh:datatype     rdf:langString .

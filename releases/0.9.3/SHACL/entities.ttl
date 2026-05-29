@@ -28,7 +28,7 @@ sh:PolicyRoot
 		                     sh:node     sh:PolicyNodeShape
 	                     ] .
 
-# For LDS: Only additional properties are checked; properties for prohibitions, permissions & constraints are under EDC control
+# LDS-specific: Only additional properties are checked; properties for prohibitions, permissions & constraints are under EDC control
 sh:PolicyNodeShape
 	a               sh:NodeShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:POLICY" ;
@@ -237,11 +237,11 @@ sh:DocumentNodeShape
 #LDS-specific; missing properties (accessURL, downloadURL, accessService, hasPolicy, license)
 sh:DistributionNodeShape
 	a               sh:NodeShape ;
-	lds:targetModel "LanguageDCAT-AP:0.9.2:CORPUS",
+	lds:targetModel "LanguageDCAT-AP:0.9.3:CORPUS",
 	                "LanguageDCAT-AP:0.9.5:CORPUS",
-	                "LanguageDCAT-AP:0.9.2:LCR",
+	                "LanguageDCAT-AP:0.9.3:LCR",
 	                "LanguageDCAT-AP:0.9.5:LCR",
-	                "LanguageDCAT-AP:0.9.2:MLMODEL" ;
+	                "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:class        dcat:Distribution ;
 	sh:property     [
 		                sh:path       dct:title ;
@@ -265,7 +265,7 @@ sh:DistributionNodeShape
 		                sh:maxCount 1
 	                ],
 	                [
-		                sh:path     dct:format ;
+		                sh:path     dcatlds:format ;
 		                sh:minCount 1 ;
 		                sh:node     sh:DataFormatRestriction ;
 		                sh:nodeKind sh:IRI
@@ -406,7 +406,7 @@ sh:ModelDistributionNodeShape
 		                sh:maxCount     1
 	                ],
 	                [
-		                sh:path     dct:format ;
+		                sh:path     dcatlds:format ;
 		                sh:minCount 1 ;
 		                sh:node     sh:DataFormatRestriction ;
 		                sh:nodeKind sh:IRI
@@ -472,13 +472,13 @@ sh:EnvironmentalImpactNodeShape
 		                sh:path       it6:powerConsumption ;
 		                sh:datatype   xsd:string ;
 		                sh:minCount 1 ;
-		                sh:maxCount 1 
+		                sh:maxCount 1 ;
 	                ] .
 
 # LDS-specific; missing properties (hasPolicy, license)
 sh:SoftwareDistributionNodeShape
 	a               sh:NodeShape ;
-	lds:targetModel "LanguageDCAT-AP:0.9.2:TOOLSERVICE",
+	lds:targetModel "LanguageDCAT-AP:0.9.3:TOOLSERVICE",
 	                "LanguageDCAT-AP:0.9.5:TOOLSERVICE" ;
 	sh:property     [
 		                sh:path     ms:softwareDistributionForm ;
@@ -505,7 +505,7 @@ sh:SoftwareDistributionNodeShape
 
 sh:ProcessingResourceNodeShape
 	a               sh:NodeShape ;
-	lds:targetModel "LanguageDCAT-AP:0.9.2:TOOLSERVICE",
+	lds:targetModel "LanguageDCAT-AP:0.9.3:TOOLSERVICE",
 	                "LanguageDCAT-AP:0.9.5:TOOLSERVICE" ;
 	sh:property     [
 		                sh:path     ms:processingResourceType ;
@@ -525,7 +525,7 @@ sh:ProcessingResourceNodeShape
 		                sh:message  "Invalid media type"
 	                ],
 	                [
-		                sh:path     dct:format ;
+		                sh:path     dcatlds:format ;
 		                sh:node     sh:DataFormatRestriction ;
 		                sh:nodeKind sh:IRI
 	                ] .
