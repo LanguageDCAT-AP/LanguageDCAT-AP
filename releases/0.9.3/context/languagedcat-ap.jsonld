@@ -453,7 +453,7 @@
     },
     "LCR.metalanguage": {
       "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/metaLanguage",
+      "@id": "http://w3id.org/meta-share/meta-share/metalanguage",
       "@type": "@id"
     },
     "LCR.modalityType": {
