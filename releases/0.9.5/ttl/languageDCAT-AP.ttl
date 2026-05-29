@@ -1,26 +1,26 @@
 @prefix : <http://w3id.org/lang-dcat-ap/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix cc: <http://creativecommons.org/ns#> .
-@prefix ms: <http://w3id.org/meta-share/meta-share/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcatlds: <http://w3id.org/lang-dcat-ap/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix dpv: <https://w3id.org/dpv#> .
-@prefix it6: <http://data.europa.eu/it6/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix adms: <http://www.w3.org/ns/adms#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix it6: <http://data.europa.eu/it6/> .
+@prefix lexbib: <https://lexbib.elex.is/entity/> .
+@prefix lexmeta: <http://w3id.org/meta-share/lexmeta#> .
+@prefix ms: <http://w3id.org/meta-share/meta-share/> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix omtd: <http://w3id.org/meta-share/omtd-share/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix lexbib: <https://lexbib.elex.is/entity/> .
 @prefix schema: <http://schema.org/> .
-@prefix dcatlds: <http://w3id.org/lang-dcat-ap/> .
-@prefix lexmeta: <http://w3id.org/meta-share/lexmeta#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix wikidata: <http://www.wikidata.org/entity/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @base <http://w3id.org/lang-dcat-ap/> .
 
 <http://w3id.org/lang-dcat-ap/0.9.5> rdf:type owl:Ontology ;
@@ -261,6 +261,12 @@ dct:format rdf:type owl:ObjectProperty ;
            rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
            rdfs:label "Format"@en .
 
+###  http://w3id.org/lang-dcat-ap/format
+dcatlds:format rdf:type owl:ObjectProperty ;
+           rdfs:range dct:MediaTypeOrExtent ;
+           rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
+           rdfs:label "Format"@en ;
+           skos:note "Property equivalent to dct:format; introduced to maintain compatibility with DCAT-AP due to cardinality issues (DCAT-AP allows 0..1)".
 
 ###  http://purl.org/dc/terms/language
 dct:language rdf:type owl:ObjectProperty ;
@@ -948,6 +954,24 @@ dcat:mediaType rdf:type owl:ObjectProperty ;
                               "Questa proprietà DEVE essere usata quando il tipo di media della distribuzione è definito nel registro dei tipi di media IANA https://www.iana.org/assignments/media-types/, altrimenti dct:format PUO 'essere usato con differenti valori."@it ,
                               "Tato vlastnost BY MĚLA být použita, je-li typ média distribuce definován v registru IANA https://www.iana.org/assignments/media-types/. V ostatních případech MŮŽE být použita vlastnost dct:format s jinými hodnotami."@cs ,
                               "This property SHOULD be used when the media type of the distribution is defined in the IANA media types registry https://www.iana.org/assignments/media-types/, otherwise dct:format MAY be used with different values."@en .
+
+###  http://w3id.org/lang-dcat-ap/mediaType
+dcatlds:mediaType rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf dct:format ;
+               rdfs:domain dcat:Distribution ;
+               rdfs:range dct:MediaType ;
+               rdfs:comment "The media type of the distribution as defined by IANA."@en ;
+               rdfs:label "media type"@en ,
+                          "medietype"@da ,
+                          "tipo de media"@es ,
+                          "tipo di media"@it ,
+                          "typ média"@cs ,
+                          "type de média"@fr ,
+                          "τύπος μέσου"@el ,
+                          "نوع الميديا"@ar ,
+                          "メディア・タイプ"@ja ;
+               skos:definition "The media type of the distribution as defined by IANA."@en ;
+               skos:note "Property equivalent to dcat:mediaType; introduced to maintain compatibility with DCAT-AP due to cardinality differences (DCAT-AP allows only 0..1)"@en .
 
 
 ###  http://www.w3.org/ns/dcat#packageFormat
@@ -10012,6 +10036,26 @@ ms:AnonymizedTaxonomy rdf:type owl:NamedIndividual ,
                                          ms:yesA ;
                       skos:prefLabel "Anonymised Taxonomy"@en-gb ,
                                      "Anonymized Taxonomy"@en .
+###  http://w3id.org/lang-dcat-ap/0.9.5
+dcatlds:0.9.5 rdf:type owl:NamedIndividual ,
+                   ms:StandardBestPractice ,
+                   skos:Concept ;
+          rdfs:label "LanguageDCAT-AP v0.9.5"@en ;
+          rdfs:seeAlso "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.5/" ;
+          skos:inScheme ms:StandardBestPracticeTaxonomy ;
+       skos:topConceptOf ms:StandardBestPracticeTaxonomy ;
+          skos:prefLabel "LanguageDCAT-AP v0.9.5"@en .
+
+###  http://w3id.org/lang-dcat-ap/0.9.3
+dcatlds:0.9.3 rdf:type owl:NamedIndividual ,
+                   ms:StandardBestPractice ,
+                   skos:Concept ;
+          rdfs:label "LanguageDCAT-AP v0.9.3"@en ;
+          rdfs:seeAlso "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.3/" ;
+
+          skos:inScheme ms:StandardBestPracticeTaxonomy ;
+       skos:topConceptOf ms:StandardBestPracticeTaxonomy ;
+          skos:prefLabel "LanguageDCAT-AP v0.9.3"@en .
 
 ###  http://w3id.org/lang-dcat-ap/0.9.2
 dcatlds:0.9.2 rdf:type owl:NamedIndividual ,
@@ -10022,16 +10066,6 @@ dcatlds:0.9.2 rdf:type owl:NamedIndividual ,
           skos:inScheme ms:StandardBestPracticeTaxonomy ;
        skos:topConceptOf ms:StandardBestPracticeTaxonomy ;
           skos:prefLabel "LanguageDCAT-AP v0.9.2"@en .
-
-###  http://w3id.org/lang-dcat-ap/0.9.5
-dcatlds:0.9.5 rdf:type owl:NamedIndividual ,
-                   ms:StandardBestPractice ,
-                   skos:Concept ;
-          rdfs:label "LanguageDCAT-AP v0.9.5"@en ;
-          rdfs:seeAlso "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.5/" ;
-          skos:inScheme ms:StandardBestPracticeTaxonomy ;
-       skos:topConceptOf ms:StandardBestPracticeTaxonomy ;
-          skos:prefLabel "LanguageDCAT-AP v0.9.5"@en .
 
 ###  http://w3id.org/meta-share/meta-share/BML
 ms:BML rdf:type owl:NamedIndividual ,

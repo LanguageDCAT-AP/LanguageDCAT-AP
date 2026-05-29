@@ -183,63 +183,54 @@ One of the main objectives of LanguageDCAT-AP is to cover the requirements of ex
 <h2>Terminology</h2>
 <p>
 An <b>Application Profile</b> is a data specification aimed to facilitate the data exchange in a well-defined application context. It re-uses concepts from one or more semantic data specifications, while adding more specificity, by identifying mandatory, recommended, and optional elements, addressing particular application needs, and providing recommendations for controlled vocabularies to be used. More information can be found on the <a href="https://semiceu.github.io/style-guide/1.0.0/terminological-clarifications.html#sec:what-is-a-cv-specification">SEMIC Style Guide</a>. [Definition from MLDCAT-AP]</p>
-
 <p>A <b>dataset</b> represents a collection of data, published or curated by a single agent or identifiable community. [Definition from [[vocab-dcat-3]]]</p>
-
 <p>A <b>language resource</b> is a resource composed of linguistic material used in the construction, improvement and/or evaluation of language processing applications, but also, in a broader sense, in language and language-mediated research studies and applications; the term is used with a broader meaning, encompassing (a) data sets (textual, multimodal/multimedia and lexical data, grammars, language models, etc.) in machine readable form, and (b) tools/technologies/services used for their processing and management. [Definition from META-SHARE]</p>
-
-<p>A language resource is further distinguished into: 
+<p>Language resources are further distinguished into: 
 <ul>
-	<li><b>corpora</b>: structured collections of pieces of data (textual, audio, video, multimodal/multimedia, etc.) typically of considerable size and selected according to criteria external to the data (e.g., size, type of language, type of text producers or expected audience, etc.) to represent as comprehensively as possible the object of study;</li>
-	<li><b>lexical/conceptual resources</b>: datasets organised on the basis of lexical or conceptual entries (lexical items, terms, concepts, etc.) with their supplementary information (e.g., grammatical, semantic, statistical information, etc.)</li>
-	<li><b>machine learning models</b>: model artifacts created through a training process involving a Machine Learning (ML) algorithm (that is, the learning algorithm) and the training data to learn from;</li>
-	<li><b>language technology tools/services</b>: tools/services/any piece of software that performs language processing and/or any Language Technology related operation;</li>
-	<li><b>computational grammars</b> and other <b>language descriptions</b>, i.e., resources that formally describe a language.</li>
+<li><b>corpora</b>: structured collections of pieces of data (textual, audio, video, multimodal/multimedia, etc.) typically of considerable size and selected according to criteria external to the data (e.g., size, type of language, type of text producers or expected audience, etc.) to represent as comprehensively as possible the object of study;</li>
+<li><b>lexical/conceptual resources</b>: datasets organised on the basis of lexical or conceptual entries (lexical items, terms, concepts, etc.) with their supplementary information (e.g., grammatical, semantic, statistical information, etc.)</li>
+<li><b>machine learning models</b>: model artifacts created through a training process involving a Machine Learning (ML) algorithm (that is, the learning algorithm) and the training data to learn from;</li>
+<li><b>language technology tools/services</b>: tools/services/any piece of software that performs language processing and/or any Language Technology related operation;</li>
+<li><b>computational grammars</b> and other <b>language descriptions</b>, i.e., resources that formally describe a language.</li>
 </ul>
 </p>
-
 <p>Initially, models were considered under the class of "language descriptions", but given the way they have evolved, especially with the advent of Large Language Models (LLMs), they have been recognised as a distinct category.</p>
 <h3>Used prefixes</h3>
 <p>LanguageDCAT-AP is a semantic specification, where each class and property has an URI. The prefixed form of the URI, can be found in part in the class diagram and in the quick reference table at the bottom, while, for ease of reading, full URI can be found in the hyperlink of each class and property. This specification uses the following prefixes to shorten the URIs for readability:
-	</p>
-	
-<table id="table-namespaces" class="data-table simple">
-	<thead><tr><th>Prefix</th><th>Namespace IRI</th></tr></thead>
-	<tbody>
-		<tr><td><code>adms</code></td><td><code>http://www.w3.org/ns/adms#</code></td></tr>
-		<tr><td><code>at</code></td><td><code>http://publications.europa.eu/ontology/authority/</code></td></tr>
-		<tr><td><code>cc</code></td><td><code>http://creativecommons.org/ns#</code></td></tr>
-		<tr><td><code>dc</code></td><td><code>http://purl.org/dc/elements/1.1/</code></td></tr>
-		<tr><td><code>dcat</code></td><td><code>http://www.w3.org/ns/dcat#</code></td></tr>
-		<tr><td><code>dcatlds</code></td><td><code>http://w3id.org/lang-dcat-ap/</code></td></tr>
-		<tr><td><code>dct</code></td><td><code>http://purl.org/dc/terms/</code></td></tr>
-		<tr><td><code>dpv</code></td><td><code>https://w3id.org/dpv#</code></td></tr>
-		<tr><td><code>foaf</code></td><td><code>http://xmlns.com/foaf/0.1/</code></td></tr>
-		<tr><td><code>it6</code></td><td><code>http://data.europa.eu/it6/</code></td></tr>
-		<tr><td><code>lexbib</code></td><td><code>https://lexbib.elex.is/entity/</code></td></tr>
-		<tr><td><code>lds</code></td><td><code>https://language-data-space.eu/entity/</code></td></tr>
-        <tr><td><code>lexmeta</code></td><td><code>http://w3id.org/meta-share/lexmeta#</code></td></tr>
-		<tr><td><code>ms</code></td><td><code>http://w3id.org/meta-share/meta-share/</code></td></tr>
-		<tr><td><code>odrl</code></td><td><code>http://www.w3.org/ns/odrl/2/</code></td></tr>
-		<tr><td><code>omtd</code></td><td><code>http://w3id.org/meta-share/omtd-share/</code></td></tr>
-		<tr><td><code>owl</code></td><td><code>http://www.w3.org/2002/07/owl#</code></td></tr>
-		<tr><td><code>prov</code></td><td><code>http://www.w3.org/ns/prov#</code></td></tr>
-		<tr><td><code>rdf</code></td><td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td></tr>
-		<tr><td><code>rdfs</code></td><td><code>http://www.w3.org/2000/01/rdf-schema#</code></td></tr>
-		<tr><td><code>schema</code></td><td><code>http://schema.org/</code></td></tr>
-		<tr><td><code>skos</code></td><td><code>http://www.w3.org/2004/02/skos/core#</code></td></tr>
-		<tr><td><code>vann</code></td><td><code>http://purl.org/vocab/vann/</code></td></tr>
-		<tr><td><code>wikidata</code></td><td><code>http://www.wikidata.org/entity/</code></td></tr>
-		<tr><td><code>xml</code></td><td><code>http://www.w3.org/XML/1998/namespace</code></td></tr>
-		<tr><td><code>xsd</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td></tr>
-	</tbody>
-</table>	
+    </p>
+<table class="data-table simple" id="table-namespaces">
+<thead>
+<tr><th>Prefix</th><th>Namespace IRI</th></tr></thead>
+<tbody>
+<tr><td><code>adms</code></td><td><code>http://www.w3.org/ns/adms#</code></td></tr>
+<tr><td><code>cc</code></td><td><code>http://creativecommons.org/ns#</code></td></tr>
+<tr><td><code>dcat</code></td><td><code>http://www.w3.org/ns/dcat#</code></td></tr>
+<tr><td><code>dcatlds</code></td><td><code>http://w3id.org/lang-dcat-ap/</code></td></tr>
+<tr><td><code>dct</code></td><td><code>http://purl.org/dc/terms/</code></td></tr>
+<tr><td><code>dpv</code></td><td><code>https://w3id.org/dpv#</code></td></tr>
+<tr><td><code>foaf</code></td><td><code>http://xmlns.com/foaf/0.1/</code></td></tr>
+<tr><td><code>it6</code></td><td><code>http://data.europa.eu/it6/</code></td></tr>
+<tr><td><code>lds</code></td><td><code>https://language-data-space.eu/entity/</code></td></tr>
+<tr><td><code>lexmeta</code></td><td><code>http://w3id.org/meta-share/lexmeta#</code></td></tr>
+<tr><td><code>ms</code></td><td><code>http://w3id.org/meta-share/meta-share/</code></td></tr>
+<tr><td><code>odrl</code></td><td><code>http://www.w3.org/ns/odrl/2/</code></td></tr>
+<tr><td><code>omtd</code></td><td><code>http://w3id.org/meta-share/omtd-share/</code></td></tr>
+<tr><td><code>owl</code></td><td><code>http://www.w3.org/2002/07/owl#</code></td></tr>
+<tr><td><code>prov</code></td><td><code>http://www.w3.org/ns/prov#</code></td></tr>
+<tr><td><code>rdf</code></td><td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td></tr>
+<tr><td><code>rdfs</code></td><td><code>http://www.w3.org/2000/01/rdf-schema#</code></td></tr>
+<tr><td><code>schema</code></td><td><code>https://schema.org/</code></td></tr>
+<tr><td><code>skos</code></td><td><code>http://www.w3.org/2004/02/skos/core#</code></td></tr>
+<tr><td><code>xml</code></td><td><code>http://www.w3.org/XML/1998/namespace</code></td></tr>
+<tr><td><code>xsd</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td></tr>
+</tbody>
+</table>    
 
-<p></p>
+<br/>
 <div class="box">
 <b>WARNING:</b> LanguageDCAT-AP v0.9.1 used the "http://www.nlpli.gr/dcat-lds#" namespace for its own defined elements, which has now been replaced with: "http://w3id.org/lang-dcat-ap/".
-</div>
-	
+</div>  
+    
 </section>
 <!-- Overview -->
 <section id="overview">
@@ -954,12 +945,13 @@ To comply with the Data Space Protocol, some of these properties are treated dif
     <td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td>
     <td>1..n</td>
     <td>The file format, physical medium, or dimensions of the resource</td>
-    <td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td>
-    <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" target="_blank">OMTD-SHARE Vocabulary of Data Formats</a></td>
-    <td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.format" target="_blank">DCAT-AP [E]</a></td></tr>
+    <td>dcatlds:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcatlds:format MAY be used with different values.</td>
+    <td><a href="http://publications.europa.eu/resource/authority/file-type" target="_blank">EU Vocabularies File Type Named Authority List</a></td>
+    <td>P</td></tr>
 <tr id="Distribution.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">has policy</a></td><td><a href="#Policy" target="_blank">Policy</a></td><td>1..1</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representation of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.<p></p>See also <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.haspolicy" target="_blank">DCAT-AP [E]</a></td></tr>
 <tr id="Distribution.licence"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>0..1</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. See also <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td>See also <a href="#LDSNotes">LDS notes</a> for LDS-specific implementation</td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.licence" target="_blank">DCAT-AP [E]</a></td></tr>
-<tr id="Distribution.mediaType"><td><a href="http://w3id.org/lang-dcat-ap/mediaType" target="_blank">media type</a></td><td><a href="#MediaType" target="_blank">Media Type</a></td><td>0..n</td><td>The media type of the distribution as defined by IANA [IANA-MEDIA-TYPES].</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">IANA-MEDIA-TYPES Vocabulary</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.mediatype" target="_blank">DCAT-AP [E]</a></td></tr>
+<tr id="Distribution.mediaType"><td><a href="http://w3id.org/lang-dcat-ap/mediaType" target="_blank">media type</a></td><td><a href="#MediaType" target="_blank">Media Type</a></td><td>0..n</td><td>The media type of the distribution as defined by IANA [IANA-MEDIA-TYPES].</td><td>dcatlds:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcatlds:format MAY be used with different values.</td>
+    <td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">IANA-MEDIA-TYPES Vocabulary</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.mediatype" target="_blank">P</a></td></tr>
 <tr id="Distribution.packageFormat"><td><a href="http://www.w3.org/ns/dcat#packageFormat" target="_blank">package format</a></td><td><a href="#MediaType" target="_blank">Media Type</a></td><td>0..1</td><td>The package format of the distribution in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together.</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Package_Format_Taxonomy/data" target="_blank">OMTD-SHARE Vocabulary of Package Formats</a></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.packagingformat" target="_blank">DCAT-AP [E]</a></td></tr>
 <tr id="Distribution.size"><td><a href="http://w3id.org/meta-share/meta-share/size" target="_blank">size</a></td><td><a href="#Size" target="_blank">Size</a></td><td>1..n</td><td>Specifies the size of a countable entity with regard to the SizeUnit measurement in form of a number</td><td></td><td></td><td>P</td></tr>
 <tr id="Distribution.title"><td><a href="https://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td><a href="https://semiceu.github.io/DCAT-AP/releases/3.0.1/#Distribution.title" target="_blank">DCAT-AP [E]</a></td></tr>
@@ -1398,9 +1390,11 @@ N.B. The properties defined for the class "Policy" here are the additional ones 
 </tr></thead>
 <tbody>
 <tr id="ProcessingResource.detailedLanguage"><td><a href="http://w3id.org/meta-share/meta-share/language" target="_blank">detailed language</a></td><td><a href="#Language" target="_blank">Language</a></td><td>0..n</td><td>Specifies the language that is used in the resource or supported by the tool/service expressed according to the BCP47 standard [[rfc5646]]</td><td>This property takes a value in compliance with the BCP47 standard [[rfc5646]] and, thus, allows for the detailed description of the language (e.g., British English, Brazilian Portuguese, Greek written with the Latin script, etc.). It must be conformant with the value of "dct:language".</td><td></td><td>P</td></tr>
-<tr id="ProcessingResource.format"><td><a href="http://w3id.org/lang-dcat-ap/format" target="_blank">format</a></td><td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td><td>0..n</td><td>The file format, physical medium, or dimensions of the resource</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" target="_blank">OMTD-SHARE Vocabulary of Data Formats</a></td><td>P</td></tr>
+<tr id="ProcessingResource.format"><td><a href="http://w3id.org/lang-dcat-ap/format" target="_blank">format</a></td><td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td><td>0..n</td><td>dcatlds:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcatlds:format MAY be used with different values.</td>
+    <td><a href="http://publications.europa.eu/resource/authority/file-type" target="_blank">EU Vocabularies File Type Named Authority List</a></td><td>P</td></tr>
 <tr id="ProcessingResource.language"><td><a href="http://purl.org/dc/terms/language" target="_blank">language</a></td><td><a href="#LinguisticSystem" target="_blank">Linguistic System</a></td><td>0..n</td><td>A language of the resource.</td><td>This property is used for the language of the contents of a dataset and takes a value only for the language proper, without any reference to script, regional variant, etc. It caters for semantic interoperability with other catalogues, yet fails to capture the full language details that are required for language data. For a more detailed description, the "ms:language" property is preferred, but the two values must be aligned.</td><td>The <a href="http://publications.europa.eu/resource/dataset/language" target="_blank">EU Authority languages vocabulary</a></td><td>P</td></tr>
-<tr id="ProcessingResource.mediaType"><td><a href="http://w3id.org/lang-dcat-ap/mediaType" target="_blank">media type</a></td><td><a href="#MediaType" target="_blank">Media Type</a></td><td>0..n</td><td>The media type of the distribution as defined by IANA [IANA-MEDIA-TYPES].</td><td>dcat:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcterms:format MAY be used with different values.</td><td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">IANA-MEDIA-TYPES Vocabulary</a></td><td>P</td></tr>
+<tr id="ProcessingResource.mediaType"><td><a href="http://w3id.org/lang-dcat-ap/mediaType" target="_blank">media type</a></td><td><a href="#MediaType" target="_blank">Media Type</a></td><td>0..n</td><td>The media type of the distribution as defined by IANA [IANA-MEDIA-TYPES].</td><td>dcatlds:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcatlds:format MAY be used with different values.</td>
+    <td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">IANA-MEDIA-TYPES Vocabulary</a></td><td>P</td></tr>
 <tr id="ProcessingResource.modalityType"><td><a href="http://w3id.org/meta-share/meta-share/mediaType" target="_blank">modality type</a></td><td><a href="#ModalityType" target="_blank">Modality Type</a></td><td>0  ..n</td><td>Specifies the media type of a language resource (the physical medium of the contents representation) or of the input/output of a language processing tool/service; each media type is described through a distinctive set of technical features; a language resource may consist of different media parts</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data" target="_blank">META-SHARE Modality Type Vocabulary</a></td><td>P</td></tr>
 <tr id="ProcessingResource.processingResourceType"><td><a href="http://w3id.org/meta-share/meta-share/processingResourceType" target="_blank">processing resource type</a></td><td><a href="http://w3id.org/meta-share/meta-share/ProcessingResourceType" target="_blank">Processing Resource Type</a></td><td>1..1</td><td>The type of the resource that a tool/service takes as input or produces as output</td><td></td><td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Processing_Resource_Types_Taxonomy/data" target="_blank">META-SHARE Processing Resource Types Vocabulary</a></td><td>P</td></tr></tbody>
 </table>
@@ -1527,8 +1521,6 @@ No reference
 <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
 </dl>
 </section>
-
-
 
 <!-- Section Catalogue Record -->
 <section id="CatalogueRecord">
@@ -1777,7 +1769,6 @@ This property can be repeated for parallel language versions. The language tag i
 </dl>
 </section>
 
-
 <!-- Section MediaType -->
 <section id="MediaType">
 <h3><a data-content="http://purl.org/dc/terms/MediaType" data-placement="right" data-toggle="tooltip" href="http://purl.org/dc/terms/MediaType">Media Type</a></h3>
@@ -1803,6 +1794,7 @@ This property can be repeated for parallel language versions. The language tag i
 <dd>This specification does not impose any additional requirements to properties for this entity.</dd>
 </dl>
 </section>
+
 <!-- Section MicrostructureFeature -->
 <section id="MicrostructureFeature">
 <h3><a data-content="http://w3id.org/meta-share/lexmeta#MicrostructureFeature" data-placement="right" data-toggle="tooltip" href="http://w3id.org/meta-share/lexmeta#MicrostructureFeature">Microstructure Feature</a></h3>
@@ -2063,7 +2055,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </dl>
 </section>
 
-
 </section>
 <!-- Section Datatypes -->
 <section id="datatypes">
@@ -2175,10 +2166,10 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </tr>
 <tr id="DataFormatTaxonomy">
 <td><a href="http://purl.org/dc/terms/format" target="_blank">format</a></td>
-<td><a href="#Distribution">Distribution</a></td>
+<td><a href="#Distribution">Distribution</a>, <a href="#ProcessingResource">Processing Resource</a></td>
 <td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td>
 <td>A media type or extent.</td>
-<td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" target="_blank">OMTD-SHARE Vocabulary of Data Formats</a></td>
+<td><a href="http://publications.europa.eu/resource/authority/file-type" target="_blank">EU Vocabularies File Type Named Authority List</a></td>
 <td></td>
 </tr>
 <tr id="TechnicalandOrganisationalMeasureTaxonomy">
