@@ -2,7 +2,7 @@
 @prefix sh:                          <http://www.w3.org/ns/shacl#> .
 @prefix edc:                         <https://w3id.org/edc/v0.0.1/ns/> .
 @prefix loc:                         <http://id.loc.gov/vocabulary/iso639-1/> . # TODO
-@prefix iana:                        <http://www.iana.org/assignments/media-types/application/> . # TODO
+@prefix iana:                        <http://www.iana.org/assignments/media-types/> . # TODO
 @prefix lds:                         <https://language-data-space.eu/entity/> .
 @prefix adms:                        <http://www.w3.org/ns/adms#> .
 @prefix eu-country:                  <http://publications.europa.eu/resource/authority/country/> .
@@ -522,26 +522,26 @@ sh:ModelVariantProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         ms:variantOf ;
-	sh:node         sh:MsLanguageNodeShape .
+	sh:node         sh:MsLanguageResourceNodeShape .
 
 sh:TrainedOnProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         it6:trainedOn ;
-	sh:node         sh:MsLanguageNodeShape ;
+	sh:node         sh:MsLanguageResourceNodeShape ;
 	sh:minCount     1 .
 
 sh:EvaluationDatasetProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         ms:evaluationDataset ;
-	sh:node         sh:MsLanguageNodeShape .
+	sh:node         sh:MsLanguageResourceNodeShape .
 
 sh:FinetuneDatasetProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         ms:finetuneDataset ;
-	sh:node         sh:MsLanguageNodeShape .
+	sh:node         sh:MsLanguageResourceNodeShape .
 
 sh:EvaluationResultsProp
 	a               sh:PropertyShape ;
