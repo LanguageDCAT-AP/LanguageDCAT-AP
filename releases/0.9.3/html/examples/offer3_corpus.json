@@ -7,7 +7,7 @@
     "adms": "http://www.w3.org/ns/adms#",
     "ms": "http://w3id.org/meta-share/meta-share/",
     "loc": "http://id.loc.gov/vocabulary/iso639-1/",
-    "iana": "http://www.iana.org/assignments/media-types/application/",
+    "iana": "http://www.iana.org/assignments/media-types/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "foaf": "http://xmlns.com/foaf/0.1/",
@@ -16,7 +16,6 @@
     "dspace": "https://w3id.org/dspace/v0.8/",
     "omtd": "http://w3id.org/meta-share/omtd-share/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "euvoc_auth": "http://publications.europa.eu/resource/authority/",
     "schema": "https://schema.org/",
     "owl": "http://www.w3.org/2002/07/owl#",
     "lds": "https://language-data-space.eu/entity/",
@@ -24,7 +23,11 @@
     "dcmitype": "http://purl.org/dc/dcmitype/",
     "lexmeta": "http://w3id.org/meta-share/lexmeta#",
     "dpv": "https://w3id.org/dpv#",
-    "it6": "http://data.europa.eu/it6/"
+    "it6": "http://data.europa.eu/it6/",
+    "eu-country": "http://publications.europa.eu/resource/authority/country/",
+    "eu-continent": "http://publications.europa.eu/resource/authority/continent/",
+    "eu-place": "http://publications.europa.eu/resource/authority/place/",
+    "eu-filetype": "http://publications.europa.eu/resource/authority/file-type/"
   },
   "ms:lrType": {
     "@id": "ms:corpus1"
@@ -45,9 +48,9 @@
       ]
     }
   ],
-  "ms:conformsTo": [
+  "dct:conformsTo": [
     {
-      "@id": "dcatlds:0.9.2",
+      "@id": "dcatlds:0.9.3"
     }
   ],
   "dct:title": [
@@ -106,18 +109,17 @@
         "@id": "omtd:Zip"
       },
       "dcat:byteSize": 104032854,
-      "dcat:downloadURL": "https://example.com/data.zip",
-      "dcat:mediaType": [
+      "dcat:downloadURL": "https://www.example.org/sample.txt",
+      "dcatlds:mediaType": [
         {
           "@id": "https://www.iana.org/assignments/media-types/text/plain"
         }
       ],
-      "dct:format": [
+      "dcatlds:format": [
         {
-          "@id": "omtd:Text"
+          "@id": "eu-filetype:TXT"
         }
-      ],
-      "schema:name": "9aAMZlav"
+      ]
     }
   ],
   "ms:isDocumentedBy": [
@@ -177,11 +179,6 @@
         "@id": "http://w3id.org/meta-share/bcp47/language_it"
       },
       "ms:languageTag": "it"
-    }
-  ],
-  "dct:language": [
-    {
-      "@id": "euvoc_auth:language/ITA"
     }
   ],
   "@type": "dcat:Dataset",

@@ -2393,7 +2393,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "adms": "http://www.w3.org/ns/adms#",
     "ms": "http://w3id.org/meta-share/meta-share/",
     "loc": "http://id.loc.gov/vocabulary/iso639-1/",
-    "iana": "http://www.iana.org/assignments/media-types/application/",
+    "iana": "http://www.iana.org/assignments/media-types/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "foaf": "http://xmlns.com/foaf/0.1/",
@@ -2402,7 +2402,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "dspace": "https://w3id.org/dspace/v0.8/",
     "omtd": "http://w3id.org/meta-share/omtd-share/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "euvoc_auth": "http://publications.europa.eu/resource/authority/",
     "schema": "https://schema.org/",
     "owl": "http://www.w3.org/2002/07/owl#",
     "lds": "https://language-data-space.eu/entity/",
@@ -2410,7 +2409,11 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "dcmitype": "http://purl.org/dc/dcmitype/",
     "lexmeta": "http://w3id.org/meta-share/lexmeta#",
     "dpv": "https://w3id.org/dpv#",
-    "it6": "http://data.europa.eu/it6/"
+    "it6": "http://data.europa.eu/it6/",
+    "eu-country": "http://publications.europa.eu/resource/authority/country/",
+    "eu-continent": "http://publications.europa.eu/resource/authority/continent/",
+    "eu-place": "http://publications.europa.eu/resource/authority/place/",
+    "eu-filetype": "http://publications.europa.eu/resource/authority/file-type/"
   },
   "ms:lrType": {
     "@id": "ms:corpus1"
@@ -2432,13 +2435,13 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
   ],
   "dct:title": [
     {
-      "@value": "ABSITA dataset1",
+      "@value": "ABSITA dataset",
       "@language": "en"
     }
   ],
-  "ms:conformsTo": [
+  "dct:conformsTo": [
     {
-      "@id": "dcatlds:0.9.3",
+      "@id": "dcatlds:0.9.3"
     }
   ],
   "dct:description": [
@@ -2491,18 +2494,17 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         "@id": "omtd:Zip"
       },
       "dcat:byteSize": 422988,
-      "dcat:downloadURL": "https://example.com/data.zip",
-      "dcat:mediaType": [
+      "dcat:downloadURL": "https://example.org/sample.txt",
+      "dcatlds:mediaType": [
         {
           "@id": "https://www.iana.org/assignments/media-types/text/csv"
         }
       ],
-      "dct:format": [
+      "dcatlds:format": [
         {
-          "@id": "omtd:Csv"
+          "@id": "eu-filetype:CSV"
         }
-      ],
-      "schema:name": "NbWQKWey"
+      ]
     }
   ],
   "ms:isDocumentedBy": [
@@ -2544,11 +2546,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         "@id": "http://w3id.org/meta-share/bcp47/language_it"
       },
       "ms:languageTag": "it"
-    }
-  ],
-  "dct:language": [
-    {
-      "@id": "euvoc_auth:language/ITA"
     }
   ],
   "@type": "dcat:Dataset",
@@ -2840,8 +2837,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
       ]
     }
   ]
-}
-        </pre>
+}        </pre>
       </div>
     </div>
   </aside>
@@ -2863,7 +2859,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "adms": "http://www.w3.org/ns/adms#",
     "ms": "http://w3id.org/meta-share/meta-share/",
     "loc": "http://id.loc.gov/vocabulary/iso639-1/",
-    "iana": "http://www.iana.org/assignments/media-types/application/",
+    "iana": "http://www.iana.org/assignments/media-types/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "foaf": "http://xmlns.com/foaf/0.1/",
@@ -2872,7 +2868,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "dspace": "https://w3id.org/dspace/v0.8/",
     "omtd": "http://w3id.org/meta-share/omtd-share/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "euvoc_auth": "http://publications.europa.eu/resource/authority/",
     "schema": "https://schema.org/",
     "owl": "http://www.w3.org/2002/07/owl#",
     "lds": "https://language-data-space.eu/entity/",
@@ -2880,7 +2875,11 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "dcmitype": "http://purl.org/dc/dcmitype/",
     "lexmeta": "http://w3id.org/meta-share/lexmeta#",
     "dpv": "https://w3id.org/dpv#",
-    "it6": "http://data.europa.eu/it6/"
+    "it6": "http://data.europa.eu/it6/",
+    "eu-country": "http://publications.europa.eu/resource/authority/country/",
+    "eu-continent": "http://publications.europa.eu/resource/authority/continent/",
+    "eu-place": "http://publications.europa.eu/resource/authority/place/",
+    "eu-filetype": "http://publications.europa.eu/resource/authority/file-type/"
   },
   "ms:lrType": {
     "@id": "ms:corpus1"
@@ -2987,14 +2986,12 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         "@id": "omtd:Zip"
       },
       "dcat:byteSize": 2110372,
-      "dcat:downloadURL": "https://example.com/data.zip",
-      "dcat:mediaType": [],
-      "dct:format": [
+      "dcat:downloadURL": "https://example.org/sample.txt",
+      "dcatlds:format": [
         {
-          "@id": "omtd:Xml"
+          "@id": "eu-filetype:XML"
         }
-      ],
-      "schema:name": "YaOPXgbx"
+      ]
     }
   ],
   "ms:isDocumentedBy": [
@@ -3012,9 +3009,9 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
   "ms:corpusSubclass": {
     "@id": "ms:annotatedCorpus"
   },
-  "ms:conformsTo": [
+  "dct:conformsTo": [
     {
-      "@id": "dcatlds:0.9.3",
+      "@id": "dcatlds:0.9.3"
     }
   ],
   "ms:anonymized": {
@@ -3041,11 +3038,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         "@id": "http://w3id.org/meta-share/bcp47/language_it"
       },
       "ms:languageTag": "it"
-    }
-  ],
-  "dct:language": [
-    {
-      "@id": "euvoc_auth:language/ITA"
     }
   ],
   "@type": "dcat:Dataset",
@@ -3340,6 +3332,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 }
 
 
+
         </pre>
       </div>
     </div>
@@ -3362,7 +3355,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "adms": "http://www.w3.org/ns/adms#",
     "ms": "http://w3id.org/meta-share/meta-share/",
     "loc": "http://id.loc.gov/vocabulary/iso639-1/",
-    "iana": "http://www.iana.org/assignments/media-types/application/",
+    "iana": "http://www.iana.org/assignments/media-types/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "foaf": "http://xmlns.com/foaf/0.1/",
@@ -3371,7 +3364,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "dspace": "https://w3id.org/dspace/v0.8/",
     "omtd": "http://w3id.org/meta-share/omtd-share/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "euvoc_auth": "http://publications.europa.eu/resource/authority/",
     "schema": "https://schema.org/",
     "owl": "http://www.w3.org/2002/07/owl#",
     "lds": "https://language-data-space.eu/entity/",
@@ -3379,7 +3371,11 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "dcmitype": "http://purl.org/dc/dcmitype/",
     "lexmeta": "http://w3id.org/meta-share/lexmeta#",
     "dpv": "https://w3id.org/dpv#",
-    "it6": "http://data.europa.eu/it6/"
+    "it6": "http://data.europa.eu/it6/",
+    "eu-country": "http://publications.europa.eu/resource/authority/country/",
+    "eu-continent": "http://publications.europa.eu/resource/authority/continent/",
+    "eu-place": "http://publications.europa.eu/resource/authority/place/",
+    "eu-filetype": "http://publications.europa.eu/resource/authority/file-type/"
   },
   "ms:lrType": {
     "@id": "ms:corpus1"
@@ -3400,9 +3396,9 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
       ]
     }
   ],
-  "ms:conformsTo": [
+  "dct:conformsTo": [
     {
-      "@id": "dcatlds:0.9.3",
+      "@id": "dcatlds:0.9.3"
     }
   ],
   "dct:title": [
@@ -3461,18 +3457,17 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         "@id": "omtd:Zip"
       },
       "dcat:byteSize": 104032854,
-      "dcat:downloadURL": "https://example.com/data.zip",
-      "dcat:mediaType": [
+      "dcat:downloadURL": "https://www.example.org/sample.txt",
+      "dcatlds:mediaType": [
         {
           "@id": "https://www.iana.org/assignments/media-types/text/plain"
         }
       ],
-      "dct:format": [
+      "dcatlds:format": [
         {
-          "@id": "omtd:Text"
+          "@id": "eu-filetype:TXT"
         }
-      ],
-      "schema:name": "9aAMZlav"
+      ]
     }
   ],
   "ms:isDocumentedBy": [
@@ -3532,11 +3527,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         "@id": "http://w3id.org/meta-share/bcp47/language_it"
       },
       "ms:languageTag": "it"
-    }
-  ],
-  "dct:language": [
-    {
-      "@id": "euvoc_auth:language/ITA"
     }
   ],
   "@type": "dcat:Dataset",
@@ -3829,7 +3819,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     }
   ]
 }
-        </pre>
+      </pre>
       </div>
     </div>
   </aside>
@@ -3851,7 +3841,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "adms": "http://www.w3.org/ns/adms#",
     "ms": "http://w3id.org/meta-share/meta-share/",
     "loc": "http://id.loc.gov/vocabulary/iso639-1/",
-    "iana": "http://www.iana.org/assignments/media-types/application/",
+    "iana": "http://www.iana.org/assignments/media-types/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "foaf": "http://xmlns.com/foaf/0.1/",
@@ -3860,7 +3850,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "dspace": "https://w3id.org/dspace/v0.8/",
     "omtd": "http://w3id.org/meta-share/omtd-share/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "euvoc_auth": "http://publications.europa.eu/resource/authority/",
     "schema": "https://schema.org/",
     "owl": "http://www.w3.org/2002/07/owl#",
     "lds": "https://language-data-space.eu/entity/",
@@ -3868,7 +3857,11 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "dcmitype": "http://purl.org/dc/dcmitype/",
     "lexmeta": "http://w3id.org/meta-share/lexmeta#",
     "dpv": "https://w3id.org/dpv#",
-    "it6": "http://data.europa.eu/it6/"
+    "it6": "http://data.europa.eu/it6/",
+    "eu-country": "http://publications.europa.eu/resource/authority/country/",
+    "eu-continent": "http://publications.europa.eu/resource/authority/continent/",
+    "eu-place": "http://publications.europa.eu/resource/authority/place/",
+    "eu-filetype": "http://publications.europa.eu/resource/authority/file-type/"
   },
   "ms:lrType": {
     "@id": "ms:lexicalConceptualResource1"
@@ -3885,9 +3878,9 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
       "@language": "en"
     }
   ],
-  "ms:conformsTo": [
+  "dct:conformsTo": [
     {
-      "@id": "dcatlds:0.9.3",
+      "@id": "dcatlds:0.9.3"
     }
   ],
   "dcat:version": "2.0",
@@ -3928,18 +3921,17 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         }
       ],
       "dcat:byteSize": 51222443,
-      "dcat:downloadURL": "https://example.com/data.zip",
-      "dcat:mediaType": [
+      "dcat:downloadURL": "https://www.example.org/sample.txt",
+      "dcatlds:mediaType": [
         {
           "@id": "https://www.iana.org/assignments/media-types/application_vnd_openxmlformats_officedocument_spreadsheetml_sheet"
         }
       ],
-      "dct:format": [
+      "dcatlds:format": [
         {
-          "@id": "omtd:MsExcel_xlsx"
+          "@id": "eu-filetype:XLSX"
         }
-      ],
-      "schema:name": "sampledata.zip"
+      ]
     }
   ],
   "ms:anonymized": {
@@ -3967,14 +3959,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         "@id": "http://w3id.org/meta-share/bcp47/language_fr"
       },
       "ms:languageTag": "fr"
-    }
-  ],
-  "dct:language": [
-    {
-      "@id": "euvoc_auth:language/FRA"
-    },
-    {
-      "@id": "euvoc_auth:language/ENG"
     }
   ],
   "@type": "dcat:Dataset",
@@ -4267,6 +4251,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     }
   ]
 }
+
 
 
         </pre>

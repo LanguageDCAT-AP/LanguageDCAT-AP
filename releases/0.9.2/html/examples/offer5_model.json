@@ -41,9 +41,9 @@
       "@language": "en"
     }
   ],
-  "ms:conformsTo": [
+  "dct:conformsTo": [
     {
-      "@id": "dcatlds:0.9.2",
+      "@id": "dcatlds:0.9.2"
     }
   ],
   "dcat:version": "1.0",
