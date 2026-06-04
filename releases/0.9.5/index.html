@@ -2518,109 +2518,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <p>All classes, properties and individuals used in the LanguageDCAT-AP profile are available in a file in Turtle format <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.5/ttl/languageDCAT-AP.ttl">here</a>.</p> 
 </section>
 
-<!-- Section LDSNotes -->
-<section class="informative" id="LDSNotes">
-<h2>Notes for implementation in the Language Data Space</h2>
-<p>For reasons of compatibility with the <a href="https://eclipse-dataspace-protocol-base.github.io/DataspaceProtocol/2025-1/">Dataspace Protocol (DSP)</a>, the recommended standard for exchange of datasets for all data spaces, and the implementation supported by the <a href="https://eclipse-edc.github.io/">EDC (Eclipse Dataspace Components) connector</a>, which lies at the heart of the LDS infrastructure, a set of deviations from the profile are deemed indispensable. These concern (a) properties used exclusively in the LDS context, hence not presented in this documentation, and realised through distinct SHACL rules, and (b) properties that appear in the profile with specific features that are bypassed or handled differently in LDS. These are documented here with the required explanations:
-<ul>
-    <li>The properties hasPolicy and Licence are attached both to the Dataset and Distribution class (and respectively for models, at ...) and in DCAT-AP are allowed at the Distribution; however, the DSP requires them to be attached at the Dataset level.</li>
-    <li>The same properties have maximum cardinality 1 at DCAT-AP but n at DSP. We use the .1 cardinality, as suggested by DCAT-AP, yet the catalogues that are automatically extracted from the EDC connector contain multiple policies; for exchange outside LDS, these can be converted to multiple datasets, each with its own policy.</li>
-    <li>In order to use the EDC functionalities, all assets included in the catalogue must be of type dcat:Dataset. Thus, for import into LDS, we require the same for all resource types, including models and tools/services. The distinction is made with the lrtype property.</li>
-</ul>
-</p>
-
-<div class="u-table-overflow">
-<table class="data-table simple">
-<colgroup>
-<col style="width:20%;"/>
-<col style="width:20%;"/>
-<col style="width:20%;"/>
-<col style="width:20%;"/>
-<col style="width:20%;"/>
-</colgroup>
-<thead>
-<tr>
-<th>Class</th><th>Property</th><th>DCAT-AP specs</th><th>DSP specs</th><th>LDS implementation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-    <td><a href="#Distribution">Distribution</a></td>
-    <td><a href="#Distribution.accessService">access service</a></td>
-    <td>Cardinality 0..n</td>
-    <td>Property used for the DataService that specifies where the distribution is obtained, i.e. the Data Space Connector.</td>
-    <td>The LDS automatically adds the connector data at the export stage for metadata exchange between connectors; for external exchanges, this is not exported for security purposes</td>
-</tr>
-<tr>
-    <td><a href="#Distribution">Distribution</a></td>
-    <td><a href="#Distribution.accessURL">access URL</a></td>
-    <td>Cardinality 1..n</td>
-    <td>No specs for access URL but all metadata descriptions must be attached to existing data files that are accessible via direct links (cf. downloadURL)</td>
-    <td>All metadata descriptions must be attached to existing data files stored at the provider's storage location accessible with direct links, which makes the use of accessURL redundant. However, for interoperability purposes, accessURL can be copied from downloadURL.</td>
-</tr>
-<tr>
-    <td><a href="#Distribution">Distribution</a></td>
-    <td><a href="#Distribution.downloadURL">download URL</a></td>
-    <td>Cardinality 0..n</td>
-    <td>No specs for download URL, but the relevant information is represented in the "dataAddress" property which is attached at the Dataset and has cardinality 1..1</td>
-    <td>All metadata descriptions must be attached to existing data files stored at the provider's storage location. At import stage, this is represented in the downloadURL property (not at dataset, right???) and triggers a functionality that creates the dataAddress property. At export stage, the dataAddress property is exposed for metadata exchange between connectors; for external exchanges, this is not exported for security purposes</td>
-</tr>
-<tr>
-    <td><a href="#Distribution">Distribution</a></td>
-    <td><a href="#Distribution.hasPolicy">has policy</a></td>
-    <td>Cardinality 0..1</td>
-    <td>The property is only on dcat:Dataset with cardinality 1..n</td>
-    <td>The hasPolicy property must be on dcat:Dataset; thus:
-        <ul>
-<li>when converting metadata records from other metadata models, (1) policies attached to the class Distribution are copied to the Dataset node and (2) are represented in a list form to accommodate EDC requirements</li> 
-<li>at the export stage, for interoperability purposes, (1) policies attached to the dcat:Dataset are copied to the dcat:Distribution class as well, and (2) in the case of a dataset with multiple policies, a single dcat:Dataset is created with multiple dcat:Distribution classes, each with a single Policy</li>
-        </ul>
-    </td>
-</tr>
-<tr>
-    <td><a href="#Distribution">Distribution</a></td>
-    <td><a href="#Distribution.licence">licence</a></td>
-    <td>Cardinality 0..1</td>
-    <td>n/a</td>
-    <td>When a dataset is distributed with a licence (a proper legal document), this licence must be represented as an ODRL policy; thus, the 'licence' property is linked to the property 'hasPolicy'. Therefore:
-        <ul>
-<li>when converting metadata records from other metadata models, (1) licences attached to the class Distribution are copied, together with their respective policies, to the Dataset node and (2) are represented in a list form to accommodate EDC requirements</li> 
-<li>at the export stage, for interoperability purposes, (1) licences attached to the dcat:Dataset are copied to the dcat:Distribution class as well, and (2) in the case of a dataset with multiple licences, a single dcat:Dataset is created with multiple dcat:Distribution classes, each with a single licence and its equivalent policy; to ensure equivalence between licence and policy, the same title (in the dct:title property) is used.</li>
-        </ul>
-    </td>
-<tr>
-    <td><a href="#ModelDistribution">Model Distribution</a></td>
-    <td><a href="#ModelDistribution.accessLocation">accessLocation</a></td>
-    <td>None</td>
-    <td>None</td>
-    <td>Property used for open models??? TO DECIDE how we will use</td>
-</tr>
-
-<tr>
-    <td><a href="#ModelDistribution">Model Distribution</a></td>
-    <td><a href="#ModelDistribution.downloadLocation">downloadLocation</a></td>
-    <td>None</td>
-    <td>None; yet, given that models are treated as dcat:Dataset, this property is used to create the "dataAddress" property which is attached at the Dataset level and has cardinality 1..1</td>
-    <td>All metadata descriptions must be attached to existing data files stored at the provider's storage location. At import stage, this is represented in the downloadLocation property for models and triggers a functionality that creates the dataAddress property. At export stage, the dataAddress property is exposed for metadata exchange between connectors; for external exchanges, this is not exported for security purposes.</td>
-</tr>
-<tr>
-    <td><a href="#ModelDistribution">Model Distribution</a></td>
-    <td><a href="#ModelDistribution.hasPolicy">has policy</a></td>
-    <td>None</td>
-    <td>None</td>
-    <td>For consistency reasons, the same approach used for the "hasPolicy" property on dataset distributions is implemented.</td>
-</tr>
-<tr>
-    <td><a href="#ModelDistribution">Model Distribution</a></td>
-    <td><a href="#ModelDistribution.licence">licence</a></td>
-    <td>None</td>
-    <td>None</td>
-    <td>For consistency reasons, the same approach used for the "licence" property on dataset distributions is implemented.</td>
-</tbody>
-</table>
-
-</section>
-
 <!-- Section examples -->
 <section class="informative" id="examples">
 <h2>Examples</h2>
@@ -4961,12 +4858,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 </div>
 </div>
 </aside>
-</section>
-<section class="appendix" id="acknowledgements">
-<h2>Acknowledgements</h2>
-<p>The LanguageDCAT-AP profile builds upon work carried out in the framework of various initiatives, the most notable of which is the <a href="https://www.w3.org/groups/cg/ld4lt/">Linked Data for Language Technology(LD4LT) W3C Community Group</a>, and infrastructural projects (<a href="http://www.meta-share.eu/">META-SHARE</a>, <a href="https://www.clarin.eu/">CLARIN</a>, <a href="https://www.clarin.gr/en">CLARIN-EL</a>, <a href="https://openminted.eu/about.html">OpenMinTeD</a>, <a href="https://live.european-language-grid.eu/">European Language Grid</a>), and has been consolidated in the <a href="https://language-data-space.ec.europa.eu/">Language Data Space</a> and the <a href="https://www.llms4eu.eu/">LLMs4EU</a> project. We would like to acknowledge all persons that have contributed to this work:</p>
-<p>Victoria Arranz, Sophie Aubin, Richard Eckart de Castilho, Khalid Choukri, Philipp Cimiano, Miltos Deligiannis, Elina Desypri, Victor Rodriguez Doncel, Richard Eckart de Castilho, Gil Francopoulo, Francesca Frontini, Dimitris Galanis, Maria Gavriilidou, Maria Giagkou, Katerina Gkirtzou, Jorge Gracia, the LD4LT Community Group contributors, the META-SHARE metadata working group, Christianne Klaes, Petr Knoth, David Lindemann, Valerie Mapelli, John P. McCrae, Monica Monacchini, Claire Nedellec, Stelios Piperidis, Claudia Soria, Kossay Talmoudi, Marta Villegas, Leon Voukoutis.</p>
-<p>We also gratefully acknowledge the guidance and feedback provided by the <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre">SEMIC group</a>, and especially Pavlina Fragkou, Anastasia Sofou, Emidio Stani, and Ine Weyts, in our most recent endeavours.</p>
 <script>
 function switchTab(event, tabId) {
   // Find the specific example container this button belongs to
@@ -4986,7 +4877,183 @@ function switchTab(event, tabId) {
 }
 </script>
 </section>
+<section class="appendix" id="acknowledgements">
+<h2>Acknowledgements</h2>
+<p>The LanguageDCAT-AP profile builds upon work carried out in the framework of various initiatives, the most notable of which is the <a href="https://www.w3.org/groups/cg/ld4lt/">Linked Data for Language Technology(LD4LT) W3C Community Group</a>, and infrastructural projects (<a href="http://www.meta-share.eu/">META-SHARE</a>, <a href="https://www.clarin.eu/">CLARIN</a>, <a href="https://www.clarin.gr/en">CLARIN-EL</a>, <a href="https://openminted.eu/about.html">OpenMinTeD</a>, <a href="https://live.european-language-grid.eu/">European Language Grid</a>), and has been consolidated in the <a href="https://language-data-space.ec.europa.eu/">Language Data Space</a> and the <a href="https://www.llms4eu.eu/">LLMs4EU</a> project. We would like to acknowledge all persons that have contributed to this work:</p>
+<p>Victoria Arranz, Sophie Aubin, Richard Eckart de Castilho, Khalid Choukri, Philipp Cimiano, Miltos Deligiannis, Elina Desypri, Victor Rodriguez Doncel, Richard Eckart de Castilho, Gil Francopoulo, Francesca Frontini, Dimitris Galanis, Maria Gavriilidou, Maria Giagkou, Katerina Gkirtzou, Jorge Gracia, the LD4LT Community Group contributors, the META-SHARE metadata working group, Christianne Klaes, Petr Knoth, David Lindemann, Valerie Mapelli, John P. McCrae, Monica Monacchini, Claire Nedellec, Stelios Piperidis, Claudia Soria, Kossay Talmoudi, Marta Villegas, Leon Voukoutis.</p>
+<p>We also gratefully acknowledge the guidance and feedback provided by the <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre">SEMIC group</a>, and especially Pavlina Fragkou, Anastasia Sofou, Emidio Stani, and Ine Weyts, in our most recent endeavours.</p>
+
+</section>
 </p>
+</section>
+<!-- Section LDSNotes -->
+<section class="appendix" id="LDSNotes">
+<h2>Notes for implementation in the Language Data Space</h2>
+<p>For reasons of compatibility with the <a href="https://eclipse-dataspace-protocol-base.github.io/DataspaceProtocol/2025-1/">Dataspace Protocol (DSP)</a>, the recommended standard for exchange of datasets for all data spaces, and the implementation supported by the <a href="https://eclipse-edc.github.io/">EDC (Eclipse Dataspace Components) connector</a>, which lies at the heart of the LDS infrastructure, a set of deviations from the profile are deemed indispensable. These concern (a) properties used exclusively in the LDS context, hence not presented in this documentation, and realised through distinct SHACL rules, and (b) properties that appear in the profile with specific features that are bypassed or handled differently in LDS. Discrepancies that are due to these specificities and the DCAT-AP and MLDCAT-AP are presented in the following table. 
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>DCAT-AP & MLDCAT-AP</th>
+            <th>Dataspace Protocol</th>
+            <th>LanguageDCAT-AP</th>
+            <th>LDS implementation</th>
+            <th>Recommendations for import to LDS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>type</td>
+            <td>DCAT-AP caters for datasets only (dcat:Dataset); MLDCAT-AP introduces it6:Model as a subclass of dcat:Resource; services are included in both as dcat:DataService, subclass of dcat:Resource.</td>
+            <td>Caters only for datasets (dcat:Dataset); dcat:DataService used for the documentation of connectors.</td>
+            <td>Recognises corpora and lexica/conceptual resources as dcat:Dataset and models as distinct entities subclass of dcat:Resource, and introduces NLP and AI tools/services as distinct entities (subclass of dcat:Resource); dcat:DataService can be used for connectors and other types of data services (e.g., SPARQL endpoints)</td>
+            <td>In order to use the EDC functionalities, all assets included in the catalogue must be of type dcat:Dataset. Thus, for import into LDS, we require the same for all resource types, including models and tools/services. The distinction is made with the lrtype property.</td>
+            <td>Encode all resource types as "dcat:Dataset".</td>
+        <tr>
+            <td>distribution</td>
+            <td>Dataset has cardinality 1..n for the property distribution</td>
+            <td>A 
+                <code>Dataset</code> MUST hold at least one 
+                <code>Distribution</code> object in the 
+                <code>distribution</code> attribute. 
+            </td>
+            <td>Subclasses of Dataset have cardinality 1..n for the property distribution</td>
+            <td>Due to implementation restrictions of the EDC version currently used for the LDS Connector, only one 
+                <code>Distribution</code> is allowed per 
+                <code>Dataset</code>. For export outside LDS, Datasets with multiple Policies will be exported as one Dataset with distinct Distributions, each of them corresponding to the distinct Policies.
+            </td>
+            <td>Different Distributions of a Dataset (and its subclasses) must be represented as different Datasets. If the distinct Distributions correspond to different Policies used for the same Dataset, they can also be represented as a single Dataset with multiple Policies.</td>
+        </tr>
+        <tr>
+            <td>modelDistribution</td>
+            <td>n/a</td>
+            <td>n/a</td>
+            <td>Models have cardinality 1..n for the property modelDistribution</td>
+            <td>Given that models and tools/services are treated as assets and, therefore, Datasets, the same mechanism as for 
+                <code>distribution</code> is used.
+            </td>
+            <td>Different ModelDistributions of a Model are represented as different Models.</td>
+        </tr>
+        <tr>
+            <td>softwareDistribution</td>
+            <td>n/a</td>
+            <td>n/a</td>
+            <td>Tools/Services have cardinality 1..n for the property softwareDistribution</td>
+            <td>Given that models and tools/services are treated as assets and, therefore, Datasets, the same mechanism as for 
+                <code>distribution</code> is used.
+            </td>
+            <td>Different SoftwareDistributions of a Tool/Service are represented as different Tools/Services.</td>
+        </tr>
+        <tr>
+            <td>distribution</td>
+            <td>Not on Catalogue</td>
+            <td>Optional property on Catalogue</td>
+            <td>Not added</td>
+            <td>At export stage outside LDS, this is not exported.</td>
+            <td>n/a</td>
+        </tr>
+        <tr>
+            <td>hasPolicy</td>
+            <td>Property attached to Distribution</td>
+            <td>Property attached to Dataset</td>
+            <td>Property attached to both Dataset subclasses (as well as on Model and Tool/Service) and Distribution (and ModelDistribution and SoftwareDistribution respectively)</td>
+            <td>Property attached to Dataset subclasses; at export stage, it is copied to Distribution variants</td>
+            <td>When importing to LDS, move or copy hasPolicy from Distribution variants to Dataset subclasses, Model and Tool/Service respectively</td>
+        </tr>
+        <tr>
+            <td>hasPolicy</td>
+            <td>Distribution has cardinality 0..1 for the property</td>
+            <td>Dataset has cardinality 1..n for this property</td>
+            <td>For class attachment see above; cardinality is 1..1</td>
+            <td>Due to implementation restrictions of the EDC version currently used for the LDS Connector, at exchange of catalogues Datasets (Models and Tool/Services) are represented with multiple policies. At export stage, these are represented as distinct entries with a single policy each.</td>
+            <td>When importing to LDS, represent multiple policies as distinct Datasets (Models and Tool/Services); see also above where to attach the property</td>
+        </tr>
+        <tr>
+            <td>license</td>
+            <td>Property attached to Distribution with cardinality 0..1</td>
+            <td>n/a</td>
+            <td>Property attached to both Dataset subclasses (Corpus and LCR),  Model and Tool/Service, as well as on Distribution, ModelDistribution, SoftwareDistribution attached with cardinality 1..1</td>
+            <td>not in import; we only have hasPolicy; single σε λίστα</td>
+            <td>At export, LDS aligns licence with hasPolicy and copies both properties on Distribution (and ModelDistribution, and SoftwareDistribution respectively). In case of multiple policies and licences, these are represented as distinct entries with a single policy-licence pair.</td>
+            <td>When importing to LDS, move or copy license-policy pair from Distribution variants to Dataset subclasses, Model and Tool/Service respectively</td>
+        </tr>
+        <tr>
+            <td>service</td>
+            <td>Property attached to Catalogue with cardinality 0..n, intended for the description of DataServices that are offered by a publisher.</td>
+            <td>A Catalog MUST have one to many Data Services that reference a Connector where Datasets MAY be obtained.</td>
+            <td>Property attached to Catalog with cardinality 0..n</td>
+            <td></td>
+            <td>Following the DSP specifications, the DataService is used for the representation of the Connector endpoint and is automatically created and kept as is. </td>
+            <td>n/a</td>
+        </tr>
+        <tr>
+            <td>access service</td>
+            <td>Property attached to Distribution with cardinality 0..n, intended for data services that give access to the distribution of the dataset</td>
+            <td>Each Distribution object MUST have at least one DataService which specifies where the distribution is obtained. Specifically, a DataService specifies the endpoint for initiating a Contract Negotiation and Transfer Process. A DataService.endpointURL property contains the URL of the service the Contract Negotiation endpoints extend.</td>
+            <td>Property attached to Distribution with cardinality 0..n</td>
+            <td>in Sept check if we can allow also for other types of data services but this would mean we also cater for e.g. sparql endpoints</td>
+            <td>Following the DSP specifications, the DataService is used for the representation of the Connector endpoint and is automatically created and kept as is. When exporting outside LDS, this is not exported for security purposes. Other types of Data Services are not currently supported.</td>
+            <td>n/a</td>
+        </tr>
+        <tr>
+            <td>language</td>
+            <td>only dct:language property used with controlled vocabulary EU authorities</td>
+            <td>n/a</td>
+            <td>Two properties: dct:language and ms:language with cardinality 1..n which must be aligned</td>
+            <td></td>
+            <td>Only the ms:language/language is mandatory. The dct:language is automatically computed based on ms:language. If a value is not included in the EU vocabulary, it is mapped to the value "unmapped".</td>
+            <td>n/a</td>
+        </tr>
+        <tr>
+            <td>Model</td>
+            <td></td>
+            <td>n/a</td>
+            <td></td>
+            <td></td>
+            <td>Added as subclass of dcat:Dataset in order to be retrieved in the Catalogue</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Tool/Service</td>
+            <td></td>
+            <td>n/a</td>
+            <td></td>
+            <td></td>
+            <td>Added as subclass of dcat:Dataset in order to be retrieved in the Catalogue</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>format</td>
+            <td>dct:format with cardinality 0..1 for the file format</td>
+            <td>The format property is a format specified by a Distribution for the Dataset associated with the Agreement. This is generally obtained from the Provider's Catalog
+dct:format used for the transfer protocol; examples are HttpData-PULL, HttpData-PUSH, AmazonS3-PULL</td>
+            <td>A new property dcatlds:format is introduced which takes values from the EU vocabulary of filetypes with cardinality 0..n; dct:format is not used at all</td>
+            <td>v093 and 095</td>
+            <td>The dct:format is used internally according to the DSP specification. The dcatlds:format is used for the file format</td>
+            <td>Use the property dcatlds:format instead of dct:format</td>
+        </tr>
+        <tr>
+            <td>mediaType</td>
+            <td>dcat:mediaType used for IANA media types with cardinality 0..1</td>
+            <td>n/a</td>
+            <td>A new property dcatlds:mediaType is introduced with cardinality 0..n as a temporary solution for SEMIC interoperability purposes</td>
+            <td>v093 and 095</td>
+            <td>dcatlds: automatically created for IANA media types with cardinality 0..n</td>
+            <td>Use dcatlds:mediaType instead of dcat:mediaType</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&nbsp</td>
+            <td>&nbsp</td>
+            <td>&nbsp</td>
+            <td>&nbsp</td>
+            <td>&nbsp</td>
+            <td>&nbsp</td>
+        </tr>
+    </tbody>
+</table>
+
 </section>
 </body>
 </html>

@@ -43,7 +43,7 @@
   ],
   "ms:conformsTo": [
     {
-      "@id": "dcatlds:0.9.5",
+      "@id": "dcatlds:0.9.5"
     }
   ],
   "dcat:version": "2.0",
