@@ -2286,7 +2286,7 @@ dpv:TechnicalOrganisationalMeasure rdf:type owl:Class ;
 dcatlds:PurposeOfUseTaxonomy rdf:type owl:NamedIndividual ,
                                       skos:ConceptScheme ;
                              rdfs:label "Purpose of Use Taxonomy"@en ;
-                             rdfs:seeAlso "http://vocabhub.ilsp.gr/dcatlds_PurposeOfUseTaxonomy/en/" ;
+                             rdfs:seeAlso "http://vocabhub.ilsp.gr/dcatlds_PurposeOfUseTaxonomy/data" ;
                              skos:definition "Vocabulary for defining the intended purpose of use of a resource"@en ;
                              skos:hasTopConcept dcatlds:commercialDerivatives ,
                                                 dcatlds:commercialLLMs ,
@@ -2468,7 +2468,7 @@ lexmeta:MicrostructureFeatureScheme rdf:type owl:NamedIndividual ,
                                              skos:ConceptScheme ;
                                     lexmeta:lexbibWikibaseEntity lexbib:Q51 ;
                                     rdfs:label "Microstructure Feature Taxonomy"@en ;
-                                    rdfs:seeAlso "http://vocabhub.ilsp.gr/lexmeta_MicroFeatureTaxonomy/en/"@en ;
+                                    rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Microstructure_Feature_Taxonomy/data"@en ;
                                     skos:hasTopConcept lexmeta:entryLayoutFeature ,
                                                        lexmeta:formalInformation ,
                                                        lexmeta:lemma ,
@@ -9809,7 +9809,7 @@ ms:AnonymizedTaxonomy rdf:type owl:NamedIndividual ,
                                skos:ConceptScheme ;
                       rdfs:label "Anonymised Taxonomy"@en-gb ,
                                  "Anonymized Taxonomy"@en ;
-                      rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_AnonymizedTaxonomy/en/" ;
+                      rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Anonymized_Taxonomy/data" ;
                       skos:hasTopConcept ms:noA ,
                                          ms:unknownA ,
                                          ms:yesA ;
@@ -9878,7 +9878,7 @@ ms:CLARIN-SHARE rdf:type owl:NamedIndividual ,
 ms:CorpusSubclassTaxonomy rdf:type owl:NamedIndividual ,
                                    skos:ConceptScheme ;
                           rdfs:label "Corpus Subclass Taxonomy"@en ;
-                          rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_CorpusSubclassTaxonomy/en/" ;
+                          rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Corpus_Subclass_Taxonomy/data" ;
                           skos:hasTopConcept ms:annotatedCorpus ,
                                              ms:annotationsCorpus ,
                                              ms:other ,
@@ -9891,7 +9891,7 @@ ms:CorpusSubclassTaxonomy rdf:type owl:NamedIndividual ,
 ms:DataProtectionPrincipleTaxonomy rdf:type owl:NamedIndividual ,
                                             skos:ConceptScheme ;
                                    rdfs:label "Data Protection Principle Taxonomy"@en ;
-                                   rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_DataProtectionPrincipleTaxonomy/en/" ;
+                                   rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Protection_Principle_Taxonomy/data" ;
                                    skos:hasTopConcept ms:accuracy ,
                                                       ms:alignmentDataRights ,
                                                       ms:dataMinimisation ,
@@ -9921,7 +9921,7 @@ ms:DeepLearningModel rdf:type owl:NamedIndividual ,
 ms:DomainTaxonomy rdf:type owl:NamedIndividual ,
                            skos:ConceptScheme ;
                   rdfs:label "Domain Taxonomy"@en ;
-                  rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_DomainTaxonomy/en/" ;
+                  rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Domain_Taxonomy/data" ;
                   skos:hasTopConcept ms:AgricultureAndFisheries ,
                                      ms:EconomyAndFinancialMarkets_Services ,
                                      ms:EnvironmentEnergyAndSustainability ,
@@ -10175,7 +10175,7 @@ ms:LAF rdf:type owl:NamedIndividual ,
 ms:LCRSubclassTaxonomy rdf:type owl:NamedIndividual ,
                                 skos:ConceptScheme ;
                        rdfs:label "LCR Subclass Taxonomy"@en ;
-                       rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_LCRSubclassTaxonomy/en/" ;
+                       rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Taxonomy_of_Subclasses_of_Lexical_Conceptual_Resources/en/" ;
                        skos:hasTopConcept ms:annotationScheme ,
                                           ms:cognates ,
                                           ms:computationalLexicon ,
@@ -10215,7 +10215,7 @@ ms:LMF rdf:type owl:NamedIndividual ,
 ms:LRTypeTaxonomy rdf:type owl:NamedIndividual ,
                            skos:ConceptScheme ;
                   rdfs:label "Language Resource Type Taxonomy"@en ;
-                  rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_LRTypeTaxonomy/en/" ;
+                  rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Resource_Type_Taxonomy/data" ;
                   skos:hasTopConcept ms:corpus1 ,
                                      ms:languageDescription1 ,
                                      ms:lexicalConceptualResource1 ,
@@ -10228,7 +10228,7 @@ ms:LRTypeTaxonomy rdf:type owl:NamedIndividual ,
 ms:LanguageScopeTaxonomy rdf:type owl:NamedIndividual ,
                                   skos:ConceptScheme ;
                          rdfs:label "Scope Taxonomy"@en ;
-                         rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_LanguageScopeTaxonomy/en/" ;
+                         rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/LanguageScopeTaxonomy/data" ;
                          skos:hasTopConcept ms:collection ,
                                             ms:macrolanguage ,
                                             ms:privateUse ,
@@ -10240,7 +10240,7 @@ ms:LanguageScopeTaxonomy rdf:type owl:NamedIndividual ,
 ms:LanguageTaxonomy rdf:type owl:NamedIndividual ,
                              skos:ConceptScheme ;
                     rdfs:label "Language Taxonomy"@en ;
-                    rdfs:seeAlso "http://vocabhub.ilsp.gr/bcp47_LanguagesTaxonomy/en/" ;
+                    rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_taxonomy/data" ;
                     skos:prefLabel "Language Taxonomy"@en .
 
 
@@ -10268,7 +10268,7 @@ ms:LemonOntolex rdf:type owl:NamedIndividual ,
 ms:LingualityTypeTaxonomy rdf:type owl:NamedIndividual ,
                                    skos:ConceptScheme ;
                           rdfs:label "Linguality Type Taxonomy"@en ;
-                          rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_LingualityTypeTaxonomy/en/" ;
+                          rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Linguality_Type_Taxonomy/data" ;
                           skos:hasTopConcept ms:bilingual ,
                                              ms:bilingualized ,
                                              ms:monolingual ,
@@ -10280,7 +10280,7 @@ ms:LingualityTypeTaxonomy rdf:type owl:NamedIndividual ,
 ms:LocationTaxonomy rdf:type owl:NamedIndividual ,
                              skos:ConceptScheme ;
                     rdfs:label "Location Taxonomy"@en ;
-                    rdfs:seeAlso "http://vocabhub.ilsp.gr/bcp47_RegionsTaxonomy/en/" ;
+                    rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Location_taxonomy/data" ;
                     skos:prefLabel "Location Taxonomy"@en .
 
 
@@ -10359,7 +10359,7 @@ ms:MediaCommunicationWebAndEntertainment rdf:type owl:NamedIndividual ,
 ms:MediaTypeTaxonomy rdf:type owl:NamedIndividual ,
                               skos:ConceptScheme ;
                      rdfs:label "Modality Type Taxonomy"@en ;
-                     rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_MediaTypeTaxonomy/en/" ;
+                     rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Media_Type_Taxonomy/data" ;
                      skos:hasTopConcept ms:audio ,
                                         ms:image ,
                                         ms:text ,
@@ -10382,7 +10382,7 @@ ms:MobilityAndTransportation rdf:type owl:NamedIndividual ,
 ms:ModelTypeTaxonomy rdf:type owl:NamedIndividual ,
                               skos:ConceptScheme ;
                      rdfs:label "Model Type Taxonomy"@en ;
-                     rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_ModelTypeTaxonomy/en/" ;
+                     rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Model_Type_Taxonomy/data" ;
                      skos:hasTopConcept ms:DeepLearningModel ,
                                         ms:nonDeepLearningModel ,
                                         ms:other ,
@@ -10394,7 +10394,7 @@ ms:ModelTypeTaxonomy rdf:type owl:NamedIndividual ,
 ms:MultilingualityTypeTaxonomy rdf:type owl:NamedIndividual ,
                                         skos:ConceptScheme ;
                                rdfs:label "Multilinguality Type Taxonomy"@en ;
-                               rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_MultilingualityTypeTaxonomy/en/" ;
+                               rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Multilinguality_Type_Taxonomy/data" ;
                                skos:hasTopConcept ms:comparable ,
                                                   ms:multilingualSingleText ,
                                                   ms:other ,
@@ -10418,7 +10418,7 @@ ms:OAXAL rdf:type owl:NamedIndividual ,
 ms:PersonalDataIncludedTaxonomy rdf:type owl:NamedIndividual ,
                                          skos:ConceptScheme ;
                                 rdfs:label "Personal Data Included Taxonomy"@en ;
-                                rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_PersonalDataIncludedTaxonomy/en/" ;
+                                rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Personal_Data_Included_Taxonomy/data" ;
                                 skos:hasTopConcept ms:noP ,
                                                    ms:unknownP ,
                                                    ms:yesP ;
@@ -10490,7 +10490,7 @@ ms:ScientificResearchDesignAndEngineering rdf:type owl:NamedIndividual ,
 ms:ScriptTaxonomy rdf:type owl:NamedIndividual ,
                            skos:ConceptScheme ;
                   rdfs:label "Script Taxonomy"@en ;
-                  rdfs:seeAlso "http://vocabhub.ilsp.gr/bcp47_ScriptsTaxonomy/en/" ;
+                  rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Script_taxonomy/data" ;
                   skos:prefLabel "Script Taxonomy"@en .
 
 
@@ -10557,7 +10557,7 @@ ms:SemAF-SR rdf:type owl:NamedIndividual ,
 ms:SensitiveDataIncludedTaxonomy rdf:type owl:NamedIndividual ,
                                           skos:ConceptScheme ;
                                  rdfs:label "Special Category Data Included Taxonomy"@en ;
-                                 rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_SensitiveDataIncludedTaxonomy/en/" ;
+                                 rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Sensitive_Data_Included_Taxonomy/data" ;
                                  skos:hasTopConcept ms:noS ,
                                                     ms:unknownS ,
                                                     ms:yesS ;
@@ -10568,7 +10568,7 @@ ms:SensitiveDataIncludedTaxonomy rdf:type owl:NamedIndividual ,
 ms:SizeUnitTaxonomy rdf:type owl:NamedIndividual ,
                              skos:ConceptScheme ;
                     rdfs:label "Size Unit Taxonomy"@en ;
-                    rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_SizeUnitTaxonomy/en/" ;
+                    rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Size_Unit_Taxonomy/data" ;
                     skos:hasTopConcept ms:T-HPair ,
                                        ms:article ,
                                        ms:bigram ,
@@ -10651,7 +10651,7 @@ ms:SoftwareDistributionFormTaxonomy rdf:type owl:NamedIndividual ,
 ms:StandardBestPracticeTaxonomy rdf:type owl:NamedIndividual ,
                                          skos:ConceptScheme ;
                                 rdfs:label "Standards/Best practices Taxonomy"@en ;
-                                rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_StandardBestPracticeTaxonomy/en/" ;
+                                rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Standards_Best_practices_Taxonomy/data" ;
                                 skos:hasTopConcept ms:BML ,
                                                    ms:CES ,
                                                    ms:CLARIN-SHARE ,
@@ -10800,7 +10800,7 @@ ms:TMX rdf:type owl:NamedIndividual ,
 ms:TechnicalOrganisationalMeasureTaxonomy rdf:type owl:NamedIndividual ,
                                                    skos:ConceptScheme ;
                                           rdfs:label "Technical and Organisational Measure Taxonomy"@en ;
-                                          rdfs:seeAlso "http://vocabhub.ilsp.gr/ms_TechnicalOrganisationalMeasureTaxonomy/en/" ;
+                                          rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Technical_Organisational_Measure_Taxonomy/data" ;
                                           skos:hasTopConcept ms:accessControlsAuthenticationMechanisms ,
                                                              ms:dataBackupAndRecoveryProcedures ,
                                                              ms:dataBreachNotificationMechanisms ,
@@ -10830,7 +10830,7 @@ ms:TimeML rdf:type owl:NamedIndividual ,
 ms:VariantTaxonomy rdf:type owl:NamedIndividual ,
                             skos:ConceptScheme ;
                    rdfs:label "Variant Taxonomy"@en ;
-                   rdfs:seeAlso "http://vocabhub.ilsp.gr/bcp47_VariantsTaxonomy/en/" ;
+                   rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Variant_taxonomy/data" ;
                    skos:prefLabel "Variant Taxonomy"@en .
 
 
@@ -12995,7 +12995,7 @@ omtd:AnnotationOfTextualEntailment rdf:type owl:NamedIndividual ,
 omtd:AnnotationTypeScheme rdf:type owl:NamedIndividual ,
                                    skos:ConceptScheme ;
                           rdfs:label "Annotation Type Taxonomy"@en ;
-                          rdfs:seeAlso "http://vocabhub.ilsp.gr/omtd_AnnotationTypeScheme/en/"@en ;
+                          rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Annotation_Type_Taxonomy/data"@en ;
                           skos:hasTopConcept omtd:Alignment1 ,
                                              omtd:DiscourseAnnotationType ,
                                              omtd:DocumentAnnotationType ,
@@ -14075,7 +14075,7 @@ omtd:DataCollection rdf:type owl:NamedIndividual ,
 omtd:DataFormatScheme rdf:type owl:NamedIndividual ,
                                skos:ConceptScheme ;
                       rdfs:label "Data Format Taxonomy"@en ;
-                      rdfs:seeAlso "http://vocabhub.ilsp.gr/omtd_DataFormatScheme/en/" ;
+                      rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Data_Format_Taxonomy/data" ;
                       skos:hasTopConcept omtd:AnnotationFormat ,
                                          omtd:AudioFormat ,
                                          omtd:BinaryFormat ,
@@ -17508,7 +17508,7 @@ omtd:PackageFormat rdf:type owl:NamedIndividual ,
 omtd:PackageFormatScheme rdf:type owl:NamedIndividual ,
                                   skos:ConceptScheme ;
                          rdfs:label "Package Format Taxonomy"@en ;
-                         rdfs:seeAlso "http://vocabhub.ilsp.gr/omtd_PackageFormatScheme/en/"@en ;
+                         rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Package_Format_Taxonomy/data"@en ;
                          skos:hasTopConcept omtd:Gzip ,
                                             omtd:Tgz ,
                                             omtd:Zip ,
