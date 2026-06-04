@@ -128,7 +128,7 @@ aside.example {
 			edDraftURI: "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.5/",
       		latestVersion: "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.3/",
             github: "https://github.com/LanguageDCAT-AP/LanguageDCAT-AP",
-            shortName: "LanguageDCAT-AP",
+            shortName: "LanguageDCAT-AP  0.9.5",
             publishDate: "2026-02-16",
             logos: [{
             src: "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.5/html/lds_logo_full_name.svg",
@@ -323,9 +323,8 @@ And supported by these datatypes:
 
 </p></div>
 
-**TODO: CHANGE DIAGRAM**
-The following diagram gives an overview of LanguageDCAT-AP. For simplicity sake, only classes whose properties are specified by the profile are displayed as separate entities.
-    <div>
+The following diagram gives an overview of LanguageDCAT-AP. For simplicity sake, only classes whose properties are specified by the profile and/or are deemed important for the overview are displayed.
+<div>
 <a href="./html/overview.jpg" target="_blank">
 <img height="450px" src="./html/overview.jpg" width="900px"/>
 </a>
@@ -1297,14 +1296,14 @@ No reference
 <tr id="ModelDistribution.accessLevel"><td><a href="http://w3id.org/lang-dcat-ap/accessLevel" target="_blank">access level</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>The level of model access (e.g. weights-level access, black-box access)</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.accessLocation"><td><a href="http://w3id.org/meta-share/meta-share/accessLocation" target="_blank">access location</a></td><td><a href="#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the resource can be accessed from; it can be used for landing pages or for cases where the resource is accessible via an interface, i.e. cases where the resource itself is not provided with a direct link for downloading</td><td></td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.amountOfActiveParameters"><td><a href="http://w3id.org/lang-dcat-ap/amountOfActiveParameters" target="_blank">amount of active parameters</a></td><td><a href="#integer" target="_blank">integer</a></td><td>0..1</td><td>Specifies the number of active parameters</td><td></td><td></td><td>P</td></tr>
-<tr id="ModelDistribution.byteSize"><td><a href="http://www.w3.org/ns/dcat#byteSize" target="_blank">byte size</a></td><td><a href="#nonNegativeInteger" target="_blank">nonNegativeInteger</a></td><td>0..1</td><td>The size of a distribution in bytes.</td><td></td><td></td><td>P</td></tr>
+<tr id="ModelDistribution.byteSize"><td><a href="http://www.w3.org/ns/dcat#byteSize" target="_blank">byte size</a></td><td><a href="#nonNegativeInteger" target="_blank">nonNegativeInteger</a></td><td>1..1</td><td>The size of a distribution in bytes.</td><td></td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.distributionMethod"><td><a href="http://w3id.org/lang-dcat-ap/distributionMethod" target="_blank">distribution method</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A method of distribution for the model (e.g. enterprise, or subscription based access, access throug API, etc.)</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.downloadLocation"><td><a href="http://w3id.org/meta-share/meta-share/downloadLocation" target="_blank">download location</a></td><td><a href="#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the language resource (mainly data but also downloadable software programmes or forms) can be downloaded from</td><td></td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.format"><td><a href="http://w3id.org/lang-dcat-ap/format" target="_blank">format</a></td><td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td><td>1..n</td><td>The file format, physical medium, or dimensions of the resource</td><td>dcatlds:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcatlds:format MAY be used with different values.</td>
     <td><a href="http://publications.europa.eu/resource/authority/file-type" target="_blank">EU Vocabularies File Type Named Authority List</a></td><td>P</td></tr>
-<tr id="ModelDistribution.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">has policy</a></td><td><a href="#Policy" target="_blank">Policy</a></td><td>0..1</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representations of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.</td><td></td><td>P</td></tr>
+<tr id="ModelDistribution.hasPolicy"><td><a href="http://www.w3.org/ns/odrl/2/hasPolicy" target="_blank">has policy</a></td><td><a href="#Policy" target="_blank">Policy</a></td><td>1..1</td><td>Identifies an ODRL Policy for which the identified Asset is the target Asset to all the Rules</td><td>This property is used for "policies", i.e. the machine-readable representations of the licensing terms under which a dataset/distribution is made available. The representation MUST be expressed in the ODRL vocabulary.</td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.licence"><td><a href="http://purl.org/dc/terms/license" target="_blank">licence</a></td><td><a href="#Licence" target="_blank">Licence Document</a></td><td>0..1</td><td>A legal document giving official permission to do something with the resource</td><td>This property refers to a "licence", i.e. a human readable text with legal code, with which the resource/distribution is made available. This property SHOULD refer to a concrete standard or proprietary licence, so that the data users can assess the licence conditions in human-readable format before using the data. </td><td></td><td>P</td></tr>
-<tr id="ModelDistribution.mediaType"><td><a href="http://www.w3.org/ns/dcat#mediaType" target="_blank">media type</a></td><td><a href="#MediaType" target="_blank">Media Type</a></td><td>0..n</td><td>The media type of the distribution as defined by IANA [IANA-MEDIA-TYPES].</td><td>dcatlds:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcatlds:format MAY be used with different values.</td>
+<tr id="ModelDistribution.mediaType"><td><a href="http://w3id.org/lang-dcat-ap/mediaType" target="_blank">media type</a></td><td><a href="#MediaType" target="_blank">Media Type</a></td><td>0..n</td><td>The media type of the distribution as defined by IANA [IANA-MEDIA-TYPES].</td><td>dcatlds:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcatlds:format MAY be used with different values.</td>
     <td><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">IANA-MEDIA-TYPES Vocabulary</a></td><td>P</td></tr>
 <tr id="ModelDistribution.size"><td><a href="http://w3id.org/meta-share/meta-share/size" target="_blank">size</a></td><td><a href="#Size" target="_blank">Size</a></td><td>1..n</td><td>Specifies the size of a countable entity with regard to the SizeUnit measurement in form of a number</td><td></td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.title"><td><a href="https://purl.org/dc/terms/title" target="_blank">title</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>A name given to the resource</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
@@ -2437,7 +2436,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Processing_Resource_Types_Taxonomy/data" target="_blank">META-SHARE Processing Resource Types Vocabulary</a></td>
 <td></td>
 </tr>
-<tr id="RegionTaxonomy">
+<tr id="LocationTaxonomy">
 <td><a href="http://w3id.org/meta-share/meta-share/usedInRegion" target="_blank">region</a></td>
 <td><a href="#Language">Language</a></td>
 <td><a href="http://purl.org/dc/terms/Location" target="_blank">Location</a></td>
@@ -2505,7 +2504,16 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <p>To verify if the data is (technically) conformant to the LanguageDCAT-AP, the exchanged data can be validated using the provided SHACL shapes. SHACL is a W3C Recommendation to express constraints on an RDF knowledge graph.</p>
 <p>To support the check whether or not a catalogue satisfies the expressed constraints in this Application Profile, the constraints in this specification are expressed using SHACL [[shacl]]. Each constraint in this specification that could be converted into a SHACL expression has been included. However, it should be noted that the SHACL shapes have been implemented and tested for the Language Data Space purposes, and may include constraints specific to the Data Spaces requirements (cf. Section <a href="#context">Context</a>). As such this collection of SHACL expressions can be used to build a validation check for data, yet with caution.</p>
 <p>It is up to the implementers to define the validation they expect. Each implementation happens within a context, and that context is beyond the SHACL expressions here.</p>
-<p>The shapes can be found <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.5/SHACL/languagedcat-ap-SHACL.jsonld">here</a>.</p>
+<p>The shapes can be found <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.5/SHACL/languagedcat-ap-SHACL.jsonld">here</a> and they are structured in three files (in Turtle format) as follows:</p>
+<ul>
+    <li><b>Properties</b>: The file contains all properties with restrictions on datatype and cardinality for the top level classes of the model, i.e. <a href="#Corpus">Corpus</a>, <a href="LCR">Lexical/Conceptual Resource</a>, <a href="#Model">Model</a> and <a href="#ToolService">Tool/Service.</a></li>
+    <li><b>Entities</b>: The file contains all classes except for the those mentioned above, together with their data type, cardinality and other restrictions (e.g., pattern restrictions, value restrictions upon conditions); for properties that are shared with those of top classes (e.g., title),  reference to the SHACL rules in the Properties file is used.</li>
+    <li><b>Restrictions</b>: The file contains all restrictions related to the use of controlled vocabularies for the properties.</li>
+</ul>
+<div class="box">
+    N.B. The files contain also SHACL rules that are specific to the Language Data Space implementation (see Section <a href="#LDSNotes">Notes for the LDS implementation</a>); the comment "Specific to LDS" is used to distinguish them.
+</div>
+
 <h3>Profile in Turtle format</h3>
 <p>All classes, properties and individuals used in the LanguageDCAT-AP profile are available in a file in Turtle format <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.5/ttl/languageDCAT-AP.ttl">here</a>.</p> 
 </section>

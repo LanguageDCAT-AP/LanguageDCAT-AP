@@ -112,6 +112,13 @@ aside.example {
                 { name: "Penny Labropoulou", mailto: "penny@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" },
                 { name: "Kanella Pouli", mailto: "kanella@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" }
             ],
+            authors: [
+                { name: "Miltos Deligiannis", mailto: "mdel@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" },
+                { name: "Dimitris Galanis", mailto: "galanisd@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" },
+                { name: "Katerina Gkirtzou", mailto: "katerina.gkirtzou@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" },
+                { name: "Penny Labropoulou", mailto: "penny@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" },
+                { name: "Leon Voukoutis", mailto: "leon.voukoutis@athenarc.gr", company: "ILSP/Athena RC", companyURL: "https://www.ilsp.gr" }
+                ],
 			edDraftURI: "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.5/",
       		latestVersion: "https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.3/",
             github: "https://github.com/LanguageDCAT-AP/LanguageDCAT-AP",
@@ -145,7 +152,7 @@ LanguageDCAT-AP caters for the description of language data, language models and
 <!-- Introduction -->
 <section id="intro">
 <h2>Introduction</h2>
-<p>LanguageDCAT-AP is conceived and implemented as an extension of (a) the DCAT-AP application profile for Catalogues containing Datasets and Data Services in Europe [[DCAT-AP]] and (b) the <a href="https://semiceu.github.io/MLDCAT-AP/">MLDCAT-AP profile</a> for machine learning models and their datasets. It also builds upon the <a href="http://w3id.org/meta-share/">META-SHARE ontology</a>, and the vocabularies associated with it, such as the <a href="http://w3id.org/omtd-share/">OMTD-SHARE ontology</a>, especially for domain-specific concepts and properties. To cover language data specificities, it adopts classes and properties from these vocabularies, introduces new ones, where needed, and proposes domain-specific controlled vocabularies</p>
+<p>LanguageDCAT-AP is conceived and implemented as an extension of (a) the DCAT-AP application profile for Catalogues containing Datasets and Data Services in Europe [[DCAT-AP]] and (b) the <a href="https://semiceu.github.io/MLDCAT-AP/">MLDCAT-AP profile</a> for machine learning models and their datasets. It also builds upon the <a href="http://w3id.org/meta-share/">META-SHARE ontology</a>, and the vocabularies associated with it, such as the <a href="http://w3id.org/omtd-share/">OMTD-SHARE ontology</a>, especially for domain-specific concepts and properties. To cover language data specificities, it adopts classes and properties from these vocabularies, introduces new ones, where needed, and proposes domain-specific controlled vocabularies.</p>
 <p>Τhe current version (v0.9.2) adds to the already supported resource types (datasets, and more specifically, corpora and lexical/conceptual resources (see Section on Terminology), and language models), the language technology (Natural Language Processing and Language-centric AI) services. All resource types are accompanied with a minimal set of attributes that help consumers discover them, while the full set of attributes are an ongoing work and will be added in future versions.</p>
 </p>
 </section>
@@ -161,7 +168,7 @@ LanguageDCAT-AP caters for the description of language data, language models and
 <p>
 One of the main objectives of LanguageDCAT-AP is to cover the requirements of exchanging language data and models in the context of the <a href="https://language-data-space.ec.europa.eu/">Common European Language Data Space</a> and, as such, takes into account the building principles and specifications of data spaces. The most notable ones are the <a href="https://eclipse-dataspace-protocol-base.github.io/DataspaceProtocol/2025-1-err1/">Data Space Protocol</a> (DSP) and the IDS Reference Architecture Model (RAM, <a href="https://docs.internationaldataspaces.org/ids-knowledgebase/ids-ram-4">version 4</a> at the time of writing). Other data spaces initiatives, especially <a href="https://gaia-x.eu/">Gaia-X</a> and its specifications (cf., <a href="https://docs.gaia-x.eu/technical-committee/architecture-document/25.11/">Gaia-X architecture document</a>), and the <a href="https://dssc.eu/">Data Spaces Support Centre</a> (DSSC), with its Blueprint (<a href="https://dssc.eu/space/BVE2/1071251457/Data+Spaces+Blueprint+v2.0+-+Home">version 2.0</a> at the time of writing), bear a strong influence on the design of LanguageDCAT-AP.</p>
 
-<p>For semantic interoperability purposes, data spaces initiatives recommend the use of DCAT [[vocab-dcat-3]] for the description of catalogues, datasets and data services, and [[ODRL]] for the representation of policies. Specific data spaces have further adopted and extend [[DCAT-AP]] to their domains needs (cf., for instance, <a href="https://mobilitydcat-ap.github.io/mobilityDCAT-AP/Lareleases/index.html">mobilityDCAT-AP</a> and <a href="https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/index.html">HealthDCAT-AP</a>). LDS carries on along these steps, and to this end, closely collaborates with the <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre">SEMIC</a> team.</p>
+<p>For semantic interoperability purposes, data spaces initiatives recommend the use of DCAT [[vocab-dcat-3]] for the description of catalogues, datasets and data services, and [[ODRL]] for the representation of policies. Specific data spaces have further adopted and extend [[DCAT-AP]] to their domains needs (cf., for instance, <a href="https://mobilitydcat-ap.github.io/mobilityDCAT-AP/releases/index.html">mobilityDCAT-AP</a> and <a href="https://healthdataeu.pages.code.europa.eu/healthdcat-ap/releases/release-6/index.html">HealthDCAT-AP</a>). LDS carries on along these steps, and to this end, closely collaborates with the <a href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre">SEMIC</a> team.</p>
 
 <p>The language technology community has specific needs and demands that lead to the adaptation and extension of DCAT-AP and, for models, MLDCAT-AP. <b>Compatibility</b> with the aforemetioned specifications and guidelines, as well as implementation requirements for data spaces impose further constraints on the way these two models are deployed in LanguageDCAT-AP. Differences are manifested in the data type used for properties, the cardinality of properties, the recommended controlled vocabularies as well as the introduction of new classes and properties. These differences are documented in the descriptions of classes and properties in the following sections (see introduction in the <a href=#mainEntities>Main entities</a> section for the symbols used). A subset of such differences is presented here for illustration purposes:</p>
 <ul>
@@ -187,7 +194,7 @@ An <b>Application Profile</b> is a data specification aimed to facilitate the da
 
 <p>A <b>language resource</b> is a resource composed of linguistic material used in the construction, improvement and/or evaluation of language processing applications, but also, in a broader sense, in language and language-mediated research studies and applications; the term is used with a broader meaning, encompassing (a) data sets (textual, multimodal/multimedia and lexical data, grammars, language models, etc.) in machine readable form, and (b) tools/technologies/services used for their processing and management. [Definition from META-SHARE]</p>
 
-<p>A language resource is further distinguished into: 
+<p>Language resources are further distinguished into: 
 <ul>
 	<li><b>corpora</b>: structured collections of pieces of data (textual, audio, video, multimodal/multimedia, etc.) typically of considerable size and selected according to criteria external to the data (e.g., size, type of language, type of text producers or expected audience, etc.) to represent as comprehensively as possible the object of study;</li>
 	<li><b>lexical/conceptual resources</b>: datasets organised on the basis of lexical or conceptual entries (lexical items, terms, concepts, etc.) with their supplementary information (e.g., grammatical, semantic, statistical information, etc.)</li>
@@ -205,32 +212,27 @@ An <b>Application Profile</b> is a data specification aimed to facilitate the da
 <table id="table-namespaces" class="data-table simple">
 	<thead><tr><th>Prefix</th><th>Namespace IRI</th></tr></thead>
 	<tbody>
-		<tr><td><code>adms</code></td><td><code>http://www.w3.org/ns/adms#</code></td></tr>
-		<tr><td><code>at</code></td><td><code>http://publications.europa.eu/ontology/authority/</code></td></tr>
-		<tr><td><code>cc</code></td><td><code>http://creativecommons.org/ns#</code></td></tr>
-		<tr><td><code>dc</code></td><td><code>http://purl.org/dc/elements/1.1/</code></td></tr>
-		<tr><td><code>dcat</code></td><td><code>http://www.w3.org/ns/dcat#</code></td></tr>
-		<tr><td><code>dcatlds</code></td><td><code>http://w3id.org/lang-dcat-ap/</code></td></tr>
-		<tr><td><code>dct</code></td><td><code>http://purl.org/dc/terms/</code></td></tr>
-		<tr><td><code>dpv</code></td><td><code>https://w3id.org/dpv#</code></td></tr>
-		<tr><td><code>foaf</code></td><td><code>http://xmlns.com/foaf/0.1/</code></td></tr>
-		<tr><td><code>it6</code></td><td><code>http://data.europa.eu/it6/</code></td></tr>
-		<tr><td><code>lexbib</code></td><td><code>https://lexbib.elex.is/entity/</code></td></tr>
-		<tr><td><code>lds</code></td><td><code>https://language-data-space.eu/entity/</code></td></tr>
-        <tr><td><code>lexmeta</code></td><td><code>http://w3id.org/meta-share/lexmeta#</code></td></tr>
-		<tr><td><code>ms</code></td><td><code>http://w3id.org/meta-share/meta-share/</code></td></tr>
-		<tr><td><code>odrl</code></td><td><code>http://www.w3.org/ns/odrl/2/</code></td></tr>
-		<tr><td><code>omtd</code></td><td><code>http://w3id.org/meta-share/omtd-share/</code></td></tr>
-		<tr><td><code>owl</code></td><td><code>http://www.w3.org/2002/07/owl#</code></td></tr>
-		<tr><td><code>prov</code></td><td><code>http://www.w3.org/ns/prov#</code></td></tr>
-		<tr><td><code>rdf</code></td><td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td></tr>
-		<tr><td><code>rdfs</code></td><td><code>http://www.w3.org/2000/01/rdf-schema#</code></td></tr>
-		<tr><td><code>schema</code></td><td><code>http://schema.org/</code></td></tr>
-		<tr><td><code>skos</code></td><td><code>http://www.w3.org/2004/02/skos/core#</code></td></tr>
-		<tr><td><code>vann</code></td><td><code>http://purl.org/vocab/vann/</code></td></tr>
-		<tr><td><code>wikidata</code></td><td><code>http://www.wikidata.org/entity/</code></td></tr>
-		<tr><td><code>xml</code></td><td><code>http://www.w3.org/XML/1998/namespace</code></td></tr>
-		<tr><td><code>xsd</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td></tr>
+<tr><td><code>adms</code></td><td><code>http://www.w3.org/ns/adms#</code></td></tr>
+<tr><td><code>cc</code></td><td><code>http://creativecommons.org/ns#</code></td></tr>
+<tr><td><code>dcat</code></td><td><code>http://www.w3.org/ns/dcat#</code></td></tr>
+<tr><td><code>dcatlds</code></td><td><code>http://w3id.org/lang-dcat-ap/</code></td></tr>
+<tr><td><code>dct</code></td><td><code>http://purl.org/dc/terms/</code></td></tr>
+<tr><td><code>dpv</code></td><td><code>https://w3id.org/dpv#</code></td></tr>
+<tr><td><code>foaf</code></td><td><code>http://xmlns.com/foaf/0.1/</code></td></tr>
+<tr><td><code>it6</code></td><td><code>http://data.europa.eu/it6/</code></td></tr>
+<tr><td><code>lds</code></td><td><code>https://language-data-space.eu/entity/</code></td></tr>
+<tr><td><code>lexmeta</code></td><td><code>http://w3id.org/meta-share/lexmeta#</code></td></tr>
+<tr><td><code>ms</code></td><td><code>http://w3id.org/meta-share/meta-share/</code></td></tr>
+<tr><td><code>odrl</code></td><td><code>http://www.w3.org/ns/odrl/2/</code></td></tr>
+<tr><td><code>omtd</code></td><td><code>http://w3id.org/meta-share/omtd-share/</code></td></tr>
+<tr><td><code>owl</code></td><td><code>http://www.w3.org/2002/07/owl#</code></td></tr>
+<tr><td><code>prov</code></td><td><code>http://www.w3.org/ns/prov#</code></td></tr>
+<tr><td><code>rdf</code></td><td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td></tr>
+<tr><td><code>rdfs</code></td><td><code>http://www.w3.org/2000/01/rdf-schema#</code></td></tr>
+<tr><td><code>schema</code></td><td><code>https://schema.org/</code></td></tr>
+<tr><td><code>skos</code></td><td><code>http://www.w3.org/2004/02/skos/core#</code></td></tr>
+<tr><td><code>xml</code></td><td><code>http://www.w3.org/XML/1998/namespace</code></td></tr>
+<tr><td><code>xsd</code></td><td><code>http://www.w3.org/2001/XMLSchema#</code></td></tr>
 	</tbody>
 </table>	
 
@@ -319,8 +321,7 @@ And supported by these datatypes:
 
 </p></div>
 
-**TODO: CHANGE DIAGRAM**
-The following diagram gives an overview of LanguageDCAT-AP. For simplicity sake, only classes whose properties are specified by the profile are displayed as separate entities.
+The following diagram gives an overview of LanguageDCAT-AP. For simplicity sake, only classes whose properties are specified by the profile and/or are deemed important for the overview are displayed.
     <div>
 <a href="./html/overview.jpg" target="_blank">
 <img height="450px" src="./html/overview.jpg" width="900px"/>
@@ -2170,7 +2171,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <td><a href="https://vocabularies.ilsp.gr/showvoc/#/datasets/Domain_Taxonomy/data" target="_blank">META-SHARE Vocabulary of Domains</a></td>
 </tr>
 <tr id="DataFormatTaxonomy">
-<td><a href="http://purl.org/dc/terms/format" target="_blank">format</a></td>
+<td><a href="http://w3id.org/lang-dcat-ap/format" target="_blank">format</a></td>
 <td><a href="#Distribution">Distribution</a></td>
 <td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td>
 <td>A media type or extent.</td>
@@ -2349,6 +2350,13 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 <h3>JSON-LD context file</h3>
 <p>One common technical question is the format in which the data is being exchanged. For conformance with the LanguageDCAT-AP, it is not mandatory that this happens in an RDF serialisation, but the exchanged format SHOULD be unambiguously transformable into RDF. For the format JSON, a popular format to exchange data between systems, following the same approach used for DCAT-AP and MLDCAT-AP, a JSON-LD context file is provided. JSON-LD is a W3C Recommendation JSON-LD 1.1 that provided a standard approach to interpret JSON structures as RDF. The provided JSON-LD context file can be used by implementers. This JSON-LD context is not normative, i.e. other JSON-LD contexts are allowed.</p>
 <p>The JSON-LD context file can be downloaded <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.2/context/languagedcat-ap.jsonld">here</a>.</p>
+
+<h3>Validation</h3>
+<p>To verify if the data is (technically) conformant to the LanguageDCAT-AP, the exchanged data can be validated using the provided SHACL shapes. SHACL is a W3C Recommendation to express constraints on an RDF knowledge graph.</p>
+<p>To support the check whether or not a catalogue satisfies the expressed constraints in this Application Profile, the constraints in this specification are expressed using SHACL [[shacl]]. Each constraint in this specification that could be converted into a SHACL expression has been included. However, it should be noted that the SHACL shapes have been implemented and tested for the Language Data Space purposes, and may include constraints specific to the Data Spaces requirements (cf. Section <a href="#context">Context</a>). As such this collection of SHACL expressions can be used to build a validation check for data, yet with caution.</p>
+<p>It is up to the implementers to define the validation they expect. Each implementation happens within a context, and that context is beyond the SHACL expressions here.</p>
+<p>The shapes can be found <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.2/SHACL">here</a>.
+
 <h3>Profile in Turtle format</h3>
 <p>All classes, properties and individuals used in the LanguageDCAT-AP profile are available in a file in Turtle format <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP/tree/main/releases/0.9.2/ttl/languageDCAT-AP.ttl">here</a>.</p> 
 </section>
