@@ -4794,16 +4794,6 @@ function switchTab(event, tabId) {
             <td>Different Distributions of a Dataset (and its subclasses) must be represented as different Datasets. If the distinct Distributions correspond to different Policies used for the same Dataset, they can also be represented as a single Dataset with multiple Policies.</td>
         </tr>
         <tr>
-            <td>modelDistribution</td>
-            <td>n/a</td>
-            <td>n/a</td>
-            <td>Models have cardinality 1..n for the property modelDistribution</td>
-            <td>Given that models and tools/services are treated as assets and, therefore, Datasets, the same mechanism as for 
-                <code>distribution</code> is used.
-            </td>
-            <td>Different ModelDistributions of a Model are represented as different Models.</td>
-        </tr>
-        <tr>
             <td>softwareDistribution</td>
             <td>n/a</td>
             <td>n/a</td>
@@ -4838,11 +4828,10 @@ function switchTab(event, tabId) {
             <td>When importing to LDS, represent multiple policies as distinct Datasets (Models and Tool/Services); see also above where to attach the property</td>
         </tr>
         <tr>
-            <td>license</td>
+            <td>licence</td>
             <td>Property attached to Distribution with cardinality 0..1</td>
             <td>n/a</td>
             <td>Property attached to both Dataset subclasses (Corpus and LCR),  Model and Tool/Service, as well as on Distribution, ModelDistribution, SoftwareDistribution attached with cardinality 1..1</td>
-            <td>not in import; we only have hasPolicy; single σε λίστα</td>
             <td>At export, LDS aligns licence with hasPolicy and copies both properties on Distribution (and ModelDistribution, and SoftwareDistribution respectively). In case of multiple policies and licences, these are represented as distinct entries with a single policy-licence pair.</td>
             <td>When importing to LDS, move or copy license-policy pair from Distribution variants to Dataset subclasses, Model and Tool/Service respectively</td>
         </tr>
@@ -4851,7 +4840,6 @@ function switchTab(event, tabId) {
             <td>Property attached to Catalogue with cardinality 0..n, intended for the description of DataServices that are offered by a publisher.</td>
             <td>A Catalog MUST have one to many Data Services that reference a Connector where Datasets MAY be obtained.</td>
             <td>Property attached to Catalog with cardinality 0..n</td>
-            <td></td>
             <td>Following the DSP specifications, the DataService is used for the representation of the Connector endpoint and is automatically created and kept as is. </td>
             <td>n/a</td>
         </tr>
@@ -4860,7 +4848,6 @@ function switchTab(event, tabId) {
             <td>Property attached to Distribution with cardinality 0..n, intended for data services that give access to the distribution of the dataset</td>
             <td>Each Distribution object MUST have at least one DataService which specifies where the distribution is obtained. Specifically, a DataService specifies the endpoint for initiating a Contract Negotiation and Transfer Process. A DataService.endpointURL property contains the URL of the service the Contract Negotiation endpoints extend.</td>
             <td>Property attached to Distribution with cardinality 0..n</td>
-            <td>in Sept check if we can allow also for other types of data services but this would mean we also cater for e.g. sparql endpoints</td>
             <td>Following the DSP specifications, the DataService is used for the representation of the Connector endpoint and is automatically created and kept as is. When exporting outside LDS, this is not exported for security purposes. Other types of Data Services are not currently supported.</td>
             <td>n/a</td>
         </tr>
@@ -4869,27 +4856,8 @@ function switchTab(event, tabId) {
             <td>only dct:language property used with controlled vocabulary EU authorities</td>
             <td>n/a</td>
             <td>Two properties: dct:language and ms:language with cardinality 1..n which must be aligned</td>
-            <td></td>
             <td>Only the ms:language/language is mandatory. The dct:language is automatically computed based on ms:language. If a value is not included in the EU vocabulary, it is mapped to the value "unmapped".</td>
             <td>n/a</td>
-        </tr>
-        <tr>
-            <td>Model</td>
-            <td></td>
-            <td>n/a</td>
-            <td></td>
-            <td></td>
-            <td>Added as subclass of dcat:Dataset in order to be retrieved in the Catalogue</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Tool/Service</td>
-            <td></td>
-            <td>n/a</td>
-            <td></td>
-            <td></td>
-            <td>Added as subclass of dcat:Dataset in order to be retrieved in the Catalogue</td>
-            <td></td>
         </tr>
         <tr>
             <td>format</td>
@@ -4897,7 +4865,6 @@ function switchTab(event, tabId) {
             <td>The format property is a format specified by a Distribution for the Dataset associated with the Agreement. This is generally obtained from the Provider's Catalog
 dct:format used for the transfer protocol; examples are HttpData-PULL, HttpData-PUSH, AmazonS3-PULL</td>
             <td>A new property dcatlds:format is introduced which takes values from the EU vocabulary of filetypes with cardinality 0..n; dct:format is not used at all</td>
-            <td>v093 and 095</td>
             <td>The dct:format is used internally according to the DSP specification. The dcatlds:format is used for the file format</td>
             <td>Use the property dcatlds:format instead of dct:format</td>
         </tr>
@@ -4906,18 +4873,8 @@ dct:format used for the transfer protocol; examples are HttpData-PULL, HttpData-
             <td>dcat:mediaType used for IANA media types with cardinality 0..1</td>
             <td>n/a</td>
             <td>A new property dcatlds:mediaType is introduced with cardinality 0..n as a temporary solution for SEMIC interoperability purposes</td>
-            <td>v093 and 095</td>
             <td>dcatlds: automatically created for IANA media types with cardinality 0..n</td>
             <td>Use dcatlds:mediaType instead of dcat:mediaType</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>&nbsp</td>
-            <td>&nbsp</td>
-            <td>&nbsp</td>
-            <td>&nbsp</td>
-            <td>&nbsp</td>
-            <td>&nbsp</td>
         </tr>
     </tbody>
 </table>
