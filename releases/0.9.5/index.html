@@ -4945,7 +4945,7 @@ dct:format used for the transfer protocol; examples are HttpData-PULL, HttpData-
             <td>Property attached to Dataset with cardinality 1..n</td>
             <td>Property attached to both Dataset subclasses (as well as on Model and Tool/Service) and Distribution (and ModelDistribution and SoftwareDistribution respectively)</td>
             <td>Due to implementation restrictions of the EDC version currently used for the LDS Connector, when connectors exchange catalogues of Datasets (Models and Tool/Services), Datasets are represented with multiple policies. At export stage outside LDS, these will be represented as distinct Datasets or a single Dataset with multiple Distributions, each with a single policy, and the policy will be copied on Distribution and SoftwareDistribution</td>
-            <td>When importing to LDS, move or copy hasPolicy from Distribution and SoftwareDistribution to Dataset subclasses, Model and Tool/Service respectively. See also recommendation for Datasets with multiple Distributions above for the treatment of cardinality.</td>
+            <td>When importing to LDS, move or copy hasPolicy from Distribution (and ModelDistribution and SoftwareDistribution) to Dataset subclasses, Model and Tool/Service respectively. See also recommendation for Datasets with multiple Distributions above for the treatment of cardinality.</td>
         </tr>
         <tr>
             <td>language</td>
