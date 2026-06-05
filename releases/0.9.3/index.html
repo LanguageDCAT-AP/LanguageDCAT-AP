@@ -4744,7 +4744,16 @@ function switchTab(event, tabId) {
 <h2>Notes for implementation in the Language Data Space</h2>
 <p>For reasons of compatibility with the <a href="https://eclipse-dataspace-protocol-base.github.io/DataspaceProtocol/2025-1/">Dataspace Protocol (DSP)</a>, the recommended standard for exchange of datasets for all data spaces, and the implementation supported by the <a href="https://eclipse-edc.github.io/">EDC (Eclipse Dataspace Components) connector</a>, which lies at the heart of the LDS infrastructure, a set of deviations from the profile are deemed indispensable. These concern (a) properties used exclusively in the LDS context, hence not presented in this documentation, and realised through distinct SHACL rules, and (b) properties that appear in the profile with specific features that are bypassed or handled differently in LDS. Discrepancies that are due to these specificities and the DCAT-AP and MLDCAT-AP are presented in the following table. 
 </p>
-<table>
+<div class="u-table-overflow">
+<table class="data-table simple">
+<colgroup>
+<col style="width:10%;"/>
+<col style="width:22.5%;"/>
+<col style="width:22.5%;"/>
+<col style="width:22.5%;"/>
+<col style="width:22.5%;"/>
+<col style="width:22.5%;"/>
+</colgroup>
     <thead>
         <tr>
             <th>Property</th>
@@ -4863,6 +4872,7 @@ dct:format used for the transfer protocol; examples are HttpData-PULL, HttpData-
         </tr>
     </tbody>
 </table>
+</div>
 
 </section>
 <!-- Changes overview -->
