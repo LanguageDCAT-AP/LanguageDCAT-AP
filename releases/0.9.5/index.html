@@ -1296,7 +1296,7 @@ No reference
 <tr id="ModelDistribution.accessLevel"><td><a href="http://w3id.org/lang-dcat-ap/accessLevel" target="_blank">access level</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>The level of model access (e.g. weights-level access, black-box access)</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.accessLocation"><td><a href="http://w3id.org/meta-share/meta-share/accessLocation" target="_blank">access location</a></td><td><a href="#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the resource can be accessed from; it can be used for landing pages or for cases where the resource is accessible via an interface, i.e. cases where the resource itself is not provided with a direct link for downloading</td><td></td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.amountOfActiveParameters"><td><a href="http://w3id.org/lang-dcat-ap/amountOfActiveParameters" target="_blank">amount of active parameters</a></td><td><a href="#integer" target="_blank">integer</a></td><td>0..1</td><td>Specifies the number of active parameters</td><td></td><td></td><td>P</td></tr>
-<tr id="ModelDistribution.byteSize"><td><a href="http://www.w3.org/ns/dcat#byteSize" target="_blank">byte size</a></td><td><a href="#nonNegativeInteger" target="_blank">nonNegativeInteger</a></td><td>1..1</td><td>The size of a distribution in bytes.</td><td></td><td></td><td>P</td></tr>
+<tr id="ModelDistribution.byteSize"><td><a href="http://www.w3.org/ns/dcat#byteSize" target="_blank">byte size</a></td><td><a href="#nonNegativeInteger" target="_blank">nonNegativeInteger</a></td><td>0..1</td><td>The size of a distribution in bytes.</td><td></td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.distributionMethod"><td><a href="http://w3id.org/lang-dcat-ap/distributionMethod" target="_blank">distribution method</a></td><td><a href="#langString" target="_blank">langString</a></td><td>1..n</td><td>A method of distribution for the model (e.g. enterprise, or subscription based access, access throug API, etc.)</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.downloadLocation"><td><a href="http://w3id.org/meta-share/meta-share/downloadLocation" target="_blank">download location</a></td><td><a href="#anyURI" target="_blank">any URI</a></td><td>0..1</td><td>A URL where the language resource (mainly data but also downloadable software programmes or forms) can be downloaded from</td><td></td><td></td><td>P</td></tr>
 <tr id="ModelDistribution.format"><td><a href="http://w3id.org/lang-dcat-ap/format" target="_blank">format</a></td><td><a href="#MediaTypeOrExtent" target="_blank">Media Type Or Extent</a></td><td>1..n</td><td>The file format, physical medium, or dimensions of the resource</td><td>dcatlds:mediaType SHOULD be used when the media type of the distribution is defined in IANA [IANA-MEDIA-TYPES], otherwise dcatlds:format MAY be used with different values.</td>
@@ -4900,12 +4900,13 @@ function switchTab(event, tabId) {
     </thead>
     <tbody>
         <tr>
-            <td>type</td>
-            <td>DCAT-AP caters for datasets only (dcat:Dataset); MLDCAT-AP introduces it6:Model as a subclass of dcat:Resource; services are included in both as dcat:DataService, subclass of dcat:Resource.</td>
-            <td>Caters only for datasets (dcat:Dataset); dcat:DataService used for the documentation of connectors.</td>
-            <td>Recognises corpora and lexica/conceptual resources as dcat:Dataset and models as distinct entities subclass of dcat:Resource, and introduces NLP and AI tools/services as distinct entities (subclass of dcat:Resource); dcat:DataService can be used for connectors and other types of data services (e.g., SPARQL endpoints)</td>
-            <td>In order to use the EDC functionalities, all assets included in the catalogue must be of type dcat:Dataset. Thus, for import into LDS, we require the same for all resource types, including models and tools/services. The distinction is made with the lrtype property.</td>
-            <td>Encode all resource types as "dcat:Dataset".</td>
+            <td>access service</td>
+            <td>Property attached to Distribution with cardinality 0..n, intended for data services that give access to the distribution of the dataset</td>
+            <td>Each Distribution object MUST have at least one DataService which specifies where the distribution is obtained. Specifically, a DataService specifies the endpoint for initiating a Contract Negotiation and Transfer Process. A DataService.endpointURL property contains the URL of the service the Contract Negotiation endpoints extend.</td>
+            <td>Property attached to Distribution with cardinality 0..n</td>
+            <td>Following the DSP specifications, the DataService is used for the representation of the Connector endpoint and is automatically created and kept as is. When exporting outside LDS, this is not exported for security purposes. Other types of Data Services are not currently supported.</td>
+            <td>n/a</td>
+        </tr>
         <tr>
             <td>distribution</td>
             <td>Dataset has cardinality 1..n for the property distribution</td>
@@ -4922,79 +4923,11 @@ function switchTab(event, tabId) {
             <td>Different Distributions of a Dataset (and its subclasses) must be represented as different Datasets. If the distinct Distributions correspond to different Policies used for the same Dataset, they can also be represented as a single Dataset with multiple Policies.</td>
         </tr>
         <tr>
-            <td>modelDistribution</td>
-            <td>n/a</td>
-            <td>n/a</td>
-            <td>Models have cardinality 1..n for the property modelDistribution</td>
-            <td>Given that models and tools/services are treated as assets and, therefore, Datasets, the same mechanism as for 
-                <code>distribution</code> is used.
-            </td>
-            <td>Different ModelDistributions of a Model are represented as different Models.</td>
-        </tr>
-        <tr>
-            <td>softwareDistribution</td>
-            <td>n/a</td>
-            <td>n/a</td>
-            <td>Tools/Services have cardinality 1..n for the property softwareDistribution</td>
-            <td>Given that models and tools/services are treated as assets and, therefore, Datasets, the same mechanism as for 
-                <code>distribution</code> is used.
-            </td>
-            <td>Different SoftwareDistributions of a Tool/Service are represented as different Tools/Services.</td>
-        </tr>
-        <tr>
             <td>distribution</td>
             <td>Not on Catalogue</td>
             <td>Optional property on Catalogue</td>
             <td>Not added</td>
             <td>At export stage outside LDS, this is not exported.</td>
-            <td>n/a</td>
-        </tr>
-        <tr>
-            <td>hasPolicy</td>
-            <td>Property attached to Distribution</td>
-            <td>Property attached to Dataset</td>
-            <td>Property attached to both Dataset subclasses (as well as on Model and Tool/Service) and Distribution (and ModelDistribution and SoftwareDistribution respectively)</td>
-            <td>Property attached to Dataset subclasses; at export stage, it is copied to Distribution variants</td>
-            <td>When importing to LDS, move or copy hasPolicy from Distribution variants to Dataset subclasses, Model and Tool/Service respectively</td>
-        </tr>
-        <tr>
-            <td>hasPolicy</td>
-            <td>Distribution has cardinality 0..1 for the property</td>
-            <td>Dataset has cardinality 1..n for this property</td>
-            <td>For class attachment see above; cardinality is 1..1</td>
-            <td>Due to implementation restrictions of the EDC version currently used for the LDS Connector, at exchange of catalogues Datasets (Models and Tool/Services) are represented with multiple policies. At export stage, these are represented as distinct entries with a single policy each.</td>
-            <td>When importing to LDS, represent multiple policies as distinct Datasets (Models and Tool/Services); see also above where to attach the property</td>
-        </tr>
-        <tr>
-            <td>licence</td>
-            <td>Property attached to Distribution with cardinality 0..1</td>
-            <td>n/a</td>
-            <td>Property attached to both Dataset subclasses (Corpus and LCR),  Model and Tool/Service, as well as on Distribution, ModelDistribution, SoftwareDistribution attached with cardinality 1..1</td>
-            <td>At export, LDS aligns licence with hasPolicy and copies both properties on Distribution (and ModelDistribution, and SoftwareDistribution respectively). In case of multiple policies and licences, these are represented as distinct entries with a single policy-licence pair.</td>
-            <td>When importing to LDS, move or copy license-policy pair from Distribution variants to Dataset subclasses, Model and Tool/Service respectively</td>
-        </tr>
-        <tr>
-            <td>service</td>
-            <td>Property attached to Catalogue with cardinality 0..n, intended for the description of DataServices that are offered by a publisher.</td>
-            <td>A Catalog MUST have one to many Data Services that reference a Connector where Datasets MAY be obtained.</td>
-            <td>Property attached to Catalog with cardinality 0..n</td>
-            <td>Following the DSP specifications, the DataService is used for the representation of the Connector endpoint and is automatically created and kept as is. </td>
-            <td>n/a</td>
-        </tr>
-        <tr>
-            <td>access service</td>
-            <td>Property attached to Distribution with cardinality 0..n, intended for data services that give access to the distribution of the dataset</td>
-            <td>Each Distribution object MUST have at least one DataService which specifies where the distribution is obtained. Specifically, a DataService specifies the endpoint for initiating a Contract Negotiation and Transfer Process. A DataService.endpointURL property contains the URL of the service the Contract Negotiation endpoints extend.</td>
-            <td>Property attached to Distribution with cardinality 0..n</td>
-            <td>Following the DSP specifications, the DataService is used for the representation of the Connector endpoint and is automatically created and kept as is. When exporting outside LDS, this is not exported for security purposes. Other types of Data Services are not currently supported.</td>
-            <td>n/a</td>
-        </tr>
-        <tr>
-            <td>language</td>
-            <td>only dct:language property used with controlled vocabulary EU authorities</td>
-            <td>n/a</td>
-            <td>Two properties: dct:language and ms:language with cardinality 1..n which must be aligned</td>
-            <td>Only the ms:language/language is mandatory. The dct:language is automatically computed based on ms:language. If a value is not included in the EU vocabulary, it is mapped to the value "unmapped".</td>
             <td>n/a</td>
         </tr>
         <tr>
@@ -5007,17 +4940,66 @@ dct:format used for the transfer protocol; examples are HttpData-PULL, HttpData-
             <td>Use the property dcatlds:format instead of dct:format</td>
         </tr>
         <tr>
+            <td>hasPolicy</td>
+            <td>Property attached to Distribution with cardinality 0..1</td>
+            <td>Property attached to Dataset with cardinality 1..n</td>
+            <td>Property attached to both Dataset subclasses (as well as on Model and Tool/Service) and Distribution (and ModelDistribution and SoftwareDistribution respectively)</td>
+            <td>Due to implementation restrictions of the EDC version currently used for the LDS Connector, when connectors exchange catalogues of Datasets (Models and Tool/Services), Datasets are represented with multiple policies. At export stage outside LDS, these will be represented as distinct Datasets or a single Dataset with multiple Distributions, each with a single policy, and the policy will be copied on Distribution and SoftwareDistribution</td>
+            <td>When importing to LDS, move or copy hasPolicy from Distribution and SoftwareDistribution to Dataset subclasses, Model and Tool/Service respectively. See also recommendation for Datasets with multiple Distributions above for the treatment of cardinality.</td>
+        </tr>
+        <tr>
+            <td>language</td>
+            <td>only dct:language property used with controlled vocabulary EU authorities</td>
+            <td>n/a</td>
+            <td>Two properties: dct:language and ms:language with cardinality 1..n which must be aligned</td>
+            <td>Only the ms:language/language is mandatory. The dct:language is automatically computed based on ms:language. If a value is not included in the EU vocabulary, it is mapped to the value "unmapped".</td>
+            <td>n/a</td>
+        </tr>
+        <tr>
+            <td>licence</td>
+            <td>Property attached to Distribution with cardinality 0..1</td>
+            <td>n/a</td>
+            <td>Property attached to both Dataset subclasses (Corpus and LCR),  Model and Tool/Service, as well as on Distribution, ModelDistribution, SoftwareDistribution attached with cardinality 1..1</td>
+            <td>At export, LDS aligns licence with hasPolicy and copies both properties on Distribution (and ModelDistribution, and SoftwareDistribution respectively). In case of multiple policies and licences, these are represented as distinct entries (multiple Datasets or single Dataset with multiple Distributions) with a single policy-licence pair.</td>
+            <td>When importing to LDS, move or copy license-policy pair from Distribution and SoftwareDistribution to Dataset subclasses, Model and Tool/Service respectively.</td>
+        </tr>
+        <tr>
             <td>mediaType</td>
             <td>dcat:mediaType used for IANA media types with cardinality 0..1</td>
             <td>n/a</td>
             <td>A new property dcatlds:mediaType is introduced with cardinality 0..n as a temporary solution for SEMIC interoperability purposes</td>
-            <td>dcatlds:mediaType automatically created for IANA media types with cardinality 0..n</td>
+            <td>dcatlds: automatically created for IANA media types with cardinality 0..n</td>
             <td>Use dcatlds:mediaType instead of dcat:mediaType</td>
+        </tr>
+        <tr>
+            <td>service</td>
+            <td>Property attached to Catalogue with cardinality 0..n, intended for the description of DataServices that are offered by a publisher.</td>
+            <td>A Catalog MUST have one to many Data Services that reference a Connector where Datasets MAY be obtained.</td>
+            <td>Property attached to Catalog with cardinality 0..n</td>
+            <td>Following the DSP specifications, the DataService is used for the representation of the Connector endpoint and is automatically created and kept as is. </td>
+            <td>n/a</td>
+        </tr>
+        <tr>
+            <td>softwareDistribution</td>
+            <td>n/a</td>
+            <td>n/a</td>
+            <td>Tools/Services have cardinality 1..n for the property softwareDistribution</td>
+            <td>Given that models and tools/services are treated as assets and, therefore, Datasets, the same mechanism as for 
+                <code>distribution</code> is used.
+            </td>
+            <td>Different SoftwareDistributions of a Tool/Service are represented as different Tools/Services.</td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>DCAT-AP caters for datasets only (dcat:Dataset); MLDCAT-AP introduces it6:Model as a subclass of dcat:Resource; services are included in both as dcat:DataService, subclass of dcat:Resource.</td>
+            <td>Caters only for datasets (dcat:Dataset); dcat:DataService used for the documentation of connectors.</td>
+            <td>Recognises corpora and lexica/conceptual resources as dcat:Dataset and models as distinct entities subclass of dcat:Resource, and introduces NLP and AI tools/services as distinct entities (subclass of dcat:Resource); dcat:DataService can be used for connectors and other types of data services (e.g., SPARQL endpoints)</td>
+            <td>In order to use the EDC functionalities, all assets included in the catalogue must be of type dcat:Dataset. Thus, for import into LDS, we require the same for all resource types, including models and tools/services. The distinction is made with the lrtype property.</td>
+            <td>Encode all resource types as "dcat:Dataset".</td>
         </tr>
     </tbody>
 </table>
 </div>
-
 </section>
 </body>
 </html>
