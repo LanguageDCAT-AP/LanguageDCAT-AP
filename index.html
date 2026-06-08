@@ -1,10 +1,76 @@
-<H1> LanguageDCAT-AP</H1>
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8"/>
+
+<style>
+
+	div.head { margin-bottom: 1em; }
+	div.head hr { border-style: solid; }
+
+	div.head h1 {
+		font-weight: strong;
+		margin: 0 0 .1em;
+		font-size: 220%;
+		color: #005a9c !important;
+	}
+		body {
+
+		/* Layout */
+		max-width: 50em;             /* limit line length to 50em for readability   */
+		margin: 0 auto 4em;          /* center text within page, space for footers  */
+		padding: 1.6em 1.5em 0 50px; /* assume 16px font size for downlevel clients */
+		padding: 1.6em 1.5em 0 calc(26px + 1.5em); /* leave space for status flag   */
+
+		/* Typography */
+		line-height: 1.5;
+		font-family: sans-serif;
+		widows: 2;
+		orphans: 2;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+
+	}
+
+
+
+	h1, h2, h3, h4, h5, h6, dt {
+		page-break-after: avoid;
+		page-break-inside: avoid;
+		font: 100% sans-serif;   /* Reset all font styling to clear out UA styles */
+		font-family: inherit;    /* Inherit the font family. */
+		line-height: 1.2;        /* Keep wrapped headings compact */
+		hyphens: manual;         /* Hyphenated headings look weird */
+	}
+
+	h2, h3, h4, h5, h6 {
+		margin-top: 3rem;
+	}
+
+	h1, h2, h3 {
+		color: #005a9c;
+		color: var(--heading-text);
+	}
+
+	h1 { font-size: 170%; }
+	h2 { font-size: 140%; }
+	h3 { font-size: 120%; }
+	h4 { font-weight: bold; }
+	h5 { font-style: italic; }
+	dt { font-weight: bold; }
+</style>
+
+<h1>LanguageDCAT-AP</h1>
+
+</head>
+<body>
+
 
 
 <p>LanguageDCAT-AP is an application profile initiated in the context of the <a href="https://language-data-space.ec.europa.eu/index_en">Common European Language Data Space</a> and aiming to cover the exchange of language data, language models and language technologies among catalogues.</p>
 
 
-<p>Current official version: <a href="https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9.2/">release 0.9.2</a></p>
+<p>Current official version: <a href="https://languagedcat-ap.github.io/LanguageDCAT-AP/releases/0.9./">release 0.9.3</a></p>
 
 <h2>Structure of the repository</h2>
 /releases: LanguageDCAT-AP releases (0.9.1, 0.9.2, 0.9.5 (draft)).
@@ -14,3 +80,4 @@ All material in this repository is published under the <a href="https://creative
 
 <h2>Feedback</h2>
 Any problems encountered, or suggestions for new functionalities can be submitted as issues on the <a href="https://github.com/LanguageDCAT-AP/LanguageDCAT-AP">LanguageDCAT-AP repository on GitHub</a>.
+</body>
