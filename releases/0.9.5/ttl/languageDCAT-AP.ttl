@@ -82,7 +82,7 @@ it6:limitations a owl:DatatypeProperty ;
 
 it6:measurementMethodology a owl:DatatypeProperty ;
     rdfs:label "measurement methodology"@en ;
-    rdfs:comment "The methodology with which the resource was measured."@en ;
+    rdfs:comment "The methodology with which the output of the resource was measured."@en ;
     rdfs:domain it6:EnvironmentalImpact ;
     rdfs:range rdf:langString .
 
@@ -763,7 +763,7 @@ ms:personalDataDetails a owl:DatatypeProperty ;
 
 ms:personalDataIncluded a owl:ObjectProperty ;
     rdfs:label "personal data included"@en ;
-    rdfs:comment "Specifies whether the language resource contains personal data, i.e., any information relating to an identified or identifiable natural person (data subject); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person [Article 4(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]"@en ;
+    rdfs:comment "Specifies whether the language resource is known to contain personal data, or may likely contain some personal data, i.e., any information relating to an identified or identifiable natural person (data subject); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person [Article 4(1) of the General Data Protection Regulation (Regulation (EU) 2016/679)]"@en ;
     rdfs:domain ms:LanguageResource ;
     rdfs:range ms:PersonalDataIncluded .
 
