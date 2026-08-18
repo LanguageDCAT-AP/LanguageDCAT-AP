@@ -34,7 +34,6 @@
   },
   "adms:identifier": [
     {
-      "@id": "https://lds.eu/2df29e88-a7d2-4111-96b5-7cd9e169fc19",
       "@type": "adms:Identifier",
       "skos:notation": {
         "@value": "https://doi.org/10.57771/vaka-4x82",
@@ -134,7 +133,7 @@
         "@id": "omtd:Zip"
       },
       "dcat:byteSize": 2110372,
-      "dcat:downloadURL": "https://example.com/sample.txt",
+      "dcat:accessURL": "https://live.european-language-grid.eu/catalogue/corpus/7367",
       "dcatlds:format": [
         {
           "@id": "eu-filetype:XML"
@@ -144,7 +143,6 @@
   ],
   "ms:isDocumentedBy": [
     {
-      "@id": "https://lds.eu/32117754-543c-4246-8e2c-a0440915a0eb",
       "@type": "foaf:Document",
       "ms:citationText": [
         {
