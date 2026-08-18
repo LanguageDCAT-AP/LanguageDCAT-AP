@@ -3,6 +3,20 @@
     "Agent": "http://xmlns.com/foaf/0.1/Agent",
     "AnnotationType": "http://w3id.org/meta-share/omtd-share/AnnotationType",
     "Anonymised": "http://w3id.org/meta-share/meta-share/Anonymized",
+    "Benchmark": "http://data.europa.eu/it6/Benchmark",
+    "Benchmark.description": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/description"
+    },
+    "Benchmark.identifier": {
+      "@container": "@set",
+      "@id": "http://www.w3.org/ns/adms#identifier",
+      "@type": "@id"
+    },
+    "Benchmark.title": {
+      "@container": "@set",
+      "@id": "http://purl.org/dc/terms/title"
+    },
     "Catalogue": "http://www.w3.org/ns/dcat#Catalog",
     "Catalogue.creator": {
       "@id": "http://purl.org/dc/terms/creator",
@@ -124,6 +138,18 @@
       "@id": "http://w3id.org/meta-share/meta-share/domain",
       "@type": "@id"
     },
+    "Corpus.generationModel": {
+      "@id": "http://w3id.org/lang-dcat-ap/generationModel",
+      "@type": "@id"
+    },
+    "Corpus.generationProcess": {
+      "@container": "@set",
+      "@id": "http://w3id.org/lang-dcat-ap/generationProcess"
+    },
+    "Corpus.generationType": {
+      "@id": "http://w3id.org/lang-dcat-ap/generationType",
+      "@type": "@id"
+    },
     "Corpus.hasOriginalSource": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/hasOriginalSource",
@@ -162,6 +188,10 @@
     },
     "Corpus.languageResourceType": {
       "@id": "http://w3id.org/meta-share/meta-share/lrType",
+      "@type": "@id"
+    },
+    "Corpus.languageType": {
+      "@id": "http://w3id.org/lang-dcat-ap/languageType",
       "@type": "@id"
     },
     "Corpus.licence": {
@@ -205,6 +235,11 @@
     },
     "Corpus.publisher": {
       "@id": "http://purl.org/dc/terms/publisher",
+      "@type": "@id"
+    },
+    "Corpus.seedDataset": {
+      "@container": "@set",
+      "@id": "http://w3id.org/lang-dcat-ap/seedDataset",
       "@type": "@id"
     },
     "Corpus.sourceLanguage": {
@@ -326,6 +361,25 @@
       "@container": "@set",
       "@id": "http://data.europa.eu/it6/powerConsumption"
     },
+    "Evaluation": "http://w3id.org/lang-dcat-ap/Evaluation",
+    "Evaluation.evaluationOutput": {
+      "@container": "@set",
+      "@id": "http://w3id.org/lang-dcat-ap/evaluationOutput"
+    },    
+    "Evaluation.hasBenchmark": {
+      "@container": "@set",
+      "@id": "http://data.europa.eu/it6/hasBenchmark",
+      "@type": "@id"
+    },
+    "Evaluation.metric": {
+      "@container": "@set",
+      "@id": "http://w3id.org/lang-dcat-ap/metric"
+    },    
+    "Evaluation.task": {
+      "@container": "@set",
+      "@id": "http://w3id.org/lang-dcat-ap/task"
+    },    
+    "GenerationType": "http://w3id.org/lang-dcat-ap/GenerationType",
     "Identifier": "http://www.w3.org/ns/adms#Identifier",
     "Identifier.notation": {
       "@id": "http://www.w3.org/2004/02/skos/core#notation"
@@ -361,6 +415,7 @@
     },
     "LanguageCode": "http://w3id.org/meta-share/meta-share/LanguageCode",
     "LanguageResourceType": "http://w3id.org/meta-share/meta-share/LRType",
+    "LanguageType": "http://w3id.org/lang-dcat-ap/LanguageType",
     "LCR": "http://w3id.org/meta-share/meta-share/LexicalConceptualResource",
     "LCR.alternative": {
       "@container": "@set",
@@ -589,6 +644,10 @@
       "@id": "http://w3id.org/meta-share/meta-share/anonymized",
       "@type": "@id"
     },
+    "Model.baseModel": {
+      "@id": "http://w3id.org/lang-dcat-ap/baseModel",
+      "@type": "@id"
+    },
     "Model.bias": {
       "@container": "@set",
       "@id": "http://data.europa.eu/it6/bias"
@@ -624,28 +683,26 @@
       "@id": "http://w3id.org/meta-share/meta-share/domain",
       "@type": "@id"
     },
-    "Model.evaluationDataset": {
+    "Model.evaluation": {
       "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/evaluationDataset",
+      "@id": "http://w3id.org/lang-dcat-ap/evaluation",
       "@type": "@id"
-    },
-    "Model.evaluationResults": {
-      "@container": "@set",
-      "@id": "http://w3id.org/meta-share/meta-share/evaluationResults"
     },
     "Model.finetuneDataset": {
       "@container": "@set",
       "@id": "http://w3id.org/meta-share/meta-share/finetuneDataset",
       "@type": "@id"
     },
+    "Model.finetuningHardware": {
+      "@id": "http://w3id.org/lang-dcat-ap/finetuningHardware"
+    },
     "Model.finetuningMethodology": {
       "@container": "@set",
       "@id": "http://w3id.org/lang-dcat-ap/finetuningMethodology"
     },
-    "Model.hasBenchmark": {
+    "Model.finetuningProcess": {
       "@container": "@set",
-      "@id": "http://data.europa.eu/it6/hasBenchmark",
-      "@type": "@id"
+      "@id": "http://w3id.org/lang-dcat-ap/finetuningProcess"
     },
     "Model.hasInferencingImpact": {
       "@container": "@set",

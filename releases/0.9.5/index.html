@@ -1272,7 +1272,6 @@ It is recommended to follow W3C Data on the Web Best Practices [DWBP]. Version i
 <tr id="Model.finetuningHardware"><td><a href="http://w3id.org/lang-dcat-ap/finetuningHardware" target="_blank">finetuning hardware</a></td><td><a href="#string" target="_blank">string</a></td><td>0..1</td><td>Description of the hardware used in the fine-tuning process</td><td></td><td></td><td>P</td></tr>
 <tr id="Model.finetuningDescription"><td><a href="http://w3id.org/lang-dcat-ap/finetuningDescription" target="_blank">finetuning description</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>An account of the finetuning process including, for instance, training time, hyperparameters like learning rate, epochs, batch size, etc.</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
 <tr id="Model.finetuningMethodology"><td><a href="http://w3id.org/lang-dcat-ap/finetuningMethodology" target="_blank">finetuning methodology</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>The methodology used for finetuning the model</td><td>This property can be repeated for parallel language versions. The language tag is mandatory and is defined by BCP47 [[rfc5646]].</td><td></td><td>P</td></tr>
-<tr id="Model.hasBenchmark"><td><a href="http://data.europa.eu/it6/hasBenchmark" target="_blank">has benchmark</a></td><td><a href="#Benchmark" target="_blank">Benchmark</a></td><td>0..n</td><td>The benchmarks used to evaluate this model.</td><td></td><td></td><td>P</td></tr>
 <tr id="Model.hasInferencingImpact"><td><a href="http://data.europa.eu/it6/hasInferencingImpact" target="_blank">has inferencing impact</a></td><td><a href="#EnvironmentalImpact" target="_blank">Environmental Impact</a></td><td>0..n</td><td>The impact of inferencing the model.</td><td></td><td></td><td>P</td></tr>
 <tr id="Model.hasInputModality"><td><a href="http://data.europa.eu/it6/hasInputModality" target="_blank">has input modality</a></td><td><a href="#Modality" target="_blank">Modality</a></td><td>1..n</td><td>The modality of the input of the model.</td><td></td><td></td><td>P</td></tr>
 <tr id="Model.hasOutputModality"><td><a href="http://data.europa.eu/it6/hasOutputModality" target="_blank">has output modality</a></td><td><a href="#Modality" target="_blank">Modality</a></td><td>1..n</td><td>The modality of the output of the model.</td><td></td><td></td><td>P</td></tr>
@@ -1824,7 +1823,7 @@ No reference
 <dt><strong>Reference</strong></dt>
 <dd>No reference</dd>
 <dt><strong>Properties</strong></dt>
-<dd>For this entity the following properties are defined: <a href="#Evaluation.hasBenchmark">has benchmark</a>, <a href="#Evaluation.evaluationOutput">evaluation output</a>, <a href="#Evaluation.metric">metric</a>, <a href="#Evaluation.task">task</a>,.</dd>
+<dd>For this entity the following properties are defined: <a href="#Evaluation.evaluationOutput">evaluation output</a>, <a href="#Evaluation.hasBenchmark">has benchmark</a>, <a href="#Evaluation.metric">metric</a>, <a href="#Evaluation.task">task</a>,.</dd>
 </dl>
 <div class="u-table-overflow">
 <table class="data-table simple">
@@ -1844,9 +1843,9 @@ No reference
 </thead>
 <tbody>
 
-<tr id="Evaluation.hasBenchmark"><td><a href="http://data.europa.eu/it6/hasBenchmark" target="_blank">has benchmark</a></td><td><a href="#Benchmark" target="_blank">Benchmark</a></td><td>1..1</td><td>The benchmark used to evaluate this model.</td><td></td><td></td><td>P</td></tr>
-
 <tr id="Evaluation.evaluationOutput"><td><a href="http://w3id.org/lang-dcat-ap/evaluationOutput" target="_blank">evaluation output</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>A description of the output results of an evaluation process.</td><td></td><td></td><td>P</td></tr>
+
+<tr id="Evaluation.hasBenchmark"><td><a href="http://data.europa.eu/it6/hasBenchmark" target="_blank">has benchmark</a></td><td><a href="#Benchmark" target="_blank">Benchmark</a></td><td>1..1</td><td>The benchmark used to evaluate this model.</td><td></td><td></td><td>P</td></tr>
 
 <tr id="Evaluation.metric"><td><a href="http://w3id.org/lang-dcat-ap/metric" target="_blank">metric</a></td><td><a href="#langString" target="_blank">langString</a></td><td>0..n</td><td>A description of the evaluation metric.</td><td></td><td></td><td>P</td></tr>
 
