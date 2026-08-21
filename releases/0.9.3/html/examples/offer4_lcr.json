@@ -87,7 +87,7 @@
         }
       ],
       "dcat:byteSize": 51222443,
-      "dcat:downloadURL": "https://www.example.org/sample.txt",
+      "dcat:accessURL": "https://live.european-language-grid.eu/catalogue/lcr/13067",
       "dcatlds:mediaType": [
         {
           "@id": "https://www.iana.org/assignments/media-types/application_vnd_openxmlformats_officedocument_spreadsheetml_sheet"

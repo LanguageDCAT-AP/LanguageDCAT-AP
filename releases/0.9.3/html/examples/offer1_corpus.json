@@ -108,7 +108,7 @@
         "@id": "omtd:Zip"
       },
       "dcat:byteSize": 422988,
-      "dcat:downloadURL": "https://example.org/sample.txt",
+      "dcat:accessURL": "https://live.european-language-grid.eu/catalogue/corpus/7377",
       "dcatlds:mediaType": [
         {
           "@id": "https://www.iana.org/assignments/media-types/text/csv"

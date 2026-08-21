@@ -134,7 +134,7 @@
         "@id": "omtd:Zip"
       },
       "dcat:byteSize": 2110372,
-      "dcat:downloadURL": "https://example.org/sample.txt",
+      "dcat:accessURL": "https://live.european-language-grid.eu/catalogue/corpus/7367",
       "dcatlds:format": [
         {
           "@id": "eu-filetype:XML"

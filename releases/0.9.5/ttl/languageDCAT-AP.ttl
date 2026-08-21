@@ -2012,7 +2012,7 @@ dcatlds:GenerationType a owl:Class ;
     rdfs:label "Generation type"@en ;
     rdfs:comment "The provenance of a dataset (e.g., authentic, synthetic)"@en .
 
-dcatlds:authentic a dcatlds:LanguageType,
+dcatlds:authentic a dcatlds:GenerationType,
         owl:NamedIndividual,
         skos:Concept ;
     rdfs:label "authentic"@en ;
@@ -2098,14 +2098,14 @@ dcatlds:strictInternalUse a dcatlds:ScopeOfUse,
     skos:inScheme dcatlds:ScopeOfUseTaxonomy ;
     skos:prefLabel "strict internal use"@en .
 
-dcatlds:synthetic a dcatlds:LanguageType,
+dcatlds:synthetic a dcatlds:GenerationType,
         owl:NamedIndividual,
         skos:Concept ;
     rdfs:label "synthetic"@en ;
     skos:inScheme dcatlds:GenerationTypeTaxonomy ;
     skos:prefLabel "synthetic"@en .
 
-dcatlds:unknown a dcatlds:LanguageType,
+dcatlds:unknown a dcatlds:GenerationType,
         owl:NamedIndividual,
         skos:Concept ;
     rdfs:label "unknown"@en ;
@@ -14246,7 +14246,7 @@ dcatlds:LanguageTypeTaxonomy a owl:NamedIndividual,
         skos:ConceptScheme ;
     rdfs:label "Language Type Taxonomy"@en ;
     rdfs:seeAlso "https://vocabularies.ilsp.gr/showvoc/#/datasets/Language_Type_Taxonomy/data" ;
-    skos:definition "Vocabulary for defining language contents type of a dataset"@en ;
+    skos:definition "Vocabulary for language content types initiated in the framework of the LDS and LLMs4EU projects"@en ;
     skos:hasTopConcept dcatlds:scripts,
         dcatlds:semantic,
         dcatlds:spoken,
