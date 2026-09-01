@@ -24,7 +24,7 @@
 @prefix skos:                        <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:                         <http://www.w3.org/2001/XMLSchema#> .
 @prefix dpv:                         <https://w3id.org/dpv#> .
-@prefix dcatlds:                     <http://w3id.org/lang-dcat-ap/> . # OK
+@prefix dcatlds:                     <http://w3id.org/lang-dcat-ap/> .
 @prefix it6:                         <http://data.europa.eu/it6/> .
 
 # Global property shapes
@@ -40,7 +40,7 @@ sh:LrTypePropVal
 	sh:path         ms:lrType ;
 	sh:nodeKind     sh:IRI ;
 	sh:node         sh:LRTypeRestriction ;
-	sh:message      "The provided value for language resource type (ms:lrType) is invalid" .
+	sh:message      "Invalid language resource type (ms:lrType). Must be a valid IRI from ms:LRTypeTaxonomy"@en .
 
 sh:LrTypePropCRD
 	a               sh:PropertyShape ;
@@ -58,6 +58,7 @@ sh:ConformsProp
 	sh:path     dct:conformsTo ;
 	sh:nodeKind sh:IRI ;
 	sh:minCount 1 ;
+	sh:message  "dct:conformsTo is required and must be a valid IRI" ;
 	sh:node     sh:ConformsToRestriction .
 
 
@@ -72,7 +73,7 @@ sh:TitleProp
 	sh:datatype   rdf:langString ;
 	sh:uniqueLang true ;
 	sh:minCount   1 ;
-	sh:message    "\"Title\" property (dct:title) is required"@en .
+	sh:message    "dct:title is required, must be a langString, and must have at most one value per language tag" .
 
 sh:AlternativeProp
 	a               sh:PropertyShape ;
@@ -81,8 +82,8 @@ sh:AlternativeProp
 	                "LanguageDCAT-AP:*:MLMODEL",
 	                "LanguageDCAT-AP:*:TOOLSERVICE" ;
 	sh:path         dct:alternative ;
-	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "dct:alternative must be a langString, and must have at most one value per language tag" .
 
 sh:DescriptionProp
 	a             sh:PropertyShape ;
@@ -90,7 +91,7 @@ sh:DescriptionProp
 	sh:datatype   rdf:langString ;
 	sh:uniqueLang true ;
 	sh:minCount   1 ;
-	sh:message    "\"Description\" property (dct:description) is required" .
+	sh:message    "dct:description is required, must be a langString, and must have at most one value per language tag" .
 
 sh:VersionProp
 	a               sh:PropertyShape ;
@@ -102,7 +103,7 @@ sh:VersionProp
 	sh:datatype     xsd:string ;
 	sh:minCount     1 ;
 	sh:maxCount     1 ;
-	sh:message      "Invalid version" .
+	sh:message      "dcat:version is either missing or provided multiple times" .
 
 sh:KeywordProp
 	a               sh:PropertyShape ;
@@ -112,7 +113,8 @@ sh:KeywordProp
 	                "LanguageDCAT-AP:*:TOOLSERVICE" ;
 	sh:path         dcat:keyword ;
 	sh:datatype     rdf:langString ;
-	sh:minCount     1 .
+	sh:minCount     1 ;
+	sh:message      "dcat:keyword is required and must be a langString" .
 
 sh:DomainProp
 	a               sh:PropertyShape ;
@@ -122,8 +124,7 @@ sh:DomainProp
 	                "LanguageDCAT-AP:*:TOOLSERVICE" ;
 	sh:path         ms:domain ;
 	sh:node         sh:DomainRestriction ;
-	sh:nodeKind     sh:IRI ;
-	sh:message      "The provided value for domain (ms:domain) is invalid"@en .
+	sh:nodeKind     sh:IRI .
 
 sh:IprHolderProp
 	a               sh:PropertyShape ;
@@ -132,8 +133,7 @@ sh:IprHolderProp
 	                "LanguageDCAT-AP:*:MLMODEL",
 	                "LanguageDCAT-AP:*:TOOLSERVICE" ;
 	sh:path         ms:iprHolder ;
-	sh:node         sh:AgentNodeShape ;
-	sh:message      "The provided type for IPR Holder (ms:iprHolder) is invalid. Must be one of: 'foaf:Person', 'foaf:Organization'" .
+	sh:node         sh:AgentNodeShape .
 
 sh:DocumentedByProp
 	a               sh:PropertyShape ;
@@ -169,7 +169,8 @@ sh:SensitiveDataIncludedProp
 	sh:path         ms:sensitiveDataIncluded ;
 	sh:node         sh:SDIsRestriction ;
 	sh:nodeKind     sh:IRI ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "At most 1 ms:sensitiveDataIncluded is allowed" .
 
 sh:SensitiveDataDetailsProp
 	a               sh:PropertyShape ;
@@ -178,7 +179,8 @@ sh:SensitiveDataDetailsProp
 	                "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         ms:sensitiveDataDetails ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "ms:sensitiveDataDetails must be a langString and must have at most one value per language tag" .
 
 sh:PersonalDataIncludedProp
 	a               sh:PropertyShape ;
@@ -188,7 +190,8 @@ sh:PersonalDataIncludedProp
 	sh:path         ms:personalDataIncluded ;
 	sh:node         sh:PDIsRestriction ;
 	sh:nodeKind     sh:IRI ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "At most 1 ms:personalDataIncluded is allowed" .
 
 sh:PersonalDataDetailsProp
 	a               sh:PropertyShape ;
@@ -197,7 +200,8 @@ sh:PersonalDataDetailsProp
 	                "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         ms:personalDataDetails ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "ms:personalDataDetails must be a langString and must have at most one value per language tag" .
 
 sh:AnonymizedProp
 	a               sh:PropertyShape ;
@@ -208,7 +212,8 @@ sh:AnonymizedProp
 	sh:node         sh:AnonymizedRestriction ;
 	sh:nodeKind     sh:IRI ;
 	sh:minCount     1 ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "ms:anonymized is either missing or provided multiple times" .
 
 sh:AnonymizationDetailsProp
 	a               sh:PropertyShape ;
@@ -217,7 +222,8 @@ sh:AnonymizationDetailsProp
 	                "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         ms:anonymizationDetails ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "ms:anonymizationDetails must be a langString and must have at most one value per language tag" .
 
 sh:ΗasTechnicalOrganisationalMeasureProp
 	a               sh:PropertyShape ;
@@ -246,7 +252,7 @@ sh:MediaTypeProp
 	sh:node         sh:MediaTypeRestriction ;
 	sh:nodeKind     sh:IRI ;
 	sh:minCount     1 ;
-	sh:message      "Invalid media type" .
+	sh:message      "ms:mediaType is required and must be a valid IRI" .
 
 sh:LingualityTypeProp
 	a               sh:PropertyShape ;
@@ -257,7 +263,8 @@ sh:LingualityTypeProp
 	sh:node         sh:LingualityTypeRestriction ;
 	sh:nodeKind     sh:IRI ;
 	sh:minCount     1 ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "ms:lingualityType is either missing or provided multiple times" .
 
 sh:LanguageProp
 	a               sh:PropertyShape ;
@@ -266,7 +273,8 @@ sh:LanguageProp
 	                "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:path         ms:language ;
 	sh:node         sh:MsLanguageNodeShape ;
-	sh:minCount     1 .
+	sh:minCount     1 ;
+	sh:message      "ms:language is required" .
 
 sh:SourceLanguageProp
 	a               sh:PropertyShape ;
@@ -292,7 +300,8 @@ sh:DistributionProp
 	sh:path         dcat:distribution ;
 	sh:node         sh:DistributionNodeShape ;
 	sh:minCount     1 ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "dcat:distribution is either missing or provided multiple times" .
 
 sh:CorpusSubclassProp
 	a               sh:PropertyShape ;
@@ -300,7 +309,8 @@ sh:CorpusSubclassProp
 	sh:path         ms:corpusSubclass ;
 	sh:node         sh:CorpusSubclassRestriction ;
 	sh:nodeKind     sh:IRI ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "At most 1 ms:corpusSubclass is allowed" .
 
 sh:AnnotationTypeProp
 	a               sh:PropertyShape ;
@@ -316,7 +326,8 @@ sh:MultilingualityTypeProp
 	sh:path         ms:multilingualityType ;
 	sh:node         sh:MultilingualityTypeRestriction ;
 	sh:nodeKind     sh:IRI ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "At most 1 ms:multilingualityType is allowed" .
 
 sh:PivotLanguageProp
 	a               sh:PropertyShape ;
@@ -338,7 +349,8 @@ sh:OriginalSourceDescriptionProp
 	                "LanguageDCAT-AP:*:LCR" ;
 	sh:path         ms:originalSourceDescription ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "ms:originalSourceDescription must be a langString and must have at most one value per language tag" .
 
 sh:LCRSubclassPropCRD
 	a               sh:PropertyShape ;
@@ -381,7 +393,8 @@ sh:RequiresSoftwareProp
 	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:path         ms:requiresSoftware ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "ms:requiresSoftware must be a langString and must have at most one value per language tag" .
 
 sh:ModelDistributionProp
 	a               sh:PropertyShape ;
@@ -389,35 +402,40 @@ sh:ModelDistributionProp
 	sh:path         dcatlds:modelDistribution ;
 	sh:node         sh:ModelDistributionNodeShape ;
 	sh:minCount     1 ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "dcatlds:modelDistribution is either missing or provided multiple times" .
 
 sh:InstructionsProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:path         dcatlds:instructions ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "dcatlds:instructions must be a langString and must have at most one value per language tag" .
 
 sh:InputModalityProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:path         it6:hasInputModality ;
 	sh:node         sh:ModalityNodeShape ;
-	sh:minCount     1 .
+	sh:minCount     1 ;
+	sh:message      "it6:hasInputModality is required" .
 
 sh:OutputModalityProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:path         it6:hasOutputModality ;
 	sh:node         sh:ModalityNodeShape ;
-	sh:minCount     1 .
+	sh:minCount     1 ;
+	sh:message      "it6:hasOutputModality is required" .
 
 sh:InputLanguageProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:path         dcatlds:inputLanguage ;
 	sh:node         sh:MsLanguageNodeShape ;
-	sh:minCount     1 .
+	sh:minCount     1 ;
+	sh:message      "dcatlds:inputLanguage is required" .
 
 sh:OutputLanguageProp
 	a               sh:PropertyShape ;
@@ -432,7 +450,8 @@ sh:ModelTypePropReq
 	sh:node         sh:ModelTypeRestriction ;
 	sh:nodeKind     sh:IRI ;
 	sh:minCount     1 ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "ms:modelType is either missing or provided multiple times" .
 
 sh:ModelTypeProp
 	a               sh:PropertyShape ;
@@ -440,13 +459,9 @@ sh:ModelTypeProp
 	sh:path         ms:modelType ;
 	sh:node         sh:ModelTypeRestriction ;
 	sh:nodeKind     sh:IRI ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "At most 1 ms:modelType is allowed" .
 
-sh:BenchmarkProp
-	a               sh:PropertyShape ;
-	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
-	sh:path         it6:hasBenchmark ;
-	sh:node         sh:BenchmarkNodeShape .
 
 sh:TrainingImpactProp
 	a               sh:PropertyShape ;
@@ -465,42 +480,48 @@ sh:FineTuningMethodologyProp
 	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:path         dcatlds:finetuningMethodology ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "dcatlds:finetuningMethodology must be a langString and must have at most one value per language tag" .
 
 sh:TrainingMethodologiesProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:path         it6:trainingMethodologies ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "it6:trainingMethodologies must be a langString and must have at most one value per language tag" .
 
 sh:TrainingProcessProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:path         it6:trainingProcess ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "it6:trainingProcess must be a langString and must have at most one value per language tag" .
 
 sh:ReleaseDateProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:path         it6:releaseDate ;
 	sh:datatype     xsd:date ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "At most 1 it6:releaseDate is allowed" .
 
 sh:ModifiedProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:path         dct:modified ;
 	sh:datatype     xsd:date ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "At most 1 dct:modified is allowed" .
 
 sh:DesignSpecificationsProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:path         it6:designSpecifications ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "it6:designSpecifications must be a langString and must have at most one value per language tag" .
 
 sh:IntendedUseProp
 	a               sh:PropertyShape ;
@@ -508,7 +529,8 @@ sh:IntendedUseProp
 	sh:path         it6:intendedUse ;
 	sh:uniqueLang   true ;
 	sh:datatype     rdf:langString ;
-	sh:minCount     1 .
+	sh:minCount     1 ;
+	sh:message      "it6:intendedUse is required, must be a langString, and must have at most one value per language tag" .
 
 sh:ModelFunctionProp
 	a               sh:PropertyShape ;
@@ -516,7 +538,8 @@ sh:ModelFunctionProp
 	sh:path         ms:modelFunction ;
 	sh:node         sh:ModelFunctionRestriction ;
 	sh:nodeKind     sh:IRI ;
-	sh:minCount     1 .
+	sh:minCount     1 ;
+	sh:message      "ms:modelFunction is required and must be a valid IRI" .
 
 sh:ModelVariantProp
 	a               sh:PropertyShape ;
@@ -529,7 +552,8 @@ sh:TrainedOnProp
 	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         it6:trainedOn ;
 	sh:node         sh:MsLanguageResourceNodeShape ;
-	sh:minCount     1 .
+	sh:minCount     1 ;
+	sh:message      "it6:trainedOn is required" .
 
 sh:EvaluationDatasetProp
 	a               sh:PropertyShape ;
@@ -545,45 +569,51 @@ sh:FinetuneDatasetProp
 
 sh:EvaluationResultsProp
 	a               sh:PropertyShape ;
-	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:path         ms:evaluationResults ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "ms:evaluationResults must be a langString and must have at most one value per language tag" .
 
 sh:BiasProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         it6:bias ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "it6:bias must be a langString and must have at most one value per language tag" .
 
 sh:LimitationsProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         it6:limitations ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "it6:limitations must be a langString and must have at most one value per language tag" .
 
 sh:QuantizedProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         ms:quantized ;
 	sh:datatype     xsd:boolean ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "At most 1 ms:quantized is allowed" .
 
 sh:QuantizationProcessProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         ms:quantizationProcess ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "ms:quantizationProcess must be a langString and must have at most one value per language tag" .
 
 sh:ParameterPrecisionProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:MLMODEL" ;
 	sh:path         ms:parameterPrecision ;
 	sh:datatype     xsd:string ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "At most 1 ms:parameterPrecision is allowed" .
 
 sh:ContextLengthProp
 	a               sh:PropertyShape ;
@@ -591,14 +621,16 @@ sh:ContextLengthProp
 	sh:path         ms:contextLength ;
 	sh:datatype     xsd:integer ;
 	sh:minExclusive 0 ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "At most 1 ms:contextLength is allowed" .
 
 sh:CreationDetailsProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:path         ms:creationDetails ;
 	sh:uniqueLang   true ;
-	sh:datatype     rdf:langString .
+	sh:datatype     rdf:langString ;
+	sh:message      "ms:creationDetails must be a langString and must have at most one value per language tag" .
 
 sh:TSFunctionProp
 	a               sh:PropertyShape ;
@@ -606,7 +638,8 @@ sh:TSFunctionProp
 	sh:path         ms:function ;
 	sh:node         sh:TSFunctionRestriction ;
 	sh:nodeKind     sh:IRI ;
-	sh:minCount     1 .
+	sh:minCount     1 ;
+	sh:message      "ms:function is required and must be a valid IRI" .
 
 sh:SoftwareDistributionProp
 	a               sh:PropertyShape ;
@@ -614,7 +647,8 @@ sh:SoftwareDistributionProp
 	sh:path         ms:softwareDistribution ;
 	sh:node         sh:SoftwareDistributionNodeShape ;
 	sh:minCount     1 ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "ms:softwareDistribution is either missing or provided multiple times" .
 
 sh:LanguageDependentProp
 	a               sh:PropertyShape ;
@@ -622,14 +656,16 @@ sh:LanguageDependentProp
 	sh:path         ms:languageDependent ;
 	sh:datatype     xsd:boolean ;
 	sh:minCount     1 ;
-	sh:maxCount     1 .
+	sh:maxCount     1 ;
+	sh:message      "ms:languageDependent is either missing or provided multiple times" .
 
 sh:InputContentResourceProp
 	a               sh:PropertyShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:TOOLSERVICE" ;
 	sh:path         ms:inputContentResource ;
 	sh:node         sh:ProcessingResourceNodeShape ;
-	sh:minCount     1 .
+	sh:minCount     1 ;
+	sh:message      "ms:inputContentResource is required" .
 
 sh:OutputContentResourceProp
 	a               sh:PropertyShape ;
@@ -638,3 +674,71 @@ sh:OutputContentResourceProp
 	sh:node         sh:ProcessingResourceNodeShape .
 
 
+sh:LanguageTypeProp
+	a               sh:PropertyShape ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:CORPUS" ;
+	sh:path         dcatlds:languageType ;
+	sh:node         sh:LanguageTypeRestriction ;
+	sh:nodeKind     sh:IRI ;
+	sh:maxCount     1 ;
+	sh:message      "At most 1 dcatlds:languageType is allowed" .
+
+sh:GenerationTypeProp
+	a               sh:PropertyShape ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:CORPUS" ;
+	sh:path         dcatlds:generationType ;
+	sh:node         sh:GenerationTypeRestriction ;
+	sh:nodeKind     sh:IRI ;
+	sh:minCount     1 ;
+	sh:maxCount     1 ;
+	sh:message      "dcatlds:generationType is required and at most 1 is allowed" .
+
+sh:GenerationModelProp
+	a               sh:PropertyShape ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:CORPUS" ;
+	sh:path         dcatlds:generationModel ;
+	sh:maxCount     1 ;
+	sh:node         sh:MsLanguageResourceNodeShape ;
+	sh:message      "At most 1 dcatlds:generationModel is allowed" .
+
+sh:SeedDatasetProp
+	a               sh:PropertyShape ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:CORPUS" ;
+	sh:path         dcatlds:seedDataset ;
+	sh:node         sh:MsLanguageResourceNodeShape .
+
+sh:GenerationProcessProp
+	a               sh:PropertyShape ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:CORPUS" ;
+	sh:path         dcatlds:generationProcess ;
+	sh:uniqueLang   true ;
+	sh:datatype     rdf:langString ;
+	sh:message      "dcatlds:generationProcess must be a langString and must have at most one value per language tag" .
+
+sh:EvaluationProp
+	a               sh:PropertyShape ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
+	sh:path         dcatlds:evaluation ;
+	sh:node         sh:EvaluationNodeShape .
+
+sh:FineTuningHardwareProp
+	a               sh:PropertyShape ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
+	sh:path         dcatlds:finetuningHardware ;
+	sh:maxCount     1 ;
+	sh:datatype     xsd:string ;
+	sh:message      "dcatlds:finetuningHardware must be a string and must have at most one value" .
+
+sh:FinetuningDescriptionProp
+	a               sh:PropertyShape ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
+	sh:path         dcatlds:finetuningDescription ;
+	sh:uniqueLang   true ;
+	sh:datatype     rdf:langString ;
+	sh:message      "dcatlds:finetuningDescription must be a langString and must have at most one value per language tag" .
+
+sh:BaseModelProp
+	a               sh:PropertyShape ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
+	sh:path         dcatlds:baseModel ;
+	sh:node         sh:MsLanguageResourceNodeShape .

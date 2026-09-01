@@ -5,6 +5,7 @@
 @prefix omtd:    <http://w3id.org/meta-share/omtd-share/> .
 @prefix edc:     <https://w3id.org/edc/v0.0.1/ns/> .
 @prefix lexmeta: <http://w3id.org/meta-share/lexmeta#> .
+@prefix dcatlds: <http://w3id.org/lang-dcat-ap/> .
 
 sh:LRTypeRestriction
 	a            sh:NodeShape ;
@@ -14,6 +15,7 @@ sh:LRTypeRestriction
 		             sh:hasValue ms:LRTypeTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for language resource type: Value must be from ms:LRTypeTaxonomy"
 	             ] .
 
 sh:DomainRestriction
@@ -23,7 +25,8 @@ sh:DomainRestriction
 	sh:property  [
 		             sh:hasValue ms:DomainTaxonomy ;
 		             sh:nodeKind sh:IRI ;
-		             sh:path     skos:inScheme
+		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for domain: Value must be from ms:DomainTaxonomy"
 	             ] .
 
 sh:PDIsRestriction
@@ -34,6 +37,7 @@ sh:PDIsRestriction
 		             sh:hasValue ms:PersonalDataIncludedTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for personal data included: Value must be from ms:PersonalDataIncludedTaxonomy"
 	             ] .
 
 
@@ -41,11 +45,17 @@ sh:DataFormatRestriction
 	a            sh:NodeShape ;
 	rdfs:comment "Data Format Restriction" ;
 	rdfs:label   "Data Format Restriction" ;
-	sh:property  [
-		             sh:hasValue <http://publications.europa.eu/resource/authority/file-type> ;
-		             sh:nodeKind sh:IRI ;
-		             sh:path     skos:inScheme
-	             ] .
+	sh:nodeKind  sh:IRI ;
+	sh:or        ( [
+		               sh:path     skos:inScheme ;
+		               sh:hasValue <http://publications.europa.eu/resource/authority/file-type> ;
+	               ]
+	               [
+		               sh:path     skos:inScheme ;
+		               sh:hasValue <http://w3id.org/meta-share/omtd-share/DataFormatScheme> ;
+	               ] ) ;
+	sh:message   "Invalid value for data format: Value must be from the \"File Type\" Authority Table of the EU Publications Office or from the \"DataFormatScheme\" of the OMTD-SHARE vocabulary"
+.
 
 sh:SizeUnitRestriction
 	a            sh:NodeShape ;
@@ -54,7 +64,8 @@ sh:SizeUnitRestriction
 	sh:property  [
 		             sh:hasValue ms:SizeUnitTaxonomy ;
 		             sh:nodeKind sh:IRI ;
-		             sh:path     skos:inScheme
+		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for size unit: Value must be from ms:SizeUnitTaxonomy"
 	             ] .
 
 sh:PackageFormatRestriction
@@ -64,7 +75,8 @@ sh:PackageFormatRestriction
 	sh:property  [
 		             sh:hasValue omtd:PackageFormatScheme ;
 		             sh:nodeKind sh:IRI ;
-		             sh:path     skos:inScheme
+		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for package format: Value must be from omtd:PackageFormatScheme"
 	             ] .
 
 sh:ConformsToRestriction
@@ -75,6 +87,7 @@ sh:ConformsToRestriction
 		             sh:hasValue ms:StandardBestPracticeTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for conforms to: Value must be from ms:StandardBestPracticeTaxonomy"
 	             ] .
 
 sh:SpatialRestriction
@@ -84,18 +97,18 @@ sh:SpatialRestriction
 	sh:nodeKind  sh:IRI ;
 	sh:or        ( [
 		               sh:path     skos:inScheme ;
-		               sh:hasValue <http://publications.europa.eu/resource/authority/continent>
+		               sh:hasValue <http://publications.europa.eu/resource/authority/continent> ;
 	               ]
 	               [
 		               sh:path     skos:inScheme ;
-		               sh:hasValue <http://publications.europa.eu/resource/authority/country>
+		               sh:hasValue <http://publications.europa.eu/resource/authority/country> ;
 	               ]
 	               [
 		               sh:path     skos:inScheme ;
-		               sh:hasValue <http://publications.europa.eu/resource/authority/place>
+		               sh:hasValue <http://publications.europa.eu/resource/authority/place> ;
 	               ]
-	               [ sh:pattern "^https://sws.geonames.org/[1-9]{1,7}\\/?$" ] )
-.
+	               [ sh:pattern "^https://sws.geonames.org/[1-9]{1,7}\\/?$" ] ) ;
+	sh:message   "Invalid value for spatial: Value must be from the \"Continent\", \"Country\" or \"Place\" Authority Table of the EU Publications Office, or a GeoNames URI with the format 'https://sws.geonames.org/{geonameId}/'" .
 
 sh:SDIsRestriction
 	a            sh:NodeShape ;
@@ -105,6 +118,7 @@ sh:SDIsRestriction
 		             sh:hasValue ms:SensitiveDataIncludedTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for sensitive data included: Value must be from ms:SensitiveDataIncludedTaxonomy"
 	             ] .
 
 sh:AnonymizedRestriction
@@ -115,6 +129,7 @@ sh:AnonymizedRestriction
 		             sh:hasValue ms:AnonymizedTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for anonymized data included: Value must be from ms:AnonymizedTaxonomy"
 	             ] .
 
 sh:TechnicalOrganisationalMeasureRestriction
@@ -125,6 +140,7 @@ sh:TechnicalOrganisationalMeasureRestriction
 		             sh:hasValue ms:TechnicalOrganisationalMeasureTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for technical organisational measure: Value must be from ms:TechnicalOrganisationalMeasureTaxonomy"
 	             ] .
 
 sh:DataProtectionPrincipleRestriction
@@ -135,6 +151,7 @@ sh:DataProtectionPrincipleRestriction
 		             sh:hasValue ms:DataProtectionPrincipleTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for data protection principle applied: Value must be from ms:DataProtectionPrincipleTaxonomy"
 	             ] .
 
 sh:MediaTypeRestriction
@@ -145,6 +162,7 @@ sh:MediaTypeRestriction
 		             sh:hasValue ms:MediaTypeTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for media type: Value must be from ms:MediaTypeTaxonomy"
 	             ] .
 
 sh:LingualityTypeRestriction
@@ -155,6 +173,7 @@ sh:LingualityTypeRestriction
 		             sh:hasValue ms:LingualityTypeTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for linguality type: Value must be from ms:LingualityTypeTaxonomy"
 	             ] .
 
 sh:LanguageRestriction
@@ -164,7 +183,8 @@ sh:LanguageRestriction
 	sh:property  [
 		             sh:hasValue ms:LanguageTaxonomy ;
 		             sh:nodeKind sh:IRI ;
-		             sh:path     skos:inScheme
+		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for language: Value must be from ms:LanguageTaxonomy"
 	             ] .
 
 sh:LocationRestriction
@@ -174,7 +194,8 @@ sh:LocationRestriction
 	sh:property  [
 		             sh:hasValue ms:LocationTaxonomy ;
 		             sh:nodeKind sh:IRI ;
-		             sh:path     skos:inScheme
+		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for location: Value must be from ms:LocationTaxonomy"
 	             ] .
 
 sh:ScriptRestriction
@@ -184,7 +205,8 @@ sh:ScriptRestriction
 	sh:property  [
 		             sh:hasValue ms:ScriptTaxonomy ;
 		             sh:nodeKind sh:IRI ;
-		             sh:path     skos:inScheme
+		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for script: Value must be from ms:ScriptTaxonomy"
 	             ] .
 
 sh:VariantRestriction
@@ -194,7 +216,8 @@ sh:VariantRestriction
 	sh:property  [
 		             sh:hasValue ms:VariantTaxonomy ;
 		             sh:nodeKind sh:IRI ;
-		             sh:path     skos:inScheme
+		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for variant: Value must be from ms:VariantTaxonomy"
 	             ] .
 
 sh:DCTLanguageRestriction
@@ -205,7 +228,8 @@ sh:DCTLanguageRestriction
 		             sh:hasValue <http://publications.europa.eu/resource/authority/language> ;
 		             sh:minCount 1 ;
 		             sh:nodeKind sh:IRI ;
-		             sh:path     skos:inScheme
+		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for data format: Value must be from the \"language\" Authority Table of the EU Publications Office"
 	             ] .
 
 sh:CorpusSubclassRestriction
@@ -216,6 +240,7 @@ sh:CorpusSubclassRestriction
 		             sh:hasValue ms:CorpusSubclassTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for corpus subclass: Value must be from ms:CorpusSubclassTaxonomy"
 	             ] .
 
 sh:AnnotationTypeRestriction
@@ -226,6 +251,7 @@ sh:AnnotationTypeRestriction
 		             sh:hasValue omtd:AnnotationTypeScheme ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for annotation type: Value must be from omtd:AnnotationTypeScheme"
 	             ] .
 
 sh:MultilingualityTypeRestriction
@@ -236,6 +262,7 @@ sh:MultilingualityTypeRestriction
 		             sh:hasValue ms:MultilingualityTypeTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for multilinguality type: Value must be from ms:MultilingualityTypeTaxonomy"
 	             ] .
 
 sh:LCRSubclassRestriction
@@ -246,6 +273,7 @@ sh:LCRSubclassRestriction
 		             sh:hasValue ms:LCRSubclassTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for LCR subclass: Value must be from ms:LCRSubclassTaxonomy"
 	             ] .
 
 sh:LingInfoSubclassRestriction
@@ -256,6 +284,7 @@ sh:LingInfoSubclassRestriction
 		             sh:hasValue lexmeta:MicrostructureFeatureScheme ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for linguistic information: Value must be from lexmeta:MicrostructureFeatureScheme"
 	             ] .
 
 sh:ModelTypeRestriction
@@ -266,6 +295,7 @@ sh:ModelTypeRestriction
 		             sh:hasValue ms:ModelTypeTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for model type: Value must be from ms:ModelTypeTaxonomy"
 	             ] .
 
 sh:TSFunctionRestriction
@@ -276,6 +306,7 @@ sh:TSFunctionRestriction
 		             sh:hasValue omtd:OperationScheme ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for tool/service function: Value must be from omtd:OperationScheme"
 	             ] .
 
 sh:ModelFunctionRestriction
@@ -286,6 +317,7 @@ sh:ModelFunctionRestriction
 		             sh:hasValue omtd:OperationScheme ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for metadata model function: Value must be from omtd:OperationScheme"
 	             ] .
 
 sh:SoftwareDistributionFormRestriction
@@ -296,6 +328,7 @@ sh:SoftwareDistributionFormRestriction
 		             sh:hasValue ms:SoftwareDistributionFormTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for software distribution form: Value must be from ms:SoftwareDistributionFormTaxonomy"
 	             ] .
 
 sh:ProcessingResourceTypeRestriction
@@ -306,6 +339,29 @@ sh:ProcessingResourceTypeRestriction
 		             sh:hasValue ms:ProcessingResourceTypeTaxonomy ;
 		             sh:nodeKind sh:IRI ;
 		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for processing resource type: Value must be from ms:ProcessingResourceTypeTaxonomy"
+	             ] .
+
+sh:LanguageTypeRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Language Type Restriction" ;
+	rdfs:label   "Language Type Restriction" ;
+	sh:property  [
+		             sh:hasValue dcatlds:LanguageTypeTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for language type: Value must be from dcatlds:LanguageTypeTaxonomy"
+	             ] .
+
+sh:GenerationTypeRestriction
+	a            sh:NodeShape ;
+	rdfs:comment "Generation Type Restriction" ;
+	rdfs:label   "Generation Type Restriction" ;
+	sh:property  [
+		             sh:hasValue dcatlds:GenerationTypeTaxonomy ;
+		             sh:nodeKind sh:IRI ;
+		             sh:path     skos:inScheme ;
+		             sh:message  "Invalid value for generation type: Value must be from dcatlds:GenerationTypeTaxonomy"
 	             ] .
 
 # Rules upon condition

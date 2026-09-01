@@ -28,13 +28,14 @@ sh:PolicyRoot
 		                     sh:node     sh:PolicyNodeShape
 	                     ] .
 
+
 # LDS-specific: Only additional properties are checked; properties for prohibitions, permissions & constraints are under EDC control
 sh:PolicyNodeShape
 	a               sh:NodeShape ;
 	sh:applicableIn "LanguageDCAT-AP:*:POLICY" ;
 	sh:targetClass  odrl:Set ;
 	sh:property     sh:TitleProp,
-	                sh:AlternativeProp ,
+	                sh:AlternativeProp,
 	                sh:DescriptionProp,
 	                sh:AdmsIdentifierProp,
 	                sh:ConformsProp,
@@ -42,7 +43,8 @@ sh:PolicyNodeShape
 		                sh:path     cc:legalcode ;
 		                sh:maxCount 1 ;
 		                sh:nodeKind sh:IRI ;
-		                sh:pattern  "^https?://.+$"
+		                sh:pattern  "^https?://.+$" ;
+		                sh:message  "Invalid value for legal code URL: Value must be a valid URL"
 	                ] .
 
 # LDS-specific
@@ -115,24 +117,27 @@ sh:HttpData
 		                     sh:pattern  "^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)$" ;
 		                     sh:maxCount 1 ;
 		                     sh:minCount 1 ;
-		                     sh:message  "edc:baseUrl is not a valid URL"
+		                     sh:message  "edc:baseUrl is required and must be a valid URL"
 	                     ],
 	                     [
 		                     sh:path     edc:name ;
 		                     sh:datatype xsd:string ;
 		                     sh:maxCount 1 ;
 		                     sh:minCount 1 ;
+		                     sh:message  "edc:name is required and must be a string"
 	                     ],
 	                     [
 		                     sh:path         edc:requiresAuth ;
 		                     sh:datatype     xsd:string ;
 		                     sh:defaultValue "true" ;
-		                     sh:maxCount     1
+		                     sh:maxCount     1 ;
+		                     sh:message      "edc:requiresAuth must be a string"
 	                     ],
 	                     [
 		                     sh:path     edc:storageSolutionId ;
 		                     sh:datatype xsd:string ;
-		                     sh:maxCount 1
+		                     sh:maxCount 1 ;
+		                     sh:message  "edc:storageSolutionId must be a string"
 	                     ] .
 
 
@@ -156,25 +161,27 @@ sh:AmazonS3
 		                     sh:datatype xsd:string ;
 		                     sh:minCount 1 ;
 		                     sh:maxCount 1 ;
-		                     sh:message  "edc:objectName is required"
+		                     sh:message  "edc:objectName is required and must be a string"
 	                     ],
 	                     [
 		                     sh:path     edc:s3type ;
 		                     sh:datatype xsd:string ;
 		                     sh:minCount 1 ;
 		                     sh:maxCount 1 ;
-		                     sh:message  "edc:s3type is required"
+		                     sh:message  "edc:s3type is required and must be a string"
 	                     ],
 	                     [
 		                     sh:path         edc:requiresAuth ;
 		                     sh:datatype     xsd:string ;
 		                     sh:defaultValue "true" ;
-		                     sh:maxCount     1
+		                     sh:maxCount     1 ;
+		                     sh:message      "edc:requiresAuth must be a string"
 	                     ],
 	                     [
 		                     sh:path     edc:storageSolutionId ;
 		                     sh:datatype xsd:string ;
-		                     sh:maxCount 1
+		                     sh:maxCount 1 ;
+		                     sh:message  "edc:storageSolutionId must be a string"
 	                     ] .
 
 sh:AgentNodeShape
@@ -184,13 +191,15 @@ sh:AgentNodeShape
 		            sh:path       foaf:name ;
 		            sh:datatype   rdf:langString ;
 		            sh:uniqueLang true ;
-		            sh:minCount   1
+		            sh:minCount   1 ;
+		            sh:message    "foaf:name is required and must be a string"
 	            ],
 	            [
 		            sh:path     adms:identifier ;
 		            sh:property [
 			                        sh:path     skos:notation ;
 			                        sh:datatype xsd:string ;
+			                        sh:message  "Notation (skos:notation) must be a string"
 		                        ],
 		                        [
 			                        sh:path     skos:notation ;
@@ -202,6 +211,7 @@ sh:AgentNodeShape
 			                        sh:path       adms:schemaAgency ;
 			                        sh:datatype   rdf:langString ;
 			                        sh:uniqueLang true ;
+			                        sh:message    "Schema agency (adms:schemaAgency) must be a langString"
 		                        ]
 	            ] .
 
@@ -218,7 +228,7 @@ sh:DocumentNodeShape
 		            sh:property [
 			                        sh:path     skos:notation ;
 			                        sh:datatype xsd:string ;
-			                        sh:pattern  "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$" ;
+			                        sh:pattern  "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$" ;
 			                        sh:message  "ADMS identifier (adms:Identifier/skos:notation) must be a valid URI"
 		                        ],
 		                        [
@@ -231,27 +241,28 @@ sh:DocumentNodeShape
 			                        sh:path       adms:schemaAgency ;
 			                        sh:datatype   rdf:langString ;
 			                        sh:uniqueLang true ;
+			                        sh:message    "Schema agency (adms:schemaAgency) must be a langString"
 		                        ]
 	            ] .
 
 #LDS-specific; missing properties (accessURL, downloadURL, accessService, hasPolicy, license)
 sh:DistributionNodeShape
 	a               sh:NodeShape ;
-	lds:targetModel "LanguageDCAT-AP:0.9.3:CORPUS",
-	                "LanguageDCAT-AP:0.9.5:CORPUS",
-	                "LanguageDCAT-AP:0.9.3:LCR",
-	                "LanguageDCAT-AP:0.9.5:LCR",
+	sh:applicableIn "LanguageDCAT-AP:*:CORPUS",
+	                "LanguageDCAT-AP:*:LCR",
 	                "LanguageDCAT-AP:0.9.3:MLMODEL" ;
 	sh:class        dcat:Distribution ;
 	sh:property     [
 		                sh:path       dct:title ;
 		                sh:uniqueLang true ;
-		                sh:datatype   rdf:langString
+		                sh:datatype   rdf:langString ;
+		                sh:message    "dct:title is required and must be a langString"
 	                ],
 	                [
 		                sh:path     ms:size ;
 		                sh:node     sh:SizeNodeShape ;
-		                sh:minCount 1
+		                sh:minCount 1 ;
+		                sh:message  "ms:size is required"
 	                ],
 	                [
 		                sh:path     dcat:packageFormat ;
@@ -262,7 +273,8 @@ sh:DistributionNodeShape
 	                [
 		                sh:path     dcat:byteSize ;
 		                sh:datatype xsd:integer ;
-		                sh:maxCount 1
+		                sh:maxCount 1 ;
+		                sh:message  "dcat:byteSize must be an integer"
 	                ],
 	                [
 		                sh:path     dcatlds:format ;
@@ -303,12 +315,14 @@ sh:TemporalShape
 		            sh:datatype xsd:date ;
 		            sh:minCount 1 ;
 		            sh:maxCount 1 ;
+		            sh:message  "Start date (dcat:startDate) is required and must be a date"
 	            ],
 	            [
 		            sh:path     dcat:endDate ;
 		            sh:datatype xsd:date ;
 		            sh:minCount 1 ;
 		            sh:maxCount 1 ;
+		            sh:message  "End date (dcat:endDate) is required and must be a date"
 	            ] .
 
 # LDS-specific
@@ -318,19 +332,30 @@ sh:MsLanguageResourceNodeShape
 	            [
 		            sh:path     adms:identifier ;
 		            sh:property [
-			                        sh:path     skos:notation ;
-			                        sh:minCount 1 ;
-			                        sh:maxCount 1 ;
-			                        sh:datatype xsd:string ;
-			                        sh:message  "skos:notation is required" ;
-			                        sh:or       ( [ sh:pattern "^https://doi.org/10\\..*$" ] [ sh:pattern "^https://hdl.handle.net/.*$" ] ) ;
-			                        sh:message  "ADMS identifier (adms:Identifier) must be a valid DOI (^https://doi.org/10\\..+$) or Handle (^https://hdl.handle.net/.+$) URI"
-		                        ],
-		                        [
-			                        sh:path       adms:schemaAgency ;
-			                        sh:datatype   rdf:langString ;
-			                        sh:uniqueLang true ;
+			                        sh:path     adms:identifier ;
+			                        sh:property [
+				                                    sh:path     skos:notation ;
+				                                    sh:datatype xsd:string ;
+				                                    sh:message  "Notation (skos:notation) must be a string"
+			                                    ],
+			                                    [
+				                                    sh:path     skos:notation ;
+				                                    sh:minCount 1 ;
+				                                    sh:maxCount 1 ;
+				                                    sh:message  "Notation (skos:notation) is either missing or provided multiple times"
+			                                    ],
+			                                    [
+				                                    sh:path       adms:schemaAgency ;
+				                                    sh:datatype   rdf:langString ;
+				                                    sh:uniqueLang true ;
+				                                    sh:message    "Schema agency (adms:schemaAgency) must be a langString"
+			                                    ]
 		                        ] ;
+	            ],
+	            [
+		            sh:path       dct:description ;
+		            sh:datatype   rdf:langString ;
+		            sh:uniqueLang true ;
 	            ] .
 
 sh:MsLanguageNodeShape
@@ -342,7 +367,7 @@ sh:MsLanguageNodeShape
 		            sh:nodeKind sh:IRI ;
 		            sh:minCount 1 ;
 		            sh:maxCount 1 ;
-		            sh:message  "Invalid language"@en ;
+		            sh:message  "ms:languageCode is required and must be a valid language code IRI from ms:LanguageTaxonomy"
 	            ],
 	            [
 		            sh:path     ms:region ;
@@ -365,154 +390,196 @@ sh:MsLanguageNodeShape
 		            sh:path       ms:languageVarietyName ;
 		            sh:datatype   rdf:langString ;
 		            sh:uniqueLang true ;
+		            sh:message    "ms:languageVarietyName must be a langString"
 	            ] .
 
 # LDS-specific; missing properties (hasPolicy, dct:license); extra condition for mandatory accessLocation or downloadLocation 
 sh:ModelDistributionNodeShape
 	a               sh:NodeShape ;
-	lds:targetModel "LanguageDCAT-AP:0.9.5:MLMODEL" ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:property     [
 		                sh:path     ms:size ;
 		                sh:node     sh:SizeNodeShape ;
-		                sh:minCount 1
+		                sh:minCount 1 ;
+		                sh:message  "ms:size is required"
 	                ],
 	                [
 		                sh:path     dcat:byteSize ;
 		                sh:datatype xsd:integer ;
-		                sh:maxCount 1
+		                sh:maxCount 1 ;
+		                sh:message  "dcat:byteSize must be an integer"
 	                ],
 	                [
 		                sh:path       dcatlds:distributionMethod ;
 		                sh:uniqueLang true ;
 		                sh:datatype   rdf:langString ;
-		                sh:minCount   1
+		                sh:minCount   1 ;
+		                sh:message    "dcatlds:distributionMethod is required and must be a langString"
 	                ],
 	                [
 		                sh:path         dcatlds:tokensPerParameter ;
 		                sh:datatype     xsd:integer ;
 		                sh:minExclusive 0 ;
-		                sh:maxCount     1
+		                sh:maxCount     1 ;
+		                sh:message      "dcatlds:tokensPerParameter must be a positive integer"
 	                ],
 	                [
 		                sh:path       dcatlds:accessLevel ;
 		                sh:uniqueLang true ;
 		                sh:datatype   rdf:langString ;
-		                sh:minCount   1
+		                sh:minCount   1 ;
+		                sh:message    "dcatlds:accessLevel is required and must be a langString"
 	                ],
 	                [
 		                sh:path         dcatlds:amountOfActiveParameters ;
 		                sh:datatype     xsd:integer ;
 		                sh:minExclusive 0 ;
-		                sh:maxCount     1
+		                sh:maxCount     1 ;
+		                sh:message      "dcatlds:amountOfActiveParameters must be a positive integer"
 	                ],
 	                [
 		                sh:path     dcatlds:format ;
 		                sh:minCount 1 ;
 		                sh:node     sh:DataFormatRestriction ;
-		                sh:nodeKind sh:IRI
+		                sh:nodeKind sh:IRI ;
+		                sh:message  "dcatlds:format is required and must be a valid data format IRI from the \"File Type\" Authority Table of the EU Publications Office"
 	                ],
 	                [
 		                sh:path       dct:title ;
 		                sh:uniqueLang true ;
-		                sh:datatype   rdf:langString
+		                sh:datatype   rdf:langString ;
+		                sh:message    "dct:title must be a langString"
 	                ],
 	                [
 		                sh:path     ms:mediaType ;
 		                sh:node     sh:MediaTypeRestriction ;
 		                sh:nodeKind sh:IRI ;
-		                sh:message  "Invalid media type"
 	                ],
 
 	                [
 		                sh:path     ms:accessLocation ;
 		                sh:maxCount 1 ;
 		                sh:datatype xsd:anyURI ;
+		                sh:message  "ms:accessLocation must be a valid URI"
 	                ],
 	                [
 		                sh:path     ms:downloadLocation ;
 		                sh:maxCount 1 ;
 		                sh:datatype xsd:anyURI ;
+		                sh:message  "ms:downloadLocation must be a valid URI"
 	                ] ;
 	sh:xone         ( [
 		                  sh:path     ms:accessLocation ;
 		                  sh:minCount 1 ;
 		                  sh:maxCount 1 ;
+		                  sh:message  "ms:accessLocation must be a valid URI"
 	                  ] [
 		                  sh:path     ms:downloadLocation ;
 		                  sh:minCount 1 ;
 		                  sh:maxCount 1 ;
+		                  sh:message  "ms:downloadLocation must be a valid URI"
 	                  ] ) .
 
 sh:ModalityNodeShape
 	a               sh:NodeShape ;
-	lds:targetModel "LanguageDCAT-AP:0.9.5:MLMODEL" ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:property     [
 		                sh:path     ms:mediaType ;
 		                sh:node     sh:MediaTypeRestriction ;
 		                sh:nodeKind sh:IRI ;
 		                sh:minCount 1 ;
-		                sh:message  "Invalid media type"
+		                sh:message  "ms:mediaType is required and must be a valid media type IRI from ms:MediaTypeTaxonomy"
 	                ] .
 
 sh:BenchmarkNodeShape
 	a               sh:NodeShape ;
-	lds:targetModel "LanguageDCAT-AP:0.9.5:MLMODEL" ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:targetClass  it6:Benchmark ;
-	sh:property     sh:TitleProp .
+	sh:property     sh:TitleProp,
+	                [
+		                sh:path       dct:description ;
+		                sh:datatype   rdf:langString ;
+		                sh:uniqueLang true ;
+	                ],
+	                [
+		                sh:path     adms:identifier ;
+		                sh:property [
+			                            sh:path     skos:notation ;
+			                            sh:datatype xsd:string ;
+			                            sh:message  "Notation (skos:notation) must be a string"
+		                            ],
+		                            [
+			                            sh:path     skos:notation ;
+			                            sh:minCount 1 ;
+			                            sh:maxCount 1 ;
+			                            sh:message  "Notation (skos:notation) is either missing or provided multiple times"
+		                            ],
+		                            [
+			                            sh:path       adms:schemaAgency ;
+			                            sh:datatype   rdf:langString ;
+			                            sh:uniqueLang true ;
+			                            sh:message    "Schema agency (adms:schemaAgency) must be a langString"
+		                            ]
+	                ] .
 
 sh:EnvironmentalImpactNodeShape
 	a               sh:NodeShape ;
-	lds:targetModel "LanguageDCAT-AP:0.9.5:MLMODEL" ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
 	sh:property     [
 		                sh:path       it6:measurementMethodology ;
 		                sh:uniqueLang true ;
-		                sh:datatype   rdf:langString
+		                sh:datatype   rdf:langString ;
+		                sh:message    "it6:measurementMethodology must be a langString"
 	                ],
 	                [
-		                sh:path       it6:powerConsumption ;
-		                sh:datatype   xsd:string ;
+		                sh:path     it6:powerConsumption ;
+		                sh:datatype xsd:string ;
 		                sh:minCount 1 ;
 		                sh:maxCount 1 ;
+		                sh:message  "it6:powerConsumption is required and must be a string"
 	                ] .
 
 # LDS-specific; missing properties (hasPolicy, license)
 sh:SoftwareDistributionNodeShape
 	a               sh:NodeShape ;
-	lds:targetModel "LanguageDCAT-AP:0.9.3:TOOLSERVICE",
-	                "LanguageDCAT-AP:0.9.5:TOOLSERVICE" ;
+	sh:applicableIn "LanguageDCAT-AP:*:TOOLSERVICE" ;
 	sh:property     [
 		                sh:path     ms:softwareDistributionForm ;
 		                sh:node     sh:SoftwareDistributionFormRestriction ;
 		                sh:nodeKind sh:IRI ;
 		                sh:minCount 1 ;
-		                sh:maxCount 1
+		                sh:maxCount 1 ;
+		                sh:message  "ms:softwareDistributionForm is required and must be a valid software distribution form IRI from ms:SoftwareDistributionFormTaxonomy"
 	                ],
 	                [
 		                sh:path     ms:executionLocation ;
 		                sh:datatype xsd:anyURI ;
-		                sh:maxCount 1
+		                sh:maxCount 1 ;
+		                sh:message  "ms:executionLocation must be a valid URI"
 	                ],
 	                [
 		                sh:path     ms:downloadLocation ;
 		                sh:maxCount 1 ;
 		                sh:datatype xsd:anyURI ;
+		                sh:message  "ms:downloadLocation must be a valid URI"
 	                ],
 	                [
 		                sh:path     ms:accessLocation ;
 		                sh:datatype xsd:anyURI ;
-		                sh:maxCount 1
+		                sh:maxCount 1 ;
+		                sh:message  "ms:accessLocation must be a valid URI"
 	                ] .
 
 sh:ProcessingResourceNodeShape
 	a               sh:NodeShape ;
-	lds:targetModel "LanguageDCAT-AP:0.9.3:TOOLSERVICE",
-	                "LanguageDCAT-AP:0.9.5:TOOLSERVICE" ;
+	sh:applicableIn "LanguageDCAT-AP:*:TOOLSERVICE" ;
 	sh:property     [
 		                sh:path     ms:processingResourceType ;
 		                sh:node     sh:ProcessingResourceTypeRestriction ;
 		                sh:nodeKind sh:IRI ;
 		                sh:minCount 1 ;
-		                sh:maxCount 1
+		                sh:maxCount 1 ;
+		                sh:message  "ms:processingResourceType is required and must be a valid IRI from ms:ProcessingResourceTypeTaxonomy"
 	                ],
 	                [
 		                sh:path ms:language ;
@@ -522,11 +589,36 @@ sh:ProcessingResourceNodeShape
 		                sh:path     ms:mediaType ;
 		                sh:node     sh:MediaTypeRestriction ;
 		                sh:nodeKind sh:IRI ;
-		                sh:message  "Invalid media type"
+		                sh:message  "ms:mediaType is required and must be a valid media type IRI from ms:MediaTypeTaxonomy"
 	                ],
 	                [
 		                sh:path     dcatlds:format ;
 		                sh:node     sh:DataFormatRestriction ;
-		                sh:nodeKind sh:IRI
+		                sh:nodeKind sh:IRI ;
 	                ] .
 
+sh:EvaluationNodeShape
+	a               sh:NodeShape ;
+	sh:applicableIn "LanguageDCAT-AP:0.9.5:MLMODEL" ;
+	sh:property     [
+		                sh:path     it6:hasBenchmark ;
+		                sh:minCount 1 ;
+		                sh:maxCount 1 ;
+		                sh:node     sh:BenchmarkNodeShape ;
+		                sh:message  "it6:hasBenchmark is required and must be a valid BenchmarkNodeShape"
+	                ],
+	                [
+		                sh:path       dcatlds:evaluationOutput ;
+		                sh:uniqueLang true ;
+		                sh:datatype   rdf:langString ;
+	                ],
+	                [
+		                sh:path       dcatlds:task ;
+		                sh:uniqueLang true ;
+		                sh:datatype   rdf:langString ;
+	                ],
+	                [
+		                sh:path       dcatlds:metric ;
+		                sh:uniqueLang true ;
+		                sh:datatype   rdf:langString ;
+	                ] .
