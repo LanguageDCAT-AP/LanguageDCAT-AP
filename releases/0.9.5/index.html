@@ -4635,9 +4635,9 @@ function switchTab(event, tabId) {
         <tr>
             <td>format</td>
             <td>dct:format with cardinality 0..1 for the file format</td>
-            <td>The format property is a format specified by a Distribution for the Dataset associated with the Agreement. This is generally obtained from the Provider's Catalog
-dct:format used for the transfer protocol; examples are HttpData-PULL, HttpData-PUSH, AmazonS3-PULL</td>
-            <td>A new property dcatlds:format is introduced which takes values from the EU vocabulary of filetypes with cardinality 0..n; dct:format is not used at all</td>
+            <td>The format property is a format specified by a Distribution for the Dataset associated with the Agreement. This is generally obtained from the Provider's Catalog; 
+dct:format is used to indicate the transfer protocol; examples are HttpData-PULL, HttpData-PUSH, AmazonS3-PULL</td>
+            <td>A new property dcatlds:format is introduced for the file format; this takes values from the EU vocabulary of filetypes complemented with values from the OMTD-SHARE ontology; it is used with cardinality 0..n; dct:format is not used at all</td>
             <td>The dct:format is used internally according to the DSP specification. The dcatlds:format is used for the file format</td>
             <td>Use the property dcatlds:format instead of dct:format</td>
         </tr>
@@ -4669,7 +4669,7 @@ dct:format used for the transfer protocol; examples are HttpData-PULL, HttpData-
             <td>mediaType</td>
             <td>dcat:mediaType used for IANA media types with cardinality 0..1</td>
             <td>n/a</td>
-            <td>A new property dcatlds:mediaType is introduced with cardinality 0..n as a temporary solution for SEMIC interoperability purposes</td>
+            <td>A new property dcatlds:mediaType is introduced with cardinality 0..n for SEMIC interoperability purposes</td>
             <td>dcatlds: automatically created for IANA media types with cardinality 0..n</td>
             <td>Use dcatlds:mediaType instead of dcat:mediaType</td>
         </tr>
@@ -4693,10 +4693,10 @@ dct:format used for the transfer protocol; examples are HttpData-PULL, HttpData-
         </tr>
         <tr>
             <td>type</td>
-            <td>DCAT-AP caters for datasets only (dcat:Dataset); MLDCAT-AP introduces it6:Model as a subclass of dcat:Resource; services are included in both as dcat:DataService, subclass of dcat:Resource.</td>
+            <td>DCAT-AP caters for datasets (dcat:Dataset); MLDCAT-AP introduces it6:Model as a subclass of dcat:Resource; services are included in both profiles as dcat:DataService, subclass of dcat:Resource.</td>
             <td>Caters only for datasets (dcat:Dataset); dcat:DataService used for the documentation of connectors.</td>
             <td>Recognises corpora and lexica/conceptual resources as dcat:Dataset and models as distinct entities subclass of dcat:Resource, and introduces NLP and AI tools/services as distinct entities (subclass of dcat:Resource); dcat:DataService can be used for connectors and other types of data services (e.g., SPARQL endpoints)</td>
-            <td>In order to use the EDC functionalities, all assets included in the catalogue must be of type dcat:Dataset. Thus, for import into LDS, we require the same for all resource types, including models and tools/services. The distinction is made with the lrtype property.</td>
+            <td>In order to use the EDC functionalities, all assets included in the catalogue must be of type dcat:Dataset. Thus, for import into LDS, all resource types, including models and tools/services. must be types as dcat:Dataset. The distinction is made with the lrtype property.</td>
             <td>Encode all resource types as "dcat:Dataset".</td>
         </tr>
     </tbody>
