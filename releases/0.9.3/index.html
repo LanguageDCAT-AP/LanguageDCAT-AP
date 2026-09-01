@@ -2384,6 +2384,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
       </div>
       <div class="tab-pane active">
         <pre class="json">
+
 {
   "@context": {
     "edc": "https://w3id.org/edc/v0.0.1/ns/",
@@ -2494,7 +2495,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         "@id": "omtd:Zip"
       },
       "dcat:byteSize": 422988,
-      "dcat:downloadURL": "https://example.org/sample.txt",
+      "dcat:accessURL": "https://live.european-language-grid.eu/catalogue/corpus/7377",
       "dcatlds:mediaType": [
         {
           "@id": "https://www.iana.org/assignments/media-types/text/csv"
@@ -2837,7 +2838,8 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
       ]
     }
   ]
-}        </pre>
+}
+      </pre>
       </div>
     </div>
   </aside>
@@ -2986,7 +2988,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         "@id": "omtd:Zip"
       },
       "dcat:byteSize": 2110372,
-      "dcat:downloadURL": "https://example.org/sample.txt",
+      "dcat:accessURL": "https://live.european-language-grid.eu/catalogue/corpus/7367",
       "dcatlds:format": [
         {
           "@id": "eu-filetype:XML"
@@ -3457,7 +3459,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         "@id": "omtd:Zip"
       },
       "dcat:byteSize": 104032854,
-      "dcat:downloadURL": "https://www.example.org/sample.txt",
+      "dcat:accessURL": "https://live.european-language-grid.eu/catalogue/corpus/8037",
       "dcatlds:mediaType": [
         {
           "@id": "https://www.iana.org/assignments/media-types/text/plain"
@@ -3819,6 +3821,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     }
   ]
 }
+
       </pre>
       </div>
     </div>
@@ -3921,7 +3924,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         }
       ],
       "dcat:byteSize": 51222443,
-      "dcat:downloadURL": "https://www.example.org/sample.txt",
+      "dcat:accessURL": "https://live.european-language-grid.eu/catalogue/lcr/13067",
       "dcatlds:mediaType": [
         {
           "@id": "https://www.iana.org/assignments/media-types/application_vnd_openxmlformats_officedocument_spreadsheetml_sheet"
@@ -4253,7 +4256,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
 }
 
 
-
         </pre>
       </div>
     </div>
@@ -4276,7 +4278,7 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "adms": "http://www.w3.org/ns/adms#",
     "ms": "http://w3id.org/meta-share/meta-share/",
     "loc": "http://id.loc.gov/vocabulary/iso639-1/",
-    "iana": "http://www.iana.org/assignments/media-types/application/",
+    "iana": "http://www.iana.org/assignments/media-types/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "foaf": "http://xmlns.com/foaf/0.1/",
@@ -4285,7 +4287,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "dspace": "https://w3id.org/dspace/v0.8/",
     "omtd": "http://w3id.org/meta-share/omtd-share/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "euvoc_auth": "http://publications.europa.eu/resource/authority/",
     "schema": "https://schema.org/",
     "owl": "http://www.w3.org/2002/07/owl#",
     "lds": "https://language-data-space.eu/entity/",
@@ -4293,7 +4294,11 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     "dcmitype": "http://purl.org/dc/dcmitype/",
     "lexmeta": "http://w3id.org/meta-share/lexmeta#",
     "dpv": "https://w3id.org/dpv#",
-    "it6": "http://data.europa.eu/it6/"
+    "it6": "http://data.europa.eu/it6/",
+    "eu-country": "http://publications.europa.eu/resource/authority/country/",
+    "eu-continent": "http://publications.europa.eu/resource/authority/continent/",
+    "eu-place": "http://publications.europa.eu/resource/authority/place/",
+    "eu-filetype": "http://publications.europa.eu/resource/authority/file-type/"
   },
   "ms:lrType": {
     "@id": "ms:mlModel"
@@ -4310,9 +4315,9 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
       "@language": "en"
     }
   ],
-  "ms:conformsTo": [
+  "dct:conformsTo": [
     {
-      "@id": "dcatlds:0.9.3",
+      "@id": "dcatlds:0.9.3"
     }
   ],
   "dcat:version": "1.0",
@@ -4353,10 +4358,9 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
       ],
       "dcat:byteSize": 1181116006,
       "dcat:downloadURL": "https://example.com/data.zip",      
-      "dcat:mediaType": [],
-      "dct:format": [
+      "dcatlds:format": [
         {
-          "@id": "omtd:BinaryFormat"
+          "@id": "eu-filetype:ZIP"
         }
       ]
     }
@@ -4388,11 +4392,6 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
         "@id": "http://w3id.org/meta-share/bcp47/language_en"
       },
       "ms:languageTag": "en"
-    }
-  ],
-  "dct:language": [
-    {
-      "@id": "euvoc_auth:language/ENG"
     }
   ],
   "ms:modelFunction": [
@@ -4704,7 +4703,8 @@ NOTE: gYear or dateTime for LDS</td><td></td><td><a href="https://semiceu.github
     }
   ]
 }
-        </pre>
+
+      </pre>
       </div>
     </div>
   </aside>
@@ -4774,6 +4774,14 @@ function switchTab(event, tabId) {
             <td>n/a</td>
         </tr>
         <tr>
+            <td>access URL/location</td>
+            <td>dcat:accessURL is attached to Distribution with cardinality 1..n</td>
+            <td>Only assets hosted by data space participants are catered for. The "dataAddress" is used; it MUST only be provided if the format REQUIRES a push transfer. It MUST contain a transport-specific set of properties for pushing the data. It MAY include an endpoint, a temporary authorization via the endpointProperties property - depending on the endpointType.</td>
+            <td>dcat:accessURL is used in the Distribution of datasets and models with cardinality 1..n; ms:accessLocation is used in the SoftwareDistribution for tools/services with cardinality 1..n</td>
+            <td>The "dataAddress" property is used internally for the exchange of assets; this is automatically created with information derived from the Distribution, SoftwareDistribution and ModelDistribution. In addition, to differentiate between assets hosted by an LDS participant, and open assets available at external repositories, the dcat:accessURL and, respectively, ms:accessLocation should be used only for open assets hosted externally.</td>
+            <td>Use dcat:accessURL for corpora, lexical/conceptual resources and models and, for tools/services, ms:accessLocation only for open assets hosted at external repositories. If the same link has been used as ms:downloadURL or ms:downloadLocation, remove it.</td>
+        </tr>
+        <tr>
             <td>distribution</td>
             <td>Dataset has cardinality 1..n for the property distribution</td>
             <td>A 
@@ -4797,11 +4805,19 @@ function switchTab(event, tabId) {
             <td>n/a</td>
         </tr>
         <tr>
+            <td>download URL/location</td>
+            <td>dcat:downloadURL is attached to Distribution with cardinality 0..n</td>
+            <td>The "dataAddress" is used; it MUST only be provided if the format REQUIRES a push transfer. It MUST contain a transport-specific set of properties for pushing the data. It MAY include an endpoint, a temporary authorization via the endpointProperties property - depending on the endpointType.</td>
+            <td>dcat:downloadURL is used in the Distribution of datasets and models with cardinality 1..1; ms:downloadLocation is used in the SoftwareDistribution for tools/services with cardinality 1..1</td>
+            <td>The "dataAddress" property is used internally for the exchange of datasets; this is automatically created with information derived from the Distribution, SoftwareDistribution and ModelDistribution. In addition, to differentiate between assets hosted by an LDS participant, and open assets available at external repositories, the dcat:downloadURL and, respectively, ms:downloadLocation must be used only for assets hosted by LDS participants.</td>
+            <td>Use dcat:downloadURL for corpora, lexical/conceptual resources and models and, respectively for tools/services, ms:downloadLocation only for assets hosted by LDS participants. Remove the dcat:accessURL and ms:accessLocation.</td>
+        </tr>
+        <tr>
             <td>format</td>
             <td>dct:format with cardinality 0..1 for the file format</td>
             <td>The format property is a format specified by a Distribution for the Dataset associated with the Agreement. This is generally obtained from the Provider's Catalog
 dct:format used for the transfer protocol; examples are HttpData-PULL, HttpData-PUSH, AmazonS3-PULL</td>
-            <td>A new property dcatlds:format is introduced which takes values from the EU vocabulary of filetypes with cardinality 0..n; dct:format is not used at all</td>
+            <td>A new property dcatlds:format is introduced which takes values from the EU vocabulary of filetypes complemented with values from the OMTD-SHARE vocabulary with cardinality 0..n; dct:format is not used at all</td>
             <td>The dct:format is used internally according to the DSP specification. The dcatlds:format is used for the file format</td>
             <td>Use the property dcatlds:format instead of dct:format</td>
         </tr>
