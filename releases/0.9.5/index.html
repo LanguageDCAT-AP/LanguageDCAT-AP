@@ -4610,6 +4610,14 @@ function switchTab(event, tabId) {
             <td>n/a</td>
         </tr>
         <tr>
+            <td>access URL/location</td>
+            <td>dcat:accessURL is attached to Distribution with cardinality 1..n</td>
+            <td>Only assets hosted by data space participants are catered for. The "dataAddress" is used; it MUST only be provided if the format REQUIRES a push transfer. It MUST contain a transport-specific set of properties for pushing the data. It MAY include an endpoint, a temporary authorization via the endpointProperties property - depending on the endpointType.</td>
+            <td>dcat:accessURL is used in the Distribution of datasets with cardinality 1..n; ms:accessLocation is used in the ModelDistribution for models and SoftwareDistribution for tools/services with cardinality 1..n</td>
+            <td>The "dataAddress" property is used internally for the exchange of datasets; this is automatically created with information derived from the Distribution, SoftwareDistribution and ModelDistribution. In addition, to differentiate between assets hosted by an LDS participant, and open assets available at external repositories, the dcat:accessURL and, respectively, ms:accessLocation should be used only for open datasets hosted externally.</td>
+            <td>Use dcat:accessURL for corpora and lexical/conceptual resources and, for models and tools/services, ms:accessLocation only for open datasets hosted at external repositories. If the same link has been used as ms:downloadURL or ms:downloadLocation, remove it.</td>
+        </tr>
+        <tr>
             <td>distribution</td>
             <td>Dataset has cardinality 1..n for the property distribution</td>
             <td>A 
@@ -4631,6 +4639,14 @@ function switchTab(event, tabId) {
             <td>Not added</td>
             <td>At export stage outside LDS, this is not exported.</td>
             <td>n/a</td>
+        </tr>
+        <tr>
+            <td>download URL/location</td>
+            <td>dcat:downloadURL is attached to Distribution with cardinality 0..n</td>
+            <td>The "dataAddress" is used; it MUST only be provided if the format REQUIRES a push transfer. It MUST contain a transport-specific set of properties for pushing the data. It MAY include an endpoint, a temporary authorization via the endpointProperties property - depending on the endpointType.</td>
+            <td>dcat:downloadURL is used in the Distribution of datasets with cardinality 1..1; ms:downloadLocation is used in the ModelDistribution for models and SoftwareDistribution for tools/services with cardinality 1..1</td>
+            <td>The "dataAddress" property is used internally for the exchange of datasets; this is automatically created with information derived from the Distribution, SoftwareDistribution and ModelDistribution. In addition, to differentiate between assets hosted by an LDS participant, and open assets available at external repositories, the dcat:downloadURL and, respectively, ms:downloadLocation must be used only for assets hosted by LDS participants.</td>
+            <td>Use dcat:downloadURL for corpora and lexical/conceptual resources and, respectively for models and tools/services, ms:downloadLocation only for assets hosted by LDS participants. Remove the dcat:accessURL and ms:accessLocation.</td>
         </tr>
         <tr>
             <td>format</td>
