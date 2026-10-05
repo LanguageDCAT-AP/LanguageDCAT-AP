@@ -4719,5 +4719,75 @@ dct:format is used to indicate the transfer protocol; examples are HttpData-PULL
 </table>
 </div>
 </section>
+<!-- Changes overview -->
+<section class="appendix" id="ChangesOverview">
+<h2>Overview of changes</h2>
+<p>Changes from the previous version (v0.9.3) are:</p>
+<ul>
+    <li>Addition of the following properties on dcat:Dataset:
+        <ul>
+        <li>dcatlds:languageType</li>
+        <li>dcatlds:generationType</li>
+        <li>dcatlds:generationModel</li>
+        <li>dcatlds:seedDataset</li>
+        <li>dcatlds:generationProcess</li>
+        </ul>
+    </li>
+    <li>Addition of the following properties on ms:Model:
+        <ul>
+        <li>dct:creator</li>
+        <li>it6:designSpecifications</li>
+        <li>dcatlds:finetuningMethodology</li>
+        <li>it6:hasInferencingImpact</li>
+        <li>it6:hasInputModality</li>
+        <li>it6:hasOutputModality</li>
+        <li>it6:hasTrainingImpact</li>
+        <li>dcatlds:inputLanguage</li>
+        <li>dcatlds:instructions</li>
+        <li>it6:intendedUse</li>
+        <li>dcatlds:modelDistribution</li>
+        <li>ms:modelType</li>
+        <li>dct:modified</li>
+        <li>dcatlds:outputLanguage</li>
+        <li>it6:releaseDate</li>
+        <li>ms:requiresSoftware</li>
+        <li>it6:trainingMethodologies</li>
+        <li>it6:trainingProcess</li>
+        <li>dcatlds:evaluation</li>
+        <li>dcatlds:finetuningHardware</li>
+        <li>dcatlds:finetuningDescription</li>
+        <li>dcatlds:baseModel</li>
+        </ul>
+    </li>
+    <li>Replacement of the following properties on ms:Model:
+        <ul>
+        <li>ms:creationDetails with it6:trainingProcess</li>
+        <li>ms:language with dcatlds:inputLanguage</li>
+        <li>dcat:distribution with ms:modelDistribution</li>
+        <li>ms:mediaType with ms:mediaType inside it6:Modality on property it6:hasInputModality</li>
+        <li>ms:sourceLanguage with dcatlds:inputLanguage</li>
+        <li>ms:targetLanguage with dcatlds:outputLanguage</li>
+        <li>ms:evaluationDataset with it6:hasBenchmark inside dcatlds:Evaluation</li> 
+        <li>ms:evaluationResults with dcatlds:evaluationOutput inside dcatlds:Evaluation</li>
+        </ul>
+    </li>
+    <li>Removal of the following properties on ms:Model:
+        <ul>
+        <li>ms:lingualityType</li>
+        </ul>
+    </li>
+    <li>Addition of the following classes:
+        <ul>
+        <li>dcatlds:Evaluation</li>
+        </ul>
+    </li>
+    <li>Replacement of the dcat:Distribution with ms:ModelDistribution ONLY for models; properties of this class are moved to the new class as is; the only properties that change are:
+        <ul>
+        <li>ms:accessURL with ms:accessLocation</li>
+        <li>ms:downloadURL with ms:downloadLocation</li>
+        </ul>
+    </li>
+</ul>
+</section>
 </body>
 </html>
