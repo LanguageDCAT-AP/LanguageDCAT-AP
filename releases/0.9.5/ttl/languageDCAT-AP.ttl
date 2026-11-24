@@ -420,7 +420,7 @@ dcatlds:task a owl:DatatypeProperty ;
 
 dcatlds:tokensPerParameter a owl:DatatypeProperty ;
     rdfs:label "tokens per parameter"@en ;
-    rdfs:comment "Number of tokens per parameter"@en ;
+    rdfs:comment "Training efficiency ratio calculated by dividing the total number of training tokens by the model's total parameter count"@en ;
     rdfs:domain dcatlds:ModelDistribution ;
     rdfs:range xsd:positiveInteger .
 
