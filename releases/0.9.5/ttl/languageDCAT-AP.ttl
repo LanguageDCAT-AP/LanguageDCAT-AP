@@ -238,7 +238,7 @@ dcatlds:amountOfActiveParameters a owl:DatatypeProperty ;
     rdfs:label "amount of active parameters"@en ;
     rdfs:comment "Specifies the number of active parameters"@en ;
     rdfs:domain dcatlds:ModelDistribution ;
-    rdfs:range xsd:float .
+    rdfs:range xsd:positiveInteger .
 
 dcatlds:broadInternalUse a dcatlds:ScopeOfUse,
         owl:NamedIndividual,
